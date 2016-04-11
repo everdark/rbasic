@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# R Language Basics {#basics}\n\n## Data Structures and Types\nThere is no scalar in R. \n\nThere is no scalar in R. \n\nThere is no scalar in R. \n\nEvery structure is of *vector* form. A (seemingly) scalar is indeed a vector of length 1. This is a striking concept compared to other general-purposed language or statistical packages. It turns out that the fact won't affect mush about how to code R, but the understanding of such concept is helpful for better coding thinking in the R language.\n\n### Atomic Vector\n\n> Common types of atomic vector include: numeric, character, logical, and factor.\n\nAtomic vector is the foundamental data structure in R. It is called atomic because it can only contain the same type of data. For example:\n\n```{r}\n1\n```\n\nThe number `1` is a vector (of length 1, so it looks like a scalar but yes it is a vector). To check the type of a vector one can use the function `typeof`:\n\n```{r}\ntypeof(1)\n```\n\nThe result of `typeof` reveals that the storage mode of the vector `1` is double; hence the vector is a numeric vector. There are many bulit-in functions to manipulate numeric vector. Some examples follow:\n\n```{r}\n1:5\nseq(5, 1, -1)\nc(1, 1, 2, 3, 5)\n```\n\nTo force R use `integer` type (it use considerably less storage space compared to a `double`), just append `L` to the number:\n\n```{r}\ntypeof(1:5L)\n```\n\nSince a atomic vector is, atomic, it has no nesting structure:\n\n```{r}\nc(1:5, seq(5, 1, -1), c(1, 1, 2, 3, 5))\n```\n\nThe result of concatenation of multiple atomic vectors is one single atomic vector, not a vector nested with three different vectors. Does this mean that atomic vectors of different types can not be combined? Not necessary. \n\n```{r}\nnum_vec <- 1:3\nstr_vec <- c('a', 'b', 'c')\nc(num_vec, str_vec)\n```\n\nWhen a numeric vector and a character vector combine, the resulting atomic vector is of type `character`. Such behavior is called type **coercion** and is a very important concept in most programming languages. Coercion always occurs when different types of atomic vectors are combined. The principle of coercion is to minimize information loss, if any.\n\nFor example, when a logical vector combined with a numeric:\n\n```{r}\nnum_vec <- 1:3\nbol_vec <- c(TRUE, FALSE, FALSE) # or c(T, F, F) but not recommended\ntypeof(c(num_vec, bol_vec))\n```\n\nlogicals are coerced into `integer`. \n\nMore examples on coercion:\n\n```{r}\ntypeof(c(1, 2L))\ntypeof(c(1L, TRUE))\ntypeof(c(1.0, TRUE))\ntypeof(c(1.0, TRUE, \"foo\"))\n```\n\nIn addition to coercion, one can also explicitly convert one type to another. This is done by the function family\n`as`. For example, to convert logicals into integers and vice versa:\n\n```{r}\nas.logical(-1:2L)\nas.integer(c(TRUE, FALSE, NA))\n```\n\n#### Factor\nFactors are special integer vector. They are generally used to record categorical variables. \n\n\n#### Matrix\n\n#### Array\n\n### Recursive Vector\n\n#### List\n\n#### Data Frame\n\n\n### Type Conversion\n\n### Special Values\n#### `NA`\n#### `NaN`\n#### `NULL`\n\n### Function\n\n### Control Flow\n\n",
+    "created" : 1460366008492.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1771646908",
+    "id" : "22ACC6AD",
+    "lastKnownWriteTime" : 1460373227,
+    "last_content_update" : 1460373227924,
+    "path" : "~/gitrepo/rbasic/03-r-lang-basic.Rmd",
+    "project_path" : "03-r-lang-basic.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

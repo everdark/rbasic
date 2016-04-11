@@ -1,0 +1,16 @@
+--- 
+title: "RBasic 101"
+author: "Kyle Chung"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "The lecture notes for RBasic 101 on agilearn.io"
+---
+
+TBC
+

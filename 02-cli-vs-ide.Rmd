@@ -1,0 +1,133 @@
+# CLI versus IDE {#clivside}
+
+R is not only a package for statistical analysis, it is indeed a complete **general-purposed language**. This is exactly why it is so powerful and flexible compared to other statistical packages such as `SAS`, `Stata`, `RATS`, or even `SPSS`. But this is also why it's harder to learn compared to the above packages.
+
+To develop your analytics via the R language, i.e., to use R, you may either work under a **C**ommand-**L**ine **I**nterface or an **I**ntegrated **D**evelopment **E**nviornment.
+
+## CLI (Command-Line Interface)
+
+Once R is installed on your machine, you can use the CLI to execute R in either interactive mode or batch mode. 
+
+### For Windows User
+The CLI on Windows is generally represented by the built-in `cmd.exe`. Unfortunately it is not user-friendly so please just ignore it. A more viable choice is to use `RGui.exe`. It is actually not just a CLI but a minimal IDE to use R. 
+
+The GUI of `RGui.exe` contains a CLI for user to use the R language interactively, and optionally one or multiple text editors to edit Rscript. The beauty of it is that you can select part or all of a Rscript to send to the CLI for execution, and immediately get the result printed. 
+
+### For OS X (Mac) User
+The CLI on OS X is generally represented by the built-in `Terminal.app`. To use R under the terminal just type "R" and hit enter. A welcome message will be immediately printed, followed by a *command prompt* (`>`) waiting for further instruction in the R language:
+
+```
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+```
+
+### For Linux User
+Open a terminal, type "R" and hit enter. There you are.
+
+## IDE (Integrated Development Environment)
+
+CLI is useful to quickly check result of light-weighted R codes. But it is not suitable for more complex development needs. To flexibly develop your analytics via the R language, an IDE is highly recommended.
+
+### RStudio
+[RStudio](http://www.rstudio.com) is a powerful IDE specifically designed for the R language, supported multiple platform. It is strongly recommended that user new to the R language uses RStudio as the main tool to explore the potentials of R.
+
+### RStudio Server
+For Linux user, there is also a server version of RStudio. It allows users to use the IDE over a web browser. That is, users can access remote machine with R and RStudo Server properly installed.
+
+## Interactive v.s. Batch Mode
+
+**[Notice: this section is mainly written for \*nix system.]**
+When one is in the R language command prompt, one is in the interactive mode. A production-ready script is usually executed in batch mode, while in other cases like doing data exploration or iterative analytics, the interactive mode will be more appropriate. Even though a R program (or Rscript, interchangeably) is designed to be run in batch mode, it is probably developed and even tested mainly in interactive session.
+
+### Parsing Command Line Arguments
+When running a Rscript in batch mode, it is possible to parse additional arguments given along with the command line. The arguments can be parsed by the function `commandArgs`. Consider the following example, assumed a file name of `parse-cmdarg.R`:
+
+```{r eval=FALSE}
+#!/usr/bin/env Rscript
+
+fcmdargs <- commandArgs()
+script_name <- basename(fcmdargs[grepl("--file", fcmdargs)])
+cmdargs <- commandArgs(trailingOnly=TRUE)
+message("The script name is: ", script_name)
+i <- 0
+for ( arg in cmdargs ) {
+  i <- i + 1
+  message(sprintf("Argument %s: %s", i, arg))
+}
+```
+
+Run the above script by something like `./parse-cmdarg.R arg1 arg2 arg3` should give the following result:
+
+```sh
+The script name is: parse-cmdarg.R
+Argument 1: arg1
+Argument 2: arg2
+Argument 3: arg3
+```
+
+Even when in interactive mode one can use `commandArgs` to get the underlying arguments given. This is true because an interactive R session is also initiated by a command line, which in turn can have its own command line arguments.
+
+### Interactive or Not Interactive?
+One can use the function `interactive` to check if the current session is in interactive or batch mode. The function returns `TRUE` when the current session is indeed interactive; otherwise it returns `FALSE`. This can be handy if the main program is for batch processing but one needs to debug it interactively. For example, considering the following Rscript `add-one.R`:
+
+```{r eval=FALSE}
+#!/usr/bin/env Rscript
+
+cmdargs <- commandArgs(trailingOnly=TRUE)
+as.integer(cmdargs[1]) + 1
+```
+
+The program simply add the first command line argument by one and print the result. Run `./add-one.R 1` will give a result of:
+
+```
+[1] 2
+```
+
+But what if we don't supply any argument? What if an argument other than number is used? Since this script is tiny, one can easily test these scenarios under CLI, say, `./add-one.R` or `./add-one.R foo` to realize the possible consequences and make corresponding modification, In reality the main program can be large in size and the consequences of unexpected command line arguments are not easily forseen. Let's try modifying the `add-one.R` program in the following manner:
+
+```{r eval=FALSE}
+#!/usr/bin/env Rscript
+
+if ( interactive() ) {
+  cmdargs <- "anything to be tested"
+} else {
+  cmdargs <- commandArgs(trailingOnly=TRUE)
+}
+as.integer(cmdargs[1]) + 1
+```
+
+Now one can simulate the argument given in command line, even if the current session is interactive. What one's doing is to change the string "anything to be tested" to anything one can imagine to test the behavior of this BATCH program, INTERACTIVELY. Notice that the modified program will behave totally the same in batch mode. The modification just makes it easier to be tested under interactive session.
+
+### Shabang `#!`
+One should notice that all the above Rscripts contain a first line starting in `#!`. This is a unix convention sometimes called "shabang" to mark the process name that should be used to execute the script. Should one choose not to declare the shabang line, the script can still be executed, but the command line must be explicit:
+
+```
+Rscript parse-cmdarg.R some_args
+```
+
+rather than:
+
+```
+./parse-cmdarg.R some_args
+```
+
+Also, it is the unix-way to prepend the `./` to the file that is to be executed, provided that the file is executable. One should use `chmod +x your_rscript.R` to mark one's script to be executable, as long as that script is expected to serve in batch mode.
+
+

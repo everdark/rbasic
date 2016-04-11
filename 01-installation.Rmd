@@ -1,0 +1,60 @@
+# Installation {#install}
+
+R is open-sourced and can be installed on operating systems such as Windows, OS X, or many other Linux/Unix distributions. This chapter describes the recommended way to install R and R packages across different platform.
+
+## R Installation
+### Windows
+The best way to install R on a Windows PC is to download the binary executable from [CRAN](https://cran.r-project.org). Click through "Download R for Windows" and "install R for the first time" to get the file. For example, the latest stable version is [R-3.2.4revised-win.exe](https://cran.r-project.org/bin/windows/base/R-3.2.4revised-win.exe) when this chapter was written.
+
+One can also find older versions of R under the CRAN's [/bin/windows/base/old](https://cran.r-project.org/bin/windows/base/old/) folder.
+
+The installation of R for Windows from the above executable file will also include a GUI tool called `RGui.exe` for interactive development purpose.
+
+### OS X (Mac)
+The best way to install R on a Mac is to download the binary package file from [CRAN](https://cran.r-project.org). Click through "Download R for (Mac) OS X" and download the latest stable version. For example, the latest stable version is [R-3.2.4.pkg](https://cran.r-project.org/bin/macosx/R-3.2.4.pkg) when this chapter was written.
+
+One can also find older versions of R under the CRAN's [/bin/macosx/base/old](https://cran.r-project.org/bin/macosx/old/) folder.
+
+The installation of R for Mac from the above pacakge file will also include a GUI tool called `R.app` for interactive development purpose. 
+
+### Ubuntu
+There are many ways to get R installed on a Linux box. Here we use Ubuntu as an example. 
+
+Naturally one would probably like to check if there is already available compiled package from any repository of your distribution. To do so, use `sudo apt-cache policy r-base` and something like the following may return:
+
+```sh
+r-base:
+  Installed: (none)
+  Candidate: 3.0.2-1ubuntu1
+  Version table:
+     3.0.2-1ubuntu1 0
+        500 http://mirrors.digitalocean.com/ubuntu/ trusty/universe amd64 Packages
+```
+
+But generally the compiled version on Ubuntu default repository won't catch up with the latest one on CRAN. If it is okay to install the older version of R then all the things left to do is a simple `sudo apt-get install r-base`.
+
+However, if one would like to install the latest stable version of R, a mirror of CRAN must be setup. This is documented in details under CRAN's [bin/linux/ubuntu/](https://cran.r-project.org/bin/linux/ubuntu/) folder.
+
+For Ubuntu 14.04, add `deb https://<my.favorite.cran.mirror>/bin/linux/ubuntu trusty/` to `/etc/apt/sources.list`, where `<my.favorite.cran.mirror>` should be replaced with one of the preferred mirrors from [CRAN's mirror list](https://cran.r-project.org/mirrors.html). One choice is the NTU mirror so the added line to the sources.list file will be: 
+
+```
+deb https://http://cran.csie.ntu.edu.tw//bin/linux/ubuntu trusty/
+```
+
+After this is done, use `sudo apt-get update` to update the package manager and use `sudo apt-get install r-base` to install the latest version of R. You may also like to do `sudo apt-get install r-base-dev` to further install developer's tools.
+
+If there is any error concerning the secure key issue, consult the "Secure APT" section for solution.
+
+### Update the R Installation
+
+## R Package Installation
+
+### Use `install.packages`
+
+#### From CRAN
+
+#### From Source
+
+### Use `devtools::install_github`
+
+
