@@ -83,7 +83,7 @@ as.integer(c(TRUE, FALSE, NA))
 ```
 
 #### Factor
-Factors are special integer vector. They are generally used to record categorical variables. 
+Factors are special integer vector. They are generally used to record categorical variables. It combine both features of characters and numerics.
 
 
 #### Matrix
