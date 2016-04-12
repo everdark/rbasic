@@ -13,7 +13,7 @@ Every structure is of *vector* form. A (seemingly) scalar is indeed a vector of 
 
 > Common types of atomic vector include: numeric, character, logical, and factor.
 
-Atomic vector is the foundamental data structure in R. It is called atomic because it can only contain the same type of data. For example:
+Atomic vector is the foundamental data structure in R. It is called atomic because it can only contain the same type of data and no nesting allowed. For example:
 
 ```{r}
 1
@@ -58,7 +58,7 @@ When a numeric vector and a character vector combine, the resulting atomic vecto
 For example, when a logical vector combined with a numeric:
 
 ```{r}
-num_vec <- 1:3
+num_vec <- 1:3 # here one uses "<-"" to asign a value to an object
 bol_vec <- c(TRUE, FALSE, FALSE) # or c(T, F, F) but not recommended
 typeof(c(num_vec, bol_vec))
 ```
@@ -79,11 +79,17 @@ In addition to coercion, one can also explicitly convert one type to another. Th
 
 ```{r}
 as.logical(-1:2L)
-as.integer(c(TRUE, FALSE, NA))
+as.integer(c(TRUE, FALSE, FALSE))
 ```
 
 #### Factor
-Factors are special integer vector. They are generally used to record categorical variables. It combine both features of characters and numerics.
+Factors are special integer vector. They are generally used to record categorical variables. It combines both features of characters and numerics. Usually a factor is defined on a set of characters:
+
+```{r}
+baz <- c("foo", "bar")
+(bazf <- factor(baz)) # use parenthesis to force print
+```
+
 
 
 #### Matrix
