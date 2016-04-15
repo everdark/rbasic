@@ -110,7 +110,58 @@ baz <- c("foo", "bar")
 #### `NaN`
 #### `NULL`
 
-### Function
+## Function
 
-### Control Flow
+### Anonymous Function (Lambda)
+
+### Lexical Scoping
+
+### Ellipsis (`...`)
+
+
+## Control Flow
+
+### Loop
+
+#### `repeat`
+
+#### `while`
+
+#### `for`
+
+### Conditioning
+
+#### `if`
+
+#### `ifelse`
+
+## Working Environment
+
+Use `sessionInfo` to query the system information of the current R session. The information includes the version of R, the operating system in use, the locale setup, and the packages that are loaded or attached. It is a good practice to append the information of `sessionInfo` when consulting on the Internet for other users' advices.
+
+```{r}
+sessionInfo()
+```
+
+### Working Directory
+Use `getwd` to query the current working directory. To change working directory, use `setwd`. For Windows user, the path separator is typically the back-slash `\`. But it is the escape character in R so if one would like to use back-slash it must be escaped, for example, like this:
+
+```r
+setwd("C:\\Users\\kylechung")
+```
+
+or equivalently one could still follow *nix convention:
+
+```r
+setwd("C:/Users/kylechung")
+```
+
+### Library Search Path
+
+Use `.libPaths` to show the path(es) that will be searched by R.
+
+### Save / Load
+
+`save` and `save.image`
+
 

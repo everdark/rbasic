@@ -1,0 +1,13 @@
+# R Language Characteristics {#char}
+
+## Help
+
+`?`
+
+
+## Vectorization
+
+## Recycling
+
+## The `apply` Family
+
