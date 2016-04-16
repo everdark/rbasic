@@ -47,14 +47,18 @@ If there is any error concerning the secure key issue, consult the "Secure APT" 
 
 ### Update the R Installation
 
+TBA
+
 ## R Package Installation
 
-### Use `install.packages`
+### From CRAN
 
-#### From CRAN
+Use `install.packages`
 
-#### From Source
+### From Source
 
-### Use `devtools::install_github`
+### From Github
+
+Use `devtools::install_github`
 
 

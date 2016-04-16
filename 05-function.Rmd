@@ -1,0 +1,43 @@
+# Function {#func}
+
+Functions are very important in the R language because R is mostly a functional language. Indeed, **every operation ever happens is a function call**. This may not be easily seen in the first place. But while one types something like:
+
+```{r}
+1 + 1
+```
+
+what really happens is a function call to the add function (see `?"+"`). The expression is a sugar: this is the usual way human beings write down a mathematical expression. The functional way of such expression would be more like this one:
+
+```{r}
+`+`(1, 1)
+```
+
+This fact holds not only for `+`, but also other operators like `-`, `*`, `/`, `>`, `<`, and `=`. Indeed these so-called "operators" are just functions. Control flows are also functions (see `?"if"`). Indeed, even `{` and `[` are functions.
+
+## User-Define Function
+
+A function can be created using the function `function`.
+
+```{r}
+f <- function() {}
+```
+
+A function `f` that do nothing is defined.
+
+
+
+
+
+## Anonymous Function (Lambda)
+
+## Lexical Scoping
+
+## Extraction Function
+
+## Replacement Function
+
+## Ellipsis (`...`)
+
+
+
+

@@ -8,7 +8,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: everdark/rbasic
 description: "The lecture notes for RBasic 101 on agilearn.io"
 ---
 

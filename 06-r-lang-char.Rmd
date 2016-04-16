@@ -9,5 +9,10 @@
 
 ## Recycling
 
+```{r}
+vec <- 1:10
+vec[c(T, F)]
+```
+
 ## The `apply` Family
 
