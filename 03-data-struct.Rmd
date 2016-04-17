@@ -87,13 +87,14 @@ typeof(c(1.0, TRUE))
 typeof(c(1.0, TRUE, "foo"))
 ```
 
-In addition to coercion, one can also explicitly convert one type to another. This is done by the function family
-`as`. For example, to convert logicals into integers and vice versa:
+In addition to coercion, one can also explicitly convert one type to another. This is done by the function family `as`. For example, to convert logicals into integers and vice versa:
 
 ```{r}
 as.logical(-1:2L)
 as.integer(c(TRUE, FALSE, FALSE))
 ```
+
+Notice that when casting integers to logicals, all the non-zeroes are converted to `TRUE`, only 0s are converted to `FALSE`.
 
 ### General Operations on Vectors
 

@@ -50,7 +50,14 @@ Oops! Acutally you can't do that. Asign a value to the returned value of a funct
 `+`(1, 2)
 ```
 
-You may never see this coming before, or you just don't code in such style, but you do understand this is a function call to the add function, in a functional way. Then you are not the targeted reader of this book.
+You may never see this coming before, or you just don't code in such style, but you do understand this is a function call to the add function, in a functional way. That say, you are completely comfortable about the following codes:
+
+```{r}
+for ( op in c(`+`, `-`, `*`, `/`) )
+  print(op(10, 2))
+```
+
+Then you are not the targeted reader of this book.
 
 ## Welcome to the R Language
 

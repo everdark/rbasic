@@ -1,0 +1,22 @@
+# Working Directory {#work-env}
+
+Use `getwd` to query the current working directory. To change working directory, use `setwd`. For Windows user, the path separator is typically the back-slash `\`. But it is the escape character in R so if one would like to use back-slash it must be escaped, for example, like this:
+
+```r
+setwd("C:\\Users\\kylechung")
+```
+
+or equivalently one could still follow *nix convention:
+
+```r
+setwd("C:/Users/kylechung")
+```
+
+## Library Search Path
+
+Use `.libPaths` to show the path(es) that will be searched by R.
+
+## Save / Load
+
+`save` and `save.image`
+
