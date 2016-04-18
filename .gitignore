@@ -1,4 +1,4 @@
-_book/*
+#_book/*
 .Rproj.user/*
 .Rproj.user
 .Rhistory
