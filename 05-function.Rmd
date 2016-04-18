@@ -102,13 +102,17 @@ Several things worth noting:
 + Arguments can bve supplied by position or by name
 + Arguments that are not used are not checked at all (so can be missing)
 
+To access the full list of arguments within a function, one can utilize the function `match.call`:
+
 ```{r}
 f <- function(x, y) {
   args <- as.list(match.call())
-  for ( a in args ) print(a)
+  str(args)
 }
 f(1, 2)
 ```
+
+
 
 ### Default Value
 
