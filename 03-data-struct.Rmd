@@ -202,6 +202,90 @@ names(vv)
 
 Since the third element is unnamed, it is `NA` when calling `names` to print the names.
 
+### Common String Operations
+
+#### `paste`
+Strings are called `character` in the R language. It's important to know some basic string manipulation skills. One useful string function is the `paste` function:
+
+```{r}
+paste("foo", "bar", "baz", sep=' ')
+```
+
+The function takes as many arguments as it can and concatenates them with the separator specified in the `sep` arguemnt. Notice that `character` is vector, so the `paste` function can operate on vector--this is called vectorization in R:
+
+```{r}
+paste(c("foo", "bar"), "baz1" , sep=' ')
+paste(c("foo", "bar"), c("baz1", "baz2", "baz3") , sep=' ')
+```
+
+What happens here is that the shorter arguments are *recycled* to have equal length and then each string is concatenated elment-wise. For more details about vectorization and recycling, see section \@ref(char).
+
+The `paste` function can also *collapse* a character vector into one character (a vector of length 1). This is done by using the `collapse` argument:
+
+```{r}
+paste(c("foo", "bar", "baz"), collapse='-')
+```
+
+Collapsing can also be used *after* concatenation. This is done by supplying more than one character vectors to `paste` and also specifying the `collapse` argument:
+
+```{r}
+# concatenate only
+paste(c("foo", "bar", "baz"), letters[1:5])
+# concatenate and collapse
+paste(c("foo", "bar", "baz"), letters[1:5], collapse='-')
+```
+
+There is also a variant of `paste` called `paste0`. The only difference is that `paste0` use a default separator of empty string (i.e., use `sep=''` in `paste`):
+
+```{r}
+paste0(c("foo", "bar"), "baz")
+```
+
+#### `sprintf`
+Another useful function is `sprintf`. It is used to format a *string with interpolation*:
+
+```{r}
+sprintf("hello %s!", "world")
+sprintf("hello %.3f!", 7123)
+sprintf("hello %i", 7)
+```
+
+See `?sprintf` for more formatting options. Multiple interpolation is also supported, given in order:
+
+```{r}
+sprintf("first: %i; second: %s", 1, "two")
+```
+
+#### `cat` and `print`
+The `cat` function concatenates its arguments and print.
+
+```{r}
+cat("foo", c("bar", "baz"))
+cat("foo", c("bar", "baz"), sep=':')
+```
+
+Notice the difference between `cat` and `paste`: the former does not recycle and the result is printed; the latter does recylcing and the result is *returned* rather than printed. Too see this fact clear:
+
+```{r}
+# letters is a built-in variable storing all lower-cased English alphabets
+# .Last.value is another built-in variable storing the result of the last evaluation
+cat(letters[1:3], sep='+')
+.Last.value
+paste(letters[1:3], collapse='+')
+.Last.value
+```
+
+#### Miscellaneous
+
+Use `substr` to extract partial string. Use `nchar` to count number of characters in a string. Use `strsplit` to split a string by specified separator.
+
+```{r}
+ss <- "why so serious?"
+substr(ss, 1, 3)
+nchar(ss)
+strsplit(ss, split=' ') # the returned type is a list
+```
+
 ### Factor
 Factors are special integer vectors. They are generally used to record categorical variables. It combines both features of characters and numerics, so it could be confusing for new users. Usually a factor is defined on a set of characters:
 
@@ -241,21 +325,163 @@ str(bazf3)
 ```
 
 ### Matrix
+A matrix in R is nothing more than a vector with the `dim` attribute. That is, a matrix is still a vector. To create a matrix one can use the `matrix` function:
+
+```{r}
+matrix(0, 3, 3)
+mm <- matrix(1:9, 3, 3)
+str(mm) # always use the str function to check variable that you don't know for sure
+attributes(mm)
+```
+
+For now just forget about what an `attribute` is. One can always use `dim` function to check the dimension attribute of a variable:
+
+```{r}
+vv <- 1:9
+dim(vv)
+```
+
+A matrix can also be created by existing vector:
+
+```{r}
+vv <- 1:9
+dim(vv) <- c(3,3)
+vv
+```
+
+Here the second line creates (or replaces) the `dim` attribute with a 3-by-3 dimension setup.
+
+#### Matrix Operations
+Matrices are mathematical matrices, so they can readily perform linear algebra:
+
+```{r}
+(vv <- matrix(1:9, 3, 3))
+
+# scalar product
+vv * 3
+
+# inner product
+vv %*% matrix(1:6, 3, 2) 
+
+# outer products
+1:9 %o% 1:9 # a more general version: see ?outer
+```
 
 ### Array
+When there is more than 2 dimensions, a vector may be called an array. One can also call a matrix is a 2-dimensional array.
 
 ## Recursive Vector
 
 ### List
+The most important representative data structrue of recursive vector is `list`. A list, unlike atomic vector, can contain elements of different types, and can be nested:
+
+```{r}
+alist <- list(1:3, c("foo", "bar"), paste, list(letters, month.abb))
+str(alist)
+```
+
+All the operation appliable to atomic vector is also appliable to list. A list can also be named.
+
+```{r}
+# slicing
+alist[1:3]
+
+# replacement
+alist[1] <- 1
+
+# delete
+alist[1] <- NULL
+
+# concatenate
+c(alist, list(1:3))
+```
+
+There is a little difference in indexing. The single bracket `[` results in a list; the double brackets `[[` results in the element itself without warpping in a list. To be clear, see the following example:
+
+```{r}
+alist <- list(1:3, c("foo", "bar"), paste, list(letters, month.abb))
+alist[1]
+alist[[1]]
+identical(unlist(alist[1]), alist[[1]])
+```
+
+This also means that `[` is used to slice a list (into another list), while `[[` is used to extract single element within a list. Both support the use of character vectors to select by names:
+
+```{r}
+alist <- list(integers=1:3, foobar=c("foo", "bar"), pf=paste, another_list=list(letters, month.abb))
+names(alist)
+alist[c("foobar")] # a list (of length 1)
+alist[["foobar"]]  # a character vector
+```
+
+There is another special operator for list: the `$` extractor. It serves the same purpose as `[[` that it can be used to extract single element in a list by name, but in this case a variable (a symbol) rather than a character is used:
+
+```{r}
+identical(alist$foobar, alist[["foobar"]])
+```
 
 ### Data Frame
+One important extension of `list` is `data.frame`, a table data structure to represent tabular data. A `data.frame` is indeed a `list`, with additional attributes.
 
+```{r}
+DF <- data.frame(a=1:3, b=letters[1:3])
+str(DF)
+class(DF)   # the abstract type (in OOP sense)
+typeof(DF)  # the storage type
+```
 
-## Type Conversion
+A `data.frame` can be thought of as a list with elements sharing exactly the same length. Useful operation on `data.frame` includes:
+
++ sort: using `order`
++ join: using `merge`
++ append: using `rbind` or `cbind`
++ aggregate: using `by`, `aggregate`, or `ave`
++ pivot: using `reshape`
++ partition: using `split`
+
+Each operation above worth a considerable space to elaborate but since there is a overall better solution to model tabular data in R: the `data.table` package, the details are left for readers to explore on their own.
 
 ## Special Values
 ### `NA`
+
+The *not applicable* value in R, usually means *missing value*. `NA` is more complicated than its first seen. There are actually different types of `NA`:
+
+```{r}
+typeof(NA)
+typeof(NA_character_)
+typeof(NA_integer_)
+typeof(NA_real_)
+```
+
+Most time one uses `NA` in general, and let the R language to deal with the casting:
+
+```{r}
+c("foo", "bar", NA) # the NA is indeed a character type
+c(1:3, NA)          # here NA is typed integer
+```
+
+Many operation can result in missing value. For example, to subset using out-of-range index:
+
+```{r}
+letters[26:27] # there is no 27th alphabet in English!
+```
+
 ### `NaN`
+`NaN` means "not a number." The value results from mathematic operation that results in un-defined value, say:
+
+```{r}
+0/0  
+```
+
+Also notice that `1/0` results in `Inf` and `-1/0` results in `-Inf`.
+
 ### `NULL`
+
+`NULL` is another special value: it means nothing. Do not confuse it with `NA`. `NULL` means nothing so it does not have length:
+
+```{r}
+length(NULL)
+length(NA)
+```
 
 
