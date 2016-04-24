@@ -8,7 +8,7 @@
   <title>RBasic 101</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
-  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.64 and GitBook 2.6.7">
 
   <meta property="og:title" content="RBasic 101" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Kyle Chung">
 
-<meta name="date" content="2016-04-18">
+<meta name="date" content="2016-04-24">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,19 +144,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4" data-path="data-struc.html"><a href="data-struc.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-struc.html"><a href="data-struc.html#atomic-vector"><i class="fa fa-check"></i><b>4.1</b> Atomic Vector</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="data-struc.html"><a href="data-struc.html#general-operations-on-vectors"><i class="fa fa-check"></i><b>4.1.1</b> General Operations on Vectors</a></li>
-<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.2</b> Factor</a></li>
-<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.3</b> Matrix</a></li>
-<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.4</b> Array</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#common-string-operations"><i class="fa fa-check"></i><b>4.1.2</b> Common String Operations</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.3</b> Factor</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.4</b> Matrix</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.5</b> Array</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="data-struc.html"><a href="data-struc.html#recursive-vector"><i class="fa fa-check"></i><b>4.2</b> Recursive Vector</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-struc.html"><a href="data-struc.html#list"><i class="fa fa-check"></i><b>4.2.1</b> List</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-struc.html"><a href="data-struc.html#data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Data Frame</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#type-conversion"><i class="fa fa-check"></i><b>4.3</b> Type Conversion</a></li>
-<li class="chapter" data-level="4.4" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.4</b> Special Values</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.4.1</b> <code>NA</code></a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.4.2</b> <code>NaN</code></a></li>
-<li class="chapter" data-level="4.4.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.4.3</b> <code>NULL</code></a></li>
+<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.3</b> Special Values</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.3.1</b> <code>NA</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.3.2</b> <code>NaN</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.3.3</b> <code>NULL</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control.html"><a href="control.html"><i class="fa fa-check"></i><b>5</b> Control Flow</a><ul>
@@ -201,7 +201,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>9.3</b> Databases</a></li>
 <li class="chapter" data-level="9.4" data-path="process.html"><a href="process.html#others"><i class="fa fa-check"></i><b>9.4</b> Others</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="10" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>10</b> Error Handling</a></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -273,7 +274,7 @@ res &lt;-<span class="st"> </span>
 <p>There is a vectorized version of <code>if</code>: the <code>ifelse</code> function. Now it accepts a vector of any length:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec_cond &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>) &gt;<span class="st"> </span><span class="dv">5</span>
 <span class="kw">ifelse</span>(<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>) &gt;<span class="st"> </span><span class="dv">5</span>, <span class="dv">1</span>:<span class="dv">10</span>, -(<span class="dv">1</span>:<span class="dv">10</span>))</code></pre></div>
-<pre><code>##  [1]  -1  -2   3   4   5   6  -7  -8   9 -10</code></pre>
+<pre><code>##  [1] -1  2  3 -4 -5 -6  7 -8  9 10</code></pre>
 <p>Notice that the call to <code>sample</code> results in a vector of length 10, the second argument is a vector when the condition holds, and the third for condition not holds. What happen if the vector lengths are different? <em>Recycling</em> will occur. See section <a href="char.html#recycling">7.3</a> for more details about recycling.</p>
 </div>
 <div id="logical-operations" class="section level3">
@@ -342,8 +343,8 @@ res</code></pre></div>
 b &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)
 for ( l in <span class="kw">list</span>(a,b) )
   <span class="kw">print</span>(<span class="kw">mean</span>(l))</code></pre></div>
-<pre><code>## [1] -0.03519702
-## [1] 0.5113131</code></pre>
+<pre><code>## [1] -0.07851387
+## [1] 0.4517101</code></pre>
 <p>All vectors can be iterated. What about a <code>matrix</code>? Remember that a <code>matrix</code> is simply an atomic <code>vector</code> with a <code>dim</code> attribute. So surely it can be iterated: (only for illustration purpose because such scenario is rarely practical)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for ( i in <span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>) ) <span class="kw">print</span>(i)</code></pre></div>
 <pre><code>## [1] 1
@@ -354,10 +355,10 @@ for ( l in <span class="kw">list</span>(a,b) )
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt &lt;-<span class="st"> </span>vv &lt;-<span class="st"> </span>kk &lt;-<span class="st"> </span><span class="kw">integer</span>(<span class="fl">1e5</span>)
 <span class="kw">system.time</span>(for ( i in <span class="dv">1</span>:<span class="kw">length</span>(tt) ) vv[i] &lt;-<span class="st"> </span>tt[i] +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.131   0.005   0.138</code></pre>
+##    0.15    0.00    0.16</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(kk &lt;-<span class="st"> </span>tt +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.001   0.000   0.001</code></pre>
+##       0       0       0</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(vv, kk)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>To understand more, see the section <a href="char.html#vectorization">7.2</a>.</p>
@@ -373,7 +374,7 @@ for ( l in <span class="kw">list</span>(a,b) )
 <a href="data-struc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="func.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>

@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="install.html">
+<link rel="prev" href="process.html">
+<link rel="next" href="references.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,68 +223,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">RBasic 101</h1>
-<h4 class="author"><em>Kyle Chung</em></h4>
-<h4 class="date"><em>2016-04-24</em></h4>
-</div>
-<div id="prologue" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prologue</h1>
-<p><strong>The materials of this book target at new users or users not very familiar with R.</strong> Before you start to read this book, take a look at the following examples to test your familiarity with the R language.</p>
-<div id="thought-experiments" class="section level2">
-<h2><span class="header-section-number">1.1</span> Thought Experiments</h2>
-<div id="first-trial" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> First Trial</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span>
-(B &lt;-<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(A, B)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>Now you know that adding parenthesis around an expression will force R to print the result of it. But why? If you immediately type <code>?&quot;(&quot;</code> to search for a possible anwser, you are probably not new to the R language. And if you can further read the document and get yourself understood, you are not the targeted reader of this book.</p>
-</div>
-<div id="second-trial" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> Second Trial</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a_vec &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">2</span>
-<span class="kw">names</span>(a_vec)</code></pre></div>
-<pre><code>## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(a_vec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
-<span class="kw">names</span>(a_vec)</code></pre></div>
-<pre><code>## [1] &quot;foo&quot; &quot;bar&quot;</code></pre>
-<p>The function <code>names</code> is used to return the names of the object given, if any. In the third line we also use <code>names</code> to rename the object. Now you know that we can use such tech to rename an object. But how is it possible <em>to asign a value to the returned value of a function</em>?</p>
-<p>Should you really think it is okay to do so, then think about the following codes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xf &lt;-<span class="st"> </span>function(x) x
-<span class="kw">xf</span>(<span class="dv">1</span>) &lt;-<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## Error in xf(1) &lt;- 2: target of assignment expands to non-language object</code></pre>
-<p>Oops! Acutally you can’t do that. Asign a value to the returned value of a function causes an error. But <code>names(a_vec) &lt;- c(&quot;foo&quot;, &quot;bar&quot;)</code> does work, right? If you do understand the reason why it actually works, you are not the targeted reader of this book.</p>
-</div>
-<div id="third-trial" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> Third Trial</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>, <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<p>You may never see this coming before, or you just don’t code in such style, but you do understand this is a function call to the add function, in a functional way. That say, you are completely comfortable about the following codes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for ( op in <span class="kw">c</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>, <span class="st">`</span><span class="dt">-</span><span class="st">`</span>, <span class="st">`</span><span class="dt">*</span><span class="st">`</span>, <span class="st">`</span><span class="dt">/</span><span class="st">`</span>) )
-  <span class="kw">print</span>(<span class="kw">op</span>(<span class="dv">10</span>, <span class="dv">2</span>))</code></pre></div>
-<pre><code>## [1] 12
-## [1] 8
-## [1] 20
-## [1] 5</code></pre>
-<p>Then you are not the targeted reader of this book.</p>
-</div>
-</div>
-<div id="welcome-to-the-r-language" class="section level2">
-<h2><span class="header-section-number">1.2</span> Welcome to the R Language</h2>
-<p>If all the above examples bother you nothing, you are not the targeted reader of this book since you are quite familiar with the R language and you do know how to dive depper on your own. But if some or all of the above examples make you confused or starting googling, you can learn from this book.</p>
-<p>This book is NOT a HOW-TO cookbook to teach you how to write in the R language. A HOW-TO cookbook will let you know, in the R language, how to force print an expression, or rename an object. This book is NOT a HOW-TO cookbook. Yes we can use <code>(</code> to force print an expression. But why? Yes we can use <code>names</code> to rename an object. But why? This book is to teach you WHY we write R in this or that way. Consequently you are not just coding in R, you are also thinking in R. And that’s where the R language starts to shine.</p>
+<div id="error" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Error Handling</h1>
+<p>Error handling in R is functional. For beginners this might be a little bit hard to understand in the first glance. The template is as the followings:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span>
+<span class="st">    </span><span class="kw">tryCatch</span>({
+        <span class="co"># main expression block</span>
+        <span class="co"># last valuated expression will be returned in case of success</span>
+    }, <span class="dt">warning=</span>function(cond) {
+        <span class="co"># warning handling block, wrapped in function</span>
+        <span class="co"># argument is a condition class auto-generated in case of warning</span>
+    }, <span class="dt">error=</span>function(cond) {
+        <span class="co"># error handling block, wrapped in function</span>
+        <span class="co"># argument is a condition class auto-generated in case of error</span>
+    }, <span class="dt">finally=</span>{
+        <span class="co"># the finally block that always evaluated</span>
+    })</code></pre></div>
+<p>Except for the first argument, which is a closure (the <code>expr</code> argument) enclosed by <code>{</code>, all the other arguments are optional. That said, <code>tryCatch</code> prevents the execution of the <code>expr</code> from stopping due to any error if the argument <code>error</code> is supplied. And it prevents a warning being issued if the argument <code>warning</code> is supplied. The <code>finally</code> closure, if speficied, will be executed on any condition.</p>
+<p>Consider this example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>(<span class="dv">1</span> +<span class="st"> &quot;1&quot;</span>)</code></pre></div>
+<pre><code>## Error in 1 + &quot;1&quot;: non-numeric argument to binary operator</code></pre>
+<p>Error still occurs. This is because the error is NOT caught. To catch the error, one should write something like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>({
+  <span class="dv">1</span> +<span class="st"> &quot;1&quot;</span>
+}, <span class="dt">error=</span>function(cond) <span class="kw">print</span>(<span class="st">&quot;The error is caught!&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;The error is caught!&quot;</code></pre>
+<p>Now there is no error message, instead, the function specified in <code>error</code> argument is executed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>({
+  <span class="dv">1</span> +<span class="st"> &quot;1&quot;</span>
+  }, <span class="dt">error=</span>function(cond) <span class="kw">print</span>(<span class="st">&quot;The error is caught!&quot;</span>),
+  <span class="dt">finnaly =</span> {
+    <span class="kw">print</span>(<span class="st">&quot;This is printed whatsoever.&quot;</span>)
+  })</code></pre></div>
+<pre><code>## [1] &quot;This is printed whatsoever.&quot;
+## [1] &quot;The error is caught!&quot;</code></pre>
+<p>The is also a simplied version of error handler: the <code>try</code> function. It is light-weighted but with less capability.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="install.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="process.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -311,7 +293,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/everdark/rbasic/edit/master/index.Rmd",
+"link": "https://github.com/everdark/rbasic/edit/master/09-error-handle.Rmd",
 "text": null
 },
 "download": null,

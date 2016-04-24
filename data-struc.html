@@ -8,7 +8,7 @@
   <title>RBasic 101</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
-  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.64 and GitBook 2.6.7">
 
   <meta property="og:title" content="RBasic 101" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Kyle Chung">
 
-<meta name="date" content="2016-04-18">
+<meta name="date" content="2016-04-24">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,19 +144,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4" data-path="data-struc.html"><a href="data-struc.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-struc.html"><a href="data-struc.html#atomic-vector"><i class="fa fa-check"></i><b>4.1</b> Atomic Vector</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="data-struc.html"><a href="data-struc.html#general-operations-on-vectors"><i class="fa fa-check"></i><b>4.1.1</b> General Operations on Vectors</a></li>
-<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.2</b> Factor</a></li>
-<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.3</b> Matrix</a></li>
-<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.4</b> Array</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#common-string-operations"><i class="fa fa-check"></i><b>4.1.2</b> Common String Operations</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.3</b> Factor</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.4</b> Matrix</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.5</b> Array</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="data-struc.html"><a href="data-struc.html#recursive-vector"><i class="fa fa-check"></i><b>4.2</b> Recursive Vector</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-struc.html"><a href="data-struc.html#list"><i class="fa fa-check"></i><b>4.2.1</b> List</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-struc.html"><a href="data-struc.html#data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Data Frame</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#type-conversion"><i class="fa fa-check"></i><b>4.3</b> Type Conversion</a></li>
-<li class="chapter" data-level="4.4" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.4</b> Special Values</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.4.1</b> <code>NA</code></a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.4.2</b> <code>NaN</code></a></li>
-<li class="chapter" data-level="4.4.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.4.3</b> <code>NULL</code></a></li>
+<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.3</b> Special Values</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.3.1</b> <code>NA</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.3.2</b> <code>NaN</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.3.3</b> <code>NULL</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="control.html"><a href="control.html"><i class="fa fa-check"></i><b>5</b> Control Flow</a><ul>
@@ -201,7 +201,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>9.3</b> Databases</a></li>
 <li class="chapter" data-level="9.4" data-path="process.html"><a href="process.html#others"><i class="fa fa-check"></i><b>9.4</b> Others</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="10" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>10</b> Error Handling</a></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -371,8 +372,80 @@ vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">5</s
 <p>Since the third element is unnamed, it is <code>NA</code> when calling <code>names</code> to print the names.</p>
 </div>
 </div>
+<div id="common-string-operations" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Common String Operations</h3>
+<div id="paste" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> <code>paste</code></h4>
+<p>Strings are called <code>character</code> in the R language. It’s important to know some basic string manipulation skills. One useful string function is the <code>paste</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>, <span class="dt">sep=</span><span class="st">&#39; &#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;foo bar baz&quot;</code></pre>
+<p>The function takes as many arguments as it can and concatenates them with the separator specified in the <code>sep</code> arguemnt. Notice that <code>character</code> is vector, so the <code>paste</code> function can operate on vector–this is called vectorization in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="st">&quot;baz1&quot;</span> , <span class="dt">sep=</span><span class="st">&#39; &#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;foo baz1&quot; &quot;bar baz1&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="kw">c</span>(<span class="st">&quot;baz1&quot;</span>, <span class="st">&quot;baz2&quot;</span>, <span class="st">&quot;baz3&quot;</span>) , <span class="dt">sep=</span><span class="st">&#39; &#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;foo baz1&quot; &quot;bar baz2&quot; &quot;foo baz3&quot;</code></pre>
+<p>What happens here is that the shorter arguments are <em>recycled</em> to have equal length and then each string is concatenated elment-wise. For more details about vectorization and recycling, see section <a href="char.html#char">7</a>.</p>
+<p>The <code>paste</code> function can also <em>collapse</em> a character vector into one character (a vector of length 1). This is done by using the <code>collapse</code> argument:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>), <span class="dt">collapse=</span><span class="st">&#39;-&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;foo-bar-baz&quot;</code></pre>
+<p>Collapsing can also be used <em>after</em> concatenation. This is done by supplying more than one character vectors to <code>paste</code> and also specifying the <code>collapse</code> argument:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># concatenate only</span>
+<span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>), letters[<span class="dv">1</span>:<span class="dv">5</span>])</code></pre></div>
+<pre><code>## [1] &quot;foo a&quot; &quot;bar b&quot; &quot;baz c&quot; &quot;foo d&quot; &quot;bar e&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># concatenate and collapse</span>
+<span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>), letters[<span class="dv">1</span>:<span class="dv">5</span>], <span class="dt">collapse=</span><span class="st">&#39;-&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;foo a-bar b-baz c-foo d-bar e&quot;</code></pre>
+<p>There is also a variant of <code>paste</code> called <code>paste0</code>. The only difference is that <code>paste0</code> use a default separator of empty string (i.e., use <code>sep=''</code> in <code>paste</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste0</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="st">&quot;baz&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;foobaz&quot; &quot;barbaz&quot;</code></pre>
+</div>
+<div id="sprintf" class="section level4">
+<h4><span class="header-section-number">4.1.2.2</span> <code>sprintf</code></h4>
+<p>Another useful function is <code>sprintf</code>. It is used to format a <em>string with interpolation</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sprintf</span>(<span class="st">&quot;hello %s!&quot;</span>, <span class="st">&quot;world&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;hello world!&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sprintf</span>(<span class="st">&quot;hello %.3f!&quot;</span>, <span class="dv">7123</span>)</code></pre></div>
+<pre><code>## [1] &quot;hello 7123.000!&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sprintf</span>(<span class="st">&quot;hello %i&quot;</span>, <span class="dv">7</span>)</code></pre></div>
+<pre><code>## [1] &quot;hello 7&quot;</code></pre>
+<p>See <code>?sprintf</code> for more formatting options. Multiple interpolation is also supported, given in order:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sprintf</span>(<span class="st">&quot;first: %i; second: %s&quot;</span>, <span class="dv">1</span>, <span class="st">&quot;two&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;first: 1; second: two&quot;</code></pre>
+</div>
+<div id="cat-and-print" class="section level4">
+<h4><span class="header-section-number">4.1.2.3</span> <code>cat</code> and <code>print</code></h4>
+<p>The <code>cat</code> function concatenates its arguments and print.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;foo&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>))</code></pre></div>
+<pre><code>## foo bar baz</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;foo&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>), <span class="dt">sep=</span><span class="st">&#39;:&#39;</span>)</code></pre></div>
+<pre><code>## foo:bar:baz</code></pre>
+<p>Notice the difference between <code>cat</code> and <code>paste</code>: the former does not recycle and the result is printed; the latter does recylcing and the result is <em>returned</em> rather than printed. Too see this fact clear:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># letters is a built-in variable storing all lower-cased English alphabets</span>
+<span class="co"># .Last.value is another built-in variable storing the result of the last evaluation</span>
+<span class="kw">cat</span>(letters[<span class="dv">1</span>:<span class="dv">3</span>], <span class="dt">sep=</span><span class="st">&#39;+&#39;</span>)</code></pre></div>
+<pre><code>## a+b+c</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">.Last.value</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(letters[<span class="dv">1</span>:<span class="dv">3</span>], <span class="dt">collapse=</span><span class="st">&#39;+&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a+b+c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">.Last.value</code></pre></div>
+<pre><code>## NULL</code></pre>
+</div>
+<div id="miscellaneous" class="section level4">
+<h4><span class="header-section-number">4.1.2.4</span> Miscellaneous</h4>
+<p>Use <code>substr</code> to extract partial string. Use <code>nchar</code> to count number of characters in a string. Use <code>strsplit</code> to split a string by specified separator.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ss &lt;-<span class="st"> &quot;why so serious?&quot;</span>
+<span class="kw">substr</span>(ss, <span class="dv">1</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;why&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nchar</span>(ss)</code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">strsplit</span>(ss, <span class="dt">split=</span><span class="st">&#39; &#39;</span>) <span class="co"># the returned type is a list</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;why&quot;      &quot;so&quot;       &quot;serious?&quot;</code></pre>
+</div>
+</div>
 <div id="factor" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> Factor</h3>
+<h3><span class="header-section-number">4.1.3</span> Factor</h3>
 <p>Factors are special integer vectors. They are generally used to record categorical variables. It combines both features of characters and numerics, so it could be confusing for new users. Usually a factor is defined on a set of characters:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">baz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
 bazf &lt;-<span class="st"> </span><span class="kw">factor</span>(baz)
@@ -401,34 +474,210 @@ bazf3 &lt;-<span class="st"> </span><span class="kw">factor</span>(baz, <span cl
 <pre><code>##  Factor w/ 3 levels &quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;: 1 2 2 1 2</code></pre>
 </div>
 <div id="matrix" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> Matrix</h3>
+<h3><span class="header-section-number">4.1.4</span> Matrix</h3>
+<p>A matrix in R is nothing more than a vector with the <code>dim</code> attribute. That is, a matrix is still a vector. To create a matrix one can use the <code>matrix</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    0    0
+## [2,]    0    0    0
+## [3,]    0    0    0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)
+<span class="kw">str</span>(mm) <span class="co"># always use the str function to check variable that you don&#39;t know for sure</span></code></pre></div>
+<pre><code>##  int [1:3, 1:3] 1 2 3 4 5 6 7 8 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(mm)</code></pre></div>
+<pre><code>## $dim
+## [1] 3 3</code></pre>
+<p>For now just forget about what an <code>attribute</code> is. One can always use <code>dim</code> function to check the dimension attribute of a variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">9</span>
+<span class="kw">dim</span>(vv)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>A matrix can also be created by existing vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">9</span>
+<span class="kw">dim</span>(vv) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>)
+vv</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>Here the second line creates (or replaces) the <code>dim</code> attribute with a 3-by-3 dimension setup.</p>
+<div id="matrix-operations" class="section level4">
+<h4><span class="header-section-number">4.1.4.1</span> Matrix Operations</h4>
+<p>Matrices are mathematical matrices, so they can readily perform linear algebra:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(vv &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>))</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># scalar product</span>
+vv *<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3   12   21
+## [2,]    6   15   24
+## [3,]    9   18   27</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># inner product</span>
+vv %*%<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">2</span>) </code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   30   66
+## [2,]   36   81
+## [3,]   42   96</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># outer products</span>
+<span class="dv">1</span>:<span class="dv">9</span> %o%<span class="st"> </span><span class="dv">1</span>:<span class="dv">9</span> <span class="co"># a more general version: see ?outer</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    1    2    3    4    5    6    7    8    9
+##  [2,]    2    4    6    8   10   12   14   16   18
+##  [3,]    3    6    9   12   15   18   21   24   27
+##  [4,]    4    8   12   16   20   24   28   32   36
+##  [5,]    5   10   15   20   25   30   35   40   45
+##  [6,]    6   12   18   24   30   36   42   48   54
+##  [7,]    7   14   21   28   35   42   49   56   63
+##  [8,]    8   16   24   32   40   48   56   64   72
+##  [9,]    9   18   27   36   45   54   63   72   81</code></pre>
+</div>
 </div>
 <div id="array" class="section level3">
-<h3><span class="header-section-number">4.1.4</span> Array</h3>
+<h3><span class="header-section-number">4.1.5</span> Array</h3>
+<p>When there is more than 2 dimensions, a vector may be called an array. One can also call a matrix is a 2-dimensional array.</p>
 </div>
 </div>
 <div id="recursive-vector" class="section level2">
 <h2><span class="header-section-number">4.2</span> Recursive Vector</h2>
 <div id="list" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> List</h3>
+<p>The most important representative data structrue of recursive vector is <code>list</code>. A list, unlike atomic vector, can contain elements of different types, and can be nested:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), paste, <span class="kw">list</span>(letters, month.abb))
+<span class="kw">str</span>(alist)</code></pre></div>
+<pre><code>## List of 4
+##  $ : int [1:3] 1 2 3
+##  $ : chr [1:2] &quot;foo&quot; &quot;bar&quot;
+##  $ :function (..., sep = &quot; &quot;, collapse = NULL)  
+##  $ :List of 2
+##   ..$ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+##   ..$ : chr [1:12] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; ...</code></pre>
+<p>All the operation appliable to atomic vector is also appliable to list. A list can also be named.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># slicing</span>
+alist[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;foo&quot; &quot;bar&quot;
+## 
+## [[3]]
+## function (..., sep = &quot; &quot;, collapse = NULL) 
+## .Internal(paste(list(...), sep, collapse))
+## &lt;bytecode: 0x000000000781e710&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># replacement</span>
+alist[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># delete</span>
+alist[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># concatenate</span>
+<span class="kw">c</span>(alist, <span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>))</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;foo&quot; &quot;bar&quot;
+## 
+## [[2]]
+## function (..., sep = &quot; &quot;, collapse = NULL) 
+## .Internal(paste(list(...), sep, collapse))
+## &lt;bytecode: 0x000000000781e710&gt;
+## &lt;environment: namespace:base&gt;
+## 
+## [[3]]
+## [[3]][[1]]
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
+## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;
+## 
+## [[3]][[2]]
+##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot;
+## [12] &quot;Dec&quot;
+## 
+## 
+## [[4]]
+## [1] 1 2 3</code></pre>
+<p>There is a little difference in indexing. The single bracket <code>[</code> results in a list; the double brackets <code>[[</code> results in the element itself without warpping in a list. To be clear, see the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), paste, <span class="kw">list</span>(letters, month.abb))
+alist[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="kw">unlist</span>(alist[<span class="dv">1</span>]), alist[[<span class="dv">1</span>]])</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>This also means that <code>[</code> is used to slice a list (into another list), while <code>[[</code> is used to extract single element within a list. Both support the use of character vectors to select by names:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">integers=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">foobar=</span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="dt">pf=</span>paste, <span class="dt">another_list=</span><span class="kw">list</span>(letters, month.abb))
+<span class="kw">names</span>(alist)</code></pre></div>
+<pre><code>## [1] &quot;integers&quot;     &quot;foobar&quot;       &quot;pf&quot;           &quot;another_list&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist[<span class="kw">c</span>(<span class="st">&quot;foobar&quot;</span>)] <span class="co"># a list (of length 1)</span></code></pre></div>
+<pre><code>## $foobar
+## [1] &quot;foo&quot; &quot;bar&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist[[<span class="st">&quot;foobar&quot;</span>]]  <span class="co"># a character vector</span></code></pre></div>
+<pre><code>## [1] &quot;foo&quot; &quot;bar&quot;</code></pre>
+<p>There is another special operator for list: the <code>$</code> extractor. It serves the same purpose as <code>[[</code> that it can be used to extract single element in a list by name, but in this case a variable (a symbol) rather than a character is used:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(alist$foobar, alist[[<span class="st">&quot;foobar&quot;</span>]])</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="data-frame" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Data Frame</h3>
+<p>One important extension of <code>list</code> is <code>data.frame</code>, a table data structure to represent tabular data. A <code>data.frame</code> is indeed a <code>list</code>, with additional attributes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span>letters[<span class="dv">1</span>:<span class="dv">3</span>])
+<span class="kw">str</span>(DF)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ a: int  1 2 3
+##  $ b: Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(DF)   <span class="co"># the abstract type (in OOP sense)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(DF)  <span class="co"># the storage type</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>A <code>data.frame</code> can be thought of as a list with elements sharing exactly the same length. Useful operation on <code>data.frame</code> includes:</p>
+<ul>
+<li>sort: using <code>order</code></li>
+<li>join: using <code>merge</code></li>
+<li>append: using <code>rbind</code> or <code>cbind</code></li>
+<li>aggregate: using <code>by</code>, <code>aggregate</code>, or <code>ave</code></li>
+<li>pivot: using <code>reshape</code></li>
+<li>partition: using <code>split</code></li>
+</ul>
+<p>Each operation above worth a considerable space to elaborate but since there is a overall better solution to model tabular data in R: the <code>data.table</code> package, the details are left for readers to explore on their own.</p>
 </div>
-</div>
-<div id="type-conversion" class="section level2">
-<h2><span class="header-section-number">4.3</span> Type Conversion</h2>
 </div>
 <div id="special-values" class="section level2">
-<h2><span class="header-section-number">4.4</span> Special Values</h2>
+<h2><span class="header-section-number">4.3</span> Special Values</h2>
 <div id="na" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> <code>NA</code></h3>
+<h3><span class="header-section-number">4.3.1</span> <code>NA</code></h3>
+<p>The <em>not applicable</em> value in R, usually means <em>missing value</em>. <code>NA</code> is more complicated than its first seen. There are actually different types of <code>NA</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA_character_</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA_integer_</span>)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA_real_</span>)</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>Most time one uses <code>NA</code> in general, and let the R language to deal with the casting:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="ot">NA</span>) <span class="co"># the NA is indeed a character type</span></code></pre></div>
+<pre><code>## [1] &quot;foo&quot; &quot;bar&quot; NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="ot">NA</span>)          <span class="co"># here NA is typed integer</span></code></pre></div>
+<pre><code>## [1]  1  2  3 NA</code></pre>
+<p>Many operation can result in missing value. For example, to subset using out-of-range index:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">26</span>:<span class="dv">27</span>] <span class="co"># there is no 27th alphabet in English!</span></code></pre></div>
+<pre><code>## [1] &quot;z&quot; NA</code></pre>
 </div>
 <div id="nan" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> <code>NaN</code></h3>
+<h3><span class="header-section-number">4.3.2</span> <code>NaN</code></h3>
+<p><code>NaN</code> means “not a number.” The value results from mathematic operation that results in un-defined value, say:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">0</span>/<span class="dv">0</span>  </code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Also notice that <code>1/0</code> results in <code>Inf</code> and <code>-1/0</code> results in <code>-Inf</code>.</p>
 </div>
 <div id="null" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> <code>NULL</code></h3>
+<h3><span class="header-section-number">4.3.3</span> <code>NULL</code></h3>
+<p><code>NULL</code> is another special value: it means nothing. Do not confuse it with <code>NA</code>. <code>NULL</code> means nothing so it does not have length:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="ot">NULL</span>)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="ot">NA</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
 
 </div>
 </div>
@@ -441,7 +690,7 @@ bazf3 &lt;-<span class="st"> </span><span class="kw">factor</span>(baz, <span cl
 <a href="clivside.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="control.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
