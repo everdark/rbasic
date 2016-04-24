@@ -1,11 +1,40 @@
 # R Language Characteristics {#char}
 
 ## Help
-
-`?`
-
+Use `?` to see the document of a function. One can even use `?` to see the document of `?`: try `?"?"`. The document, however, sometimes does not help a lot. The target audience of R document is usually not for beginners so may contain examples or wordings that are hard to understand. If one is consulting third-party packages not included in the core R, the quality of documents are indeed varying. Some authors provides good documentation while the others doesn't. That said, documents are only one source of help for R learners. Usually a better way is by googling and searching on [stackoverflow](http://stackoverflow.com/).
 
 ## Vectorization
+Every built-in data structure in R is of vector form. This means that many of the built-in functions that operate on these data structures actually operates on vectors. Consider the following minimal example:
+
+```{r}
+1:10 + 1
+```
+
+Yes the add (`+`) function is vectorized. An expereicend R user won't write code like this:
+
+```{r}
+res <- integer(10)
+for ( i in 1:10 )
+  res[i] <- i + 1
+res
+```
+
+The performance of vectorized codes and non-vectorized one can be huge:
+
+```{r}
+sillyAdd <- function(n) {
+  res <- integer(n)
+  for ( i in 1:n ) res[i] <- i + 1
+  res
+}
+system.time(res1 <- 1:1e6 + 1)
+system.time(res2 <- sillyAdd(1e6))
+identical(res1, res2)
+```
+
+Due to performance (in most cases) gain, one should always consider using vectorization whenever possible.
+
+One thing usually mis-understood by beginners: Are the `apply` family vectorized? The anwser is disppointedly a NO. `apply` family is a functional way (without side-effect) to write down codes intending to do loop-like tasks. They are NOT vectorization of any kind. This also means they do NOT gain any performance advantage.
 
 ## Recycling
 
@@ -20,4 +49,50 @@ ifelse(sample(1:10, 10, replace=TRUE) > 5, 1:10, -(1:10))
 ```
 
 ## The `apply` Family
+The `apply` family is really one outstanding feature in the core of R language. Among the family, the most useful two are `apply` and `lapply`. Sometimes `sapply` also comes in handy.
+
+### `apply`
+`apply` will call the given function column-by-column or row-by-row, according to the `MARGIN` argument supplied.
+
+```{r}
+(mm <- matrix(1:12, 4, 3))
+apply(mm, 1, sum) # by the 1st dimension: row
+apply(mm, 2, sum) # by the 2nd dimension: column
+```
+
+`apply` use ellipsis, so it is very easy to apply functions with additional arguments:
+
+```{r}
+mm <- matrix(1:12, 4, 3)
+apply(mm, 2, mean, trim=.2) # apply the trimmed mean over each column
+apply(mm, 2, paste, collapse=':') # concatenate all numbers for each column
+```
+
+or lambdas:
+
+```{r}
+mm <- matrix(1:12, 4, 3)
+apply(mm, 2, function(x) sd(x) / mean(x))
+```
+
+`apply` can also be used on `data.frame` in exactly the same way:
+
+```{r}
+str(cars)
+apply(cars, 2, max)
+```
+
+### `lapply`
+`lapply` is a list `apply`, so it operates on a list.
+
+```{r}
+```
+
+
+### `sapply`
+
+
+
+
+
 
