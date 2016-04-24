@@ -89,9 +89,7 @@ The above function may randomly exit.
 A function can have arguemnts. Returned values are output of a function, arguments are input. Both are optional in coding but jusy the former will be implicitly set. To use arguments in a function, just name it in the definition:
 
 ```{r}
-f <- function(x, y) {
-  x
-}
+f <- function(x, y) x # { is ignored if the body is one-lined
 identical(f(1), f(2, x=1))
 ```
 
@@ -112,11 +110,8 @@ f <- function(x, y) {
 f(1, 2)
 ```
 
-
-
 ### Default Value
-
-Arguments can have default value given in the definition. When actually supplied in the function call, the default value will be overwritten.
+Arguments can have default valuea given in the definition. When actually supplied in the function call, the default value will be overwritten.
 
 ```{r}
 f <- function(x, y=1) {
@@ -126,8 +121,41 @@ for ( i in 1:5 ) print(f(i))
 for ( i in 1:5 ) print(f(10, i))
 ```
 
-### Ellipsis (`...`)
+### Lazy Evaluation
+Function arguments are lazily evaluated. This means that arguments are only needed when they are actually used. Consider the following example:
 
+```{r, error=TRUE}
+f <- function(x) x
+g <- function(x) 1
+f()
+g()
+```
+
+Both function `g` and `f` have arguemtn `x`. But when calling without supplying `x`, only `f` issues an error. This is because in the `g` function the argument `x` actually takes no place. Consequently, `x` is not even evaluated in calling `g`, so there will be no error for not finding `x` simply due to no evaluation for `x` at all. This is not the case for function `f`.
+
+### Ellipsis (`...`)
+The triple-dot expression is a special argument types that can come in handy in certain circumstances. It absorbs all arguments supplied not in the pre-defined named arguments. 
+
+```{r}
+f <- function(x, ...) {
+  list(...)
+}
+f(a=1, b=2)
+```
+
+In the above example, the argument `a` and `b` are both not pre-specified, and they are absorbed into the ellipsis varaible that can be casted to a list for further reference. Why is this helpful? Now consider this rather sophisticated example:
+
+```{r}
+f <- function(g, ...) {
+  message("Now I am going to apply the function given in g...")
+  g(...)
+}
+
+g <- function(x, y) x + y
+f(g, x=1, y=2)
+```
+
+Here the function `f` is a wrapper for function `g`. Many functions in R work in this way to bring in convenient programming application: notably the `apply` family, just name a few.
 
 ## Anonymous Function (Lambda)
 In all the above examples, functions are asigned to variables. Or naturally speaking, functions are named. This is, however, not necessary. Consider the following example:
@@ -141,7 +169,7 @@ f(function() 1 + 1)
 
 What's going on here? The function `f` is a function that print the result of `typeof` for its argument. Yes it is completely redundant and is purely created for educational purpose. The argument `g` can be virtaully anything. So why not a function? When one types things such as `f(3)` one doesn't asign a variable the number 3 (i.e., `x <- 3; f(x)`) so why bothering assigning a function? That's where the anonymous function comes in place. 
 
-Sometimes a function is a one-timer so it is not worth tpying and assigning a variable for it. This is especailly true when using the `apply` family, which is explored in section \@ref(the-apply-family). Anonymous functions are sometimes called *lambda* in other programming language and is a common utility in modern languages, even for languages that is not functional (e.g., Python).
+Sometimes a function is a one-timer so it is not worth typing and assigning a variable for it. This is especailly true when using the `apply` family, which is explored in section \@ref(the-apply-family). Anonymous functions are sometimes called *lambda* in other programming language and is a common utility in modern languages, even for languages that is not functional (e.g., Python).
 
 There is another use case when one won't explicitly assign variable to a function, because that will be done in another function! That is, one can write a function that returns a function:
 
@@ -162,22 +190,59 @@ g <- f("add") # the result should be 3
 identical(g(1, 2), f("add")(1, 2))
 ```
 
-Now the world is more functional. The `f` function is a factory to create different functions by its arguemnt. The return value of `f` is a newly created function--whatever name it is--and since the return value is a function, of course it can be called to work. Even the return function doesn't need to have be named or assigned, one can directly call it with `()` suffix.
+Now the world is more functional. The `f` function is a factory to create different functions by its arguemnt. The return value of `f` is a newly created function--whatever name it is--and since the return value is a function, of course it can be called to work. Even the returned function doesn't need to have be named or assigned, one can directly call it with `()` suffix.
 
 ## Lexical Scoping
-
-Function definitions can be nested.
+Can a function see (or use) variables defined out sied of it? Consider the following example:
 
 ```{r}
+y <- 10
+f <- function(x) x + y
+f(1)
+```
+
+The anwser seems to be yes. Here the variable `y` does not appear within the function but it does exist in the global environment. To see what variable exist in the global environment, use the `ls` function without arguments:
+
+```{r}
+ls() # list variables in the current environment
+```
+
+Use the `ls` function within a function can reveal the scope of that function:
+
+```{r}
+y <- 10
 f <- function(x) {
-  g <- function(x) x + 1 # { is ignored if the body is one-lined
+  print(ls())
+  x + y
+}
+f(1)
+```
+
+Clearly the function only has variable `x` defined because it is assigned in the argument. When a function can not find a variable within its own scope, it continue to search it on the upper scope: its parent environment. This is called lexical scoping. In the above case the function's parent environment is the global environment. 
+A function's parent environment is the upper scope to its definition block. Since function definitions can be nested, functions' scope is dynamic by nature. In the following first example, the scope of `g` function does not has variable `y` so it search upper environment, which is the scope of function `f`, and find a `y` then use it. While in the second example, even in the environment of `f` does not have variable `y` so `g` continues to search upper and hit the global environment (where the function `f` is defined) and find a `y` then use it.
+
+```{r}
+y <- 10
+f <- function(x) {
+  y <- 5 # this is searched
+  g <- function(x) x + y
   g(x)
 }
-f(10)
+f(1) # should be 6
+```
+
+```{r}
+y <- 10 # this is searched
+f <- function(x) {
+  # y <- 5
+  g <- function(x) x + y
+  g(x)
+}
+f(1) # should be 11
 ```
 
 ## Extraction Function
-Everything that happens is a function call. So things like these should be no exception.
+Everything that happens is a function call. So things like the following should be no exception.
 
 ```{r}
 vv <- 1:10
@@ -190,7 +255,7 @@ The `<-` is the assignment function, i.e., `"<-"("vv", 1:10)` is what really hap
 `[`(vv, 1:3)
 ```
 
-That is not cool. Nobody writes in that (somewhat ugly?) way. So the R language provides the syntactic sugar to let users write codes in more human-readble fasion.
+That is not cool. Nobody writes in that (somewhat ugly?) way. So the R language provides the syntactic sugar to let users write codes in more human-readble fasion. Exactly the same logic applies to the `[[` function for `list`.
 
 ## Replacement Function
 Even more interesting is the replacement function:
@@ -215,5 +280,6 @@ vv <- 1:10
 `[<-`(vv, 1:3, 0)
 ```
 
+Replacement functions are everywhere. `names<-` is one example, `dim<-` is another.
 
 
