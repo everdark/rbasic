@@ -1,0 +1,52 @@
+# Error Handling {#error}
+
+Error handling in R is functional. For beginners this might be a little bit hard to understand in the first glance. The template is as the followings:
+
+```{r, eval=FALSE}
+result <- 
+    tryCatch({
+        # main expression block
+        # last valuated expression will be returned in case of success
+    }, warning=function(cond) {
+        # warning handling block, wrapped in function
+        # argument is a condition class auto-generated in case of warning
+    }, error=function(cond) {
+        # error handling block, wrapped in function
+        # argument is a condition class auto-generated in case of error
+    }, finally={
+        # the finally block that always evaluated
+    })
+```
+
+Except for the first argument, which is a closure (the `expr` argument) enclosed by `{`, all the other arguments are optional. That said, `tryCatch` prevents the execution of the `expr` from stopping due to any error if the argument `error` is supplied. And it prevents a warning being issued if the argument `warning` is supplied. The `finally` closure, if speficied, will be executed on any condition.
+
+Consider this example:
+
+```{r, error=TRUE}
+tryCatch(1 + "1")
+```
+
+Error still occurs. This is because the error is NOT caught. To catch the error, one should write something like:
+
+```{r}
+tryCatch({
+  1 + "1"
+}, error=function(cond) print("The error is caught!"))
+```
+
+Now there is no error message, instead, the function specified in `error` argument is executed.
+
+```{r}
+tryCatch({
+  1 + "1"
+  }, error=function(cond) print("The error is caught!"),
+  finnaly = {
+    print("This is printed whatsoever.")
+  })
+```
+
+
+
+
+
+The is also a simplied version of error handler: the `try` function. It is light-weighted but with less capability.
