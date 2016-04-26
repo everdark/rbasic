@@ -2,19 +2,23 @@
 
 ## Tabular Input
 
+The recommended package to deal with tabular data I/O is the package `data.table`.
+
 ### Read
 
-`read.table`
-`read.csv`
+`fread`
+
 `readLines`
 
 ### Write
 
 `write.table`
 `writeLines`
-`cat`
+
 
 ## JSON
+
+The recommended package to deal with json I/O is the package `jsonlite`.
 
 ## Databases
 

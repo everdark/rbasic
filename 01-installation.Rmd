@@ -46,19 +46,40 @@ After this is done, use `sudo apt-get update` to update the package manager and 
 If there is any error concerning the secure key issue, consult the "Secure APT" section for solution.
 
 ### Update the R Installation
-
-TBA
+It is recommended to directly install the newer version of R, if wanted. Each version of R is separately maintained in the installed system. Of course the newer R will come with only built-in packages. It is recommended that users re-install all the packages wanted from the newer R. 
 
 ## R Package Installation
 
-### From CRAN
+### From the Internet
 
-Use `install.packages`
+#### CRAN
+The most convenient way to install R package is to use the `install.packages` function. By default it will install the specified package from CRAN: The **C**omprehensive **R** **A**rchive **N**etwork. For Mac and Windows users usually the desired package is already compiled and can be readily install in seconds. For Linux users the `install.packages` still works but the package will be compiled from its source code. 
 
-### From Source
+For example, to install the powerful `data.table` package:
 
-### From Github
+```{r, eval=FALSE}
+install.packages("data.table")
+```
 
-Use `devtools::install_github`
+The function automatically resolve dependency issue, so any dependent packages will also be installed, if any. One can also uninstall a package by using the function `remove.packages`.
+
+#### GitHub
+Not all packages are available at CRAN. And there are more and more developers prefer to host their source codes on platform like [GitHub](https://github.com/). Sometimes a package can be found in both CRAN and GitHub but the latest developing version is only available at GitHub.
+
+To directly install a package from its GitHub repository, use the function `devtools::install_github`. One must first install the package `devtools`. For Windows users, additional dependency on the [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is required before installing `devtools`. For Mac users, the [XCode](https://developer.apple.com/xcode/) command line tool may be required. Firstly install XCode; then open Terminal.app and type `xcode-select --install`.
+
+To install package from GitHub, the name for the repo must be specified. For example, to install the package `ArgParser` from the book author's repo:
+
+```{r, eval=FALSE}
+devtools::install_github("everdark/ArgParser")
+```
+
+### From Local Source or Binary
+
+Source codes of R packages is stored as `tar.gz`. Binaries are stored as `.zip` for Windows and `.tgz` for Mac OS X. It may happens that users want to directly install the package from these files locally. This can also be achieved by `install.packages`, by specifying argument `repos=NULL` and point `pkgs` to the full path of those files. For example:
+
+```{r, eval=FALSE}
+install.packages("ggplot2_2.1.0.zip", repos=NULL)
+```
 
 

@@ -12,11 +12,25 @@ or equivalently one could still follow *nix convention:
 setwd("C:/Users/kylechung")
 ```
 
+One can use the function `dir` to return all the files and folders under the current directory:
+
+```{r}
+# the content of this book's working directory
+dir()
+```
+
+`dir` can also have an argument `path` pointing to whereever one would like to examine the file contents. The default value of `path` is `.`, which is the notation indicating current directory. One can also use relative path notation: `..` to detnote the parent directory of current directory.
+
 ## Library Search Path
 
 Use `.libPaths` to show the path(es) that will be searched by R.
 
+```{r}
+.libPaths()
+```
+
 ## Save / Load
 
-`save` and `save.image`
+Use `save` to save serialized `.RData` for one variable. Or use `save.image` to save the entire working environment.
+
 

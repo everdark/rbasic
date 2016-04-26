@@ -37,15 +37,23 @@ Due to performance (in most cases) gain, one should always consider using vector
 One thing usually mis-understood by beginners: Are the `apply` family vectorized? The anwser is disppointedly a NO. `apply` family is a functional way (without side-effect) to write down codes intending to do loop-like tasks. They are NOT vectorization of any kind. This also means they do NOT gain any performance advantage.
 
 ## Recycling
+Recycling usually happens when an operation involves in at least two vectors, and one is shorter than the other. Take extraction by logical vector for example:
 
 ```{r}
 vec <- 1:10
 vec[c(T, F)]
 ```
 
+The logical vector `c(T, F)` is recycled to make sure it is as long as the vector to be extracted. Recycling often occurs without awaring users. No warning. No message. Recyclingis everywhere:
+
 ```{r}
-vec_cond <- sample(1:10, 10, replace=TRUE) > 5
-ifelse(sample(1:10, 10, replace=TRUE) > 5, 1:10, -(1:10))
+1:10 + 1
+```
+
+Here the shorter vector (which is `1`) is recycled to have length 10. To see things more clear:
+
+```{r}
+identical(1:10 + 1:2, 1:10 + rep(1:2, 5))
 ```
 
 ## The `apply` Family
@@ -82,17 +90,20 @@ str(cars)
 apply(cars, 2, max)
 ```
 
-### `lapply`
+### `lapply` and `sapply`
 `lapply` is a list `apply`, so it operates on a list.
 
 ```{r}
+ll <- list(1:10, letters)
+lapply(ll, length)
 ```
 
+`lapply` always returns a list of the same length as its input. Sometimes it is sufficient to return only an atomic vector. Thgat's where `sapply` comes in handy:
 
-### `sapply`
+```{r}
+sapply(ll, length)
+```
 
-
-
-
+Most of the time the call to `sapply` will have the effect of a `unlist(lapply(...))`.
 
 
