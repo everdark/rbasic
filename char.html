@@ -25,7 +25,7 @@
 
 <meta name="author" content="Kyle Chung">
 
-<meta name="date" content="2016-04-24">
+<meta name="date" content="2016-04-27">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -120,9 +120,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#update-the-r-installation"><i class="fa fa-check"></i><b>2.1.4</b> Update the R Installation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#r-package-installation"><i class="fa fa-check"></i><b>2.2</b> R Package Installation</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-cran"><i class="fa fa-check"></i><b>2.2.1</b> From CRAN</a></li>
-<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-source"><i class="fa fa-check"></i><b>2.2.2</b> From Source</a></li>
-<li class="chapter" data-level="2.2.3" data-path="install.html"><a href="install.html#from-github"><i class="fa fa-check"></i><b>2.2.3</b> From Github</a></li>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-the-internet"><i class="fa fa-check"></i><b>2.2.1</b> From the Internet</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-local-source-or-binary"><i class="fa fa-check"></i><b>2.2.2</b> From Local Source or Binary</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clivside.html"><a href="clivside.html"><i class="fa fa-check"></i><b>3</b> CLI versus IDE</a><ul>
@@ -175,7 +174,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1" data-path="func.html"><a href="func.html#user-define-function"><i class="fa fa-check"></i><b>6.1</b> User-Define Function</a></li>
 <li class="chapter" data-level="6.2" data-path="func.html"><a href="func.html#arguemnts"><i class="fa fa-check"></i><b>6.2</b> Arguemnts</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="func.html"><a href="func.html#default-value"><i class="fa fa-check"></i><b>6.2.1</b> Default Value</a></li>
-<li class="chapter" data-level="6.2.2" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>6.2.2</b> Ellipsis (<code>...</code>)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="func.html"><a href="func.html#lazy-evaluation"><i class="fa fa-check"></i><b>6.2.2</b> Lazy Evaluation</a></li>
+<li class="chapter" data-level="6.2.3" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>6.2.3</b> Ellipsis (<code>...</code>)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="func.html"><a href="func.html#anonymous-function-lambda"><i class="fa fa-check"></i><b>6.3</b> Anonymous Function (Lambda)</a></li>
 <li class="chapter" data-level="6.4" data-path="func.html"><a href="func.html#lexical-scoping"><i class="fa fa-check"></i><b>6.4</b> Lexical Scoping</a></li>
@@ -186,23 +186,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="char.html"><a href="char.html#help"><i class="fa fa-check"></i><b>7.1</b> Help</a></li>
 <li class="chapter" data-level="7.2" data-path="char.html"><a href="char.html#vectorization"><i class="fa fa-check"></i><b>7.2</b> Vectorization</a></li>
 <li class="chapter" data-level="7.3" data-path="char.html"><a href="char.html#recycling"><i class="fa fa-check"></i><b>7.3</b> Recycling</a></li>
-<li class="chapter" data-level="7.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>7.4</b> The <code>apply</code> Family</a></li>
+<li class="chapter" data-level="7.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>7.4</b> The <code>apply</code> Family</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="char.html"><a href="char.html#apply"><i class="fa fa-check"></i><b>7.4.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="char.html"><a href="char.html#lapply-and-sapply"><i class="fa fa-check"></i><b>7.4.2</b> <code>lapply</code> and <code>sapply</code></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="work-env.html"><a href="work-env.html"><i class="fa fa-check"></i><b>8</b> Working Directory</a><ul>
 <li class="chapter" data-level="8.1" data-path="work-env.html"><a href="work-env.html#library-search-path"><i class="fa fa-check"></i><b>8.1</b> Library Search Path</a></li>
 <li class="chapter" data-level="8.2" data-path="work-env.html"><a href="work-env.html#save-load"><i class="fa fa-check"></i><b>8.2</b> Save / Load</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="process.html"><a href="process.html"><i class="fa fa-check"></i><b>9</b> Data Processing</a><ul>
-<li class="chapter" data-level="9.1" data-path="process.html"><a href="process.html#tabular-input"><i class="fa fa-check"></i><b>9.1</b> Tabular Input</a><ul>
+<li class="chapter" data-level="9.1" data-path="process.html"><a href="process.html#tabular-data"><i class="fa fa-check"></i><b>9.1</b> Tabular Data</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="process.html"><a href="process.html#read"><i class="fa fa-check"></i><b>9.1.1</b> Read</a></li>
 <li class="chapter" data-level="9.1.2" data-path="process.html"><a href="process.html#write"><i class="fa fa-check"></i><b>9.1.2</b> Write</a></li>
+<li class="chapter" data-level="9.1.3" data-path="process.html"><a href="process.html#column-oriented-computation"><i class="fa fa-check"></i><b>9.1.3</b> Column-Oriented Computation</a></li>
+<li class="chapter" data-level="9.1.4" data-path="process.html"><a href="process.html#row-oriented-computation"><i class="fa fa-check"></i><b>9.1.4</b> Row-Oriented Computation</a></li>
+<li class="chapter" data-level="9.1.5" data-path="process.html"><a href="process.html#by-group-operations"><i class="fa fa-check"></i><b>9.1.5</b> By-Group Operations</a></li>
+<li class="chapter" data-level="9.1.6" data-path="process.html"><a href="process.html#merge"><i class="fa fa-check"></i><b>9.1.6</b> Merge</a></li>
+<li class="chapter" data-level="9.1.7" data-path="process.html"><a href="process.html#reshape"><i class="fa fa-check"></i><b>9.1.7</b> Reshape</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="process.html"><a href="process.html#json"><i class="fa fa-check"></i><b>9.2</b> JSON</a></li>
 <li class="chapter" data-level="9.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>9.3</b> Databases</a></li>
-<li class="chapter" data-level="9.4" data-path="process.html"><a href="process.html#others"><i class="fa fa-check"></i><b>9.4</b> Others</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>10</b> Error Handling</a></li>
-<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
+<li class="chapter" data-level="11" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>11</b> Parallel Computing</a></li>
+<li class="chapter" data-level="12" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>12</b> Programming with S4</a></li>
+<li class="chapter" data-level="13" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>13</b> Unit-Testing</a></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -227,23 +237,100 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 7</span> R Language Characteristics</h1>
 <div id="help" class="section level2">
 <h2><span class="header-section-number">7.1</span> Help</h2>
-<p><code>?</code></p>
+<p>Use <code>?</code> to see the document of a function. One can even use <code>?</code> to see the document of <code>?</code>: try <code>?&quot;?&quot;</code>. The document, however, sometimes does not help a lot. The target audience of R document is usually not for beginners so may contain examples or wordings that are hard to understand. If one is consulting third-party packages not included in the core R, the quality of documents are indeed varying. Some authors provides good documentation while the others doesn’t. That said, documents are only one source of help for R learners. Usually a better way is by googling and searching on <a href="http://stackoverflow.com/">stackoverflow</a>.</p>
 </div>
 <div id="vectorization" class="section level2">
 <h2><span class="header-section-number">7.2</span> Vectorization</h2>
+<p>Every built-in data structure in R is of vector form. This means that many of the built-in functions that operate on these data structures actually operates on vectors. Consider the following minimal example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span> +<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 11</code></pre>
+<p>Yes the add (<code>+</code>) function is vectorized. An expereicend R user won’t write code like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span><span class="kw">integer</span>(<span class="dv">10</span>)
+for ( i in <span class="dv">1</span>:<span class="dv">10</span> )
+  res[i] &lt;-<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>
+res</code></pre></div>
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 11</code></pre>
+<p>The performance of vectorized codes and non-vectorized one can be huge:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sillyAdd &lt;-<span class="st"> </span>function(n) {
+  res &lt;-<span class="st"> </span><span class="kw">integer</span>(n)
+  for ( i in <span class="dv">1</span>:n ) res[i] &lt;-<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>
+  res
+}
+<span class="kw">system.time</span>(res1 &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="fl">1e6</span> +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<pre><code>##    user  system elapsed 
+##    0.03    0.00    0.03</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(res2 &lt;-<span class="st"> </span><span class="kw">sillyAdd</span>(<span class="fl">1e6</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##    1.17    0.00    1.17</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(res1, res2)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Due to performance (in most cases) gain, one should always consider using vectorization whenever possible.</p>
+<p>One thing usually mis-understood by beginners: Are the <code>apply</code> family vectorized? The anwser is disppointedly a NO. <code>apply</code> family is a functional way (without side-effect) to write down codes intending to do loop-like tasks. They are NOT vectorization of any kind. This also means they do NOT gain any performance advantage.</p>
 </div>
 <div id="recycling" class="section level2">
 <h2><span class="header-section-number">7.3</span> Recycling</h2>
+<p>Recycling usually happens when an operation involves in at least two vectors, and one is shorter than the other. Take extraction by logical vector for example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>
 vec[<span class="kw">c</span>(T, F)]</code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec_cond &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>) &gt;<span class="st"> </span><span class="dv">5</span>
-<span class="kw">ifelse</span>(<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>) &gt;<span class="st"> </span><span class="dv">5</span>, <span class="dv">1</span>:<span class="dv">10</span>, -(<span class="dv">1</span>:<span class="dv">10</span>))</code></pre></div>
-<pre><code>##  [1]  -1  -2  -3   4   5   6  -7  -8   9 -10</code></pre>
+<p>The logical vector <code>c(T, F)</code> is recycled to make sure it is as long as the vector to be extracted. Recycling often occurs without awaring users. No warning. No message. Recyclingis everywhere:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span> +<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 11</code></pre>
+<p>Here the shorter vector (which is <code>1</code>) is recycled to have length 10. To see things more clear:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="dv">1</span>:<span class="dv">10</span> +<span class="st"> </span><span class="dv">1</span>:<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">10</span> +<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">2</span>, <span class="dv">5</span>))</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="the-apply-family" class="section level2">
 <h2><span class="header-section-number">7.4</span> The <code>apply</code> Family</h2>
+<p>The <code>apply</code> family is really one outstanding feature in the core of R language. Among the family, the most useful two are <code>apply</code> and <code>lapply</code>. Sometimes <code>sapply</code> also comes in handy.</p>
+<div id="apply" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> <code>apply</code></h3>
+<p><code>apply</code> will call the given function column-by-column or row-by-row, according to the <code>MARGIN</code> argument supplied.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">3</span>))</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(mm, <span class="dv">1</span>, sum) <span class="co"># by the 1st dimension: row</span></code></pre></div>
+<pre><code>## [1] 15 18 21 24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(mm, <span class="dv">2</span>, sum) <span class="co"># by the 2nd dimension: column</span></code></pre></div>
+<pre><code>## [1] 10 26 42</code></pre>
+<p><code>apply</code> use ellipsis, so it is very easy to apply functions with additional arguments:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">3</span>)
+<span class="kw">apply</span>(mm, <span class="dv">2</span>, mean, <span class="dt">trim=</span>.<span class="dv">2</span>) <span class="co"># apply the trimmed mean over each column</span></code></pre></div>
+<pre><code>## [1]  2.5  6.5 10.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(mm, <span class="dv">2</span>, paste, <span class="dt">collapse=</span><span class="st">&#39;:&#39;</span>) <span class="co"># concatenate all numbers for each column</span></code></pre></div>
+<pre><code>## [1] &quot;1:2:3:4&quot;    &quot;5:6:7:8&quot;    &quot;9:10:11:12&quot;</code></pre>
+<p>or lambdas:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">3</span>)
+<span class="kw">apply</span>(mm, <span class="dv">2</span>, function(x) <span class="kw">sd</span>(x) /<span class="st"> </span><span class="kw">mean</span>(x))</code></pre></div>
+<pre><code>## [1] 0.5163978 0.1986145 0.1229519</code></pre>
+<p><code>apply</code> can also be used on <code>data.frame</code> in exactly the same way:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cars)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  2 variables:
+##  $ speed: num  4 4 7 7 8 9 10 10 10 11 ...
+##  $ dist : num  2 10 4 22 16 10 18 26 34 17 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(cars, <span class="dv">2</span>, max)</code></pre></div>
+<pre><code>## speed  dist 
+##    25   120</code></pre>
+</div>
+<div id="lapply-and-sapply" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> <code>lapply</code> and <code>sapply</code></h3>
+<p><code>lapply</code> is a list <code>apply</code>, so it operates on a list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ll &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">10</span>, letters)
+<span class="kw">lapply</span>(ll, length)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 10
+## 
+## [[2]]
+## [1] 26</code></pre>
+<p><code>lapply</code> always returns a list of the same length as its input. Sometimes it is sufficient to return only an atomic vector. Thgat’s where <code>sapply</code> comes in handy:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(ll, length)</code></pre></div>
+<pre><code>## [1] 10 26</code></pre>
+<p>Most of the time the call to <code>sapply</code> will have the effect of a <code>unlist(lapply(...))</code>.</p>
 
+</div>
 </div>
 </div>
             </section>

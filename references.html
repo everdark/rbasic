@@ -25,7 +25,7 @@
 
 <meta name="author" content="Kyle Chung">
 
-<meta name="date" content="2016-04-24">
+<meta name="date" content="2016-04-27">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="error.html">
+<link rel="prev" href="test.html">
 
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -120,9 +120,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#update-the-r-installation"><i class="fa fa-check"></i><b>2.1.4</b> Update the R Installation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#r-package-installation"><i class="fa fa-check"></i><b>2.2</b> R Package Installation</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-cran"><i class="fa fa-check"></i><b>2.2.1</b> From CRAN</a></li>
-<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-source"><i class="fa fa-check"></i><b>2.2.2</b> From Source</a></li>
-<li class="chapter" data-level="2.2.3" data-path="install.html"><a href="install.html#from-github"><i class="fa fa-check"></i><b>2.2.3</b> From Github</a></li>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-the-internet"><i class="fa fa-check"></i><b>2.2.1</b> From the Internet</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-local-source-or-binary"><i class="fa fa-check"></i><b>2.2.2</b> From Local Source or Binary</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clivside.html"><a href="clivside.html"><i class="fa fa-check"></i><b>3</b> CLI versus IDE</a><ul>
@@ -175,7 +174,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1" data-path="func.html"><a href="func.html#user-define-function"><i class="fa fa-check"></i><b>6.1</b> User-Define Function</a></li>
 <li class="chapter" data-level="6.2" data-path="func.html"><a href="func.html#arguemnts"><i class="fa fa-check"></i><b>6.2</b> Arguemnts</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="func.html"><a href="func.html#default-value"><i class="fa fa-check"></i><b>6.2.1</b> Default Value</a></li>
-<li class="chapter" data-level="6.2.2" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>6.2.2</b> Ellipsis (<code>...</code>)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="func.html"><a href="func.html#lazy-evaluation"><i class="fa fa-check"></i><b>6.2.2</b> Lazy Evaluation</a></li>
+<li class="chapter" data-level="6.2.3" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>6.2.3</b> Ellipsis (<code>...</code>)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="func.html"><a href="func.html#anonymous-function-lambda"><i class="fa fa-check"></i><b>6.3</b> Anonymous Function (Lambda)</a></li>
 <li class="chapter" data-level="6.4" data-path="func.html"><a href="func.html#lexical-scoping"><i class="fa fa-check"></i><b>6.4</b> Lexical Scoping</a></li>
@@ -186,23 +186,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="char.html"><a href="char.html#help"><i class="fa fa-check"></i><b>7.1</b> Help</a></li>
 <li class="chapter" data-level="7.2" data-path="char.html"><a href="char.html#vectorization"><i class="fa fa-check"></i><b>7.2</b> Vectorization</a></li>
 <li class="chapter" data-level="7.3" data-path="char.html"><a href="char.html#recycling"><i class="fa fa-check"></i><b>7.3</b> Recycling</a></li>
-<li class="chapter" data-level="7.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>7.4</b> The <code>apply</code> Family</a></li>
+<li class="chapter" data-level="7.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>7.4</b> The <code>apply</code> Family</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="char.html"><a href="char.html#apply"><i class="fa fa-check"></i><b>7.4.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="char.html"><a href="char.html#lapply-and-sapply"><i class="fa fa-check"></i><b>7.4.2</b> <code>lapply</code> and <code>sapply</code></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="work-env.html"><a href="work-env.html"><i class="fa fa-check"></i><b>8</b> Working Directory</a><ul>
 <li class="chapter" data-level="8.1" data-path="work-env.html"><a href="work-env.html#library-search-path"><i class="fa fa-check"></i><b>8.1</b> Library Search Path</a></li>
 <li class="chapter" data-level="8.2" data-path="work-env.html"><a href="work-env.html#save-load"><i class="fa fa-check"></i><b>8.2</b> Save / Load</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="process.html"><a href="process.html"><i class="fa fa-check"></i><b>9</b> Data Processing</a><ul>
-<li class="chapter" data-level="9.1" data-path="process.html"><a href="process.html#tabular-input"><i class="fa fa-check"></i><b>9.1</b> Tabular Input</a><ul>
+<li class="chapter" data-level="9.1" data-path="process.html"><a href="process.html#tabular-data"><i class="fa fa-check"></i><b>9.1</b> Tabular Data</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="process.html"><a href="process.html#read"><i class="fa fa-check"></i><b>9.1.1</b> Read</a></li>
 <li class="chapter" data-level="9.1.2" data-path="process.html"><a href="process.html#write"><i class="fa fa-check"></i><b>9.1.2</b> Write</a></li>
+<li class="chapter" data-level="9.1.3" data-path="process.html"><a href="process.html#column-oriented-computation"><i class="fa fa-check"></i><b>9.1.3</b> Column-Oriented Computation</a></li>
+<li class="chapter" data-level="9.1.4" data-path="process.html"><a href="process.html#row-oriented-computation"><i class="fa fa-check"></i><b>9.1.4</b> Row-Oriented Computation</a></li>
+<li class="chapter" data-level="9.1.5" data-path="process.html"><a href="process.html#by-group-operations"><i class="fa fa-check"></i><b>9.1.5</b> By-Group Operations</a></li>
+<li class="chapter" data-level="9.1.6" data-path="process.html"><a href="process.html#merge"><i class="fa fa-check"></i><b>9.1.6</b> Merge</a></li>
+<li class="chapter" data-level="9.1.7" data-path="process.html"><a href="process.html#reshape"><i class="fa fa-check"></i><b>9.1.7</b> Reshape</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="process.html"><a href="process.html#json"><i class="fa fa-check"></i><b>9.2</b> JSON</a></li>
 <li class="chapter" data-level="9.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>9.3</b> Databases</a></li>
-<li class="chapter" data-level="9.4" data-path="process.html"><a href="process.html#others"><i class="fa fa-check"></i><b>9.4</b> Others</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>10</b> Error Handling</a></li>
-<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
+<li class="chapter" data-level="11" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>11</b> Parallel Computing</a></li>
+<li class="chapter" data-level="12" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>12</b> Programming with S4</a></li>
+<li class="chapter" data-level="13" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>13</b> Unit-Testing</a></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -224,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="references" class="section level1">
-<h1><span class="header-section-number">Chapter 11</span> References</h1>
+<h1><span class="header-section-number">Chapter 14</span> References</h1>
 
 <div id="refs" class="references">
 
@@ -235,7 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="error.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="test.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -263,7 +273,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/everdark/rbasic/edit/master/10-references.Rmd",
+"link": "https://github.com/everdark/rbasic/edit/master/20-references.Rmd",
 "text": null
 },
 "download": null,

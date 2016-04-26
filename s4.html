@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="process.html">
-<link rel="next" href="parallel.html">
+<link rel="prev" href="parallel.html">
+<link rel="next" href="test.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -233,41 +233,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="error" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> Error Handling</h1>
-<p>Error handling in R is functional. For beginners this might be a little bit hard to understand in the first glance. The template is as the followings:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span>
-<span class="st">    </span><span class="kw">tryCatch</span>({
-        <span class="co"># main expression block</span>
-        <span class="co"># last valuated expression will be returned in case of success</span>
-    }, <span class="dt">warning=</span>function(cond) {
-        <span class="co"># warning handling block, wrapped in function</span>
-        <span class="co"># argument is a condition class auto-generated in case of warning</span>
-    }, <span class="dt">error=</span>function(cond) {
-        <span class="co"># error handling block, wrapped in function</span>
-        <span class="co"># argument is a condition class auto-generated in case of error</span>
-    }, <span class="dt">finally=</span>{
-        <span class="co"># the finally block that always evaluated</span>
-    })</code></pre></div>
-<p>Except for the first argument, which is a closure (the <code>expr</code> argument) enclosed by <code>{</code>, all the other arguments are optional. That said, <code>tryCatch</code> prevents the execution of the <code>expr</code> from stopping due to any error if the argument <code>error</code> is supplied. And it prevents a warning being issued if the argument <code>warning</code> is supplied. The <code>finally</code> closure, if speficied, will be executed on any condition.</p>
-<p>Consider this example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>(<span class="dv">1</span> +<span class="st"> &quot;1&quot;</span>)</code></pre></div>
-<pre><code>## Error in 1 + &quot;1&quot;: non-numeric argument to binary operator</code></pre>
-<p>Error still occurs. This is because the error is NOT caught. To catch the error, one should write something like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>({
-  <span class="dv">1</span> +<span class="st"> &quot;1&quot;</span>
-}, <span class="dt">error=</span>function(cond) <span class="kw">print</span>(<span class="st">&quot;The error is caught!&quot;</span>))</code></pre></div>
-<pre><code>## [1] &quot;The error is caught!&quot;</code></pre>
-<p>Now there is no error message, instead, the function specified in <code>error</code> argument is executed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>({
-  <span class="dv">1</span> +<span class="st"> &quot;1&quot;</span>
-  }, <span class="dt">error=</span>function(cond) <span class="kw">print</span>(<span class="st">&quot;The error is caught!&quot;</span>),
-  <span class="dt">finnaly =</span> {
-    <span class="kw">print</span>(<span class="st">&quot;This is printed whatsoever.&quot;</span>)
-  })</code></pre></div>
-<pre><code>## [1] &quot;This is printed whatsoever.&quot;
-## [1] &quot;The error is caught!&quot;</code></pre>
-<p>The is also a simplied version of error handler: the <code>try</code> function. It is light-weighted but with less capability.</p>
+<div id="s4" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Programming with S4</h1>
 
 </div>
             </section>
@@ -275,8 +242,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="process.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="parallel.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="parallel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="test.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -303,7 +270,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/everdark/rbasic/edit/master/09-error-handle.Rmd",
+"link": "https://github.com/everdark/rbasic/edit/master/11-s4.Rmd",
 "text": null
 },
 "download": null,
