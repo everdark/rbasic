@@ -1,0 +1,9 @@
+# Parallel Computing {#parallel}
+
+This chapter introduces the built-in package `parallel` for the embarrassingly parallel computing in the R language.
+
+`mclapply`
+
+`parLapply`
+
+`pvec`

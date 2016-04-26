@@ -1,6 +1,6 @@
 # Data Processing {#process}
 
-## Tabular Input
+## Tabular Data
 
 The recommended package to deal with tabular data I/O is the package `data.table`.
 
@@ -12,9 +12,19 @@ The recommended package to deal with tabular data I/O is the package `data.table
 
 ### Write
 
+`fwrite`
 `write.table`
 `writeLines`
 
+### Column-Oriented Computation
+
+### Row-Oriented Computation
+
+### By-Group Operations
+
+### Merge
+
+### Reshape
 
 ## JSON
 
@@ -22,7 +32,6 @@ The recommended package to deal with json I/O is the package `jsonlite`.
 
 ## Databases
 
-## Others
 
 
 

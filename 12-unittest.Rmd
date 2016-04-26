@@ -1,0 +1,3 @@
+# Unit-Testing {#test}
+
+The recommended package for unit-testing is `testthat`.
