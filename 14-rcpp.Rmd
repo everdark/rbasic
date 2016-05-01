@@ -1,0 +1,500 @@
+# Speed-up with Rcpp {#rcpp}
+
+This chapter is mainly based on the author's materials of [R Lightning Talk](https://github.com/everdark/rcpp_lightning_dsc2015) at Data Science Conference 2015 (Taipei).
+
+## What exactly is R?
+
++ It's a program written in R, C++, and Fortran.
++ Let's take a look at its source files.
+
+```{r file_count, warning=FALSE}
+library(data.table)
+library(stringr)
+
+# download R source code if you dont have it yet
+rver <- "R-3.2.5"
+rsrc <- sprintf("%s.tar.gz", rver)
+if ( !file.exists(rver) ) {
+  download.file(file.path("http://cran.csie.ntu.edu.tw/src/base/R-3/", rsrc), rsrc)
+  untar(rsrc)
+}
+
+# get all file extensions in R source code
+all_src_files <- list.files(file.path(rver, "src/"), recursive=TRUE, full.names=TRUE)
+all_ext <- str_extract(all_src_files, "\\.[a-zA-Z]+$")
+file_counts <- as.data.table(sort(table(all_ext), decreasing=TRUE), keep.rownames=TRUE)
+``` 
+
+### Distribution of source file counts in R
+
+```{r plot_file_count, message=FALSE}
+library(wordcloud)
+par(mar=c(0, 0, 0, 0))
+wordcloud(file_counts$V1, file_counts$V2, min.freq=1, scale=c(7,1), rot.per=.35, random.order=F)
+library(ggvis)
+file_counts[1:10] %>% ggvis(~reorder(V1, -V2), ~V2) %>% layer_bars() %>%
+    add_axis('x', title="Source Type") %>% add_axis('y', title="File Count")
+``` 
+
++ Top-ten file types:
+    + Rd: document file
+    + **.R: R source**, of course
+    + **.C: C source**
+    + .mo: binary data file
+    + .po: gettext file, about programming language translation
+    + **.h: header file for C**
+    + .afm: font file
+    + .in: usually template config file for some macro preprocessor
+    + .win: same above, but for Windows
+    + **.f: Fortran source**
+
+
+```{r source_file_count, cache=TRUE}
+# now focus on only source type files
+src_ext <- c('c', 'h', 'R', 'f')
+srcfiles <- list()
+for ( ext in src_ext )
+    srcfiles[[ext]] <- grep(sprintf("\\.%s$", ext), all_src_files, value=TRUE)
+ext_dist <- sapply(srcfiles, length)
+round(ext_dist / sum(ext_dist), 2)
+```
+
+As you can see, **R is heavily writen in C.** Indeed, most primitive functions are written in C code. Vectorization is implemented in C code. The speedy part of R is written in C. (And that's why it is speedy.)
+
+For example, ``+`` (the add function) is a primitive function written in C, vectorized.
+```{r print_add}
+`+` # no R source code printed cause it is written in C
+```
+
+In addition to distribution of *number of files* in R source, we can take a further look into the distribution of *number of lines* in each source type. 
+
+```{r line_count, cache=TRUE}
+# unix only
+wc_res <- sapply(srcfiles, function(x) 
+    sum(as.integer(sapply(sprintf("wc -l < %s", x), system, intern=TRUE))))
+round(wc_res / sum(wc_res), 2)
+```
+
+
+### Distribution of source line counts in R
+
+```{r plot_line_count}
+line_counts <- as.data.table(wc_res, keep.rownames=TRUE)
+line_counts %>% ggvis(~rn, ~wc_res) %>% layer_bars() %>%
+    add_axis('x', title="Source Type") %>% add_axis('y', title="Line Count", title_offset=60)
+```
+
+Finally, we've found that **only `r paste0(round(100 * wc_res['R'] / sum(wc_res), 2), '%')` of R source lines is written in R, and `r paste0(round(100 * wc_res['c'] / sum(wc_res), 2), '%')` of it is written by C, and `r paste0(round(100 * wc_res['f'] / sum(wc_res), 2), '%')` Fortran.**
+
+## Speed-Up
+When R is not satisfying your need for speed...
+
++ It's simple. We can write R function in C/C++, which is usually above 10X faster than the equivalent of native R code. 
++ Okay. So **why not just use C/C++** for everything? 
+    + cause your *programming time* will explode to blow up all your potential performance gain, well, provided that you really can finish the analytic job purely in C++.
++ This kind of high-level / low-level trade-off is happening in any modern analytic tools.
+    + but at least you are capable of trading for such gain in R, which is a very flexible language for analytics.
+    + for some other tools you simply CAN'T do anything to speed up your performance.
+
+But writing C/C++ for R is painful
++ The traditional R API to C/C++ is talking like alien.
+
+Here comes `Rcpp`
+
++ What is `Rcpp`?
+    + A library for R [@Eddelbuettel:Francois:2011:JSSOBK:v40i08] to build a more manageble API for integrating R and C++, so that users are more easy to write function in C++ to speed up their R program.
+    + It provides *syntax sugar* so that the coding is less like C++ programing and more like R programing. Indeed it becomes something in-between.
++ Useful resources:
+    + [Rcpp Github page](https://github.com/RcppCore/Rcpp)
+    + [Rcpp website](http://www.rcpp.org)
+
+### Example 1: n-gram generation
+
+Imagin you are dealing with hexdump of files and planning to use its n-gram frequency feature. Your input data may look like this: 
+
+```{r ex1:print_hexdump}
+samplefile <- "index.html"
+system(sprintf("xxd -g1 %s | head", samplefile), intern=TRUE) # unix only
+```
+
+We firstly tidy the input to be a long character sequence...
+
+```{r ex1:process_hexdump}
+hexdumplines <- system(sprintf("xxd -g1 %s | cut -d \" \" -f 2-17", samplefile), intern=TRUE) # unix only
+hexdump <- unlist(strsplit(paste(hexdumplines, collapse=' '), ' '))
+hexdump <- hexdump[hexdump != '']
+str(hexdump)
+```
+
+Then what? Try looping in native R code, which is rather straight forward.
+
+```{r ex1:r_solution, cache=TRUE}
+# first trial: use native R loop (could be terrible for large-scale processing...)
+generateNgramFreqR <- function(x, n) {
+    len <- length(x) - (n - 1)
+    out <- character(len) # pre-allocate size, very important
+    for ( i in 1:len ) {
+        out[i] <- x[i]
+        if ( n > 1 )
+            for ( j in 1:(n-1) )
+                out[i] <- paste0(out[i], x[i+j])
+    }
+    unlist(as.list(sort(table(out), decreasing=TRUE)))
+}
+system.time(r_res <- generateNgramFreqR(hexdump, 2))
+r_res[1:10]
+```
+
+Or we can use some external library that focuses on text mining, for example, use `tau` [@Buchta:Hornik:Feinerer:Meyer:2015].
+
+```{r ex1:tau_solution, cache=TRUE, message=FALSE}
+# second trial: use external library
+generateNgramFreqTau <- function(x, n) {
+    require(tau)
+    tau_res <- textcnt(x, n=n, method="string", split="[[:space:]]+")
+    names(tau_res) <- gsub(' ', '', names(tau_res))
+    sort(tau_res, decreasing=TRUE)
+}
+system.time(tau_res <- generateNgramFreqTau(hexdump, 2))
+tau_res[1:10]
+
+# check if the results are eqaul
+identical(tau_res, r_res)
+```
+
+But the performance of the above two solutions are both not satisfying when it comes to large-scale problem. Think about dealing with hex-dump strings from tens of thousands of files, we will need more efficient solution.
+
+Sometimes to make things better all you have to do is to find ANOTHER package that is more powerful over the probelm at hand. But still sometimes you just don't have much to choose. In this very case of generating n-grams, though there is another well-known general text mining pacakge `tm` [@Feinerer:Hornik:2015; @Feinerer:Hornik:Meyer:2008] available, it is not suitable to serve as a faster solution to our problem. Indeed, it is prohibitively slow.
+
+```{r ex1:tm_solution, cache=TRUE, message=FALSE}
+# third trial: use another external library, hopefully faster? (Nope.)
+generateNgramFreqTm <- function(x, n) {
+    require(tm)
+    op <- options(mc.cores=NULL) 
+    options(mc.cores=1)
+    on.exit(options(op))
+    
+    ngramTokenizer <- function(x) RWeka::NGramTokenizer(x, RWeka::Weka_control(min=2, max=2))
+    corp <- Corpus(VectorSource(paste(x, collapse=' ')))
+    tdm <- TermDocumentMatrix(corp, control=list(tokenize=ngramTokenizer))
+    res <- rowSums(as.matrix(tdm))
+    names(res) <- gsub(' ', '', names(res))
+    sort(res, decreasing=TRUE)
+}
+
+# full-size input not run, too slow
+length(hexdumplines)
+system.time(tm_res <- generateNgramFreqTm(hexdumplines[1:10000], 2))
+tm_res[1:10]
+```
+
+Let's try `Rcpp` to see what we could further achieve.
+
+```{r ex1:cpp_solution, cache=TRUE}
+# final trial: use Rcpp to write the function in C++
+library(Rcpp)
+cppFunction('
+    CharacterVector generateNgramFreq (CharacterVector hexvector, int ngram) {
+        int len = hexvector.size() - (ngram - 1);
+        CharacterVector out(len);
+        for (int i = 0; i < len; i++) {
+            out(i) = hexvector[i];
+            for (int j = 1; j < ngram; j++) {
+                out(i) += hexvector[i+j];
+            }
+        }
+        return out;
+    }')
+generateNgramFreq
+generateNgramFreqCpp <- function(x, n)
+    unlist(as.list(sort(table(generateNgramFreq(x, n)), decreasing=TRUE)))
+system.time(cpp_res <- generateNgramFreqCpp(hexdump, 2))
+cpp_res[1:10]
+identical(cpp_res, r_res)
+```
+
+Now it's time to benchmark these solutions to see the performance difference. You'll see that the `Rcpp` solution is above **10X faster** than its alternatives. Depends on the scale of your problem such gap could be further enlarged.
+
+```{r ex1:benchmark, cache=TRUE}
+library(microbenchmark)
+microbenchmark(generateNgramFreqR(hexdump, 2),
+               generateNgramFreqTau(hexdump, 2),
+               generateNgramFreqCpp(hexdump, 2), 
+               times=10)
+```
+
++ Interested? See the [Microsoft malware classification challenge](https://www.kaggle.com/c/malware-classification)
+
+
+### Example 2: moving-window computing
+
+Move on to the next case. Suppose you'd like to monitor the system logs in your computer, counting the process that triggers logging in a sliding-window manner.
+
+```{r ex2:print_syslog}
+syslogname <- "system.log" # this is for Mac, for Linux you may use "syslog" instead
+syslogs <- grep(syslogname, dir("/var/log", full.names=TRUE), value=TRUE)
+loglines <- unlist(lapply(syslogs, 
+                          function(x) {
+                              con <- gzfile(x)
+                              on.exit(close(con))
+                              readLines(con)
+                          }))
+head(loglines)
+```
+
+Here we use regex to extract fields we are intereted, convert datetime character to POSIX time object, and take a look at the top distributed categories of process names.
+
+```{r ex2:process_syslog}
+logdat <- as.data.table(str_match(loglines, "(^.*[0-9]+ [0-9]{2}:[0-9]{2}:[0-9]{2})([^:]+:)")[,2:3])
+setnames(logdat, c("ts", "cate"))
+logdat[, `:=`(cate=str_match(cate, " ([a-zA-Z]+)\\[[0-9]+\\]")[,2],
+              ts=as.POSIXct(ts, format="%b %e %H:%M:%S"))]
+logdat[, tsint:=as.integer(ts)]
+logdat <- logdat[!is.na(cate)]
+setorder(logdat, ts)
+logdat
+sort(table(logdat$cate), decreasing=TRUE)[1:10]
+```
+
+Suppose the task is to count number of records for each process within the last 5 minutes for every 1 minute. This is a moving-window operation which could be painful should you use pure R code to solve it. Of course there are dedicated packages aiming at this kind of task but again for this very case none of them to my best knowledge could work efficently.
+
+```{r ex2:r_solution1, cache=TRUE}
+# first trial: again, naive approach first
+movingWindowCountR <- function(DT, wsize, interval, select=NULL) {
+    require(data.table)
+    sts <- min(DT$tsint)
+    ninter <- ceiling(diff(range(DT$tsint)) / interval)
+    if ( !is.null(select) )
+        DT <- DT[cate %in% select]
+    res <- list()
+    for ( ca in unique(DT$cate) ) {
+        sts_ <- sts
+        cnt <- integer(ninter)
+        for ( i in 1:ninter ) {
+            cnt[i] <- nrow(DT[cate == ca][tsint <= sts_ & tsint > sts_ - wsize])
+            sts_ <- sts_ + interval
+        }
+        res[[ca]] <- cnt
+    }
+    res
+}
+# run for only two processess cause to slow...
+system.time(r_res <- movingWindowCountR(logdat, 300, 60, c("kernel", "discoveryd")))
+```
+
+Let's plot the moving-window-count time series for process "kernel".
+
+```{r ex2:plot}
+kernel_mvcnt <- data.table(count=r_res[["kernel"]])
+kernel_mvcnt[, t:=1:.N]
+kernel_mvcnt %>% ggvis(~t, ~count) %>% layer_lines()
+```
+
+The bottleneck is, of course, at the loop code. R is not good at explicit looping. When you just don't find a way to avoid coding like this, it is probably a strong sign indicating the use of `Rcpp`. 
+
+But before that, let's struggle a little bit more.
+
+```{r ex2:r_solution2, cache=TRUE}
+# second trial: play tricky
+movingWindowCountR2 <- function(DT, wsize, interval, select=NULL) {
+    require(data.table)
+    wsize <- wsize
+    allts <- data.table(tsint=min(DT$tsint):max(DT$tsint))
+    if ( !is.null(select) )
+        DT <- DT[cate %in% select]
+    res <- lapply(split(DT, DT$cate), 
+                  function(x) {
+                      x <- merge(x, allts, by="tsint", all=TRUE)
+                      tsunit_cnt <- x[, list(cnt=sum(!is.na(cate))), by="tsint"]
+                      tsunit_cumcnt <- c(rep(0, wsize), cumsum(tsunit_cnt$cnt))
+                      as.integer(tail(tsunit_cumcnt, -wsize) - head(tsunit_cumcnt, -wsize))
+                  })
+    lapply(res, function(x) x[seq(1, length(x), interval)])
+}
+
+# run for all processes
+system.time(r2_res <- movingWindowCountR2(logdat, 300, 60))
+identical(r_res[["kernel"]], r2_res[["kernel"]])
+```
+
+Our second solution is considerably faster, though little bit harder to code and maintain. What if we simply re-write the loop in the first solution in `Rcpp`? 
+
+```{r ex2:rcpp_solution, cache=TRUE}
+# final trial
+cppFunction('
+    NumericVector movingWindowCount(NumericVector ts, int wsize, int interval, int sts, int nt) {
+        NumericVector out(nt);
+        for (int i = 0; i < nt; i++) {
+            NumericVector cnts = ts[(ts <= sts) & (ts > sts - wsize)];
+            out(i) = cnts.size();
+            sts += interval;
+        }
+        return out;
+    }')
+
+movingWindowCountCpp <- function(DT, wsize, interval, select=NULL) {
+    require(data.table)
+    sts <- min(DT$tsint)
+    ninter <- ceiling(diff(range(DT$tsint)) / interval)
+    if ( !is.null(select) )
+        DT <- DT[cate %in% select]
+    lapply(split(DT, DT$cate), 
+           function(x) as.integer(movingWindowCount(x$ts, wsize, interval, sts, ninter)))
+}
+
+# run for all processes
+system.time(rcpp_res <- movingWindowCountCpp(logdat, 300, 60))
+identical(rcpp_res[["kernel"]], r_res[["kernel"]])
+length(rcpp_res)
+
+xargs <- list(logdat, 300, 60, c("kernel", "discoveryd"))
+microbenchmark(do.call(movingWindowCountR, xargs),
+               do.call(movingWindowCountR2, xargs),
+               do.call(movingWindowCountCpp, xargs), 
+               times=3)
+```
+
+At the benchmark of only processing a small number of processes, solution 2 may outperform `Rcpp` solution. Nevertheless, the latter *scales* considerably greater. Let's further examine this point. (It all depends on your machine. For example on my MacBook 12" solution 2 is faster overall at 2 processes but on my MacBook Pro 13" the `Rcpp` solution constantly outperforms the others.) 
+
+```{r ex2:scale_benchmark, cache=TRUE}
+allcate <- unique(logdat$cate)
+nround <- 20
+elapsed_r2 <- numeric(nround)
+elapsed_rcpp <- numeric(nround)
+for ( i in 1:nround ) {
+    xargs <- list(logdat, 300, 60, allcate[1:i])
+    
+    stime <- proc.time()
+    do.call(movingWindowCountR2, xargs)
+    elapsed_r2[i] <- (proc.time() - stime)["elapsed"]
+    
+    stime <- proc.time()
+    do.call(movingWindowCountCpp, xargs)
+    elapsed_rcpp[i] <- (proc.time() - stime)["elapsed"]    
+}
+```
+
+```{r ex2:plot_benchmark}
+bres <- rbind(data.table(n=1:nround, t=elapsed_r2, alg="r2"), 
+              data.table(n=1:nround, t=elapsed_rcpp, alg="rcpp"))
+bres %>% ggvis(~n, ~t, fill=~alg) %>% layer_points() %>% 
+    add_axis('x', title="nround") %>% add_axis('y', title="Seconds Elapsed")
+```
+
+As you can see, the `Rcpp` solution is already remnarkably fast in fair-sized problem. Sometimes (like the current one) the speed gain could be exponential in scale of the given problem. The promising point is that we don't actually add any complexity in our coding. (Okay maybe just a little if one is new to `Rcpp`.) Only a small part of the code is re-written in `Rcpp`, and the performance gain is tremendous.
+
++ See [Rcpp sugar](http://dirk.eddelbuettel.com/code/rcpp/Rcpp-sugar.pdf) introduction to discover more tips about writing `Rcpp` functions.
+
+### Example 3: ad-hoc data.frame operation
+
+There are other cases that you found solutions of existing packages lacking efficiency. That's assume an MOOC-like student-course activity log in a simplist format. We log all activities for all students in all courses with timestamp. (Assume 26 courses in total, marked by English letters. Students are indexed by incremental integers.)
+
+```{r, ex3:prepare_sample_data}
+# generate a simulated data as our playground
+genSimData <- function(nlog, nuser, seed) {
+    set.seed(seed)
+    dat <- data.table(user=sample(1:nuser, nlog, replace=TRUE, 
+                                  prob=rbeta(1:nuser, .1, 2)),
+                      course=sample(letters, nlog, replace=TRUE, prob=1:26),
+                      ts=runif(nlog, as.integer(as.POSIXct("2015-01-01")),
+                               as.integer(as.POSIXct("2015-06-30"))))
+    dat[, t:=as.POSIXct(ts, origin="1970-01-01")]
+    setorder(dat, user, course, ts)
+    dat
+}
+
+simlog <- genSimData(nlog=1e6, nuser=1e3, seed=528491)
+head(simlog)
+```
+
+Now based on such dataset, assume we'd like to extract a feature: *How many courses in total did a student register at the time of his/her last activity record for each course*? For example, if student 1's last activity for course a is today, then how many courses in total (including course a) did she also have at least one activity records?
+
+This problem requires a some-how twisted by-group operation on data.frame, and hence could be challenging if the scale is huge.
+
+```{r, ex3:naive_approach, cache=TRUE}
+# naive apporach first
+adHocOperateR <- function(DT) {
+    require(data.table)
+    DT <- copy(DT)
+    DT[, `:=`(tsmin=min(ts), tsmax=max(ts)), by="user,course"]
+    DT <- unique(DT[, list(user, course, tsmin, tsmax)])
+    res <- integer()
+    for ( i in unique(DT$user) ) {
+        tmpdat <- DT[user == i]
+        for ( j in tmpdat$course ) {
+            res <- c(res, sum(tmpdat$tsmin <= tmpdat[course == j, tsmax]))
+        }
+    }
+    cbind(DT[, list(user, course)], res)
+}
+
+system.time(res_r1 <- adHocOperateR(simlog))
+res_r1[sample(nrow(res_r1), 10)]
+```
+
+The naive approach scales well in `nlog` but not in `nuser` cause the latter impacts how many loops actually run in our solution. Relying only on `data.table`, can we improve? The anwser is yes. The following solution use the so-called *"grouping by each i"* technique to drastically improve performance.
+
+```{r ex3:smart_approach, cache=TRUE}
+# let's utilizing data.table bitter
+adHocOperateR2 <- function(DT) {
+    require(data.table)
+    DT <- copy(DT)
+    DT[, `:=`(tsmin=min(ts), tsmax=max(ts)), by="user,course"]
+    tmpdat1 <- unique(DT[, list(user, course, tsmin)])
+    tmpdat2 <- unique(DT[, list(user, course, tsmax)])
+    setkey(tmpdat1, user)
+    setkey(tmpdat2, user)
+    cbind(tmpdat1[, list(user, course)], 
+          res=tmpdat1[tmpdat2, list(res=sum(tsmin <= tsmax)), by=.EACHI][, res])
+}
+system.time(res_r2 <- adHocOperateR2(simlog))
+
+setkey(res_r1, user)
+identical(res_r1, res_r2)
+```
+
+Time for `Rcpp`. Is it possible to be even faster?
+
+```{r ex3:rcpp_solution}
+cppFunction('
+    NumericVector adHocOperate (NumericVector first, NumericVector last) {
+        int len = first.size();
+        NumericVector out(len);
+        for (int i = 0; i < len; i++) {
+            out(i) = 0;
+            for (int j = 0; j < len; j++) {
+                if (first(j) <= last(i)) {
+                    out(i) += 1;
+                }
+            }
+        }
+        return out;
+    }')
+
+adHocOperateCpp <- function(DT) {
+    require(data.table)
+    DT <- copy(simlog)
+    DT[, `:=`(tsmin=min(ts), tsmax=max(ts)), by="user,course"]
+    DT <- unique(DT[, list(user, course, tsmin, tsmax)])
+    cbind(DT[, list(user, course)],
+          res=as.integer(DT[, list(res=adHocOperate(.SD$tsmin, .SD$tsmax)), by="user"][, res]))
+}
+
+system.time(res_cpp <- adHocOperateCpp(simlog))
+setkey(res_cpp, user)
+identical(res_cpp, res_r1)
+```
+
+Well, the result suggests that `Rcpp` solution performs fairly equal to the `data.table` solution. Time to inspect the scalability issue.
+
+```{r ex3:benchmark, cache=TRUE}
+# make the data bigger
+simlog <- genSimData(nlog=1e7, nuser=1e4, seed=528491)
+microbenchmark(adHocOperateR2(simlog),
+               adHocOperateCpp(simlog), 
+               times=10)
+```
+
+Finally, the `Rcpp` solution still outperforms, but not in so much advantage. The `data.table` solution did a fairly good job. The reason is not surprising: `data.table` itself is largely written in C. 
+
+Here is the take-a-way from the 3rd example: when performance is the key factor in your computing job and you find yourself facing severe performance bottleneck, you either rewrite the key operaion part of your code in `Rcpp` or you choose a package that is written in C and hopefully can solve your problem. To be a more independent data analyst, it is really worth learning `Rcpp`. As you can see in the above three examples, sometimes it only takes a little simple coding and your task will be done in lightning fast.
