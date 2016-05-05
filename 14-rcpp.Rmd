@@ -113,7 +113,7 @@ Here comes `Rcpp`
 Imagin you are dealing with hexdump of files and planning to use its n-gram frequency feature. Your input data may look like this: 
 
 ```{r ex1:print_hexdump}
-samplefile <- "index.html"
+samplefile <- "14-rcpp.Rmd"
 system(sprintf("xxd -g1 %s | head", samplefile), intern=TRUE) # unix only
 ```
 
