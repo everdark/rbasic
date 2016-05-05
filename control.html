@@ -8,7 +8,7 @@
   <title>RBasic 101</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
-  <meta name="generator" content="bookdown 0.0.64 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
 
   <meta property="og:title" content="RBasic 101" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Kyle Chung">
 
-<meta name="date" content="2016-04-27">
+<meta name="date" content="2016-05-05">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +49,15 @@
 
 
 
+<script src="libs/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/d3-3.5.2/d3.min.js"></script>
+<script src="libs/vega-1.4.3/vega.min.js"></script>
+<script src="libs/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis-0.4.2/js/ggvis.js"></script>
 
 
 <style type="text/css">
@@ -212,7 +221,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>11</b> Parallel Computing</a></li>
 <li class="chapter" data-level="12" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>12</b> Programming with S4</a></li>
 <li class="chapter" data-level="13" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>13</b> Unit-Testing</a></li>
-<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
+<li class="chapter" data-level="14" data-path="cowork.html"><a href="cowork.html"><i class="fa fa-check"></i><b>14</b> Language Co-Working</a></li>
+<li class="chapter" data-level="15" data-path="rcpp.html"><a href="rcpp.html"><i class="fa fa-check"></i><b>15</b> Speed-up with Rcpp</a><ul>
+<li class="chapter" data-level="15.1" data-path="rcpp.html"><a href="rcpp.html#what-exactly-is-r"><i class="fa fa-check"></i><b>15.1</b> What exactly is R?</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-file-counts-in-r"><i class="fa fa-check"></i><b>15.1.1</b> Distribution of source file counts in R</a></li>
+<li class="chapter" data-level="15.1.2" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-line-counts-in-r"><i class="fa fa-check"></i><b>15.1.2</b> Distribution of source line counts in R</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="rcpp.html"><a href="rcpp.html#speed-up"><i class="fa fa-check"></i><b>15.2</b> Speed-Up</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="rcpp.html"><a href="rcpp.html#example-1-n-gram-generation"><i class="fa fa-check"></i><b>15.2.1</b> Example 1: n-gram generation</a></li>
+<li class="chapter" data-level="15.2.2" data-path="rcpp.html"><a href="rcpp.html#example-2-moving-window-computing"><i class="fa fa-check"></i><b>15.2.2</b> Example 2: moving-window computing</a></li>
+<li class="chapter" data-level="15.2.3" data-path="rcpp.html"><a href="rcpp.html#example-3-ad-hoc-data.frame-operation"><i class="fa fa-check"></i><b>15.2.3</b> Example 3: ad-hoc data.frame operation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -275,16 +296,16 @@ res &lt;-<span class="st"> </span>
     <span class="kw">message</span>(<span class="st">&quot;cond is &quot;</span>, cond, <span class="st">&quot;: go else&quot;</span>)
     <span class="st">&quot;bar&quot;</span>
   }</code></pre></div>
-<pre><code>## cond is 9: go if</code></pre>
+<pre><code>## cond is 4: go else</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res</code></pre></div>
-<pre><code>## [1] &quot;foo&quot;</code></pre>
+<pre><code>## [1] &quot;bar&quot;</code></pre>
 </div>
 <div id="ifelse" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> <code>ifelse</code></h3>
 <p>There is a vectorized version of <code>if</code>: the <code>ifelse</code> function. Now it accepts a vector of any length:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec_cond &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>) &gt;<span class="st"> </span><span class="dv">5</span>
 <span class="kw">ifelse</span>(<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>) &gt;<span class="st"> </span><span class="dv">5</span>, <span class="dv">1</span>:<span class="dv">10</span>, -(<span class="dv">1</span>:<span class="dv">10</span>))</code></pre></div>
-<pre><code>##  [1]   1  -2  -3  -4   5  -6  -7   8  -9 -10</code></pre>
+<pre><code>##  [1]  1 -2  3  4  5  6 -7 -8 -9 10</code></pre>
 <p>Notice that the call to <code>sample</code> results in a vector of length 10, the second argument is a vector when the condition holds, and the third for condition not holds. What happen if the vector lengths are different? <em>Recycling</em> will occur. See section <a href="char.html#recycling">7.3</a> for more details about recycling.</p>
 </div>
 <div id="logical-operations" class="section level3">
@@ -353,8 +374,8 @@ res</code></pre></div>
 b &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)
 for ( l in <span class="kw">list</span>(a,b) )
   <span class="kw">print</span>(<span class="kw">mean</span>(l))</code></pre></div>
-<pre><code>## [1] 0.2140805
-## [1] 0.4672105</code></pre>
+<pre><code>## [1] -0.1121282
+## [1] 0.490136</code></pre>
 <p>All vectors can be iterated. What about a <code>matrix</code>? Remember that a <code>matrix</code> is simply an atomic <code>vector</code> with a <code>dim</code> attribute. So surely it can be iterated: (only for illustration purpose because such scenario is rarely practical)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for ( i in <span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>) ) <span class="kw">print</span>(i)</code></pre></div>
 <pre><code>## [1] 1
@@ -365,7 +386,7 @@ for ( l in <span class="kw">list</span>(a,b) )
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tt &lt;-<span class="st"> </span>vv &lt;-<span class="st"> </span>kk &lt;-<span class="st"> </span><span class="kw">integer</span>(<span class="fl">1e5</span>)
 <span class="kw">system.time</span>(for ( i in <span class="dv">1</span>:<span class="kw">length</span>(tt) ) vv[i] &lt;-<span class="st"> </span>tt[i] +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.16    0.00    0.15</code></pre>
+##   0.128   0.005   0.136</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(kk &lt;-<span class="st"> </span>tt +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
 <pre><code>##    user  system elapsed 
 ##       0       0       0</code></pre>
@@ -384,7 +405,7 @@ for ( l in <span class="kw">list</span>(a,b) )
 <a href="data-struc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="func.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>

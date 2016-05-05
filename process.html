@@ -8,7 +8,7 @@
   <title>RBasic 101</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
-  <meta name="generator" content="bookdown 0.0.64 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
 
   <meta property="og:title" content="RBasic 101" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 
 <meta name="author" content="Kyle Chung">
 
-<meta name="date" content="2016-04-27">
+<meta name="date" content="2016-05-05">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +49,15 @@
 
 
 
+<script src="libs/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/d3-3.5.2/d3.min.js"></script>
+<script src="libs/vega-1.4.3/vega.min.js"></script>
+<script src="libs/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis-0.4.2/js/ggvis.js"></script>
 
 
 <style type="text/css">
@@ -212,7 +221,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>11</b> Parallel Computing</a></li>
 <li class="chapter" data-level="12" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>12</b> Programming with S4</a></li>
 <li class="chapter" data-level="13" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>13</b> Unit-Testing</a></li>
-<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
+<li class="chapter" data-level="14" data-path="cowork.html"><a href="cowork.html"><i class="fa fa-check"></i><b>14</b> Language Co-Working</a></li>
+<li class="chapter" data-level="15" data-path="rcpp.html"><a href="rcpp.html"><i class="fa fa-check"></i><b>15</b> Speed-up with Rcpp</a><ul>
+<li class="chapter" data-level="15.1" data-path="rcpp.html"><a href="rcpp.html#what-exactly-is-r"><i class="fa fa-check"></i><b>15.1</b> What exactly is R?</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-file-counts-in-r"><i class="fa fa-check"></i><b>15.1.1</b> Distribution of source file counts in R</a></li>
+<li class="chapter" data-level="15.1.2" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-line-counts-in-r"><i class="fa fa-check"></i><b>15.1.2</b> Distribution of source line counts in R</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="rcpp.html"><a href="rcpp.html#speed-up"><i class="fa fa-check"></i><b>15.2</b> Speed-Up</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="rcpp.html"><a href="rcpp.html#example-1-n-gram-generation"><i class="fa fa-check"></i><b>15.2.1</b> Example 1: n-gram generation</a></li>
+<li class="chapter" data-level="15.2.2" data-path="rcpp.html"><a href="rcpp.html#example-2-moving-window-computing"><i class="fa fa-check"></i><b>15.2.2</b> Example 2: moving-window computing</a></li>
+<li class="chapter" data-level="15.2.3" data-path="rcpp.html"><a href="rcpp.html#example-3-ad-hoc-data.frame-operation"><i class="fa fa-check"></i><b>15.2.3</b> Example 3: ad-hoc data.frame operation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -280,7 +301,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <a href="work-env.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="error.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>

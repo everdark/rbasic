@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RBasic 101</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
+  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
+
+  <meta property="og:title" content="RBasic 101" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The lecture notes for RBasic 101 on agilearn.io" />
+  <meta name="github-repo" content="everdark/rbasic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="RBasic 101" />
+  
+  <meta name="twitter:description" content="The lecture notes for RBasic 101 on agilearn.io" />
+  
+
+<meta name="author" content="Kyle Chung">
+
+<meta name="date" content="2016-05-05">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="cowork.html">
+<link rel="next" href="references.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/d3-3.5.2/d3.min.js"></script>
+<script src="libs/vega-1.4.3/vega.min.js"></script>
+<script src="libs/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis-0.4.2/js/ggvis.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Basic 101</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#thought-experiments"><i class="fa fa-check"></i><b>1.1</b> Thought Experiments</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#first-trial"><i class="fa fa-check"></i><b>1.1.1</b> First Trial</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#second-trial"><i class="fa fa-check"></i><b>1.1.2</b> Second Trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#third-trial"><i class="fa fa-check"></i><b>1.1.3</b> Third Trial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#welcome-to-the-r-language"><i class="fa fa-check"></i><b>1.2</b> Welcome to the R Language</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#r-installation"><i class="fa fa-check"></i><b>2.1</b> R Installation</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>2.1.1</b> Windows</a></li>
+<li class="chapter" data-level="2.1.2" data-path="install.html"><a href="install.html#os-x-mac"><i class="fa fa-check"></i><b>2.1.2</b> OS X (Mac)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="install.html"><a href="install.html#ubuntu"><i class="fa fa-check"></i><b>2.1.3</b> Ubuntu</a></li>
+<li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#update-the-r-installation"><i class="fa fa-check"></i><b>2.1.4</b> Update the R Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#r-package-installation"><i class="fa fa-check"></i><b>2.2</b> R Package Installation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-the-internet"><i class="fa fa-check"></i><b>2.2.1</b> From the Internet</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-local-source-or-binary"><i class="fa fa-check"></i><b>2.2.2</b> From Local Source or Binary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clivside.html"><a href="clivside.html"><i class="fa fa-check"></i><b>3</b> CLI versus IDE</a><ul>
+<li class="chapter" data-level="3.1" data-path="clivside.html"><a href="clivside.html#cli-command-line-interface"><i class="fa fa-check"></i><b>3.1</b> CLI (Command-Line Interface)</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="clivside.html"><a href="clivside.html#for-windows-user"><i class="fa fa-check"></i><b>3.1.1</b> For Windows User</a></li>
+<li class="chapter" data-level="3.1.2" data-path="clivside.html"><a href="clivside.html#for-os-x-mac-user"><i class="fa fa-check"></i><b>3.1.2</b> For OS X (Mac) User</a></li>
+<li class="chapter" data-level="3.1.3" data-path="clivside.html"><a href="clivside.html#for-linux-user"><i class="fa fa-check"></i><b>3.1.3</b> For Linux User</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="clivside.html"><a href="clivside.html#ide-integrated-development-environment"><i class="fa fa-check"></i><b>3.2</b> IDE (Integrated Development Environment)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="clivside.html"><a href="clivside.html#rstudio"><i class="fa fa-check"></i><b>3.2.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="clivside.html"><a href="clivside.html#rstudio-server"><i class="fa fa-check"></i><b>3.2.2</b> RStudio Server</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="clivside.html"><a href="clivside.html#interactive-v.s.-batch-mode"><i class="fa fa-check"></i><b>3.3</b> Interactive v.s. Batch Mode</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="clivside.html"><a href="clivside.html#parsing-command-line-arguments"><i class="fa fa-check"></i><b>3.3.1</b> Parsing Command Line Arguments</a></li>
+<li class="chapter" data-level="3.3.2" data-path="clivside.html"><a href="clivside.html#interactive-or-not-interactive"><i class="fa fa-check"></i><b>3.3.2</b> Interactive or Not Interactive?</a></li>
+<li class="chapter" data-level="3.3.3" data-path="clivside.html"><a href="clivside.html#shabang"><i class="fa fa-check"></i><b>3.3.3</b> Shabang <code>#!</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-struc.html"><a href="data-struc.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-struc.html"><a href="data-struc.html#atomic-vector"><i class="fa fa-check"></i><b>4.1</b> Atomic Vector</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-struc.html"><a href="data-struc.html#general-operations-on-vectors"><i class="fa fa-check"></i><b>4.1.1</b> General Operations on Vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#common-string-operations"><i class="fa fa-check"></i><b>4.1.2</b> Common String Operations</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.3</b> Factor</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.4</b> Matrix</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.5</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-struc.html"><a href="data-struc.html#recursive-vector"><i class="fa fa-check"></i><b>4.2</b> Recursive Vector</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-struc.html"><a href="data-struc.html#list"><i class="fa fa-check"></i><b>4.2.1</b> List</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-struc.html"><a href="data-struc.html#data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.3</b> Special Values</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.3.1</b> <code>NA</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.3.2</b> <code>NaN</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.3.3</b> <code>NULL</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="control.html"><a href="control.html"><i class="fa fa-check"></i><b>5</b> Control Flow</a><ul>
+<li class="chapter" data-level="5.1" data-path="control.html"><a href="control.html#conditioning"><i class="fa fa-check"></i><b>5.1</b> Conditioning</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="control.html"><a href="control.html#if"><i class="fa fa-check"></i><b>5.1.1</b> <code>if</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="control.html"><a href="control.html#ifelse"><i class="fa fa-check"></i><b>5.1.2</b> <code>ifelse</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="control.html"><a href="control.html#logical-operations"><i class="fa fa-check"></i><b>5.1.3</b> Logical Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="control.html"><a href="control.html#loop"><i class="fa fa-check"></i><b>5.2</b> Loop</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="control.html"><a href="control.html#repeat"><i class="fa fa-check"></i><b>5.2.1</b> <code>repeat</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="control.html"><a href="control.html#while"><i class="fa fa-check"></i><b>5.2.2</b> <code>while</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="control.html"><a href="control.html#for"><i class="fa fa-check"></i><b>5.2.3</b> <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="func.html"><a href="func.html"><i class="fa fa-check"></i><b>6</b> Function</a><ul>
+<li class="chapter" data-level="6.1" data-path="func.html"><a href="func.html#user-define-function"><i class="fa fa-check"></i><b>6.1</b> User-Define Function</a></li>
+<li class="chapter" data-level="6.2" data-path="func.html"><a href="func.html#arguemnts"><i class="fa fa-check"></i><b>6.2</b> Arguemnts</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="func.html"><a href="func.html#default-value"><i class="fa fa-check"></i><b>6.2.1</b> Default Value</a></li>
+<li class="chapter" data-level="6.2.2" data-path="func.html"><a href="func.html#lazy-evaluation"><i class="fa fa-check"></i><b>6.2.2</b> Lazy Evaluation</a></li>
+<li class="chapter" data-level="6.2.3" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>6.2.3</b> Ellipsis (<code>...</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="func.html"><a href="func.html#anonymous-function-lambda"><i class="fa fa-check"></i><b>6.3</b> Anonymous Function (Lambda)</a></li>
+<li class="chapter" data-level="6.4" data-path="func.html"><a href="func.html#lexical-scoping"><i class="fa fa-check"></i><b>6.4</b> Lexical Scoping</a></li>
+<li class="chapter" data-level="6.5" data-path="func.html"><a href="func.html#extraction-function"><i class="fa fa-check"></i><b>6.5</b> Extraction Function</a></li>
+<li class="chapter" data-level="6.6" data-path="func.html"><a href="func.html#replacement-function"><i class="fa fa-check"></i><b>6.6</b> Replacement Function</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="char.html"><a href="char.html"><i class="fa fa-check"></i><b>7</b> R Language Characteristics</a><ul>
+<li class="chapter" data-level="7.1" data-path="char.html"><a href="char.html#help"><i class="fa fa-check"></i><b>7.1</b> Help</a></li>
+<li class="chapter" data-level="7.2" data-path="char.html"><a href="char.html#vectorization"><i class="fa fa-check"></i><b>7.2</b> Vectorization</a></li>
+<li class="chapter" data-level="7.3" data-path="char.html"><a href="char.html#recycling"><i class="fa fa-check"></i><b>7.3</b> Recycling</a></li>
+<li class="chapter" data-level="7.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>7.4</b> The <code>apply</code> Family</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="char.html"><a href="char.html#apply"><i class="fa fa-check"></i><b>7.4.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="char.html"><a href="char.html#lapply-and-sapply"><i class="fa fa-check"></i><b>7.4.2</b> <code>lapply</code> and <code>sapply</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="work-env.html"><a href="work-env.html"><i class="fa fa-check"></i><b>8</b> Working Directory</a><ul>
+<li class="chapter" data-level="8.1" data-path="work-env.html"><a href="work-env.html#library-search-path"><i class="fa fa-check"></i><b>8.1</b> Library Search Path</a></li>
+<li class="chapter" data-level="8.2" data-path="work-env.html"><a href="work-env.html#save-load"><i class="fa fa-check"></i><b>8.2</b> Save / Load</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="process.html"><a href="process.html"><i class="fa fa-check"></i><b>9</b> Data Processing</a><ul>
+<li class="chapter" data-level="9.1" data-path="process.html"><a href="process.html#tabular-data"><i class="fa fa-check"></i><b>9.1</b> Tabular Data</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="process.html"><a href="process.html#read"><i class="fa fa-check"></i><b>9.1.1</b> Read</a></li>
+<li class="chapter" data-level="9.1.2" data-path="process.html"><a href="process.html#write"><i class="fa fa-check"></i><b>9.1.2</b> Write</a></li>
+<li class="chapter" data-level="9.1.3" data-path="process.html"><a href="process.html#column-oriented-computation"><i class="fa fa-check"></i><b>9.1.3</b> Column-Oriented Computation</a></li>
+<li class="chapter" data-level="9.1.4" data-path="process.html"><a href="process.html#row-oriented-computation"><i class="fa fa-check"></i><b>9.1.4</b> Row-Oriented Computation</a></li>
+<li class="chapter" data-level="9.1.5" data-path="process.html"><a href="process.html#by-group-operations"><i class="fa fa-check"></i><b>9.1.5</b> By-Group Operations</a></li>
+<li class="chapter" data-level="9.1.6" data-path="process.html"><a href="process.html#merge"><i class="fa fa-check"></i><b>9.1.6</b> Merge</a></li>
+<li class="chapter" data-level="9.1.7" data-path="process.html"><a href="process.html#reshape"><i class="fa fa-check"></i><b>9.1.7</b> Reshape</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="process.html"><a href="process.html#json"><i class="fa fa-check"></i><b>9.2</b> JSON</a></li>
+<li class="chapter" data-level="9.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>9.3</b> Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>10</b> Error Handling</a></li>
+<li class="chapter" data-level="11" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>11</b> Parallel Computing</a></li>
+<li class="chapter" data-level="12" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>12</b> Programming with S4</a></li>
+<li class="chapter" data-level="13" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>13</b> Unit-Testing</a></li>
+<li class="chapter" data-level="14" data-path="cowork.html"><a href="cowork.html"><i class="fa fa-check"></i><b>14</b> Language Co-Working</a></li>
+<li class="chapter" data-level="15" data-path="rcpp.html"><a href="rcpp.html"><i class="fa fa-check"></i><b>15</b> Speed-up with Rcpp</a><ul>
+<li class="chapter" data-level="15.1" data-path="rcpp.html"><a href="rcpp.html#what-exactly-is-r"><i class="fa fa-check"></i><b>15.1</b> What exactly is R?</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-file-counts-in-r"><i class="fa fa-check"></i><b>15.1.1</b> Distribution of source file counts in R</a></li>
+<li class="chapter" data-level="15.1.2" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-line-counts-in-r"><i class="fa fa-check"></i><b>15.1.2</b> Distribution of source line counts in R</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="rcpp.html"><a href="rcpp.html#speed-up"><i class="fa fa-check"></i><b>15.2</b> Speed-Up</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="rcpp.html"><a href="rcpp.html#example-1-n-gram-generation"><i class="fa fa-check"></i><b>15.2.1</b> Example 1: n-gram generation</a></li>
+<li class="chapter" data-level="15.2.2" data-path="rcpp.html"><a href="rcpp.html#example-2-moving-window-computing"><i class="fa fa-check"></i><b>15.2.2</b> Example 2: moving-window computing</a></li>
+<li class="chapter" data-level="15.2.3" data-path="rcpp.html"><a href="rcpp.html#example-3-ad-hoc-data.frame-operation"><i class="fa fa-check"></i><b>15.2.3</b> Example 3: ad-hoc data.frame operation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>16</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RBasic 101</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rcpp" class="section level1">
+<h1><span class="header-section-number">Chapter 15</span> Speed-up with Rcpp</h1>
+<p>This chapter is mainly based on the author’s materials of <a href="https://github.com/everdark/rcpp_lightning_dsc2015">R Lightning Talk</a> at Data Science Conference 2015 (Taipei).</p>
+<div id="what-exactly-is-r" class="section level2">
+<h2><span class="header-section-number">15.1</span> What exactly is R?</h2>
+<ul>
+<li>It’s a program written in R, C++, and Fortran.</li>
+<li>Let’s take a look at its source files.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+<span class="kw">library</span>(stringr)
+
+<span class="co"># download R source code if you dont have it yet</span>
+rver &lt;-<span class="st"> &quot;R-3.2.5&quot;</span>
+rsrc &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;%s.tar.gz&quot;</span>, rver)
+if ( !<span class="kw">file.exists</span>(rver) ) {
+  <span class="kw">download.file</span>(<span class="kw">file.path</span>(<span class="st">&quot;http://cran.csie.ntu.edu.tw/src/base/R-3/&quot;</span>, rsrc), rsrc)
+  <span class="kw">untar</span>(rsrc)
+}
+
+<span class="co"># get all file extensions in R source code</span>
+all_src_files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="kw">file.path</span>(rver, <span class="st">&quot;src/&quot;</span>), <span class="dt">recursive=</span><span class="ot">TRUE</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span>)
+all_ext &lt;-<span class="st"> </span><span class="kw">str_extract</span>(all_src_files, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">.[a-zA-Z]+$&quot;</span>)
+file_counts &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(<span class="kw">sort</span>(<span class="kw">table</span>(all_ext), <span class="dt">decreasing=</span><span class="ot">TRUE</span>), <span class="dt">keep.rownames=</span><span class="ot">TRUE</span>)</code></pre></div>
+<div id="distribution-of-source-file-counts-in-r" class="section level3">
+<h3><span class="header-section-number">15.1.1</span> Distribution of source file counts in R</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wordcloud)
+<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))
+<span class="kw">wordcloud</span>(file_counts$V1, file_counts$V2, <span class="dt">min.freq=</span><span class="dv">1</span>, <span class="dt">scale=</span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">1</span>), <span class="dt">rot.per=</span>.<span class="dv">35</span>, <span class="dt">random.order=</span>F)</code></pre></div>
+<p><img src="rbasic101_main_files/figure-html/plot_file_count-1.png" alt="" /><!-- --></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggvis)
+file_counts[<span class="dv">1</span>:<span class="dv">10</span>] %&gt;%<span class="st"> </span><span class="kw">ggvis</span>(~<span class="kw">reorder</span>(V1, -V2), ~V2) %&gt;%<span class="st"> </span><span class="kw">layer_bars</span>() %&gt;%
+<span class="st">    </span><span class="kw">add_axis</span>(<span class="st">&#39;x&#39;</span>, <span class="dt">title=</span><span class="st">&quot;Source Type&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">add_axis</span>(<span class="st">&#39;y&#39;</span>, <span class="dt">title=</span><span class="st">&quot;File Count&quot;</span>)</code></pre></div>
+<p><div id="plot_id975981875-container" class="ggvis-output-container">
+<div id="plot_id975981875" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id975981875_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id975981875" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id975981875_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id975981875" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id975981875_download" class="ggvis-download" data-plot-id="plot_id975981875">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id975981875_spec = {
+  "data": [
+    {
+      "name": ".0/count1/stack2",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "stack_lwr_": "number",
+          "stack_upr_": "number"
+        }
+      },
+      "values": "\"x_\",\"stack_lwr_\",\"stack_upr_\"\n\".Rd\",0,1398\n\".R\",0,763\n\".c\",0,616\n\".mo\",0,279\n\".po\",0,255\n\".h\",0,250\n\".afm\",0,91\n\".in\",0,86\n\".win\",0,51\n\".f\",0,38"
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {}
+      },
+      "values": "\"domain\"\n\".Rd\"\n\".R\"\n\".c\"\n\".mo\"\n\".po\"\n\".h\"\n\".afm\"\n\".in\"\n\".win\"\n\".f\""
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n0\n1467.9"
+    }
+  ],
+  "scales": [
+    {
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "name": "x",
+      "type": "ordinal",
+      "points": false,
+      "padding": 0.1,
+      "sort": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "properties": {
+        "update": {
+          "stroke": {
+            "value": "#000000"
+          },
+          "fill": {
+            "value": "#333333"
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.x_"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.stack_lwr_"
+          },
+          "y2": {
+            "scale": "y",
+            "field": "data.stack_upr_"
+          },
+          "width": {
+            "scale": "x",
+            "band": true
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": ".0/count1/stack2"
+          }
+        }
+      },
+      "from": {
+        "data": ".0/count1/stack2"
+      }
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "title": "Source Type",
+      "layer": "back",
+      "grid": true
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "title": "File Count",
+      "layer": "back",
+      "grid": true
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id975981875").parseSpec(plot_id975981875_spec);
+</script></p>
+<ul>
+<li>Top-ten file types:
+<ul>
+<li>Rd: document file</li>
+<li><strong>.R: R source</strong>, of course</li>
+<li><strong>.C: C source</strong></li>
+<li>.mo: binary data file</li>
+<li>.po: gettext file, about programming language translation</li>
+<li><strong>.h: header file for C</strong></li>
+<li>.afm: font file</li>
+<li>.in: usually template config file for some macro preprocessor</li>
+<li>.win: same above, but for Windows</li>
+<li><strong>.f: Fortran source</strong></li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now focus on only source type files</span>
+src_ext &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;c&#39;</span>, <span class="st">&#39;h&#39;</span>, <span class="st">&#39;R&#39;</span>, <span class="st">&#39;f&#39;</span>)
+srcfiles &lt;-<span class="st"> </span><span class="kw">list</span>()
+for ( ext in src_ext )
+    srcfiles[[ext]] &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="kw">sprintf</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.%s$&quot;</span>, ext), all_src_files, <span class="dt">value=</span><span class="ot">TRUE</span>)
+ext_dist &lt;-<span class="st"> </span><span class="kw">sapply</span>(srcfiles, length)
+<span class="kw">round</span>(ext_dist /<span class="st"> </span><span class="kw">sum</span>(ext_dist), <span class="dv">2</span>)</code></pre></div>
+<pre><code>##    c    h    R    f 
+## 0.37 0.15 0.46 0.02</code></pre>
+<p>As you can see, <strong>R is heavily writen in C.</strong> Indeed, most primitive functions are written in C code. Vectorization is implemented in C code. The speedy part of R is written in C. (And that’s why it is speedy.)</p>
+<p>For example, <code>+</code> (the add function) is a primitive function written in C, vectorized.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">+</span><span class="st">`</span> <span class="co"># no R source code printed cause it is written in C</span></code></pre></div>
+<pre><code>## function (e1, e2)  .Primitive(&quot;+&quot;)</code></pre>
+<p>In addition to distribution of <em>number of files</em> in R source, we can take a further look into the distribution of <em>number of lines</em> in each source type.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># unix only</span>
+wc_res &lt;-<span class="st"> </span><span class="kw">sapply</span>(srcfiles, function(x) 
+    <span class="kw">sum</span>(<span class="kw">as.integer</span>(<span class="kw">sapply</span>(<span class="kw">sprintf</span>(<span class="st">&quot;wc -l &lt; %s&quot;</span>, x), system, <span class="dt">intern=</span><span class="ot">TRUE</span>))))
+<span class="kw">round</span>(wc_res /<span class="st"> </span><span class="kw">sum</span>(wc_res), <span class="dv">2</span>)</code></pre></div>
+<pre><code>##    c    h    R    f 
+## 0.45 0.07 0.20 0.27</code></pre>
+</div>
+<div id="distribution-of-source-line-counts-in-r" class="section level3">
+<h3><span class="header-section-number">15.1.2</span> Distribution of source line counts in R</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">line_counts &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(wc_res, <span class="dt">keep.rownames=</span><span class="ot">TRUE</span>)
+line_counts %&gt;%<span class="st"> </span><span class="kw">ggvis</span>(~rn, ~wc_res) %&gt;%<span class="st"> </span><span class="kw">layer_bars</span>() %&gt;%
+<span class="st">    </span><span class="kw">add_axis</span>(<span class="st">&#39;x&#39;</span>, <span class="dt">title=</span><span class="st">&quot;Source Type&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">add_axis</span>(<span class="st">&#39;y&#39;</span>, <span class="dt">title=</span><span class="st">&quot;Line Count&quot;</span>, <span class="dt">title_offset=</span><span class="dv">60</span>)</code></pre></div>
+<p><div id="plot_id509021947-container" class="ggvis-output-container">
+<div id="plot_id509021947" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id509021947_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id509021947" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id509021947_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id509021947" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id509021947_download" class="ggvis-download" data-plot-id="plot_id509021947">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id509021947_spec = {
+  "data": [
+    {
+      "name": ".0/count1/stack2",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "stack_lwr_": "number",
+          "stack_upr_": "number"
+        }
+      },
+      "values": "\"x_\",\"stack_lwr_\",\"stack_upr_\"\n\"c\",0,391921\n\"f\",0,236311\n\"h\",0,63797\n\"R\",0,174554"
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {}
+      },
+      "values": "\"domain\"\n\"c\"\n\"f\"\n\"h\"\n\"R\""
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n0\n411517.05"
+    }
+  ],
+  "scales": [
+    {
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "name": "x",
+      "type": "ordinal",
+      "points": false,
+      "padding": 0.1,
+      "sort": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "properties": {
+        "update": {
+          "stroke": {
+            "value": "#000000"
+          },
+          "fill": {
+            "value": "#333333"
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.x_"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.stack_lwr_"
+          },
+          "y2": {
+            "scale": "y",
+            "field": "data.stack_upr_"
+          },
+          "width": {
+            "scale": "x",
+            "band": true
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": ".0/count1/stack2"
+          }
+        }
+      },
+      "from": {
+        "data": ".0/count1/stack2"
+      }
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "title": "Source Type",
+      "layer": "back",
+      "grid": true
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "title": "Line Count",
+      "titleOffset": 60,
+      "layer": "back",
+      "grid": true
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id509021947").parseSpec(plot_id509021947_spec);
+</script></p>
+<p>Finally, we’ve found that <strong>only 20.14% of R source lines is written in R, and 45.23% of it is written by C, and 27.27% Fortran.</strong></p>
+</div>
+</div>
+<div id="speed-up" class="section level2">
+<h2><span class="header-section-number">15.2</span> Speed-Up</h2>
+<p>When R is not satisfying your need for speed…</p>
+<ul>
+<li>It’s simple. We can write R function in C/C++, which is usually above 10X faster than the equivalent of native R code.</li>
+<li>Okay. So <strong>why not just use C/C++</strong> for everything?
+<ul>
+<li>cause your <em>programming time</em> will explode to blow up all your potential performance gain, well, provided that you really can finish the analytic job purely in C++.</li>
+</ul></li>
+<li>This kind of high-level / low-level trade-off is happening in any modern analytic tools.
+<ul>
+<li>but at least you are capable of trading for such gain in R, which is a very flexible language for analytics.</li>
+<li>for some other tools you simply CAN’T do anything to speed up your performance.</li>
+</ul></li>
+</ul>
+<p>But writing C/C++ for R is painful + The traditional R API to C/C++ is talking like alien.</p>
+<p>Here comes <code>Rcpp</code></p>
+<ul>
+<li>What is <code>Rcpp</code>?
+<ul>
+<li>A library for R <span class="citation">(<span class="citeproc-not-found" data-reference-id="Eddelbuettel:Francois:2011:JSSOBK:v40i08"><strong>???</strong></span>)</span> to build a more manageble API for integrating R and C++, so that users are more easy to write function in C++ to speed up their R program.</li>
+<li>It provides <em>syntax sugar</em> so that the coding is less like C++ programing and more like R programing. Indeed it becomes something in-between.</li>
+</ul></li>
+<li>Useful resources:
+<ul>
+<li><a href="https://github.com/RcppCore/Rcpp">Rcpp Github page</a></li>
+<li><a href="http://www.rcpp.org">Rcpp website</a></li>
+</ul></li>
+</ul>
+<div id="example-1-n-gram-generation" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> Example 1: n-gram generation</h3>
+<p>Imagin you are dealing with hexdump of files and planning to use its n-gram frequency feature. Your input data may look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">samplefile &lt;-<span class="st"> &quot;14-rcpp.Rmd&quot;</span>
+<span class="kw">system</span>(<span class="kw">sprintf</span>(<span class="st">&quot;xxd -g1 %s | head&quot;</span>, samplefile), <span class="dt">intern=</span><span class="ot">TRUE</span>) <span class="co"># unix only</span></code></pre></div>
+<pre><code>##  [1] &quot;0000000: 23 20 53 70 65 65 64 2d 75 70 20 77 69 74 68 20  # Speed-up with &quot;
+##  [2] &quot;0000010: 52 63 70 70 20 7b 23 72 63 70 70 7d 0a 0a 54 68  Rcpp {#rcpp}..Th&quot;
+##  [3] &quot;0000020: 69 73 20 63 68 61 70 74 65 72 20 69 73 20 6d 61  is chapter is ma&quot;
+##  [4] &quot;0000030: 69 6e 6c 79 20 62 61 73 65 64 20 6f 6e 20 74 68  inly based on th&quot;
+##  [5] &quot;0000040: 65 20 61 75 74 68 6f 72 27 73 20 6d 61 74 65 72  e author&#39;s mater&quot;
+##  [6] &quot;0000050: 69 61 6c 73 20 6f 66 20 5b 52 20 4c 69 67 68 74  ials of [R Light&quot;
+##  [7] &quot;0000060: 6e 69 6e 67 20 54 61 6c 6b 5d 28 68 74 74 70 73  ning Talk](https&quot;
+##  [8] &quot;0000070: 3a 2f 2f 67 69 74 68 75 62 2e 63 6f 6d 2f 65 76  ://github.com/ev&quot;
+##  [9] &quot;0000080: 65 72 64 61 72 6b 2f 72 63 70 70 5f 6c 69 67 68  erdark/rcpp_ligh&quot;
+## [10] &quot;0000090: 74 6e 69 6e 67 5f 64 73 63 32 30 31 35 29 20 61  tning_dsc2015) a&quot;</code></pre>
+<p>We firstly tidy the input to be a long character sequence…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hexdumplines &lt;-<span class="st"> </span><span class="kw">system</span>(<span class="kw">sprintf</span>(<span class="st">&quot;xxd -g1 %s | cut -d </span><span class="ch">\&quot;</span><span class="st"> </span><span class="ch">\&quot;</span><span class="st"> -f 2-17&quot;</span>, samplefile), <span class="dt">intern=</span><span class="ot">TRUE</span>) <span class="co"># unix only</span>
+hexdump &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">strsplit</span>(<span class="kw">paste</span>(hexdumplines, <span class="dt">collapse=</span><span class="st">&#39; &#39;</span>), <span class="st">&#39; &#39;</span>))
+hexdump &lt;-<span class="st"> </span>hexdump[hexdump !=<span class="st"> &#39;&#39;</span>]
+<span class="kw">str</span>(hexdump)</code></pre></div>
+<pre><code>##  chr [1:21009] &quot;23&quot; &quot;20&quot; &quot;53&quot; &quot;70&quot; &quot;65&quot; &quot;65&quot; &quot;64&quot; &quot;2d&quot; ...</code></pre>
+<p>Then what? Try looping in native R code, which is rather straight forward.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first trial: use native R loop (could be terrible for large-scale processing...)</span>
+generateNgramFreqR &lt;-<span class="st"> </span>function(x, n) {
+    len &lt;-<span class="st"> </span><span class="kw">length</span>(x) -<span class="st"> </span>(n -<span class="st"> </span><span class="dv">1</span>)
+    out &lt;-<span class="st"> </span><span class="kw">character</span>(len) <span class="co"># pre-allocate size, very important</span>
+    for ( i in <span class="dv">1</span>:len ) {
+        out[i] &lt;-<span class="st"> </span>x[i]
+        if ( n &gt;<span class="st"> </span><span class="dv">1</span> )
+            for ( j in <span class="dv">1</span>:(n<span class="dv">-1</span>) )
+                out[i] &lt;-<span class="st"> </span><span class="kw">paste0</span>(out[i], x[i+j])
+    }
+    <span class="kw">unlist</span>(<span class="kw">as.list</span>(<span class="kw">sort</span>(<span class="kw">table</span>(out), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)))
+}
+<span class="kw">system.time</span>(r_res &lt;-<span class="st"> </span><span class="kw">generateNgramFreqR</span>(hexdump, <span class="dv">2</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##   0.130   0.007   0.152</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r_res[<span class="dv">1</span>:<span class="dv">10</span>]</code></pre></div>
+<pre><code>## 2020 696e 2c20 6520 6572 2074 7265 2069 0a20 7320 
+## 1251  307  306  288  227  217  186  185  178  177</code></pre>
+<p>Or we can use some external library that focuses on text mining, for example, use <code>tau</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="Buchta:Hornik:Feinerer:Meyer:2015"><strong>???</strong></span>)</span>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># second trial: use external library</span>
+generateNgramFreqTau &lt;-<span class="st"> </span>function(x, n) {
+    <span class="kw">require</span>(tau)
+    tau_res &lt;-<span class="st"> </span><span class="kw">textcnt</span>(x, <span class="dt">n=</span>n, <span class="dt">method=</span><span class="st">&quot;string&quot;</span>, <span class="dt">split=</span><span class="st">&quot;[[:space:]]+&quot;</span>)
+    <span class="kw">names</span>(tau_res) &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&#39; &#39;</span>, <span class="st">&#39;&#39;</span>, <span class="kw">names</span>(tau_res))
+    <span class="kw">sort</span>(tau_res, <span class="dt">decreasing=</span><span class="ot">TRUE</span>)
+}
+<span class="kw">system.time</span>(tau_res &lt;-<span class="st"> </span><span class="kw">generateNgramFreqTau</span>(hexdump, <span class="dv">2</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##   0.102   0.003   0.110</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tau_res[<span class="dv">1</span>:<span class="dv">10</span>]</code></pre></div>
+<pre><code>## 2020 696e 2c20 6520 6572 2074 7265 2069 0a20 7320 
+## 1251  307  306  288  227  217  186  185  178  177</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check if the results are eqaul</span>
+<span class="kw">identical</span>(tau_res, r_res)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>But the performance of the above two solutions are both not satisfying when it comes to large-scale problem. Think about dealing with hex-dump strings from tens of thousands of files, we will need more efficient solution.</p>
+<p>Sometimes to make things better all you have to do is to find ANOTHER package that is more powerful over the probelm at hand. But still sometimes you just don’t have much to choose. In this very case of generating n-grams, though there is another well-known general text mining pacakge <code>tm</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="Feinerer:Hornik:2015"><strong>???</strong></span>; <span class="citeproc-not-found" data-reference-id="Feinerer:Hornik:Meyer:2008"><strong>???</strong></span>)</span> available, it is not suitable to serve as a faster solution to our problem. Indeed, it is prohibitively slow.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># third trial: use another external library, hopefully faster? (Nope.)</span>
+generateNgramFreqTm &lt;-<span class="st"> </span>function(x, n) {
+    <span class="kw">require</span>(tm)
+    op &lt;-<span class="st"> </span><span class="kw">options</span>(<span class="dt">mc.cores=</span><span class="ot">NULL</span>) 
+    <span class="kw">options</span>(<span class="dt">mc.cores=</span><span class="dv">1</span>)
+    <span class="kw">on.exit</span>(<span class="kw">options</span>(op))
+    
+    ngramTokenizer &lt;-<span class="st"> </span>function(x) RWeka::<span class="kw">NGramTokenizer</span>(x, RWeka::<span class="kw">Weka_control</span>(<span class="dt">min=</span><span class="dv">2</span>, <span class="dt">max=</span><span class="dv">2</span>))
+    corp &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(<span class="kw">paste</span>(x, <span class="dt">collapse=</span><span class="st">&#39; &#39;</span>)))
+    tdm &lt;-<span class="st"> </span><span class="kw">TermDocumentMatrix</span>(corp, <span class="dt">control=</span><span class="kw">list</span>(<span class="dt">tokenize=</span>ngramTokenizer))
+    res &lt;-<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">as.matrix</span>(tdm))
+    <span class="kw">names</span>(res) &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&#39; &#39;</span>, <span class="st">&#39;&#39;</span>, <span class="kw">names</span>(res))
+    <span class="kw">sort</span>(res, <span class="dt">decreasing=</span><span class="ot">TRUE</span>)
+}
+
+<span class="co"># full-size input not run, too slow</span>
+<span class="kw">length</span>(hexdumplines)</code></pre></div>
+<pre><code>## [1] 1314</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(tm_res &lt;-<span class="st"> </span><span class="kw">generateNgramFreqTm</span>(hexdumplines[<span class="dv">1</span>:<span class="dv">10000</span>], <span class="dv">2</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##   1.312   0.185   1.575</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tm_res[<span class="dv">1</span>:<span class="dv">10</span>]</code></pre></div>
+<pre><code>## nana 2020 696e 2c20 6520 6572 2074 7265 2069 0a20 
+## 8685 1251  307  306  288  227  217  186  185  178</code></pre>
+<p>Let’s try <code>Rcpp</code> to see what we could further achieve.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># final trial: use Rcpp to write the function in C++</span>
+<span class="kw">library</span>(Rcpp)</code></pre></div>
+<pre><code>## Warning: package &#39;Rcpp&#39; was built under R version 3.2.4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cppFunction</span>(<span class="st">&#39;</span>
+<span class="st">    CharacterVector generateNgramFreq (CharacterVector hexvector, int ngram) {</span>
+<span class="st">        int len = hexvector.size() - (ngram - 1);</span>
+<span class="st">        CharacterVector out(len);</span>
+<span class="st">        for (int i = 0; i &lt; len; i++) {</span>
+<span class="st">            out(i) = hexvector[i];</span>
+<span class="st">            for (int j = 1; j &lt; ngram; j++) {</span>
+<span class="st">                out(i) += hexvector[i+j];</span>
+<span class="st">            }</span>
+<span class="st">        }</span>
+<span class="st">        return out;</span>
+<span class="st">    }&#39;</span>)
+generateNgramFreq</code></pre></div>
+<pre><code>## function (hexvector, ngram) 
+## .Primitive(&quot;.Call&quot;)(&lt;pointer: 0x1147d3050&gt;, hexvector, ngram)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">generateNgramFreqCpp &lt;-<span class="st"> </span>function(x, n)
+    <span class="kw">unlist</span>(<span class="kw">as.list</span>(<span class="kw">sort</span>(<span class="kw">table</span>(<span class="kw">generateNgramFreq</span>(x, n)), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)))
+<span class="kw">system.time</span>(cpp_res &lt;-<span class="st"> </span><span class="kw">generateNgramFreqCpp</span>(hexdump, <span class="dv">2</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##   0.012   0.000   0.012</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cpp_res[<span class="dv">1</span>:<span class="dv">10</span>]</code></pre></div>
+<pre><code>## 2020 696e 2c20 6520 6572 2074 7265 2069 0a20 7320 
+## 1251  307  306  288  227  217  186  185  178  177</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(cpp_res, r_res)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Now it’s time to benchmark these solutions to see the performance difference. You’ll see that the <code>Rcpp</code> solution is above <strong>10X faster</strong> than its alternatives. Depends on the scale of your problem such gap could be further enlarged.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(microbenchmark)
+<span class="kw">microbenchmark</span>(<span class="kw">generateNgramFreqR</span>(hexdump, <span class="dv">2</span>),
+               <span class="kw">generateNgramFreqTau</span>(hexdump, <span class="dv">2</span>),
+               <span class="kw">generateNgramFreqCpp</span>(hexdump, <span class="dv">2</span>), 
+               <span class="dt">times=</span><span class="dv">10</span>)</code></pre></div>
+<pre><code>## Unit: milliseconds
+##                              expr       min        lq      mean    median
+##    generateNgramFreqR(hexdump, 2) 112.17120 116.32410 131.40644 132.74071
+##  generateNgramFreqTau(hexdump, 2)  63.43327  66.22614  72.86453  70.36856
+##  generateNgramFreqCpp(hexdump, 2)  11.76125  12.62717  14.14042  12.86269
+##         uq       max neval
+##  140.22123 156.83100    10
+##   75.58528  95.33570    10
+##   14.69910  20.48202    10</code></pre>
+<ul>
+<li>Interested? See the <a href="https://www.kaggle.com/c/malware-classification">Microsoft malware classification challenge</a></li>
+</ul>
+</div>
+<div id="example-2-moving-window-computing" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> Example 2: moving-window computing</h3>
+<p>Move on to the next case. Suppose you’d like to monitor the system logs in your computer, counting the process that triggers logging in a sliding-window manner.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">syslogname &lt;-<span class="st"> &quot;system.log&quot;</span> <span class="co"># this is for Mac, for Linux you may use &quot;syslog&quot; instead</span>
+syslogs &lt;-<span class="st"> </span><span class="kw">grep</span>(syslogname, <span class="kw">dir</span>(<span class="st">&quot;/var/log&quot;</span>, <span class="dt">full.names=</span><span class="ot">TRUE</span>), <span class="dt">value=</span><span class="ot">TRUE</span>)
+loglines &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(syslogs, 
+                          function(x) {
+                              con &lt;-<span class="st"> </span><span class="kw">gzfile</span>(x)
+                              <span class="kw">on.exit</span>(<span class="kw">close</span>(con))
+                              <span class="kw">readLines</span>(con)
+                          }))
+<span class="kw">head</span>(loglines)</code></pre></div>
+<pre><code>## [1] &quot;May  5 00:00:01 kyledembpr.client.tw.trendnet.org SubmitDiagInfo[887]: Couldn&#39;t load config file from on-disk location. Falling back to default location. Reason: Won&#39;t serialize in _readDictionaryFromJSONData due to nil object&quot;
+## [2] &quot;May  5 00:00:06 kyledembpr.client.tw.trendnet.org configd[46]: [0x7ffdc9e50a20] [m]DNS query timeout (query time = 35.147850), [46TE]&quot;                                                                                             
+## [3] &quot;May  5 00:00:27 kyledembpr.client.tw.trendnet.org awacsd[282]: Could not find token for ff32:0000:0000:0000:0000:0000:0000:5222&quot;                                                                                                   
+## [4] &quot;May  5 00:00:38 kyledembpr.client.tw.trendnet.org configd[46]: [0x7ffdc9e4afb0] [m]DNS query timeout (query time = 35.149780), [46TE]&quot;                                                                                             
+## [5] &quot;May  5 00:00:57 kyledembpr.client.tw.trendnet.org awacsd[282]: Could not find token for ff32:0000:0000:0000:0000:0000:0000:5222&quot;                                                                                                   
+## [6] &quot;May  5 00:01:14 kyledembpr.client.tw.trendnet.org configd[46]: [0x7ffdc9e4afb0] [m]DNS query timeout (query time = 35.148778), [46TE]&quot;</code></pre>
+<p>Here we use regex to extract fields we are intereted, convert datetime character to POSIX time object, and take a look at the top distributed categories of process names.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logdat &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(<span class="kw">str_match</span>(loglines, <span class="st">&quot;(^.*[0-9]+ [0-9]{2}:[0-9]{2}:[0-9]{2})([^:]+:)&quot;</span>)[,<span class="dv">2</span>:<span class="dv">3</span>])
+<span class="kw">setnames</span>(logdat, <span class="kw">c</span>(<span class="st">&quot;ts&quot;</span>, <span class="st">&quot;cate&quot;</span>))
+logdat[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">cate=</span><span class="kw">str_match</span>(cate, <span class="st">&quot; ([a-zA-Z]+)</span><span class="ch">\\</span><span class="st">[[0-9]+</span><span class="ch">\\</span><span class="st">]&quot;</span>)[,<span class="dv">2</span>],
+              <span class="dt">ts=</span><span class="kw">as.POSIXct</span>(ts, <span class="dt">format=</span><span class="st">&quot;%b %e %H:%M:%S&quot;</span>))]
+logdat[, tsint:<span class="er">=</span><span class="kw">as.integer</span>(ts)]
+logdat &lt;-<span class="st"> </span>logdat[!<span class="kw">is.na</span>(cate)]
+<span class="kw">setorder</span>(logdat, ts)
+logdat</code></pre></div>
+<pre><code>##                         ts           cate      tsint
+##     1: 2016-04-28 00:00:01 SubmitDiagInfo 1461772801
+##     2: 2016-04-28 00:00:16         awacsd 1461772816
+##     3: 2016-04-28 00:00:46         awacsd 1461772846
+##     4: 2016-04-28 00:01:16         awacsd 1461772876
+##     5: 2016-04-28 00:01:46         awacsd 1461772906
+##    ---                                              
+## 44788: 2016-05-05 17:56:18       sandboxd 1462442178
+## 44789: 2016-05-05 17:56:18       sandboxd 1462442178
+## 44790: 2016-05-05 17:56:18       sandboxd 1462442178
+## 44791: 2016-05-05 17:56:23         awacsd 1462442183
+## 44792: 2016-05-05 17:56:53         awacsd 1462442213</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">table</span>(logdat$cate), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)[<span class="dv">1</span>:<span class="dv">10</span>]</code></pre></div>
+<pre><code>## 
+##                     awacsd                       Dock 
+##                      21778                       7690 
+##                    configd               WindowServer 
+##                       4364                       2482 
+##                     kernel                    Outlook 
+##                       1384                       1322 
+##              storeaccountd                   sandboxd 
+##                        531                        527 
+##                 discoveryd GoogleSoftwareUpdateDaemon 
+##                        518                        506</code></pre>
+<p>Suppose the task is to count number of records for each process within the last 5 minutes for every 1 minute. This is a moving-window operation which could be painful should you use pure R code to solve it. Of course there are dedicated packages aiming at this kind of task but again for this very case none of them to my best knowledge could work efficently.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first trial: again, naive approach first</span>
+movingWindowCountR &lt;-<span class="st"> </span>function(DT, wsize, interval, <span class="dt">select=</span><span class="ot">NULL</span>) {
+    <span class="kw">require</span>(data.table)
+    sts &lt;-<span class="st"> </span><span class="kw">min</span>(DT$tsint)
+    ninter &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">diff</span>(<span class="kw">range</span>(DT$tsint)) /<span class="st"> </span>interval)
+    if ( !<span class="kw">is.null</span>(select) )
+        DT &lt;-<span class="st"> </span>DT[cate %in%<span class="st"> </span>select]
+    res &lt;-<span class="st"> </span><span class="kw">list</span>()
+    for ( ca in <span class="kw">unique</span>(DT$cate) ) {
+        sts_ &lt;-<span class="st"> </span>sts
+        cnt &lt;-<span class="st"> </span><span class="kw">integer</span>(ninter)
+        for ( i in <span class="dv">1</span>:ninter ) {
+            cnt[i] &lt;-<span class="st"> </span><span class="kw">nrow</span>(DT[cate ==<span class="st"> </span>ca][tsint &lt;=<span class="st"> </span>sts_ &amp;<span class="st"> </span>tsint &gt;<span class="st"> </span>sts_ -<span class="st"> </span>wsize])
+            sts_ &lt;-<span class="st"> </span>sts_ +<span class="st"> </span>interval
+        }
+        res[[ca]] &lt;-<span class="st"> </span>cnt
+    }
+    res
+}
+<span class="co"># run for only two processess cause to slow...</span>
+<span class="kw">system.time</span>(r_res &lt;-<span class="st"> </span><span class="kw">movingWindowCountR</span>(logdat, <span class="dv">300</span>, <span class="dv">60</span>, <span class="kw">c</span>(<span class="st">&quot;kernel&quot;</span>, <span class="st">&quot;discoveryd&quot;</span>)))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##  31.323   0.410  32.121</code></pre>
+<p>Let’s plot the moving-window-count time series for process “kernel”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kernel_mvcnt &lt;-<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">count=</span>r_res[[<span class="st">&quot;kernel&quot;</span>]])
+kernel_mvcnt[, t:<span class="er">=</span><span class="dv">1</span>:.N]
+kernel_mvcnt %&gt;%<span class="st"> </span><span class="kw">ggvis</span>(~t, ~count) %&gt;%<span class="st"> </span><span class="kw">layer_lines</span>()</code></pre></div>
+<p><div id="plot_id412188494-container" class="ggvis-output-container">
+<div id="plot_id412188494" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id412188494_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id412188494" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id412188494_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id412188494" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id412188494_download" class="ggvis-download" data-plot-id="plot_id412188494">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id412188494_spec = {
+  "data": [
+    {
+      "name": ".0/arrange1",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "t": "number",
+          "count": "number"
+        }
+      },
+      "values": "\"t\",\"count\"\n1,0\n2,0\n3,0\n4,0\n5,0\n6,0\n7,0\n8,0\n9,0\n10,0\n11,0\n12,0\n13,0\n14,0\n15,0\n16,0\n17,0\n18,0\n19,0\n20,0\n21,0\n22,0\n23,0\n24,0\n25,0\n26,0\n27,0\n28,0\n29,0\n30,0\n31,0\n32,0\n33,0\n34,0\n35,0\n36,0\n37,0\n38,0\n39,0\n40,0\n41,0\n42,0\n43,0\n44,0\n45,0\n46,0\n47,0\n48,0\n49,0\n50,0\n51,0\n52,0\n53,0\n54,0\n55,0\n56,0\n57,0\n58,0\n59,0\n60,0\n61,0\n62,0\n63,0\n64,0\n65,0\n66,0\n67,0\n68,0\n69,0\n70,0\n71,0\n72,0\n73,0\n74,0\n75,0\n76,0\n77,0\n78,0\n79,0\n80,0\n81,0\n82,0\n83,0\n84,0\n85,0\n86,0\n87,0\n88,0\n89,0\n90,0\n91,0\n92,0\n93,0\n94,0\n95,0\n96,0\n97,0\n98,0\n99,0\n100,0\n101,0\n102,0\n103,0\n104,0\n105,0\n106,0\n107,0\n108,0\n109,0\n110,0\n111,0\n112,0\n113,0\n114,0\n115,0\n116,0\n117,0\n118,0\n119,0\n120,0\n121,0\n122,0\n123,0\n124,0\n125,0\n126,0\n127,0\n128,0\n129,0\n130,0\n131,0\n132,0\n133,0\n134,0\n135,0\n136,0\n137,0\n138,0\n139,0\n140,0\n141,0\n142,0\n143,0\n144,0\n145,0\n146,0\n147,0\n148,0\n149,0\n150,0\n151,0\n152,0\n153,0\n154,0\n155,0\n156,0\n157,0\n158,0\n159,0\n160,0\n161,0\n162,0\n163,0\n164,0\n165,0\n166,0\n167,0\n168,0\n169,0\n170,0\n171,0\n172,0\n173,0\n174,0\n175,0\n176,0\n177,0\n178,0\n179,0\n180,0\n181,0\n182,0\n183,0\n184,0\n185,0\n186,0\n187,0\n188,0\n189,0\n190,0\n191,0\n192,0\n193,0\n194,0\n195,0\n196,0\n197,0\n198,0\n199,0\n200,0\n201,0\n202,0\n203,0\n204,0\n205,0\n206,0\n207,0\n208,0\n209,0\n210,0\n211,0\n212,0\n213,0\n214,0\n215,0\n216,0\n217,0\n218,0\n219,0\n220,0\n221,0\n222,0\n223,0\n224,0\n225,0\n226,0\n227,0\n228,0\n229,0\n230,0\n231,0\n232,0\n233,0\n234,0\n235,0\n236,0\n237,0\n238,0\n239,0\n240,0\n241,0\n242,0\n243,0\n244,0\n245,0\n246,0\n247,0\n248,0\n249,0\n250,0\n251,0\n252,0\n253,0\n254,0\n255,0\n256,0\n257,0\n258,0\n259,0\n260,0\n261,0\n262,0\n263,0\n264,0\n265,0\n266,0\n267,0\n268,0\n269,0\n270,0\n271,0\n272,0\n273,0\n274,0\n275,0\n276,0\n277,0\n278,0\n279,0\n280,0\n281,0\n282,0\n283,0\n284,0\n285,0\n286,0\n287,0\n288,0\n289,0\n290,0\n291,0\n292,0\n293,0\n294,0\n295,0\n296,0\n297,0\n298,0\n299,0\n300,0\n301,0\n302,0\n303,1\n304,1\n305,1\n306,1\n307,1\n308,0\n309,0\n310,0\n311,0\n312,0\n313,0\n314,0\n315,0\n316,0\n317,0\n318,0\n319,0\n320,0\n321,0\n322,0\n323,0\n324,0\n325,0\n326,0\n327,0\n328,0\n329,0\n330,0\n331,0\n332,0\n333,0\n334,0\n335,0\n336,0\n337,0\n338,0\n339,0\n340,0\n341,0\n342,0\n343,0\n344,0\n345,0\n346,0\n347,0\n348,0\n349,0\n350,0\n351,0\n352,0\n353,0\n354,0\n355,0\n356,0\n357,0\n358,0\n359,0\n360,0\n361,0\n362,0\n363,0\n364,0\n365,0\n366,0\n367,0\n368,0\n369,0\n370,0\n371,0\n372,0\n373,0\n374,0\n375,0\n376,0\n377,0\n378,0\n379,0\n380,0\n381,0\n382,0\n383,0\n384,0\n385,0\n386,0\n387,0\n388,0\n389,0\n390,0\n391,0\n392,0\n393,0\n394,0\n395,0\n396,0\n397,0\n398,0\n399,0\n400,0\n401,0\n402,0\n403,0\n404,0\n405,0\n406,0\n407,0\n408,0\n409,0\n410,0\n411,0\n412,0\n413,0\n414,0\n415,0\n416,0\n417,0\n418,0\n419,0\n420,0\n421,0\n422,0\n423,0\n424,0\n425,0\n426,0\n427,0\n428,0\n429,0\n430,0\n431,0\n432,0\n433,0\n434,0\n435,0\n436,0\n437,0\n438,0\n439,0\n440,0\n441,0\n442,0\n443,0\n444,0\n445,0\n446,0\n447,0\n448,0\n449,0\n450,0\n451,0\n452,0\n453,0\n454,0\n455,0\n456,0\n457,0\n458,0\n459,0\n460,0\n461,0\n462,0\n463,0\n464,0\n465,0\n466,0\n467,0\n468,0\n469,0\n470,0\n471,0\n472,0\n473,0\n474,0\n475,0\n476,0\n477,0\n478,0\n479,0\n480,0\n481,0\n482,0\n483,0\n484,0\n485,0\n486,0\n487,0\n488,0\n489,0\n490,0\n491,0\n492,0\n493,0\n494,0\n495,0\n496,0\n497,0\n498,0\n499,0\n500,0\n501,0\n502,0\n503,0\n504,0\n505,0\n506,0\n507,0\n508,0\n509,0\n510,0\n511,0\n512,0\n513,0\n514,0\n515,0\n516,0\n517,0\n518,0\n519,0\n520,0\n521,0\n522,0\n523,0\n524,0\n525,0\n526,0\n527,0\n528,0\n529,0\n530,0\n531,0\n532,0\n533,0\n534,0\n535,0\n536,0\n537,0\n538,0\n539,0\n540,0\n541,0\n542,0\n543,0\n544,0\n545,0\n546,0\n547,0\n548,0\n549,0\n550,0\n551,0\n552,0\n553,0\n554,0\n555,0\n556,0\n557,0\n558,0\n559,0\n560,0\n561,0\n562,0\n563,0\n564,0\n565,0\n566,0\n567,0\n568,0\n569,0\n570,0\n571,0\n572,0\n573,0\n574,0\n575,0\n576,0\n577,0\n578,0\n579,0\n580,0\n581,0\n582,0\n583,0\n584,0\n585,0\n586,0\n587,0\n588,0\n589,0\n590,0\n591,0\n592,0\n593,0\n594,0\n595,0\n596,0\n597,0\n598,0\n599,0\n600,0\n601,0\n602,0\n603,0\n604,0\n605,0\n606,0\n607,0\n608,0\n609,0\n610,0\n611,0\n612,0\n613,0\n614,0\n615,0\n616,0\n617,0\n618,0\n619,0\n620,0\n621,0\n622,0\n623,0\n624,0\n625,0\n626,0\n627,0\n628,0\n629,0\n630,0\n631,0\n632,0\n633,0\n634,0\n635,0\n636,0\n637,0\n638,0\n639,0\n640,0\n641,0\n642,0\n643,0\n644,0\n645,0\n646,0\n647,0\n648,0\n649,0\n650,0\n651,0\n652,0\n653,0\n654,0\n655,0\n656,0\n657,0\n658,0\n659,0\n660,0\n661,0\n662,0\n663,0\n664,0\n665,0\n666,0\n667,0\n668,0\n669,0\n670,0\n671,0\n672,0\n673,0\n674,0\n675,0\n676,0\n677,0\n678,0\n679,0\n680,0\n681,0\n682,0\n683,0\n684,0\n685,0\n686,0\n687,0\n688,0\n689,0\n690,0\n691,0\n692,0\n693,0\n694,0\n695,0\n696,0\n697,0\n698,0\n699,0\n700,0\n701,0\n702,0\n703,0\n704,0\n705,0\n706,8\n707,8\n708,8\n709,8\n710,8\n711,0\n712,0\n713,0\n714,0\n715,0\n716,0\n717,0\n718,0\n719,0\n720,0\n721,0\n722,0\n723,0\n724,0\n725,0\n726,0\n727,0\n728,0\n729,0\n730,0\n731,0\n732,0\n733,0\n734,0\n735,0\n736,0\n737,0\n738,0\n739,0\n740,0\n741,0\n742,0\n743,0\n744,0\n745,0\n746,0\n747,0\n748,0\n749,0\n750,0\n751,0\n752,0\n753,0\n754,0\n755,0\n756,0\n757,0\n758,0\n759,0\n760,0\n761,0\n762,0\n763,0\n764,0\n765,0\n766,0\n767,0\n768,0\n769,0\n770,0\n771,0\n772,0\n773,0\n774,0\n775,0\n776,0\n777,0\n778,0\n779,0\n780,0\n781,0\n782,0\n783,0\n784,0\n785,0\n786,0\n787,0\n788,0\n789,0\n790,0\n791,0\n792,0\n793,0\n794,0\n795,0\n796,0\n797,0\n798,0\n799,0\n800,0\n801,0\n802,0\n803,0\n804,0\n805,0\n806,0\n807,0\n808,0\n809,0\n810,0\n811,0\n812,29\n813,29\n814,29\n815,29\n816,29\n817,43\n818,109\n819,109\n820,109\n821,109\n822,66\n823,0\n824,0\n825,0\n826,0\n827,0\n828,0\n829,0\n830,0\n831,0\n832,0\n833,0\n834,0\n835,0\n836,0\n837,0\n838,0\n839,0\n840,0\n841,0\n842,0\n843,0\n844,0\n845,0\n846,0\n847,0\n848,0\n849,0\n850,0\n851,0\n852,0\n853,0\n854,0\n855,0\n856,0\n857,0\n858,0\n859,0\n860,0\n861,0\n862,0\n863,0\n864,0\n865,0\n866,0\n867,0\n868,0\n869,0\n870,0\n871,0\n872,0\n873,0\n874,0\n875,0\n876,0\n877,0\n878,0\n879,0\n880,0\n881,0\n882,0\n883,0\n884,0\n885,0\n886,0\n887,0\n888,0\n889,0\n890,0\n891,0\n892,0\n893,0\n894,0\n895,0\n896,0\n897,0\n898,0\n899,0\n900,0\n901,0\n902,0\n903,0\n904,0\n905,0\n906,0\n907,0\n908,0\n909,0\n910,0\n911,0\n912,0\n913,0\n914,0\n915,0\n916,0\n917,0\n918,0\n919,0\n920,0\n921,0\n922,0\n923,0\n924,0\n925,0\n926,0\n927,0\n928,0\n929,0\n930,0\n931,0\n932,0\n933,0\n934,0\n935,0\n936,0\n937,0\n938,0\n939,0\n940,0\n941,0\n942,0\n943,0\n944,0\n945,0\n946,0\n947,0\n948,0\n949,0\n950,0\n951,0\n952,0\n953,0\n954,0\n955,0\n956,0\n957,0\n958,0\n959,0\n960,0\n961,0\n962,0\n963,0\n964,0\n965,0\n966,0\n967,0\n968,0\n969,0\n970,0\n971,0\n972,0\n973,0\n974,0\n975,0\n976,0\n977,0\n978,0\n979,0\n980,0\n981,0\n982,0\n983,0\n984,0\n985,0\n986,0\n987,0\n988,0\n989,0\n990,0\n991,0\n992,0\n993,0\n994,0\n995,0\n996,0\n997,0\n998,0\n999,0\n1000,0\n1001,0\n1002,0\n1003,0\n1004,0\n1005,0\n1006,0\n1007,0\n1008,0\n1009,0\n1010,0\n1011,0\n1012,0\n1013,0\n1014,0\n1015,0\n1016,0\n1017,0\n1018,0\n1019,0\n1020,0\n1021,0\n1022,0\n1023,0\n1024,0\n1025,0\n1026,0\n1027,0\n1028,0\n1029,0\n1030,0\n1031,0\n1032,0\n1033,1\n1034,1\n1035,1\n1036,1\n1037,1\n1038,1\n1039,1\n1040,1\n1041,1\n1042,1\n1043,0\n1044,0\n1045,0\n1046,0\n1047,0\n1048,0\n1049,0\n1050,0\n1051,0\n1052,30\n1053,30\n1054,30\n1055,30\n1056,30\n1057,0\n1058,45\n1059,51\n1060,51\n1061,51\n1062,51\n1063,6\n1064,0\n1065,0\n1066,0\n1067,0\n1068,0\n1069,0\n1070,0\n1071,0\n1072,0\n1073,0\n1074,0\n1075,0\n1076,0\n1077,0\n1078,0\n1079,0\n1080,0\n1081,0\n1082,0\n1083,0\n1084,0\n1085,0\n1086,0\n1087,0\n1088,0\n1089,0\n1090,0\n1091,0\n1092,0\n1093,0\n1094,0\n1095,0\n1096,0\n1097,0\n1098,0\n1099,0\n1100,0\n1101,0\n1102,0\n1103,0\n1104,0\n1105,0\n1106,0\n1107,0\n1108,0\n1109,0\n1110,0\n1111,0\n1112,0\n1113,0\n1114,0\n1115,0\n1116,0\n1117,0\n1118,0\n1119,0\n1120,0\n1121,0\n1122,0\n1123,0\n1124,0\n1125,0\n1126,0\n1127,0\n1128,0\n1129,0\n1130,0\n1131,0\n1132,0\n1133,0\n1134,0\n1135,0\n1136,0\n1137,0\n1138,0\n1139,0\n1140,0\n1141,0\n1142,0\n1143,0\n1144,0\n1145,0\n1146,0\n1147,0\n1148,0\n1149,0\n1150,0\n1151,0\n1152,0\n1153,0\n1154,0\n1155,0\n1156,0\n1157,0\n1158,0\n1159,0\n1160,0\n1161,0\n1162,2\n1163,2\n1164,2\n1165,2\n1166,2\n1167,0\n1168,0\n1169,0\n1170,0\n1171,0\n1172,0\n1173,0\n1174,0\n1175,0\n1176,0\n1177,0\n1178,0\n1179,0\n1180,0\n1181,0\n1182,0\n1183,0\n1184,0\n1185,0\n1186,0\n1187,0\n1188,0\n1189,0\n1190,0\n1191,0\n1192,0\n1193,0\n1194,0\n1195,0\n1196,0\n1197,0\n1198,0\n1199,0\n1200,0\n1201,0\n1202,0\n1203,0\n1204,0\n1205,0\n1206,0\n1207,0\n1208,0\n1209,0\n1210,0\n1211,0\n1212,0\n1213,0\n1214,0\n1215,0\n1216,0\n1217,0\n1218,0\n1219,0\n1220,0\n1221,0\n1222,0\n1223,0\n1224,0\n1225,0\n1226,0\n1227,0\n1228,0\n1229,0\n1230,0\n1231,0\n1232,0\n1233,0\n1234,0\n1235,0\n1236,0\n1237,0\n1238,0\n1239,0\n1240,0\n1241,0\n1242,0\n1243,0\n1244,0\n1245,0\n1246,0\n1247,0\n1248,0\n1249,0\n1250,0\n1251,0\n1252,0\n1253,0\n1254,0\n1255,0\n1256,0\n1257,0\n1258,0\n1259,0\n1260,0\n1261,0\n1262,0\n1263,0\n1264,0\n1265,0\n1266,0\n1267,0\n1268,0\n1269,0\n1270,0\n1271,0\n1272,0\n1273,0\n1274,0\n1275,0\n1276,0\n1277,0\n1278,0\n1279,0\n1280,0\n1281,0\n1282,0\n1283,0\n1284,0\n1285,0\n1286,0\n1287,0\n1288,0\n1289,0\n1290,0\n1291,0\n1292,0\n1293,0\n1294,0\n1295,0\n1296,0\n1297,0\n1298,0\n1299,0\n1300,0\n1301,0\n1302,0\n1303,0\n1304,0\n1305,0\n1306,0\n1307,0\n1308,0\n1309,0\n1310,0\n1311,0\n1312,0\n1313,0\n1314,0\n1315,0\n1316,0\n1317,0\n1318,0\n1319,0\n1320,0\n1321,0\n1322,0\n1323,0\n1324,0\n1325,0\n1326,0\n1327,0\n1328,0\n1329,0\n1330,0\n1331,0\n1332,0\n1333,0\n1334,0\n1335,0\n1336,0\n1337,0\n1338,0\n1339,0\n1340,0\n1341,0\n1342,0\n1343,0\n1344,0\n1345,0\n1346,0\n1347,0\n1348,0\n1349,0\n1350,0\n1351,0\n1352,0\n1353,0\n1354,0\n1355,0\n1356,0\n1357,0\n1358,0\n1359,0\n1360,0\n1361,0\n1362,0\n1363,0\n1364,0\n1365,0\n1366,0\n1367,0\n1368,0\n1369,0\n1370,0\n1371,0\n1372,0\n1373,0\n1374,0\n1375,0\n1376,0\n1377,0\n1378,0\n1379,0\n1380,0\n1381,0\n1382,0\n1383,0\n1384,0\n1385,0\n1386,0\n1387,0\n1388,0\n1389,0\n1390,0\n1391,0\n1392,0\n1393,0\n1394,0\n1395,0\n1396,0\n1397,0\n1398,0\n1399,0\n1400,0\n1401,0\n1402,0\n1403,0\n1404,0\n1405,0\n1406,0\n1407,0\n1408,0\n1409,0\n1410,0\n1411,0\n1412,0\n1413,0\n1414,0\n1415,0\n1416,0\n1417,0\n1418,0\n1419,0\n1420,0\n1421,0\n1422,0\n1423,0\n1424,0\n1425,0\n1426,0\n1427,0\n1428,0\n1429,0\n1430,0\n1431,0\n1432,0\n1433,0\n1434,0\n1435,0\n1436,0\n1437,0\n1438,0\n1439,0\n1440,0\n1441,0\n1442,0\n1443,0\n1444,0\n1445,0\n1446,0\n1447,0\n1448,0\n1449,0\n1450,0\n1451,0\n1452,0\n1453,0\n1454,0\n1455,0\n1456,0\n1457,0\n1458,0\n1459,0\n1460,0\n1461,0\n1462,0\n1463,0\n1464,0\n1465,0\n1466,0\n1467,0\n1468,0\n1469,0\n1470,0\n1471,0\n1472,0\n1473,0\n1474,0\n1475,0\n1476,0\n1477,0\n1478,0\n1479,0\n1480,0\n1481,0\n1482,0\n1483,0\n1484,0\n1485,0\n1486,0\n1487,0\n1488,0\n1489,0\n1490,0\n1491,0\n1492,0\n1493,0\n1494,0\n1495,0\n1496,0\n1497,0\n1498,0\n1499,0\n1500,0\n1501,0\n1502,0\n1503,0\n1504,0\n1505,0\n1506,0\n1507,0\n1508,0\n1509,0\n1510,0\n1511,0\n1512,0\n1513,0\n1514,0\n1515,0\n1516,0\n1517,0\n1518,0\n1519,0\n1520,0\n1521,0\n1522,0\n1523,0\n1524,0\n1525,0\n1526,0\n1527,0\n1528,0\n1529,0\n1530,0\n1531,0\n1532,0\n1533,0\n1534,0\n1535,0\n1536,0\n1537,0\n1538,0\n1539,0\n1540,0\n1541,0\n1542,0\n1543,0\n1544,0\n1545,0\n1546,0\n1547,0\n1548,0\n1549,0\n1550,0\n1551,0\n1552,0\n1553,0\n1554,0\n1555,0\n1556,0\n1557,0\n1558,0\n1559,0\n1560,0\n1561,0\n1562,0\n1563,0\n1564,0\n1565,0\n1566,0\n1567,0\n1568,0\n1569,0\n1570,0\n1571,0\n1572,0\n1573,0\n1574,0\n1575,0\n1576,0\n1577,0\n1578,0\n1579,0\n1580,0\n1581,0\n1582,0\n1583,0\n1584,0\n1585,0\n1586,0\n1587,0\n1588,0\n1589,0\n1590,0\n1591,0\n1592,0\n1593,0\n1594,0\n1595,0\n1596,0\n1597,0\n1598,0\n1599,0\n1600,0\n1601,0\n1602,0\n1603,0\n1604,0\n1605,0\n1606,0\n1607,0\n1608,0\n1609,0\n1610,0\n1611,0\n1612,0\n1613,0\n1614,0\n1615,0\n1616,0\n1617,0\n1618,0\n1619,0\n1620,0\n1621,0\n1622,0\n1623,0\n1624,0\n1625,0\n1626,0\n1627,0\n1628,0\n1629,0\n1630,0\n1631,0\n1632,0\n1633,0\n1634,0\n1635,0\n1636,0\n1637,0\n1638,0\n1639,0\n1640,0\n1641,0\n1642,0\n1643,0\n1644,0\n1645,0\n1646,0\n1647,0\n1648,0\n1649,0\n1650,0\n1651,0\n1652,0\n1653,0\n1654,0\n1655,0\n1656,0\n1657,0\n1658,0\n1659,0\n1660,0\n1661,0\n1662,0\n1663,0\n1664,0\n1665,0\n1666,0\n1667,0\n1668,0\n1669,0\n1670,0\n1671,0\n1672,0\n1673,0\n1674,0\n1675,0\n1676,0\n1677,0\n1678,0\n1679,0\n1680,0\n1681,0\n1682,0\n1683,0\n1684,0\n1685,0\n1686,0\n1687,0\n1688,0\n1689,0\n1690,0\n1691,0\n1692,0\n1693,0\n1694,0\n1695,0\n1696,0\n1697,0\n1698,0\n1699,0\n1700,0\n1701,0\n1702,0\n1703,0\n1704,0\n1705,0\n1706,0\n1707,0\n1708,0\n1709,0\n1710,0\n1711,0\n1712,0\n1713,0\n1714,0\n1715,0\n1716,0\n1717,0\n1718,0\n1719,0\n1720,0\n1721,0\n1722,0\n1723,0\n1724,0\n1725,0\n1726,0\n1727,0\n1728,0\n1729,0\n1730,0\n1731,0\n1732,0\n1733,0\n1734,0\n1735,0\n1736,0\n1737,0\n1738,0\n1739,0\n1740,0\n1741,0\n1742,0\n1743,0\n1744,0\n1745,0\n1746,0\n1747,0\n1748,0\n1749,0\n1750,0\n1751,0\n1752,0\n1753,0\n1754,0\n1755,0\n1756,0\n1757,0\n1758,0\n1759,0\n1760,0\n1761,0\n1762,0\n1763,0\n1764,0\n1765,0\n1766,0\n1767,0\n1768,0\n1769,0\n1770,0\n1771,0\n1772,0\n1773,0\n1774,0\n1775,0\n1776,0\n1777,0\n1778,0\n1779,0\n1780,0\n1781,0\n1782,0\n1783,0\n1784,0\n1785,0\n1786,0\n1787,0\n1788,0\n1789,0\n1790,0\n1791,0\n1792,0\n1793,0\n1794,0\n1795,0\n1796,0\n1797,0\n1798,0\n1799,0\n1800,0\n1801,0\n1802,0\n1803,0\n1804,0\n1805,0\n1806,0\n1807,0\n1808,0\n1809,0\n1810,0\n1811,0\n1812,0\n1813,0\n1814,0\n1815,0\n1816,0\n1817,0\n1818,0\n1819,0\n1820,0\n1821,0\n1822,0\n1823,0\n1824,0\n1825,0\n1826,0\n1827,0\n1828,0\n1829,0\n1830,0\n1831,0\n1832,0\n1833,0\n1834,0\n1835,0\n1836,0\n1837,0\n1838,0\n1839,0\n1840,0\n1841,0\n1842,0\n1843,0\n1844,0\n1845,0\n1846,0\n1847,0\n1848,0\n1849,0\n1850,0\n1851,0\n1852,0\n1853,0\n1854,0\n1855,0\n1856,0\n1857,0\n1858,0\n1859,0\n1860,0\n1861,0\n1862,0\n1863,0\n1864,0\n1865,0\n1866,0\n1867,0\n1868,0\n1869,0\n1870,0\n1871,0\n1872,0\n1873,0\n1874,0\n1875,0\n1876,0\n1877,0\n1878,0\n1879,0\n1880,0\n1881,0\n1882,0\n1883,0\n1884,0\n1885,0\n1886,0\n1887,0\n1888,0\n1889,0\n1890,0\n1891,0\n1892,0\n1893,0\n1894,0\n1895,0\n1896,0\n1897,0\n1898,0\n1899,0\n1900,0\n1901,0\n1902,0\n1903,0\n1904,0\n1905,0\n1906,0\n1907,0\n1908,0\n1909,0\n1910,0\n1911,0\n1912,0\n1913,0\n1914,0\n1915,0\n1916,0\n1917,0\n1918,0\n1919,0\n1920,0\n1921,0\n1922,0\n1923,0\n1924,0\n1925,0\n1926,0\n1927,0\n1928,0\n1929,0\n1930,0\n1931,0\n1932,0\n1933,0\n1934,0\n1935,0\n1936,0\n1937,0\n1938,0\n1939,0\n1940,0\n1941,0\n1942,0\n1943,0\n1944,0\n1945,0\n1946,0\n1947,0\n1948,0\n1949,0\n1950,0\n1951,0\n1952,0\n1953,0\n1954,0\n1955,0\n1956,0\n1957,0\n1958,0\n1959,0\n1960,0\n1961,0\n1962,0\n1963,0\n1964,0\n1965,0\n1966,0\n1967,0\n1968,0\n1969,0\n1970,0\n1971,0\n1972,0\n1973,0\n1974,0\n1975,0\n1976,0\n1977,0\n1978,0\n1979,0\n1980,0\n1981,0\n1982,0\n1983,0\n1984,0\n1985,0\n1986,0\n1987,0\n1988,0\n1989,0\n1990,0\n1991,0\n1992,0\n1993,0\n1994,0\n1995,0\n1996,0\n1997,0\n1998,0\n1999,0\n2000,0\n2001,0\n2002,0\n2003,0\n2004,0\n2005,0\n2006,0\n2007,0\n2008,0\n2009,0\n2010,0\n2011,0\n2012,0\n2013,0\n2014,0\n2015,0\n2016,0\n2017,0\n2018,0\n2019,0\n2020,0\n2021,0\n2022,0\n2023,0\n2024,0\n2025,0\n2026,0\n2027,0\n2028,0\n2029,0\n2030,0\n2031,0\n2032,0\n2033,0\n2034,0\n2035,0\n2036,0\n2037,0\n2038,0\n2039,0\n2040,0\n2041,0\n2042,0\n2043,0\n2044,0\n2045,0\n2046,0\n2047,0\n2048,0\n2049,0\n2050,0\n2051,0\n2052,0\n2053,0\n2054,0\n2055,0\n2056,5\n2057,5\n2058,5\n2059,5\n2060,5\n2061,0\n2062,0\n2063,0\n2064,0\n2065,0\n2066,0\n2067,0\n2068,0\n2069,0\n2070,0\n2071,0\n2072,0\n2073,0\n2074,0\n2075,0\n2076,0\n2077,0\n2078,0\n2079,0\n2080,0\n2081,0\n2082,0\n2083,0\n2084,0\n2085,0\n2086,0\n2087,0\n2088,0\n2089,0\n2090,0\n2091,0\n2092,0\n2093,0\n2094,0\n2095,0\n2096,0\n2097,0\n2098,0\n2099,0\n2100,0\n2101,0\n2102,0\n2103,0\n2104,0\n2105,0\n2106,0\n2107,0\n2108,0\n2109,0\n2110,0\n2111,0\n2112,0\n2113,0\n2114,0\n2115,0\n2116,0\n2117,0\n2118,0\n2119,0\n2120,0\n2121,0\n2122,0\n2123,0\n2124,0\n2125,0\n2126,0\n2127,0\n2128,0\n2129,0\n2130,0\n2131,0\n2132,0\n2133,0\n2134,0\n2135,0\n2136,0\n2137,0\n2138,0\n2139,0\n2140,0\n2141,0\n2142,0\n2143,0\n2144,0\n2145,0\n2146,0\n2147,0\n2148,0\n2149,0\n2150,0\n2151,0\n2152,0\n2153,0\n2154,0\n2155,0\n2156,0\n2157,0\n2158,0\n2159,0\n2160,0\n2161,0\n2162,0\n2163,0\n2164,0\n2165,0\n2166,0\n2167,0\n2168,0\n2169,0\n2170,0\n2171,0\n2172,0\n2173,0\n2174,0\n2175,0\n2176,0\n2177,0\n2178,0\n2179,0\n2180,0\n2181,0\n2182,0\n2183,0\n2184,0\n2185,0\n2186,0\n2187,0\n2188,0\n2189,0\n2190,0\n2191,0\n2192,0\n2193,0\n2194,0\n2195,0\n2196,0\n2197,0\n2198,0\n2199,0\n2200,0\n2201,0\n2202,0\n2203,0\n2204,0\n2205,0\n2206,0\n2207,0\n2208,0\n2209,0\n2210,0\n2211,0\n2212,0\n2213,0\n2214,0\n2215,0\n2216,0\n2217,0\n2218,0\n2219,0\n2220,0\n2221,0\n2222,0\n2223,0\n2224,0\n2225,0\n2226,0\n2227,0\n2228,0\n2229,0\n2230,0\n2231,0\n2232,0\n2233,0\n2234,0\n2235,0\n2236,0\n2237,2\n2238,2\n2239,2\n2240,2\n2241,2\n2242,0\n2243,0\n2244,0\n2245,0\n2246,0\n2247,0\n2248,0\n2249,0\n2250,0\n2251,0\n2252,0\n2253,0\n2254,0\n2255,0\n2256,0\n2257,0\n2258,0\n2259,0\n2260,0\n2261,0\n2262,0\n2263,0\n2264,0\n2265,0\n2266,0\n2267,0\n2268,0\n2269,0\n2270,0\n2271,0\n2272,0\n2273,0\n2274,0\n2275,0\n2276,0\n2277,0\n2278,0\n2279,0\n2280,0\n2281,0\n2282,0\n2283,0\n2284,0\n2285,0\n2286,0\n2287,0\n2288,0\n2289,0\n2290,0\n2291,0\n2292,0\n2293,0\n2294,0\n2295,0\n2296,0\n2297,0\n2298,0\n2299,0\n2300,0\n2301,0\n2302,0\n2303,0\n2304,0\n2305,0\n2306,0\n2307,0\n2308,0\n2309,0\n2310,0\n2311,0\n2312,0\n2313,0\n2314,0\n2315,0\n2316,0\n2317,0\n2318,0\n2319,0\n2320,0\n2321,0\n2322,0\n2323,0\n2324,0\n2325,0\n2326,0\n2327,0\n2328,0\n2329,0\n2330,0\n2331,0\n2332,0\n2333,0\n2334,0\n2335,0\n2336,0\n2337,0\n2338,0\n2339,0\n2340,0\n2341,0\n2342,0\n2343,0\n2344,0\n2345,0\n2346,0\n2347,0\n2348,0\n2349,0\n2350,0\n2351,0\n2352,0\n2353,0\n2354,0\n2355,0\n2356,0\n2357,0\n2358,0\n2359,0\n2360,0\n2361,0\n2362,0\n2363,0\n2364,0\n2365,0\n2366,0\n2367,0\n2368,0\n2369,0\n2370,0\n2371,0\n2372,0\n2373,0\n2374,0\n2375,0\n2376,0\n2377,0\n2378,0\n2379,0\n2380,0\n2381,0\n2382,0\n2383,0\n2384,0\n2385,0\n2386,0\n2387,0\n2388,0\n2389,0\n2390,0\n2391,0\n2392,0\n2393,0\n2394,0\n2395,0\n2396,0\n2397,0\n2398,0\n2399,0\n2400,0\n2401,0\n2402,0\n2403,0\n2404,0\n2405,0\n2406,0\n2407,0\n2408,0\n2409,0\n2410,0\n2411,0\n2412,0\n2413,0\n2414,0\n2415,0\n2416,0\n2417,0\n2418,0\n2419,0\n2420,0\n2421,0\n2422,0\n2423,0\n2424,0\n2425,0\n2426,0\n2427,0\n2428,0\n2429,0\n2430,0\n2431,0\n2432,0\n2433,0\n2434,0\n2435,212\n2436,212\n2437,212\n2438,212\n2439,212\n2440,0\n2441,0\n2442,0\n2443,0\n2444,0\n2445,0\n2446,0\n2447,0\n2448,0\n2449,0\n2450,0\n2451,0\n2452,0\n2453,0\n2454,0\n2455,0\n2456,0\n2457,0\n2458,0\n2459,0\n2460,0\n2461,0\n2462,0\n2463,0\n2464,0\n2465,0\n2466,0\n2467,0\n2468,0\n2469,0\n2470,0\n2471,0\n2472,0\n2473,0\n2474,0\n2475,0\n2476,0\n2477,0\n2478,0\n2479,0\n2480,0\n2481,0\n2482,0\n2483,0\n2484,0\n2485,0\n2486,0\n2487,0\n2488,0\n2489,0\n2490,0\n2491,0\n2492,0\n2493,0\n2494,0\n2495,0\n2496,0\n2497,0\n2498,0\n2499,1\n2500,1\n2501,1\n2502,1\n2503,1\n2504,0\n2505,0\n2506,0\n2507,0\n2508,0\n2509,0\n2510,0\n2511,0\n2512,0\n2513,0\n2514,0\n2515,0\n2516,0\n2517,0\n2518,0\n2519,0\n2520,0\n2521,0\n2522,0\n2523,0\n2524,0\n2525,0\n2526,0\n2527,0\n2528,0\n2529,0\n2530,0\n2531,0\n2532,0\n2533,0\n2534,0\n2535,0\n2536,0\n2537,0\n2538,0\n2539,0\n2540,0\n2541,0\n2542,0\n2543,0\n2544,0\n2545,0\n2546,0\n2547,0\n2548,0\n2549,0\n2550,0\n2551,0\n2552,0\n2553,0\n2554,0\n2555,0\n2556,0\n2557,0\n2558,0\n2559,0\n2560,0\n2561,0\n2562,0\n2563,0\n2564,0\n2565,0\n2566,0\n2567,0\n2568,0\n2569,0\n2570,0\n2571,0\n2572,0\n2573,0\n2574,0\n2575,0\n2576,0\n2577,0\n2578,0\n2579,0\n2580,0\n2581,0\n2582,0\n2583,0\n2584,0\n2585,0\n2586,0\n2587,0\n2588,0\n2589,0\n2590,0\n2591,0\n2592,0\n2593,0\n2594,0\n2595,0\n2596,0\n2597,0\n2598,0\n2599,0\n2600,0\n2601,0\n2602,0\n2603,0\n2604,0\n2605,0\n2606,0\n2607,0\n2608,0\n2609,0\n2610,0\n2611,0\n2612,0\n2613,0\n2614,0\n2615,0\n2616,0\n2617,0\n2618,0\n2619,0\n2620,0\n2621,0\n2622,0\n2623,0\n2624,0\n2625,0\n2626,0\n2627,0\n2628,0\n2629,0\n2630,0\n2631,0\n2632,0\n2633,0\n2634,0\n2635,0\n2636,0\n2637,0\n2638,0\n2639,0\n2640,0\n2641,0\n2642,0\n2643,0\n2644,0\n2645,0\n2646,0\n2647,0\n2648,0\n2649,0\n2650,0\n2651,0\n2652,0\n2653,0\n2654,0\n2655,0\n2656,0\n2657,0\n2658,0\n2659,0\n2660,0\n2661,0\n2662,0\n2663,0\n2664,0\n2665,0\n2666,0\n2667,0\n2668,0\n2669,1\n2670,2\n2671,2\n2672,2\n2673,2\n2674,1\n2675,0\n2676,0\n2677,0\n2678,0\n2679,0\n2680,0\n2681,0\n2682,0\n2683,0\n2684,0\n2685,0\n2686,0\n2687,0\n2688,0\n2689,0\n2690,0\n2691,0\n2692,0\n2693,0\n2694,0\n2695,0\n2696,0\n2697,0\n2698,0\n2699,0\n2700,0\n2701,0\n2702,0\n2703,0\n2704,0\n2705,0\n2706,0\n2707,0\n2708,0\n2709,0\n2710,0\n2711,0\n2712,0\n2713,0\n2714,0\n2715,0\n2716,0\n2717,0\n2718,0\n2719,0\n2720,0\n2721,0\n2722,0\n2723,0\n2724,0\n2725,0\n2726,0\n2727,0\n2728,0\n2729,0\n2730,0\n2731,0\n2732,0\n2733,0\n2734,0\n2735,0\n2736,0\n2737,0\n2738,0\n2739,0\n2740,0\n2741,0\n2742,0\n2743,0\n2744,0\n2745,0\n2746,0\n2747,0\n2748,0\n2749,0\n2750,0\n2751,0\n2752,0\n2753,0\n2754,0\n2755,0\n2756,0\n2757,0\n2758,0\n2759,0\n2760,0\n2761,0\n2762,0\n2763,0\n2764,0\n2765,0\n2766,0\n2767,0\n2768,0\n2769,0\n2770,0\n2771,0\n2772,0\n2773,0\n2774,0\n2775,0\n2776,0\n2777,0\n2778,0\n2779,0\n2780,0\n2781,0\n2782,0\n2783,0\n2784,0\n2785,0\n2786,0\n2787,0\n2788,0\n2789,0\n2790,0\n2791,0\n2792,0\n2793,0\n2794,0\n2795,0\n2796,0\n2797,0\n2798,0\n2799,0\n2800,0\n2801,0\n2802,0\n2803,0\n2804,0\n2805,0\n2806,0\n2807,0\n2808,0\n2809,0\n2810,0\n2811,0\n2812,0\n2813,0\n2814,0\n2815,0\n2816,0\n2817,0\n2818,0\n2819,0\n2820,0\n2821,0\n2822,0\n2823,0\n2824,0\n2825,0\n2826,0\n2827,0\n2828,0\n2829,0\n2830,0\n2831,0\n2832,0\n2833,0\n2834,0\n2835,0\n2836,0\n2837,0\n2838,0\n2839,0\n2840,0\n2841,0\n2842,0\n2843,0\n2844,0\n2845,0\n2846,0\n2847,0\n2848,0\n2849,0\n2850,0\n2851,0\n2852,0\n2853,0\n2854,0\n2855,0\n2856,0\n2857,0\n2858,0\n2859,0\n2860,0\n2861,0\n2862,0\n2863,0\n2864,0\n2865,0\n2866,0\n2867,0\n2868,0\n2869,0\n2870,0\n2871,0\n2872,0\n2873,0\n2874,0\n2875,0\n2876,0\n2877,0\n2878,0\n2879,0\n2880,0\n2881,0\n2882,0\n2883,0\n2884,0\n2885,0\n2886,0\n2887,0\n2888,0\n2889,0\n2890,0\n2891,0\n2892,0\n2893,0\n2894,0\n2895,0\n2896,0\n2897,0\n2898,0\n2899,0\n2900,0\n2901,0\n2902,0\n2903,0\n2904,0\n2905,0\n2906,0\n2907,0\n2908,0\n2909,0\n2910,0\n2911,0\n2912,0\n2913,0\n2914,0\n2915,0\n2916,0\n2917,0\n2918,0\n2919,0\n2920,0\n2921,0\n2922,0\n2923,0\n2924,0\n2925,0\n2926,0\n2927,0\n2928,0\n2929,0\n2930,0\n2931,0\n2932,0\n2933,0\n2934,0\n2935,0\n2936,0\n2937,0\n2938,0\n2939,0\n2940,0\n2941,0\n2942,0\n2943,0\n2944,0\n2945,0\n2946,0\n2947,0\n2948,0\n2949,0\n2950,0\n2951,0\n2952,0\n2953,0\n2954,0\n2955,0\n2956,0\n2957,0\n2958,0\n2959,0\n2960,0\n2961,0\n2962,0\n2963,0\n2964,0\n2965,0\n2966,0\n2967,0\n2968,0\n2969,0\n2970,0\n2971,0\n2972,0\n2973,0\n2974,0\n2975,0\n2976,0\n2977,0\n2978,0\n2979,0\n2980,0\n2981,0\n2982,0\n2983,0\n2984,0\n2985,0\n2986,0\n2987,0\n2988,0\n2989,0\n2990,0\n2991,0\n2992,0\n2993,0\n2994,0\n2995,0\n2996,0\n2997,0\n2998,0\n2999,0\n3000,0\n3001,0\n3002,0\n3003,0\n3004,0\n3005,0\n3006,0\n3007,0\n3008,0\n3009,0\n3010,0\n3011,0\n3012,0\n3013,0\n3014,0\n3015,0\n3016,0\n3017,0\n3018,0\n3019,0\n3020,0\n3021,0\n3022,0\n3023,0\n3024,0\n3025,0\n3026,0\n3027,0\n3028,0\n3029,0\n3030,0\n3031,0\n3032,0\n3033,0\n3034,0\n3035,0\n3036,0\n3037,0\n3038,0\n3039,0\n3040,0\n3041,0\n3042,0\n3043,0\n3044,0\n3045,0\n3046,0\n3047,0\n3048,0\n3049,0\n3050,0\n3051,0\n3052,0\n3053,0\n3054,0\n3055,0\n3056,0\n3057,0\n3058,0\n3059,0\n3060,0\n3061,0\n3062,0\n3063,0\n3064,0\n3065,0\n3066,0\n3067,0\n3068,0\n3069,0\n3070,0\n3071,0\n3072,0\n3073,0\n3074,0\n3075,0\n3076,0\n3077,0\n3078,0\n3079,0\n3080,0\n3081,0\n3082,0\n3083,0\n3084,0\n3085,0\n3086,0\n3087,0\n3088,0\n3089,0\n3090,0\n3091,0\n3092,0\n3093,0\n3094,0\n3095,0\n3096,0\n3097,0\n3098,0\n3099,0\n3100,0\n3101,0\n3102,0\n3103,0\n3104,0\n3105,0\n3106,0\n3107,0\n3108,0\n3109,0\n3110,0\n3111,0\n3112,0\n3113,0\n3114,0\n3115,0\n3116,0\n3117,0\n3118,0\n3119,0\n3120,0\n3121,0\n3122,0\n3123,0\n3124,0\n3125,0\n3126,0\n3127,0\n3128,0\n3129,0\n3130,0\n3131,0\n3132,0\n3133,0\n3134,0\n3135,0\n3136,0\n3137,0\n3138,0\n3139,0\n3140,0\n3141,0\n3142,0\n3143,0\n3144,0\n3145,0\n3146,0\n3147,0\n3148,0\n3149,0\n3150,0\n3151,0\n3152,0\n3153,0\n3154,0\n3155,0\n3156,0\n3157,0\n3158,0\n3159,0\n3160,0\n3161,0\n3162,0\n3163,0\n3164,0\n3165,0\n3166,0\n3167,0\n3168,0\n3169,0\n3170,0\n3171,0\n3172,0\n3173,0\n3174,0\n3175,0\n3176,0\n3177,0\n3178,0\n3179,0\n3180,0\n3181,0\n3182,0\n3183,0\n3184,0\n3185,0\n3186,0\n3187,0\n3188,0\n3189,0\n3190,0\n3191,0\n3192,0\n3193,0\n3194,0\n3195,0\n3196,0\n3197,0\n3198,0\n3199,0\n3200,0\n3201,0\n3202,0\n3203,0\n3204,0\n3205,0\n3206,0\n3207,0\n3208,0\n3209,0\n3210,0\n3211,0\n3212,0\n3213,0\n3214,0\n3215,0\n3216,0\n3217,0\n3218,0\n3219,0\n3220,0\n3221,0\n3222,0\n3223,0\n3224,0\n3225,0\n3226,0\n3227,0\n3228,0\n3229,0\n3230,0\n3231,0\n3232,0\n3233,0\n3234,0\n3235,0\n3236,0\n3237,0\n3238,0\n3239,0\n3240,0\n3241,0\n3242,0\n3243,0\n3244,0\n3245,0\n3246,0\n3247,0\n3248,0\n3249,0\n3250,0\n3251,0\n3252,0\n3253,0\n3254,0\n3255,0\n3256,0\n3257,0\n3258,0\n3259,0\n3260,0\n3261,0\n3262,0\n3263,0\n3264,0\n3265,0\n3266,0\n3267,0\n3268,0\n3269,0\n3270,0\n3271,0\n3272,0\n3273,0\n3274,0\n3275,0\n3276,0\n3277,0\n3278,0\n3279,0\n3280,0\n3281,0\n3282,0\n3283,0\n3284,0\n3285,0\n3286,0\n3287,0\n3288,0\n3289,0\n3290,0\n3291,0\n3292,0\n3293,0\n3294,0\n3295,0\n3296,0\n3297,0\n3298,0\n3299,0\n3300,0\n3301,0\n3302,0\n3303,0\n3304,0\n3305,0\n3306,0\n3307,0\n3308,0\n3309,0\n3310,0\n3311,0\n3312,0\n3313,0\n3314,0\n3315,0\n3316,0\n3317,0\n3318,0\n3319,0\n3320,0\n3321,0\n3322,0\n3323,0\n3324,0\n3325,0\n3326,0\n3327,0\n3328,0\n3329,0\n3330,0\n3331,0\n3332,0\n3333,0\n3334,0\n3335,0\n3336,0\n3337,0\n3338,0\n3339,0\n3340,0\n3341,0\n3342,0\n3343,0\n3344,0\n3345,0\n3346,0\n3347,0\n3348,0\n3349,0\n3350,0\n3351,0\n3352,0\n3353,0\n3354,0\n3355,0\n3356,0\n3357,0\n3358,0\n3359,0\n3360,0\n3361,0\n3362,0\n3363,0\n3364,0\n3365,0\n3366,0\n3367,0\n3368,0\n3369,0\n3370,0\n3371,0\n3372,0\n3373,0\n3374,0\n3375,0\n3376,0\n3377,0\n3378,0\n3379,0\n3380,0\n3381,0\n3382,0\n3383,0\n3384,0\n3385,0\n3386,0\n3387,0\n3388,0\n3389,0\n3390,0\n3391,0\n3392,0\n3393,0\n3394,0\n3395,0\n3396,0\n3397,0\n3398,0\n3399,0\n3400,0\n3401,0\n3402,0\n3403,0\n3404,0\n3405,0\n3406,0\n3407,0\n3408,0\n3409,0\n3410,0\n3411,0\n3412,0\n3413,0\n3414,0\n3415,0\n3416,0\n3417,0\n3418,0\n3419,0\n3420,0\n3421,0\n3422,0\n3423,0\n3424,0\n3425,0\n3426,0\n3427,0\n3428,0\n3429,0\n3430,0\n3431,0\n3432,0\n3433,0\n3434,0\n3435,0\n3436,0\n3437,0\n3438,0\n3439,0\n3440,0\n3441,0\n3442,0\n3443,0\n3444,0\n3445,0\n3446,0\n3447,0\n3448,0\n3449,0\n3450,0\n3451,0\n3452,0\n3453,0\n3454,0\n3455,0\n3456,0\n3457,0\n3458,0\n3459,0\n3460,0\n3461,0\n3462,0\n3463,0\n3464,0\n3465,0\n3466,0\n3467,0\n3468,0\n3469,0\n3470,0\n3471,0\n3472,0\n3473,0\n3474,0\n3475,0\n3476,0\n3477,0\n3478,0\n3479,0\n3480,0\n3481,0\n3482,0\n3483,0\n3484,0\n3485,0\n3486,0\n3487,0\n3488,0\n3489,0\n3490,0\n3491,0\n3492,0\n3493,0\n3494,0\n3495,0\n3496,0\n3497,0\n3498,0\n3499,0\n3500,0\n3501,0\n3502,0\n3503,0\n3504,0\n3505,0\n3506,0\n3507,0\n3508,0\n3509,0\n3510,0\n3511,0\n3512,0\n3513,0\n3514,0\n3515,0\n3516,0\n3517,0\n3518,0\n3519,0\n3520,0\n3521,0\n3522,0\n3523,0\n3524,0\n3525,0\n3526,0\n3527,0\n3528,0\n3529,0\n3530,0\n3531,0\n3532,0\n3533,0\n3534,0\n3535,0\n3536,0\n3537,0\n3538,0\n3539,0\n3540,0\n3541,0\n3542,0\n3543,0\n3544,0\n3545,0\n3546,0\n3547,0\n3548,0\n3549,0\n3550,0\n3551,0\n3552,0\n3553,0\n3554,0\n3555,0\n3556,0\n3557,0\n3558,0\n3559,0\n3560,0\n3561,0\n3562,0\n3563,0\n3564,0\n3565,0\n3566,0\n3567,0\n3568,0\n3569,0\n3570,0\n3571,0\n3572,0\n3573,0\n3574,0\n3575,0\n3576,0\n3577,0\n3578,0\n3579,0\n3580,0\n3581,0\n3582,0\n3583,0\n3584,0\n3585,0\n3586,0\n3587,0\n3588,0\n3589,0\n3590,0\n3591,0\n3592,0\n3593,0\n3594,0\n3595,0\n3596,0\n3597,0\n3598,0\n3599,0\n3600,0\n3601,0\n3602,0\n3603,0\n3604,0\n3605,0\n3606,0\n3607,0\n3608,0\n3609,0\n3610,0\n3611,0\n3612,0\n3613,0\n3614,0\n3615,0\n3616,0\n3617,0\n3618,0\n3619,0\n3620,0\n3621,0\n3622,0\n3623,0\n3624,0\n3625,0\n3626,0\n3627,0\n3628,0\n3629,0\n3630,0\n3631,0\n3632,0\n3633,0\n3634,0\n3635,0\n3636,0\n3637,0\n3638,0\n3639,0\n3640,0\n3641,0\n3642,0\n3643,0\n3644,0\n3645,0\n3646,0\n3647,0\n3648,0\n3649,0\n3650,0\n3651,0\n3652,0\n3653,0\n3654,0\n3655,0\n3656,0\n3657,0\n3658,0\n3659,0\n3660,0\n3661,0\n3662,0\n3663,0\n3664,0\n3665,0\n3666,0\n3667,0\n3668,0\n3669,0\n3670,0\n3671,0\n3672,0\n3673,0\n3674,0\n3675,0\n3676,0\n3677,0\n3678,0\n3679,0\n3680,0\n3681,0\n3682,0\n3683,0\n3684,0\n3685,0\n3686,0\n3687,0\n3688,0\n3689,0\n3690,0\n3691,0\n3692,0\n3693,0\n3694,0\n3695,0\n3696,0\n3697,0\n3698,0\n3699,0\n3700,0\n3701,0\n3702,0\n3703,0\n3704,0\n3705,0\n3706,0\n3707,0\n3708,0\n3709,0\n3710,0\n3711,0\n3712,0\n3713,0\n3714,0\n3715,0\n3716,0\n3717,0\n3718,0\n3719,0\n3720,0\n3721,0\n3722,0\n3723,0\n3724,0\n3725,0\n3726,0\n3727,0\n3728,0\n3729,0\n3730,0\n3731,0\n3732,0\n3733,0\n3734,0\n3735,0\n3736,0\n3737,0\n3738,0\n3739,0\n3740,0\n3741,0\n3742,0\n3743,0\n3744,0\n3745,0\n3746,0\n3747,0\n3748,0\n3749,0\n3750,0\n3751,0\n3752,0\n3753,0\n3754,0\n3755,0\n3756,0\n3757,0\n3758,0\n3759,0\n3760,0\n3761,0\n3762,0\n3763,0\n3764,0\n3765,0\n3766,0\n3767,0\n3768,0\n3769,0\n3770,0\n3771,0\n3772,0\n3773,0\n3774,0\n3775,0\n3776,0\n3777,0\n3778,0\n3779,0\n3780,0\n3781,0\n3782,0\n3783,0\n3784,0\n3785,0\n3786,0\n3787,0\n3788,0\n3789,0\n3790,0\n3791,0\n3792,0\n3793,0\n3794,0\n3795,0\n3796,0\n3797,0\n3798,0\n3799,0\n3800,0\n3801,0\n3802,0\n3803,0\n3804,0\n3805,0\n3806,0\n3807,0\n3808,0\n3809,0\n3810,0\n3811,0\n3812,0\n3813,0\n3814,0\n3815,0\n3816,0\n3817,0\n3818,0\n3819,0\n3820,0\n3821,0\n3822,0\n3823,0\n3824,0\n3825,0\n3826,0\n3827,0\n3828,0\n3829,0\n3830,0\n3831,0\n3832,0\n3833,0\n3834,0\n3835,0\n3836,0\n3837,0\n3838,0\n3839,0\n3840,0\n3841,0\n3842,0\n3843,0\n3844,0\n3845,0\n3846,0\n3847,0\n3848,0\n3849,0\n3850,0\n3851,0\n3852,0\n3853,0\n3854,0\n3855,0\n3856,0\n3857,0\n3858,0\n3859,0\n3860,0\n3861,0\n3862,0\n3863,0\n3864,0\n3865,0\n3866,0\n3867,0\n3868,0\n3869,0\n3870,0\n3871,0\n3872,0\n3873,0\n3874,0\n3875,0\n3876,0\n3877,0\n3878,0\n3879,0\n3880,0\n3881,0\n3882,0\n3883,0\n3884,0\n3885,0\n3886,0\n3887,0\n3888,0\n3889,0\n3890,0\n3891,0\n3892,0\n3893,0\n3894,0\n3895,0\n3896,0\n3897,0\n3898,0\n3899,0\n3900,0\n3901,0\n3902,0\n3903,0\n3904,0\n3905,0\n3906,0\n3907,0\n3908,0\n3909,0\n3910,0\n3911,0\n3912,0\n3913,0\n3914,0\n3915,0\n3916,0\n3917,0\n3918,0\n3919,0\n3920,0\n3921,0\n3922,0\n3923,0\n3924,0\n3925,0\n3926,0\n3927,0\n3928,0\n3929,0\n3930,0\n3931,0\n3932,0\n3933,0\n3934,0\n3935,0\n3936,0\n3937,0\n3938,0\n3939,1\n3940,1\n3941,1\n3942,1\n3943,1\n3944,0\n3945,0\n3946,0\n3947,0\n3948,0\n3949,0\n3950,0\n3951,0\n3952,0\n3953,0\n3954,0\n3955,0\n3956,0\n3957,0\n3958,0\n3959,0\n3960,0\n3961,0\n3962,0\n3963,0\n3964,0\n3965,0\n3966,0\n3967,0\n3968,0\n3969,0\n3970,0\n3971,0\n3972,0\n3973,0\n3974,0\n3975,0\n3976,0\n3977,0\n3978,0\n3979,0\n3980,0\n3981,0\n3982,0\n3983,0\n3984,0\n3985,0\n3986,0\n3987,0\n3988,0\n3989,0\n3990,0\n3991,0\n3992,0\n3993,0\n3994,0\n3995,0\n3996,0\n3997,0\n3998,0\n3999,0\n4000,0\n4001,0\n4002,0\n4003,0\n4004,0\n4005,0\n4006,0\n4007,0\n4008,0\n4009,0\n4010,0\n4011,0\n4012,0\n4013,0\n4014,0\n4015,0\n4016,0\n4017,0\n4018,0\n4019,0\n4020,0\n4021,0\n4022,0\n4023,0\n4024,0\n4025,0\n4026,0\n4027,0\n4028,0\n4029,0\n4030,0\n4031,0\n4032,0\n4033,0\n4034,0\n4035,0\n4036,0\n4037,0\n4038,0\n4039,0\n4040,0\n4041,0\n4042,0\n4043,0\n4044,0\n4045,0\n4046,0\n4047,0\n4048,0\n4049,0\n4050,0\n4051,0\n4052,0\n4053,0\n4054,0\n4055,0\n4056,0\n4057,0\n4058,0\n4059,0\n4060,0\n4061,0\n4062,0\n4063,0\n4064,0\n4065,0\n4066,0\n4067,0\n4068,0\n4069,0\n4070,0\n4071,0\n4072,0\n4073,0\n4074,0\n4075,0\n4076,0\n4077,0\n4078,0\n4079,0\n4080,0\n4081,0\n4082,0\n4083,0\n4084,0\n4085,0\n4086,0\n4087,0\n4088,0\n4089,0\n4090,0\n4091,0\n4092,0\n4093,0\n4094,0\n4095,0\n4096,0\n4097,0\n4098,0\n4099,0\n4100,0\n4101,0\n4102,0\n4103,0\n4104,0\n4105,0\n4106,0\n4107,0\n4108,0\n4109,0\n4110,0\n4111,0\n4112,0\n4113,0\n4114,0\n4115,0\n4116,0\n4117,0\n4118,0\n4119,0\n4120,0\n4121,0\n4122,0\n4123,0\n4124,0\n4125,0\n4126,0\n4127,0\n4128,0\n4129,0\n4130,0\n4131,0\n4132,0\n4133,0\n4134,0\n4135,0\n4136,0\n4137,0\n4138,0\n4139,0\n4140,0\n4141,0\n4142,0\n4143,0\n4144,0\n4145,0\n4146,0\n4147,0\n4148,0\n4149,0\n4150,0\n4151,0\n4152,0\n4153,0\n4154,0\n4155,0\n4156,0\n4157,0\n4158,0\n4159,0\n4160,0\n4161,0\n4162,0\n4163,0\n4164,0\n4165,0\n4166,0\n4167,0\n4168,0\n4169,0\n4170,0\n4171,0\n4172,0\n4173,0\n4174,0\n4175,0\n4176,0\n4177,0\n4178,0\n4179,0\n4180,0\n4181,0\n4182,0\n4183,0\n4184,0\n4185,0\n4186,0\n4187,0\n4188,0\n4189,0\n4190,0\n4191,0\n4192,0\n4193,0\n4194,0\n4195,0\n4196,0\n4197,0\n4198,0\n4199,0\n4200,0\n4201,0\n4202,0\n4203,0\n4204,0\n4205,0\n4206,0\n4207,0\n4208,0\n4209,0\n4210,0\n4211,0\n4212,0\n4213,0\n4214,0\n4215,0\n4216,0\n4217,0\n4218,0\n4219,0\n4220,0\n4221,0\n4222,0\n4223,0\n4224,0\n4225,0\n4226,0\n4227,0\n4228,0\n4229,0\n4230,0\n4231,0\n4232,0\n4233,0\n4234,0\n4235,0\n4236,0\n4237,0\n4238,0\n4239,0\n4240,0\n4241,0\n4242,0\n4243,0\n4244,0\n4245,0\n4246,0\n4247,0\n4248,0\n4249,0\n4250,0\n4251,0\n4252,0\n4253,0\n4254,0\n4255,0\n4256,0\n4257,0\n4258,0\n4259,0\n4260,0\n4261,0\n4262,0\n4263,0\n4264,0\n4265,0\n4266,0\n4267,0\n4268,0\n4269,0\n4270,0\n4271,0\n4272,0\n4273,0\n4274,0\n4275,0\n4276,0\n4277,0\n4278,0\n4279,0\n4280,0\n4281,0\n4282,0\n4283,0\n4284,0\n4285,0\n4286,0\n4287,0\n4288,0\n4289,0\n4290,0\n4291,0\n4292,0\n4293,0\n4294,0\n4295,0\n4296,0\n4297,0\n4298,0\n4299,0\n4300,0\n4301,0\n4302,0\n4303,0\n4304,0\n4305,0\n4306,0\n4307,0\n4308,0\n4309,0\n4310,0\n4311,0\n4312,0\n4313,0\n4314,0\n4315,0\n4316,0\n4317,0\n4318,0\n4319,0\n4320,0\n4321,0\n4322,0\n4323,0\n4324,0\n4325,0\n4326,0\n4327,0\n4328,0\n4329,0\n4330,0\n4331,0\n4332,0\n4333,0\n4334,0\n4335,0\n4336,0\n4337,0\n4338,0\n4339,0\n4340,0\n4341,0\n4342,0\n4343,0\n4344,0\n4345,0\n4346,0\n4347,0\n4348,0\n4349,0\n4350,0\n4351,0\n4352,0\n4353,0\n4354,0\n4355,0\n4356,0\n4357,0\n4358,0\n4359,0\n4360,0\n4361,0\n4362,0\n4363,0\n4364,0\n4365,0\n4366,0\n4367,0\n4368,0\n4369,0\n4370,0\n4371,0\n4372,0\n4373,0\n4374,0\n4375,0\n4376,0\n4377,0\n4378,0\n4379,0\n4380,0\n4381,0\n4382,0\n4383,0\n4384,0\n4385,0\n4386,0\n4387,0\n4388,0\n4389,0\n4390,0\n4391,0\n4392,0\n4393,0\n4394,0\n4395,0\n4396,0\n4397,0\n4398,0\n4399,0\n4400,0\n4401,0\n4402,0\n4403,0\n4404,0\n4405,0\n4406,0\n4407,0\n4408,0\n4409,0\n4410,0\n4411,0\n4412,0\n4413,0\n4414,0\n4415,0\n4416,0\n4417,0\n4418,0\n4419,0\n4420,0\n4421,0\n4422,0\n4423,0\n4424,0\n4425,0\n4426,0\n4427,0\n4428,0\n4429,0\n4430,0\n4431,0\n4432,0\n4433,0\n4434,0\n4435,0\n4436,0\n4437,0\n4438,0\n4439,0\n4440,0\n4441,0\n4442,0\n4443,0\n4444,0\n4445,0\n4446,0\n4447,0\n4448,0\n4449,0\n4450,0\n4451,0\n4452,0\n4453,0\n4454,0\n4455,0\n4456,0\n4457,0\n4458,0\n4459,0\n4460,0\n4461,0\n4462,0\n4463,0\n4464,0\n4465,0\n4466,0\n4467,0\n4468,0\n4469,0\n4470,0\n4471,0\n4472,0\n4473,0\n4474,0\n4475,0\n4476,0\n4477,0\n4478,0\n4479,0\n4480,0\n4481,0\n4482,0\n4483,0\n4484,0\n4485,0\n4486,0\n4487,0\n4488,0\n4489,0\n4490,0\n4491,0\n4492,0\n4493,0\n4494,0\n4495,0\n4496,0\n4497,0\n4498,0\n4499,0\n4500,0\n4501,0\n4502,0\n4503,0\n4504,0\n4505,0\n4506,0\n4507,0\n4508,0\n4509,0\n4510,0\n4511,0\n4512,0\n4513,0\n4514,0\n4515,0\n4516,0\n4517,0\n4518,0\n4519,0\n4520,0\n4521,0\n4522,0\n4523,0\n4524,0\n4525,0\n4526,0\n4527,0\n4528,0\n4529,0\n4530,0\n4531,0\n4532,0\n4533,0\n4534,0\n4535,0\n4536,0\n4537,0\n4538,0\n4539,0\n4540,0\n4541,0\n4542,0\n4543,0\n4544,0\n4545,0\n4546,0\n4547,0\n4548,0\n4549,0\n4550,0\n4551,0\n4552,0\n4553,0\n4554,0\n4555,0\n4556,0\n4557,0\n4558,0\n4559,0\n4560,0\n4561,0\n4562,0\n4563,0\n4564,0\n4565,0\n4566,0\n4567,0\n4568,0\n4569,0\n4570,0\n4571,0\n4572,0\n4573,0\n4574,0\n4575,0\n4576,0\n4577,0\n4578,0\n4579,0\n4580,0\n4581,0\n4582,0\n4583,0\n4584,0\n4585,0\n4586,0\n4587,0\n4588,0\n4589,0\n4590,0\n4591,0\n4592,0\n4593,0\n4594,0\n4595,0\n4596,0\n4597,0\n4598,0\n4599,0\n4600,0\n4601,0\n4602,0\n4603,0\n4604,0\n4605,0\n4606,0\n4607,0\n4608,0\n4609,0\n4610,0\n4611,0\n4612,0\n4613,0\n4614,0\n4615,0\n4616,0\n4617,0\n4618,0\n4619,0\n4620,0\n4621,0\n4622,0\n4623,0\n4624,0\n4625,0\n4626,0\n4627,0\n4628,0\n4629,0\n4630,0\n4631,0\n4632,0\n4633,0\n4634,0\n4635,0\n4636,0\n4637,0\n4638,0\n4639,0\n4640,0\n4641,0\n4642,0\n4643,0\n4644,0\n4645,0\n4646,0\n4647,0\n4648,0\n4649,0\n4650,0\n4651,0\n4652,0\n4653,0\n4654,0\n4655,0\n4656,0\n4657,0\n4658,0\n4659,0\n4660,0\n4661,0\n4662,0\n4663,0\n4664,0\n4665,0\n4666,0\n4667,0\n4668,0\n4669,0\n4670,0\n4671,0\n4672,0\n4673,0\n4674,0\n4675,0\n4676,0\n4677,0\n4678,0\n4679,0\n4680,0\n4681,0\n4682,0\n4683,0\n4684,0\n4685,0\n4686,0\n4687,0\n4688,0\n4689,0\n4690,0\n4691,0\n4692,0\n4693,0\n4694,0\n4695,0\n4696,0\n4697,0\n4698,0\n4699,0\n4700,0\n4701,0\n4702,0\n4703,0\n4704,0\n4705,0\n4706,0\n4707,0\n4708,0\n4709,0\n4710,0\n4711,0\n4712,0\n4713,0\n4714,0\n4715,0\n4716,0\n4717,0\n4718,0\n4719,0\n4720,0\n4721,0\n4722,0\n4723,0\n4724,0\n4725,0\n4726,0\n4727,0\n4728,0\n4729,0\n4730,0\n4731,0\n4732,0\n4733,0\n4734,0\n4735,0\n4736,0\n4737,0\n4738,0\n4739,0\n4740,0\n4741,0\n4742,0\n4743,0\n4744,0\n4745,0\n4746,0\n4747,0\n4748,0\n4749,0\n4750,0\n4751,0\n4752,0\n4753,0\n4754,0\n4755,0\n4756,0\n4757,0\n4758,0\n4759,0\n4760,0\n4761,0\n4762,0\n4763,0\n4764,0\n4765,0\n4766,0\n4767,0\n4768,0\n4769,0\n4770,0\n4771,0\n4772,0\n4773,0\n4774,0\n4775,0\n4776,0\n4777,0\n4778,0\n4779,0\n4780,0\n4781,0\n4782,0\n4783,0\n4784,0\n4785,0\n4786,0\n4787,0\n4788,0\n4789,0\n4790,0\n4791,0\n4792,0\n4793,0\n4794,0\n4795,0\n4796,0\n4797,0\n4798,0\n4799,0\n4800,0\n4801,0\n4802,0\n4803,0\n4804,0\n4805,0\n4806,0\n4807,0\n4808,0\n4809,0\n4810,0\n4811,0\n4812,0\n4813,0\n4814,0\n4815,0\n4816,0\n4817,0\n4818,0\n4819,0\n4820,0\n4821,0\n4822,0\n4823,0\n4824,0\n4825,0\n4826,0\n4827,0\n4828,0\n4829,0\n4830,0\n4831,0\n4832,0\n4833,0\n4834,0\n4835,0\n4836,0\n4837,0\n4838,0\n4839,0\n4840,0\n4841,0\n4842,0\n4843,0\n4844,0\n4845,0\n4846,0\n4847,0\n4848,0\n4849,0\n4850,0\n4851,0\n4852,0\n4853,0\n4854,0\n4855,0\n4856,0\n4857,0\n4858,0\n4859,0\n4860,0\n4861,0\n4862,0\n4863,0\n4864,0\n4865,0\n4866,0\n4867,0\n4868,0\n4869,0\n4870,0\n4871,0\n4872,0\n4873,0\n4874,0\n4875,0\n4876,0\n4877,0\n4878,0\n4879,0\n4880,0\n4881,0\n4882,0\n4883,0\n4884,0\n4885,0\n4886,0\n4887,0\n4888,0\n4889,0\n4890,0\n4891,0\n4892,0\n4893,0\n4894,0\n4895,0\n4896,0\n4897,0\n4898,0\n4899,0\n4900,0\n4901,0\n4902,0\n4903,0\n4904,0\n4905,0\n4906,0\n4907,0\n4908,0\n4909,0\n4910,0\n4911,0\n4912,0\n4913,0\n4914,0\n4915,0\n4916,0\n4917,0\n4918,0\n4919,0\n4920,0\n4921,0\n4922,0\n4923,0\n4924,0\n4925,0\n4926,0\n4927,0\n4928,0\n4929,0\n4930,0\n4931,0\n4932,0\n4933,0\n4934,0\n4935,0\n4936,0\n4937,0\n4938,0\n4939,0\n4940,0\n4941,0\n4942,0\n4943,0\n4944,0\n4945,0\n4946,0\n4947,0\n4948,0\n4949,0\n4950,0\n4951,0\n4952,0\n4953,0\n4954,0\n4955,0\n4956,0\n4957,0\n4958,0\n4959,0\n4960,0\n4961,0\n4962,0\n4963,0\n4964,0\n4965,0\n4966,0\n4967,0\n4968,0\n4969,0\n4970,0\n4971,0\n4972,0\n4973,0\n4974,0\n4975,0\n4976,0\n4977,0\n4978,0\n4979,0\n4980,0\n4981,0\n4982,0\n4983,0\n4984,0\n4985,0\n4986,0\n4987,0\n4988,0\n4989,0\n4990,0\n4991,0\n4992,0\n4993,0\n4994,0\n4995,0\n4996,0\n4997,0\n4998,0\n4999,0\n5000,0\n5001,0\n5002,0\n5003,0\n5004,0\n5005,0\n5006,0\n5007,0\n5008,0\n5009,0\n5010,0\n5011,0\n5012,0\n5013,0\n5014,0\n5015,0\n5016,0\n5017,0\n5018,0\n5019,0\n5020,0\n5021,0\n5022,0\n5023,0\n5024,0\n5025,0\n5026,0\n5027,0\n5028,0\n5029,0\n5030,0\n5031,0\n5032,0\n5033,0\n5034,0\n5035,0\n5036,0\n5037,0\n5038,0\n5039,0\n5040,0\n5041,0\n5042,0\n5043,0\n5044,0\n5045,0\n5046,0\n5047,0\n5048,0\n5049,0\n5050,0\n5051,0\n5052,0\n5053,0\n5054,0\n5055,0\n5056,0\n5057,0\n5058,0\n5059,0\n5060,0\n5061,0\n5062,0\n5063,0\n5064,0\n5065,0\n5066,0\n5067,0\n5068,0\n5069,0\n5070,0\n5071,0\n5072,0\n5073,0\n5074,0\n5075,0\n5076,0\n5077,0\n5078,0\n5079,0\n5080,0\n5081,0\n5082,0\n5083,0\n5084,0\n5085,0\n5086,0\n5087,0\n5088,0\n5089,0\n5090,0\n5091,0\n5092,0\n5093,0\n5094,0\n5095,0\n5096,0\n5097,0\n5098,0\n5099,0\n5100,0\n5101,0\n5102,0\n5103,0\n5104,0\n5105,0\n5106,0\n5107,0\n5108,0\n5109,0\n5110,0\n5111,0\n5112,0\n5113,0\n5114,0\n5115,0\n5116,0\n5117,0\n5118,0\n5119,0\n5120,0\n5121,0\n5122,0\n5123,0\n5124,0\n5125,0\n5126,0\n5127,0\n5128,0\n5129,0\n5130,0\n5131,0\n5132,0\n5133,0\n5134,0\n5135,0\n5136,0\n5137,0\n5138,0\n5139,0\n5140,0\n5141,0\n5142,0\n5143,0\n5144,0\n5145,0\n5146,0\n5147,0\n5148,0\n5149,0\n5150,0\n5151,0\n5152,0\n5153,0\n5154,0\n5155,0\n5156,0\n5157,0\n5158,0\n5159,0\n5160,0\n5161,0\n5162,0\n5163,0\n5164,0\n5165,0\n5166,0\n5167,0\n5168,0\n5169,0\n5170,0\n5171,0\n5172,0\n5173,0\n5174,0\n5175,0\n5176,0\n5177,0\n5178,0\n5179,0\n5180,0\n5181,0\n5182,0\n5183,0\n5184,0\n5185,0\n5186,0\n5187,0\n5188,0\n5189,0\n5190,0\n5191,0\n5192,0\n5193,0\n5194,0\n5195,0\n5196,0\n5197,0\n5198,0\n5199,0\n5200,0\n5201,0\n5202,0\n5203,0\n5204,0\n5205,0\n5206,0\n5207,0\n5208,0\n5209,0\n5210,0\n5211,0\n5212,0\n5213,0\n5214,0\n5215,0\n5216,0\n5217,0\n5218,0\n5219,0\n5220,0\n5221,0\n5222,0\n5223,0\n5224,0\n5225,0\n5226,0\n5227,0\n5228,0\n5229,0\n5230,0\n5231,0\n5232,0\n5233,0\n5234,0\n5235,0\n5236,0\n5237,0\n5238,0\n5239,0\n5240,0\n5241,0\n5242,0\n5243,0\n5244,0\n5245,0\n5246,0\n5247,0\n5248,0\n5249,0\n5250,0\n5251,0\n5252,0\n5253,0\n5254,0\n5255,0\n5256,0\n5257,0\n5258,0\n5259,0\n5260,0\n5261,0\n5262,0\n5263,0\n5264,0\n5265,0\n5266,0\n5267,0\n5268,0\n5269,0\n5270,0\n5271,0\n5272,0\n5273,0\n5274,0\n5275,0\n5276,0\n5277,0\n5278,0\n5279,0\n5280,0\n5281,0\n5282,0\n5283,0\n5284,0\n5285,0\n5286,0\n5287,0\n5288,0\n5289,0\n5290,0\n5291,0\n5292,0\n5293,0\n5294,0\n5295,0\n5296,0\n5297,0\n5298,0\n5299,0\n5300,0\n5301,0\n5302,0\n5303,0\n5304,0\n5305,0\n5306,0\n5307,0\n5308,0\n5309,0\n5310,0\n5311,0\n5312,0\n5313,0\n5314,0\n5315,0\n5316,0\n5317,0\n5318,0\n5319,0\n5320,0\n5321,0\n5322,0\n5323,0\n5324,0\n5325,0\n5326,0\n5327,0\n5328,0\n5329,0\n5330,0\n5331,0\n5332,0\n5333,0\n5334,0\n5335,0\n5336,0\n5337,0\n5338,0\n5339,0\n5340,0\n5341,0\n5342,0\n5343,0\n5344,0\n5345,0\n5346,0\n5347,0\n5348,0\n5349,0\n5350,0\n5351,0\n5352,0\n5353,0\n5354,0\n5355,0\n5356,0\n5357,0\n5358,0\n5359,0\n5360,0\n5361,0\n5362,0\n5363,0\n5364,0\n5365,0\n5366,0\n5367,0\n5368,0\n5369,0\n5370,0\n5371,0\n5372,0\n5373,0\n5374,0\n5375,0\n5376,0\n5377,0\n5378,0\n5379,1\n5380,1\n5381,1\n5382,1\n5383,1\n5384,0\n5385,0\n5386,0\n5387,0\n5388,0\n5389,0\n5390,0\n5391,0\n5392,0\n5393,0\n5394,0\n5395,0\n5396,0\n5397,0\n5398,0\n5399,0\n5400,0\n5401,0\n5402,0\n5403,0\n5404,0\n5405,0\n5406,0\n5407,0\n5408,0\n5409,0\n5410,0\n5411,0\n5412,0\n5413,0\n5414,0\n5415,0\n5416,0\n5417,0\n5418,0\n5419,0\n5420,0\n5421,0\n5422,0\n5423,0\n5424,0\n5425,0\n5426,0\n5427,0\n5428,0\n5429,0\n5430,0\n5431,0\n5432,0\n5433,0\n5434,0\n5435,0\n5436,0\n5437,0\n5438,0\n5439,0\n5440,0\n5441,0\n5442,0\n5443,0\n5444,0\n5445,0\n5446,0\n5447,0\n5448,0\n5449,0\n5450,0\n5451,0\n5452,0\n5453,0\n5454,0\n5455,0\n5456,0\n5457,0\n5458,0\n5459,0\n5460,0\n5461,0\n5462,0\n5463,0\n5464,0\n5465,0\n5466,0\n5467,0\n5468,0\n5469,0\n5470,30\n5471,30\n5472,30\n5473,30\n5474,30\n5475,0\n5476,0\n5477,0\n5478,0\n5479,0\n5480,0\n5481,0\n5482,0\n5483,0\n5484,0\n5485,0\n5486,0\n5487,0\n5488,0\n5489,0\n5490,0\n5491,0\n5492,0\n5493,0\n5494,0\n5495,0\n5496,0\n5497,0\n5498,0\n5499,0\n5500,0\n5501,0\n5502,0\n5503,0\n5504,0\n5505,0\n5506,0\n5507,0\n5508,0\n5509,0\n5510,0\n5511,0\n5512,0\n5513,0\n5514,0\n5515,0\n5516,0\n5517,0\n5518,0\n5519,0\n5520,0\n5521,0\n5522,0\n5523,0\n5524,0\n5525,0\n5526,0\n5527,0\n5528,0\n5529,0\n5530,0\n5531,0\n5532,0\n5533,0\n5534,0\n5535,0\n5536,0\n5537,0\n5538,0\n5539,0\n5540,0\n5541,0\n5542,0\n5543,0\n5544,0\n5545,0\n5546,0\n5547,0\n5548,0\n5549,0\n5550,0\n5551,0\n5552,0\n5553,0\n5554,0\n5555,0\n5556,0\n5557,0\n5558,0\n5559,0\n5560,0\n5561,0\n5562,0\n5563,0\n5564,0\n5565,0\n5566,0\n5567,0\n5568,0\n5569,0\n5570,0\n5571,0\n5572,0\n5573,0\n5574,0\n5575,0\n5576,0\n5577,0\n5578,0\n5579,0\n5580,0\n5581,0\n5582,0\n5583,0\n5584,0\n5585,0\n5586,0\n5587,0\n5588,0\n5589,0\n5590,0\n5591,0\n5592,0\n5593,0\n5594,0\n5595,0\n5596,0\n5597,0\n5598,0\n5599,0\n5600,0\n5601,0\n5602,0\n5603,0\n5604,0\n5605,0\n5606,0\n5607,0\n5608,0\n5609,0\n5610,0\n5611,0\n5612,0\n5613,0\n5614,0\n5615,0\n5616,0\n5617,0\n5618,0\n5619,0\n5620,0\n5621,0\n5622,0\n5623,0\n5624,0\n5625,0\n5626,0\n5627,0\n5628,0\n5629,0\n5630,0\n5631,0\n5632,0\n5633,0\n5634,0\n5635,0\n5636,0\n5637,0\n5638,0\n5639,0\n5640,0\n5641,0\n5642,0\n5643,0\n5644,0\n5645,0\n5646,0\n5647,0\n5648,0\n5649,0\n5650,0\n5651,0\n5652,0\n5653,0\n5654,0\n5655,0\n5656,0\n5657,0\n5658,28\n5659,28\n5660,28\n5661,28\n5662,28\n5663,0\n5664,0\n5665,0\n5666,0\n5667,0\n5668,0\n5669,0\n5670,0\n5671,0\n5672,0\n5673,0\n5674,0\n5675,0\n5676,0\n5677,0\n5678,0\n5679,0\n5680,0\n5681,0\n5682,0\n5683,0\n5684,0\n5685,0\n5686,0\n5687,0\n5688,0\n5689,0\n5690,0\n5691,0\n5692,0\n5693,0\n5694,0\n5695,0\n5696,0\n5697,0\n5698,0\n5699,0\n5700,0\n5701,0\n5702,0\n5703,0\n5704,0\n5705,0\n5706,0\n5707,0\n5708,0\n5709,0\n5710,0\n5711,0\n5712,0\n5713,0\n5714,0\n5715,0\n5716,0\n5717,0\n5718,0\n5719,0\n5720,0\n5721,0\n5722,0\n5723,0\n5724,0\n5725,0\n5726,0\n5727,0\n5728,0\n5729,0\n5730,0\n5731,0\n5732,0\n5733,0\n5734,0\n5735,0\n5736,0\n5737,0\n5738,0\n5739,0\n5740,0\n5741,0\n5742,0\n5743,0\n5744,0\n5745,0\n5746,0\n5747,0\n5748,0\n5749,0\n5750,0\n5751,0\n5752,0\n5753,0\n5754,0\n5755,0\n5756,0\n5757,0\n5758,0\n5759,0\n5760,0\n5761,0\n5762,0\n5763,0\n5764,0\n5765,0\n5766,0\n5767,0\n5768,0\n5769,0\n5770,0\n5771,0\n5772,0\n5773,0\n5774,0\n5775,0\n5776,0\n5777,0\n5778,0\n5779,0\n5780,0\n5781,0\n5782,0\n5783,0\n5784,0\n5785,0\n5786,0\n5787,0\n5788,0\n5789,0\n5790,0\n5791,0\n5792,0\n5793,0\n5794,0\n5795,0\n5796,0\n5797,0\n5798,0\n5799,0\n5800,0\n5801,0\n5802,0\n5803,0\n5804,0\n5805,0\n5806,0\n5807,0\n5808,0\n5809,0\n5810,0\n5811,0\n5812,0\n5813,0\n5814,0\n5815,0\n5816,0\n5817,0\n5818,0\n5819,0\n5820,0\n5821,0\n5822,0\n5823,0\n5824,0\n5825,0\n5826,0\n5827,0\n5828,0\n5829,0\n5830,0\n5831,0\n5832,0\n5833,0\n5834,0\n5835,0\n5836,0\n5837,0\n5838,0\n5839,0\n5840,0\n5841,0\n5842,0\n5843,0\n5844,0\n5845,0\n5846,0\n5847,0\n5848,0\n5849,0\n5850,0\n5851,0\n5852,0\n5853,0\n5854,0\n5855,0\n5856,0\n5857,0\n5858,0\n5859,0\n5860,0\n5861,0\n5862,0\n5863,0\n5864,0\n5865,0\n5866,0\n5867,0\n5868,0\n5869,0\n5870,0\n5871,0\n5872,0\n5873,0\n5874,0\n5875,0\n5876,0\n5877,0\n5878,0\n5879,0\n5880,0\n5881,0\n5882,0\n5883,0\n5884,0\n5885,0\n5886,0\n5887,0\n5888,0\n5889,0\n5890,0\n5891,0\n5892,0\n5893,0\n5894,0\n5895,0\n5896,0\n5897,0\n5898,0\n5899,0\n5900,0\n5901,0\n5902,0\n5903,0\n5904,0\n5905,0\n5906,0\n5907,0\n5908,0\n5909,0\n5910,0\n5911,0\n5912,0\n5913,0\n5914,0\n5915,0\n5916,0\n5917,0\n5918,0\n5919,0\n5920,0\n5921,0\n5922,0\n5923,0\n5924,0\n5925,0\n5926,0\n5927,0\n5928,0\n5929,0\n5930,0\n5931,0\n5932,0\n5933,0\n5934,0\n5935,0\n5936,0\n5937,0\n5938,0\n5939,0\n5940,0\n5941,0\n5942,0\n5943,0\n5944,0\n5945,0\n5946,0\n5947,0\n5948,0\n5949,0\n5950,0\n5951,0\n5952,0\n5953,0\n5954,0\n5955,0\n5956,0\n5957,0\n5958,0\n5959,0\n5960,0\n5961,0\n5962,0\n5963,0\n5964,0\n5965,0\n5966,0\n5967,0\n5968,0\n5969,0\n5970,0\n5971,0\n5972,0\n5973,0\n5974,0\n5975,0\n5976,0\n5977,0\n5978,0\n5979,0\n5980,0\n5981,0\n5982,0\n5983,0\n5984,0\n5985,0\n5986,0\n5987,0\n5988,0\n5989,0\n5990,0\n5991,0\n5992,0\n5993,0\n5994,0\n5995,0\n5996,0\n5997,0\n5998,0\n5999,0\n6000,0\n6001,0\n6002,0\n6003,0\n6004,0\n6005,0\n6006,0\n6007,0\n6008,0\n6009,0\n6010,0\n6011,0\n6012,0\n6013,0\n6014,0\n6015,0\n6016,0\n6017,0\n6018,0\n6019,0\n6020,0\n6021,0\n6022,0\n6023,0\n6024,0\n6025,0\n6026,0\n6027,0\n6028,0\n6029,0\n6030,0\n6031,0\n6032,0\n6033,0\n6034,0\n6035,0\n6036,0\n6037,0\n6038,0\n6039,0\n6040,0\n6041,0\n6042,0\n6043,0\n6044,0\n6045,0\n6046,0\n6047,0\n6048,0\n6049,0\n6050,0\n6051,0\n6052,0\n6053,0\n6054,0\n6055,0\n6056,0\n6057,0\n6058,0\n6059,0\n6060,0\n6061,0\n6062,0\n6063,0\n6064,0\n6065,0\n6066,0\n6067,0\n6068,0\n6069,0\n6070,0\n6071,0\n6072,0\n6073,0\n6074,0\n6075,0\n6076,0\n6077,0\n6078,0\n6079,0\n6080,0\n6081,0\n6082,0\n6083,0\n6084,0\n6085,0\n6086,0\n6087,0\n6088,0\n6089,0\n6090,0\n6091,0\n6092,0\n6093,0\n6094,0\n6095,0\n6096,0\n6097,0\n6098,0\n6099,0\n6100,0\n6101,0\n6102,0\n6103,0\n6104,0\n6105,0\n6106,0\n6107,0\n6108,0\n6109,0\n6110,0\n6111,0\n6112,0\n6113,0\n6114,0\n6115,0\n6116,0\n6117,0\n6118,0\n6119,0\n6120,0\n6121,0\n6122,0\n6123,0\n6124,0\n6125,0\n6126,0\n6127,0\n6128,0\n6129,0\n6130,0\n6131,0\n6132,0\n6133,0\n6134,0\n6135,0\n6136,0\n6137,0\n6138,0\n6139,0\n6140,0\n6141,0\n6142,0\n6143,0\n6144,0\n6145,0\n6146,0\n6147,0\n6148,0\n6149,0\n6150,0\n6151,0\n6152,0\n6153,0\n6154,0\n6155,0\n6156,0\n6157,0\n6158,0\n6159,0\n6160,0\n6161,0\n6162,0\n6163,0\n6164,0\n6165,0\n6166,0\n6167,0\n6168,0\n6169,0\n6170,0\n6171,0\n6172,0\n6173,0\n6174,0\n6175,0\n6176,0\n6177,0\n6178,0\n6179,0\n6180,0\n6181,0\n6182,0\n6183,0\n6184,0\n6185,0\n6186,0\n6187,0\n6188,0\n6189,0\n6190,0\n6191,0\n6192,0\n6193,0\n6194,0\n6195,0\n6196,0\n6197,0\n6198,0\n6199,0\n6200,0\n6201,0\n6202,0\n6203,0\n6204,0\n6205,0\n6206,0\n6207,0\n6208,0\n6209,0\n6210,0\n6211,0\n6212,0\n6213,0\n6214,0\n6215,0\n6216,0\n6217,0\n6218,0\n6219,0\n6220,0\n6221,0\n6222,0\n6223,0\n6224,0\n6225,0\n6226,0\n6227,0\n6228,0\n6229,0\n6230,0\n6231,0\n6232,0\n6233,0\n6234,0\n6235,0\n6236,0\n6237,0\n6238,0\n6239,0\n6240,0\n6241,0\n6242,0\n6243,0\n6244,0\n6245,0\n6246,0\n6247,0\n6248,0\n6249,0\n6250,0\n6251,0\n6252,0\n6253,0\n6254,0\n6255,0\n6256,0\n6257,0\n6258,0\n6259,0\n6260,0\n6261,0\n6262,0\n6263,0\n6264,0\n6265,0\n6266,0\n6267,0\n6268,0\n6269,0\n6270,0\n6271,0\n6272,0\n6273,0\n6274,0\n6275,0\n6276,0\n6277,0\n6278,0\n6279,0\n6280,0\n6281,0\n6282,0\n6283,0\n6284,0\n6285,0\n6286,0\n6287,0\n6288,0\n6289,0\n6290,0\n6291,0\n6292,0\n6293,0\n6294,0\n6295,0\n6296,0\n6297,0\n6298,0\n6299,0\n6300,0\n6301,0\n6302,0\n6303,0\n6304,0\n6305,0\n6306,0\n6307,0\n6308,0\n6309,0\n6310,0\n6311,0\n6312,0\n6313,0\n6314,0\n6315,0\n6316,0\n6317,0\n6318,0\n6319,0\n6320,0\n6321,0\n6322,0\n6323,0\n6324,0\n6325,0\n6326,0\n6327,0\n6328,0\n6329,0\n6330,0\n6331,0\n6332,0\n6333,0\n6334,0\n6335,0\n6336,0\n6337,0\n6338,0\n6339,0\n6340,0\n6341,0\n6342,0\n6343,0\n6344,0\n6345,0\n6346,0\n6347,0\n6348,0\n6349,0\n6350,0\n6351,0\n6352,0\n6353,0\n6354,0\n6355,0\n6356,0\n6357,0\n6358,0\n6359,0\n6360,0\n6361,0\n6362,0\n6363,0\n6364,0\n6365,0\n6366,0\n6367,0\n6368,0\n6369,0\n6370,0\n6371,0\n6372,0\n6373,0\n6374,0\n6375,0\n6376,0\n6377,0\n6378,0\n6379,0\n6380,0\n6381,0\n6382,0\n6383,0\n6384,0\n6385,0\n6386,0\n6387,0\n6388,0\n6389,0\n6390,23\n6391,25\n6392,25\n6393,60\n6394,78\n6395,55\n6396,53\n6397,53\n6398,18\n6399,0\n6400,0\n6401,0\n6402,0\n6403,0\n6404,0\n6405,0\n6406,0\n6407,1\n6408,1\n6409,1\n6410,1\n6411,1\n6412,0\n6413,0\n6414,0\n6415,0\n6416,0\n6417,0\n6418,0\n6419,0\n6420,0\n6421,0\n6422,0\n6423,0\n6424,0\n6425,0\n6426,0\n6427,0\n6428,0\n6429,0\n6430,0\n6431,0\n6432,0\n6433,0\n6434,0\n6435,0\n6436,0\n6437,0\n6438,0\n6439,0\n6440,0\n6441,0\n6442,0\n6443,0\n6444,0\n6445,0\n6446,0\n6447,0\n6448,0\n6449,0\n6450,0\n6451,0\n6452,0\n6453,0\n6454,0\n6455,0\n6456,0\n6457,0\n6458,0\n6459,0\n6460,0\n6461,0\n6462,0\n6463,0\n6464,0\n6465,0\n6466,0\n6467,0\n6468,0\n6469,0\n6470,0\n6471,0\n6472,0\n6473,0\n6474,0\n6475,0\n6476,0\n6477,0\n6478,0\n6479,0\n6480,0\n6481,0\n6482,0\n6483,0\n6484,0\n6485,0\n6486,0\n6487,0\n6488,0\n6489,0\n6490,0\n6491,0\n6492,0\n6493,0\n6494,0\n6495,0\n6496,0\n6497,0\n6498,0\n6499,0\n6500,0\n6501,0\n6502,0\n6503,0\n6504,0\n6505,0\n6506,0\n6507,0\n6508,0\n6509,0\n6510,0\n6511,0\n6512,0\n6513,0\n6514,0\n6515,0\n6516,0\n6517,0\n6518,0\n6519,0\n6520,0\n6521,0\n6522,0\n6523,0\n6524,0\n6525,0\n6526,0\n6527,0\n6528,0\n6529,0\n6530,0\n6531,0\n6532,0\n6533,0\n6534,0\n6535,0\n6536,0\n6537,0\n6538,0\n6539,0\n6540,0\n6541,0\n6542,0\n6543,0\n6544,0\n6545,0\n6546,0\n6547,0\n6548,0\n6549,0\n6550,0\n6551,0\n6552,0\n6553,0\n6554,0\n6555,0\n6556,0\n6557,0\n6558,0\n6559,0\n6560,0\n6561,0\n6562,0\n6563,0\n6564,0\n6565,0\n6566,0\n6567,0\n6568,0\n6569,0\n6570,0\n6571,0\n6572,0\n6573,0\n6574,0\n6575,0\n6576,0\n6577,0\n6578,0\n6579,0\n6580,0\n6581,0\n6582,0\n6583,0\n6584,0\n6585,0\n6586,0\n6587,0\n6588,0\n6589,0\n6590,0\n6591,0\n6592,0\n6593,0\n6594,0\n6595,0\n6596,0\n6597,0\n6598,0\n6599,0\n6600,0\n6601,31\n6602,31\n6603,82\n6604,82\n6605,82\n6606,51\n6607,51\n6608,0\n6609,0\n6610,0\n6611,0\n6612,0\n6613,0\n6614,0\n6615,0\n6616,0\n6617,0\n6618,0\n6619,0\n6620,2\n6621,2\n6622,2\n6623,2\n6624,7\n6625,5\n6626,5\n6627,5\n6628,5\n6629,0\n6630,0\n6631,0\n6632,0\n6633,0\n6634,0\n6635,0\n6636,0\n6637,0\n6638,0\n6639,0\n6640,2\n6641,19\n6642,35\n6643,58\n6644,64\n6645,62\n6646,45\n6647,29\n6648,6\n6649,0\n6650,0\n6651,0\n6652,0\n6653,0\n6654,0\n6655,0\n6656,0\n6657,0\n6658,6\n6659,13\n6660,13\n6661,13\n6662,13\n6663,7\n6664,0\n6665,0\n6666,0\n6667,0\n6668,0\n6669,0\n6670,0\n6671,0\n6672,0\n6673,0\n6674,0\n6675,0\n6676,0\n6677,0\n6678,0\n6679,0\n6680,0\n6681,0\n6682,0\n6683,0\n6684,0\n6685,0\n6686,0\n6687,0\n6688,0\n6689,0\n6690,0\n6691,0\n6692,0\n6693,0\n6694,0\n6695,0\n6696,0\n6697,0\n6698,0\n6699,0\n6700,0\n6701,0\n6702,0\n6703,0\n6704,0\n6705,0\n6706,0\n6707,0\n6708,0\n6709,0\n6710,0\n6711,0\n6712,0\n6713,0\n6714,0\n6715,0\n6716,0\n6717,0\n6718,0\n6719,0\n6720,0\n6721,29\n6722,29\n6723,29\n6724,29\n6725,64\n6726,35\n6727,35\n6728,35\n6729,35\n6730,0\n6731,0\n6732,0\n6733,0\n6734,0\n6735,0\n6736,0\n6737,0\n6738,0\n6739,0\n6740,0\n6741,0\n6742,0\n6743,0\n6744,0\n6745,0\n6746,0\n6747,0\n6748,0\n6749,0\n6750,0\n6751,0\n6752,0\n6753,0\n6754,0\n6755,0\n6756,0\n6757,0\n6758,0\n6759,0\n6760,0\n6761,0\n6762,0\n6763,0\n6764,0\n6765,0\n6766,0\n6767,0\n6768,0\n6769,0\n6770,0\n6771,0\n6772,0\n6773,0\n6774,0\n6775,0\n6776,0\n6777,0\n6778,0\n6779,0\n6780,0\n6781,0\n6782,17\n6783,17\n6784,17\n6785,17\n6786,17\n6787,0\n6788,5\n6789,5\n6790,26\n6791,26\n6792,32\n6793,27\n6794,27\n6795,6\n6796,6\n6797,0\n6798,0\n6799,0\n6800,0\n6801,0\n6802,0\n6803,0\n6804,0\n6805,0\n6806,30\n6807,30\n6808,30\n6809,30\n6810,77\n6811,47\n6812,47\n6813,47\n6814,47\n6815,0\n6816,0\n6817,0\n6818,0\n6819,0\n6820,0\n6821,0\n6822,0\n6823,0\n6824,0\n6825,0\n6826,0\n6827,0\n6828,0\n6829,0\n6830,0\n6831,0\n6832,0\n6833,0\n6834,0\n6835,0\n6836,0\n6837,0\n6838,0\n6839,0\n6840,0\n6841,0\n6842,0\n6843,0\n6844,0\n6845,0\n6846,0\n6847,2\n6848,2\n6849,2\n6850,2\n6851,2\n6852,16\n6853,32\n6854,32\n6855,32\n6856,32\n6857,16\n6858,0\n6859,0\n6860,0\n6861,0\n6862,0\n6863,0\n6864,0\n6865,0\n6866,0\n6867,0\n6868,0\n6869,0\n6870,0\n6871,0\n6872,0\n6873,0\n6874,0\n6875,0\n6876,0\n6877,0\n6878,0\n6879,0\n6880,0\n6881,0\n6882,0\n6883,0\n6884,0\n6885,0\n6886,0\n6887,0\n6888,0\n6889,0\n6890,0\n6891,0\n6892,0\n6893,0\n6894,0\n6895,0\n6896,0\n6897,0\n6898,0\n6899,0\n6900,0\n6901,0\n6902,0\n6903,0\n6904,0\n6905,0\n6906,0\n6907,0\n6908,0\n6909,0\n6910,0\n6911,0\n6912,0\n6913,0\n6914,0\n6915,0\n6916,0\n6917,0\n6918,0\n6919,0\n6920,0\n6921,0\n6922,7\n6923,7\n6924,8\n6925,8\n6926,8\n6927,1\n6928,1\n6929,0\n6930,0\n6931,0\n6932,0\n6933,0\n6934,0\n6935,0\n6936,0\n6937,0\n6938,0\n6939,0\n6940,1\n6941,1\n6942,1\n6943,1\n6944,1\n6945,0\n6946,0\n6947,0\n6948,0\n6949,0\n6950,0\n6951,0\n6952,0\n6953,0\n6954,0\n6955,0\n6956,3\n6957,13\n6958,26\n6959,26\n6960,26\n6961,25\n6962,15\n6963,2\n6964,2\n6965,2\n6966,0\n6967,0\n6968,0\n6969,0\n6970,0\n6971,0\n6972,0\n6973,0\n6974,0\n6975,0\n6976,2\n6977,2\n6978,3\n6979,3\n6980,7\n6981,5\n6982,6\n6983,6\n6984,6\n6985,2\n6986,5\n6987,14\n6988,13\n6989,14\n6990,14\n6991,24\n6992,14\n6993,15\n6994,15\n6995,16\n6996,3\n6997,3\n6998,2\n6999,1\n7000,0\n7001,1\n7002,1\n7003,1\n7004,1\n7005,2\n7006,1\n7007,1\n7008,1\n7009,1\n7010,0\n7011,0\n7012,0\n7013,0\n7014,1\n7015,1\n7016,1\n7017,1\n7018,1\n7019,1\n7020,1\n7021,1\n7022,1\n7023,1\n7024,0\n7025,0\n7026,0\n7027,0\n7028,0\n7029,0\n7030,0\n7031,0\n7032,0\n7033,0\n7034,0\n7035,0\n7036,0\n7037,0\n7038,0\n7039,0\n7040,0\n7041,0\n7042,0\n7043,0\n7044,0\n7045,0\n7046,0\n7047,0\n7048,0\n7049,0\n7050,0\n7051,0\n7052,0\n7053,1\n7054,1\n7055,1\n7056,1\n7057,1\n7058,0\n7059,0\n7060,0\n7061,0\n7062,0\n7063,0\n7064,0\n7065,0\n7066,0\n7067,0\n7068,0\n7069,0\n7070,0\n7071,0\n7072,0\n7073,0\n7074,0\n7075,0\n7076,0\n7077,0\n7078,0\n7079,0\n7080,0\n7081,0\n7082,0\n7083,0\n7084,0\n7085,0\n7086,0\n7087,0\n7088,0\n7089,0\n7090,0\n7091,0\n7092,0\n7093,0\n7094,0\n7095,0\n7096,0\n7097,0\n7098,0\n7099,0\n7100,0\n7101,0\n7102,0\n7103,0\n7104,0\n7105,0\n7106,0\n7107,0\n7108,0\n7109,0\n7110,0\n7111,0\n7112,0\n7113,0\n7114,0\n7115,0\n7116,0\n7117,0\n7118,0\n7119,0\n7120,0\n7121,0\n7122,0\n7123,0\n7124,0\n7125,0\n7126,0\n7127,0\n7128,0\n7129,0\n7130,0\n7131,0\n7132,0\n7133,0\n7134,0\n7135,0\n7136,0\n7137,0\n7138,0\n7139,0\n7140,0\n7141,0\n7142,0\n7143,0\n7144,0\n7145,0\n7146,0\n7147,0\n7148,0\n7149,0\n7150,0\n7151,0\n7152,0\n7153,0\n7154,0\n7155,0\n7156,0\n7157,0\n7158,0\n7159,0\n7160,0\n7161,0\n7162,0\n7163,0\n7164,0\n7165,0\n7166,0\n7167,0\n7168,0\n7169,0\n7170,0\n7171,0\n7172,0\n7173,0\n7174,0\n7175,0\n7176,0\n7177,0\n7178,0\n7179,0\n7180,0\n7181,0\n7182,0\n7183,0\n7184,0\n7185,0\n7186,0\n7187,0\n7188,0\n7189,0\n7190,0\n7191,0\n7192,0\n7193,0\n7194,0\n7195,0\n7196,0\n7197,0\n7198,0\n7199,0\n7200,0\n7201,0\n7202,0\n7203,0\n7204,0\n7205,0\n7206,0\n7207,0\n7208,0\n7209,0\n7210,0\n7211,0\n7212,0\n7213,0\n7214,0\n7215,0\n7216,0\n7217,0\n7218,0\n7219,0\n7220,0\n7221,0\n7222,0\n7223,0\n7224,0\n7225,0\n7226,0\n7227,0\n7228,0\n7229,0\n7230,0\n7231,0\n7232,0\n7233,0\n7234,0\n7235,0\n7236,0\n7237,0\n7238,0\n7239,0\n7240,0\n7241,0\n7242,0\n7243,0\n7244,0\n7245,0\n7246,0\n7247,0\n7248,0\n7249,0\n7250,0\n7251,0\n7252,0\n7253,0\n7254,0\n7255,0\n7256,0\n7257,0\n7258,0\n7259,0\n7260,0\n7261,0\n7262,0\n7263,0\n7264,0\n7265,0\n7266,0\n7267,0\n7268,0\n7269,0\n7270,0\n7271,0\n7272,0\n7273,0\n7274,0\n7275,0\n7276,0\n7277,0\n7278,0\n7279,0\n7280,0\n7281,0\n7282,0\n7283,0\n7284,0\n7285,0\n7286,0\n7287,0\n7288,0\n7289,0\n7290,0\n7291,0\n7292,0\n7293,0\n7294,0\n7295,0\n7296,0\n7297,0\n7298,0\n7299,0\n7300,0\n7301,0\n7302,0\n7303,0\n7304,0\n7305,0\n7306,0\n7307,0\n7308,0\n7309,0\n7310,0\n7311,0\n7312,0\n7313,0\n7314,0\n7315,0\n7316,0\n7317,0\n7318,0\n7319,0\n7320,0\n7321,0\n7322,0\n7323,0\n7324,0\n7325,0\n7326,0\n7327,0\n7328,0\n7329,0\n7330,0\n7331,0\n7332,0\n7333,0\n7334,0\n7335,0\n7336,0\n7337,0\n7338,0\n7339,0\n7340,0\n7341,0\n7342,0\n7343,0\n7344,0\n7345,0\n7346,0\n7347,0\n7348,0\n7349,0\n7350,0\n7351,0\n7352,0\n7353,0\n7354,0\n7355,0\n7356,0\n7357,0\n7358,0\n7359,0\n7360,0\n7361,0\n7362,0\n7363,0\n7364,0\n7365,0\n7366,0\n7367,0\n7368,0\n7369,0\n7370,0\n7371,0\n7372,0\n7373,0\n7374,0\n7375,0\n7376,0\n7377,0\n7378,0\n7379,0\n7380,0\n7381,0\n7382,0\n7383,0\n7384,0\n7385,0\n7386,0\n7387,0\n7388,0\n7389,0\n7390,0\n7391,0\n7392,0\n7393,0\n7394,0\n7395,0\n7396,0\n7397,0\n7398,0\n7399,0\n7400,0\n7401,0\n7402,0\n7403,0\n7404,0\n7405,0\n7406,0\n7407,0\n7408,0\n7409,0\n7410,0\n7411,0\n7412,0\n7413,0\n7414,0\n7415,0\n7416,0\n7417,0\n7418,0\n7419,0\n7420,0\n7421,0\n7422,0\n7423,0\n7424,0\n7425,0\n7426,0\n7427,0\n7428,0\n7429,0\n7430,0\n7431,0\n7432,0\n7433,0\n7434,0\n7435,0\n7436,0\n7437,0\n7438,0\n7439,0\n7440,0\n7441,0\n7442,0\n7443,0\n7444,0\n7445,0\n7446,0\n7447,0\n7448,0\n7449,0\n7450,0\n7451,0\n7452,0\n7453,0\n7454,0\n7455,0\n7456,0\n7457,0\n7458,0\n7459,0\n7460,0\n7461,0\n7462,0\n7463,0\n7464,0\n7465,0\n7466,0\n7467,0\n7468,0\n7469,0\n7470,0\n7471,0\n7472,0\n7473,0\n7474,0\n7475,0\n7476,0\n7477,0\n7478,0\n7479,0\n7480,0\n7481,0\n7482,0\n7483,0\n7484,0\n7485,0\n7486,0\n7487,0\n7488,0\n7489,0\n7490,0\n7491,0\n7492,0\n7493,0\n7494,0\n7495,0\n7496,0\n7497,0\n7498,0\n7499,0\n7500,0\n7501,0\n7502,0\n7503,0\n7504,0\n7505,0\n7506,0\n7507,0\n7508,0\n7509,0\n7510,0\n7511,0\n7512,0\n7513,0\n7514,0\n7515,0\n7516,0\n7517,0\n7518,0\n7519,0\n7520,0\n7521,0\n7522,0\n7523,0\n7524,0\n7525,0\n7526,0\n7527,0\n7528,0\n7529,0\n7530,0\n7531,0\n7532,0\n7533,0\n7534,0\n7535,0\n7536,0\n7537,0\n7538,0\n7539,0\n7540,0\n7541,0\n7542,0\n7543,0\n7544,0\n7545,0\n7546,0\n7547,0\n7548,0\n7549,0\n7550,0\n7551,0\n7552,0\n7553,0\n7554,0\n7555,0\n7556,0\n7557,0\n7558,0\n7559,0\n7560,0\n7561,0\n7562,0\n7563,0\n7564,0\n7565,0\n7566,0\n7567,0\n7568,0\n7569,0\n7570,0\n7571,0\n7572,0\n7573,0\n7574,0\n7575,0\n7576,0\n7577,0\n7578,0\n7579,0\n7580,0\n7581,0\n7582,0\n7583,0\n7584,0\n7585,0\n7586,0\n7587,0\n7588,0\n7589,0\n7590,0\n7591,0\n7592,0\n7593,0\n7594,0\n7595,0\n7596,0\n7597,0\n7598,0\n7599,0\n7600,0\n7601,0\n7602,0\n7603,0\n7604,0\n7605,0\n7606,0\n7607,0\n7608,0\n7609,0\n7610,0\n7611,0\n7612,0\n7613,0\n7614,0\n7615,0\n7616,0\n7617,0\n7618,0\n7619,0\n7620,0\n7621,0\n7622,0\n7623,0\n7624,0\n7625,0\n7626,0\n7627,0\n7628,0\n7629,0\n7630,0\n7631,0\n7632,0\n7633,0\n7634,0\n7635,0\n7636,0\n7637,0\n7638,0\n7639,0\n7640,0\n7641,0\n7642,0\n7643,0\n7644,0\n7645,0\n7646,4\n7647,4\n7648,4\n7649,4\n7650,4\n7651,0\n7652,0\n7653,0\n7654,0\n7655,0\n7656,0\n7657,0\n7658,0\n7659,0\n7660,0\n7661,0\n7662,0\n7663,0\n7664,0\n7665,0\n7666,0\n7667,0\n7668,0\n7669,0\n7670,0\n7671,0\n7672,0\n7673,0\n7674,0\n7675,0\n7676,0\n7677,0\n7678,0\n7679,0\n7680,0\n7681,0\n7682,0\n7683,0\n7684,0\n7685,0\n7686,0\n7687,0\n7688,0\n7689,0\n7690,0\n7691,0\n7692,0\n7693,0\n7694,0\n7695,0\n7696,0\n7697,0\n7698,0\n7699,0\n7700,0\n7701,0\n7702,0\n7703,0\n7704,0\n7705,0\n7706,0\n7707,0\n7708,0\n7709,0\n7710,0\n7711,0\n7712,0\n7713,0\n7714,0\n7715,0\n7716,0\n7717,0\n7718,0\n7719,0\n7720,0\n7721,0\n7722,0\n7723,0\n7724,0\n7725,0\n7726,0\n7727,0\n7728,0\n7729,0\n7730,0\n7731,0\n7732,0\n7733,0\n7734,0\n7735,0\n7736,0\n7737,0\n7738,0\n7739,0\n7740,0\n7741,0\n7742,0\n7743,0\n7744,0\n7745,0\n7746,0\n7747,0\n7748,0\n7749,0\n7750,0\n7751,0\n7752,0\n7753,0\n7754,0\n7755,0\n7756,0\n7757,0\n7758,0\n7759,0\n7760,0\n7761,0\n7762,0\n7763,0\n7764,0\n7765,0\n7766,0\n7767,0\n7768,0\n7769,0\n7770,0\n7771,0\n7772,0\n7773,0\n7774,0\n7775,0\n7776,0\n7777,0\n7778,0\n7779,0\n7780,0\n7781,0\n7782,0\n7783,0\n7784,0\n7785,6\n7786,6\n7787,6\n7788,6\n7789,6\n7790,0\n7791,0\n7792,0\n7793,0\n7794,0\n7795,0\n7796,0\n7797,0\n7798,0\n7799,0\n7800,0\n7801,0\n7802,0\n7803,0\n7804,0\n7805,0\n7806,0\n7807,0\n7808,0\n7809,0\n7810,0\n7811,0\n7812,0\n7813,0\n7814,0\n7815,0\n7816,0\n7817,0\n7818,0\n7819,0\n7820,0\n7821,0\n7822,0\n7823,0\n7824,0\n7825,0\n7826,0\n7827,0\n7828,0\n7829,5\n7830,5\n7831,5\n7832,5\n7833,5\n7834,0\n7835,0\n7836,0\n7837,0\n7838,0\n7839,0\n7840,2\n7841,2\n7842,2\n7843,2\n7844,2\n7845,0\n7846,0\n7847,0\n7848,0\n7849,0\n7850,0\n7851,0\n7852,0\n7853,0\n7854,0\n7855,0\n7856,0\n7857,0\n7858,0\n7859,0\n7860,0\n7861,0\n7862,0\n7863,0\n7864,0\n7865,0\n7866,0\n7867,0\n7868,0\n7869,0\n7870,0\n7871,0\n7872,0\n7873,0\n7874,0\n7875,0\n7876,0\n7877,0\n7878,0\n7879,0\n7880,0\n7881,0\n7882,0\n7883,0\n7884,0\n7885,0\n7886,0\n7887,0\n7888,0\n7889,0\n7890,0\n7891,0\n7892,0\n7893,0\n7894,0\n7895,0\n7896,0\n7897,0\n7898,0\n7899,0\n7900,0\n7901,0\n7902,0\n7903,0\n7904,0\n7905,0\n7906,0\n7907,0\n7908,0\n7909,0\n7910,0\n7911,0\n7912,0\n7913,0\n7914,0\n7915,0\n7916,0\n7917,0\n7918,0\n7919,0\n7920,0\n7921,0\n7922,0\n7923,0\n7924,0\n7925,0\n7926,0\n7927,0\n7928,0\n7929,0\n7930,0\n7931,0\n7932,0\n7933,0\n7934,0\n7935,0\n7936,0\n7937,0\n7938,0\n7939,0\n7940,0\n7941,0\n7942,0\n7943,0\n7944,0\n7945,0\n7946,0\n7947,0\n7948,0\n7949,0\n7950,0\n7951,0\n7952,0\n7953,0\n7954,0\n7955,0\n7956,0\n7957,0\n7958,0\n7959,0\n7960,0\n7961,0\n7962,0\n7963,0\n7964,0\n7965,0\n7966,0\n7967,0\n7968,0\n7969,0\n7970,0\n7971,0\n7972,0\n7973,0\n7974,0\n7975,0\n7976,0\n7977,0\n7978,0\n7979,0\n7980,0\n7981,0\n7982,0\n7983,0\n7984,0\n7985,0\n7986,0\n7987,0\n7988,0\n7989,0\n7990,0\n7991,0\n7992,0\n7993,0\n7994,0\n7995,0\n7996,0\n7997,0\n7998,0\n7999,0\n8000,0\n8001,0\n8002,0\n8003,0\n8004,0\n8005,0\n8006,0\n8007,0\n8008,0\n8009,2\n8010,2\n8011,2\n8012,2\n8013,2\n8014,0\n8015,0\n8016,0\n8017,0\n8018,0\n8019,0\n8020,0\n8021,0\n8022,0\n8023,0\n8024,0\n8025,0\n8026,0\n8027,0\n8028,0\n8029,0\n8030,0\n8031,0\n8032,0\n8033,0\n8034,0\n8035,0\n8036,0\n8037,0\n8038,0\n8039,0\n8040,0\n8041,0\n8042,0\n8043,0\n8044,0\n8045,0\n8046,0\n8047,0\n8048,0\n8049,0\n8050,0\n8051,0\n8052,0\n8053,0\n8054,0\n8055,0\n8056,0\n8057,0\n8058,0\n8059,0\n8060,0\n8061,0\n8062,0\n8063,0\n8064,0\n8065,0\n8066,0\n8067,0\n8068,0\n8069,0\n8070,0\n8071,0\n8072,0\n8073,0\n8074,0\n8075,0\n8076,0\n8077,0\n8078,0\n8079,0\n8080,0\n8081,0\n8082,0\n8083,0\n8084,0\n8085,0\n8086,0\n8087,0\n8088,0\n8089,0\n8090,0\n8091,0\n8092,0\n8093,0\n8094,0\n8095,0\n8096,0\n8097,0\n8098,0\n8099,0\n8100,0\n8101,0\n8102,0\n8103,0\n8104,0\n8105,0\n8106,0\n8107,0\n8108,0\n8109,0\n8110,0\n8111,0\n8112,0\n8113,0\n8114,0\n8115,0\n8116,0\n8117,0\n8118,0\n8119,0\n8120,0\n8121,0\n8122,0\n8123,0\n8124,0\n8125,0\n8126,0\n8127,0\n8128,0\n8129,0\n8130,0\n8131,0\n8132,0\n8133,0\n8134,0\n8135,0\n8136,0\n8137,0\n8138,0\n8139,0\n8140,0\n8141,0\n8142,0\n8143,0\n8144,0\n8145,0\n8146,0\n8147,0\n8148,0\n8149,0\n8150,0\n8151,0\n8152,0\n8153,0\n8154,0\n8155,0\n8156,0\n8157,0\n8158,0\n8159,0\n8160,0\n8161,0\n8162,0\n8163,0\n8164,0\n8165,0\n8166,0\n8167,0\n8168,0\n8169,0\n8170,0\n8171,0\n8172,0\n8173,0\n8174,0\n8175,0\n8176,0\n8177,0\n8178,0\n8179,0\n8180,0\n8181,0\n8182,0\n8183,0\n8184,0\n8185,0\n8186,0\n8187,0\n8188,0\n8189,0\n8190,0\n8191,0\n8192,0\n8193,0\n8194,0\n8195,0\n8196,0\n8197,0\n8198,0\n8199,0\n8200,0\n8201,0\n8202,0\n8203,0\n8204,0\n8205,0\n8206,0\n8207,0\n8208,0\n8209,0\n8210,0\n8211,0\n8212,0\n8213,0\n8214,0\n8215,0\n8216,0\n8217,0\n8218,0\n8219,0\n8220,0\n8221,0\n8222,0\n8223,0\n8224,0\n8225,0\n8226,0\n8227,0\n8228,0\n8229,0\n8230,0\n8231,0\n8232,0\n8233,0\n8234,0\n8235,0\n8236,0\n8237,0\n8238,0\n8239,0\n8240,0\n8241,0\n8242,0\n8243,0\n8244,0\n8245,0\n8246,0\n8247,0\n8248,0\n8249,0\n8250,0\n8251,0\n8252,0\n8253,0\n8254,0\n8255,0\n8256,0\n8257,0\n8258,0\n8259,0\n8260,0\n8261,0\n8262,0\n8263,0\n8264,0\n8265,0\n8266,0\n8267,0\n8268,0\n8269,0\n8270,0\n8271,0\n8272,0\n8273,0\n8274,0\n8275,0\n8276,0\n8277,0\n8278,0\n8279,0\n8280,0\n8281,0\n8282,0\n8283,0\n8284,0\n8285,0\n8286,0\n8287,0\n8288,0\n8289,0\n8290,0\n8291,0\n8292,0\n8293,0\n8294,0\n8295,0\n8296,0\n8297,0\n8298,0\n8299,0\n8300,0\n8301,0\n8302,0\n8303,0\n8304,0\n8305,0\n8306,0\n8307,0\n8308,0\n8309,0\n8310,2\n8311,3\n8312,3\n8313,3\n8314,3\n8315,1\n8316,0\n8317,0\n8318,0\n8319,0\n8320,0\n8321,0\n8322,0\n8323,0\n8324,0\n8325,0\n8326,0\n8327,0\n8328,0\n8329,0\n8330,0\n8331,0\n8332,0\n8333,0\n8334,0\n8335,0\n8336,0\n8337,0\n8338,0\n8339,0\n8340,0\n8341,0\n8342,0\n8343,0\n8344,0\n8345,0\n8346,0\n8347,0\n8348,0\n8349,0\n8350,0\n8351,0\n8352,0\n8353,0\n8354,0\n8355,0\n8356,0\n8357,0\n8358,0\n8359,0\n8360,0\n8361,0\n8362,0\n8363,0\n8364,0\n8365,0\n8366,0\n8367,0\n8368,0\n8369,0\n8370,0\n8371,0\n8372,0\n8373,0\n8374,0\n8375,0\n8376,0\n8377,0\n8378,0\n8379,0\n8380,0\n8381,0\n8382,0\n8383,0\n8384,0\n8385,0\n8386,0\n8387,0\n8388,0\n8389,0\n8390,0\n8391,0\n8392,0\n8393,0\n8394,0\n8395,0\n8396,0\n8397,0\n8398,0\n8399,0\n8400,0\n8401,0\n8402,0\n8403,0\n8404,0\n8405,0\n8406,0\n8407,0\n8408,0\n8409,0\n8410,0\n8411,0\n8412,0\n8413,0\n8414,0\n8415,0\n8416,0\n8417,0\n8418,0\n8419,0\n8420,0\n8421,0\n8422,0\n8423,0\n8424,0\n8425,0\n8426,0\n8427,0\n8428,0\n8429,0\n8430,0\n8431,0\n8432,0\n8433,0\n8434,0\n8435,0\n8436,0\n8437,0\n8438,0\n8439,0\n8440,0\n8441,0\n8442,0\n8443,0\n8444,0\n8445,0\n8446,0\n8447,0\n8448,0\n8449,0\n8450,0\n8451,0\n8452,0\n8453,0\n8454,0\n8455,0\n8456,0\n8457,0\n8458,0\n8459,0\n8460,0\n8461,0\n8462,0\n8463,0\n8464,0\n8465,0\n8466,0\n8467,0\n8468,0\n8469,0\n8470,0\n8471,0\n8472,0\n8473,0\n8474,0\n8475,0\n8476,0\n8477,0\n8478,0\n8479,0\n8480,0\n8481,0\n8482,0\n8483,0\n8484,0\n8485,0\n8486,0\n8487,0\n8488,0\n8489,0\n8490,0\n8491,0\n8492,0\n8493,0\n8494,0\n8495,0\n8496,0\n8497,0\n8498,0\n8499,0\n8500,0\n8501,0\n8502,0\n8503,0\n8504,0\n8505,0\n8506,0\n8507,0\n8508,0\n8509,0\n8510,0\n8511,0\n8512,0\n8513,0\n8514,0\n8515,0\n8516,0\n8517,0\n8518,0\n8519,0\n8520,0\n8521,0\n8522,0\n8523,0\n8524,0\n8525,0\n8526,0\n8527,0\n8528,0\n8529,0\n8530,0\n8531,0\n8532,0\n8533,0\n8534,0\n8535,0\n8536,0\n8537,0\n8538,0\n8539,0\n8540,0\n8541,0\n8542,0\n8543,0\n8544,0\n8545,0\n8546,0\n8547,0\n8548,0\n8549,0\n8550,0\n8551,0\n8552,0\n8553,0\n8554,0\n8555,0\n8556,0\n8557,0\n8558,0\n8559,0\n8560,0\n8561,0\n8562,0\n8563,0\n8564,0\n8565,0\n8566,0\n8567,0\n8568,0\n8569,0\n8570,0\n8571,0\n8572,0\n8573,0\n8574,0\n8575,0\n8576,0\n8577,0\n8578,0\n8579,0\n8580,0\n8581,0\n8582,0\n8583,0\n8584,0\n8585,0\n8586,0\n8587,0\n8588,0\n8589,0\n8590,0\n8591,0\n8592,0\n8593,0\n8594,0\n8595,0\n8596,0\n8597,0\n8598,0\n8599,0\n8600,0\n8601,0\n8602,0\n8603,0\n8604,0\n8605,0\n8606,0\n8607,0\n8608,0\n8609,0\n8610,0\n8611,0\n8612,0\n8613,0\n8614,0\n8615,0\n8616,0\n8617,0\n8618,0\n8619,0\n8620,0\n8621,0\n8622,0\n8623,0\n8624,0\n8625,0\n8626,0\n8627,0\n8628,0\n8629,0\n8630,0\n8631,0\n8632,0\n8633,0\n8634,0\n8635,0\n8636,0\n8637,0\n8638,0\n8639,0\n8640,0\n8641,0\n8642,0\n8643,0\n8644,0\n8645,0\n8646,0\n8647,0\n8648,0\n8649,0\n8650,0\n8651,0\n8652,0\n8653,0\n8654,0\n8655,0\n8656,0\n8657,0\n8658,0\n8659,0\n8660,0\n8661,0\n8662,0\n8663,0\n8664,0\n8665,0\n8666,0\n8667,0\n8668,0\n8669,0\n8670,0\n8671,0\n8672,0\n8673,0\n8674,0\n8675,0\n8676,0\n8677,0\n8678,0\n8679,0\n8680,0\n8681,0\n8682,0\n8683,0\n8684,0\n8685,0\n8686,0\n8687,0\n8688,0\n8689,0\n8690,0\n8691,0\n8692,0\n8693,0\n8694,0\n8695,0\n8696,0\n8697,0\n8698,0\n8699,0\n8700,0\n8701,0\n8702,0\n8703,0\n8704,0\n8705,0\n8706,0\n8707,0\n8708,0\n8709,0\n8710,0\n8711,0\n8712,0\n8713,0\n8714,0\n8715,0\n8716,0\n8717,0\n8718,0\n8719,0\n8720,0\n8721,0\n8722,0\n8723,0\n8724,0\n8725,0\n8726,0\n8727,0\n8728,0\n8729,0\n8730,0\n8731,0\n8732,0\n8733,0\n8734,0\n8735,0\n8736,0\n8737,0\n8738,0\n8739,0\n8740,0\n8741,0\n8742,0\n8743,0\n8744,0\n8745,0\n8746,0\n8747,0\n8748,0\n8749,0\n8750,0\n8751,0\n8752,0\n8753,0\n8754,0\n8755,0\n8756,0\n8757,0\n8758,0\n8759,0\n8760,0\n8761,0\n8762,0\n8763,0\n8764,0\n8765,0\n8766,0\n8767,0\n8768,0\n8769,0\n8770,0\n8771,0\n8772,0\n8773,0\n8774,0\n8775,0\n8776,0\n8777,0\n8778,0\n8779,0\n8780,0\n8781,0\n8782,0\n8783,0\n8784,0\n8785,0\n8786,0\n8787,0\n8788,0\n8789,0\n8790,0\n8791,0\n8792,0\n8793,0\n8794,0\n8795,0\n8796,0\n8797,0\n8798,0\n8799,0\n8800,0\n8801,0\n8802,0\n8803,0\n8804,0\n8805,0\n8806,0\n8807,0\n8808,0\n8809,0\n8810,0\n8811,0\n8812,0\n8813,0\n8814,0\n8815,0\n8816,0\n8817,0\n8818,0\n8819,0\n8820,0\n8821,0\n8822,0\n8823,0\n8824,0\n8825,0\n8826,0\n8827,0\n8828,0\n8829,0\n8830,0\n8831,0\n8832,0\n8833,0\n8834,0\n8835,0\n8836,0\n8837,0\n8838,0\n8839,0\n8840,0\n8841,0\n8842,0\n8843,0\n8844,0\n8845,0\n8846,0\n8847,0\n8848,0\n8849,0\n8850,0\n8851,0\n8852,0\n8853,0\n8854,0\n8855,0\n8856,0\n8857,0\n8858,0\n8859,0\n8860,0\n8861,0\n8862,0\n8863,0\n8864,0\n8865,0\n8866,0\n8867,0\n8868,0\n8869,0\n8870,0\n8871,0\n8872,0\n8873,0\n8874,0\n8875,0\n8876,0\n8877,0\n8878,0\n8879,0\n8880,0\n8881,0\n8882,0\n8883,0\n8884,0\n8885,0\n8886,0\n8887,0\n8888,0\n8889,0\n8890,0\n8891,0\n8892,0\n8893,0\n8894,0\n8895,0\n8896,0\n8897,0\n8898,0\n8899,0\n8900,0\n8901,0\n8902,0\n8903,0\n8904,0\n8905,0\n8906,0\n8907,0\n8908,0\n8909,0\n8910,0\n8911,0\n8912,0\n8913,0\n8914,0\n8915,0\n8916,0\n8917,0\n8918,0\n8919,0\n8920,0\n8921,0\n8922,0\n8923,0\n8924,0\n8925,0\n8926,0\n8927,0\n8928,0\n8929,0\n8930,0\n8931,0\n8932,0\n8933,0\n8934,0\n8935,0\n8936,0\n8937,0\n8938,0\n8939,0\n8940,0\n8941,0\n8942,6\n8943,13\n8944,13\n8945,13\n8946,13\n8947,7\n8948,0\n8949,0\n8950,0\n8951,0\n8952,0\n8953,0\n8954,0\n8955,0\n8956,0\n8957,0\n8958,0\n8959,0\n8960,0\n8961,0\n8962,0\n8963,0\n8964,0\n8965,0\n8966,0\n8967,0\n8968,0\n8969,0\n8970,0\n8971,0\n8972,0\n8973,0\n8974,0\n8975,0\n8976,0\n8977,0\n8978,0\n8979,0\n8980,0\n8981,0\n8982,0\n8983,0\n8984,0\n8985,0\n8986,0\n8987,0\n8988,0\n8989,0\n8990,0\n8991,0\n8992,0\n8993,0\n8994,0\n8995,0\n8996,0\n8997,0\n8998,0\n8999,0\n9000,0\n9001,0\n9002,0\n9003,0\n9004,0\n9005,0\n9006,0\n9007,0\n9008,0\n9009,0\n9010,0\n9011,0\n9012,0\n9013,0\n9014,0\n9015,0\n9016,0\n9017,0\n9018,0\n9019,0\n9020,0\n9021,0\n9022,0\n9023,0\n9024,0\n9025,0\n9026,0\n9027,0\n9028,0\n9029,0\n9030,0\n9031,0\n9032,0\n9033,0\n9034,0\n9035,0\n9036,0\n9037,0\n9038,0\n9039,0\n9040,0\n9041,0\n9042,0\n9043,0\n9044,0\n9045,0\n9046,0\n9047,0\n9048,0\n9049,0\n9050,0\n9051,0\n9052,0\n9053,0\n9054,0\n9055,0\n9056,0\n9057,0\n9058,0\n9059,0\n9060,0\n9061,0\n9062,0\n9063,0\n9064,0\n9065,0\n9066,0\n9067,0\n9068,0\n9069,0\n9070,0\n9071,0\n9072,0\n9073,0\n9074,0\n9075,0\n9076,0\n9077,0\n9078,0\n9079,0\n9080,0\n9081,0\n9082,0\n9083,0\n9084,0\n9085,0\n9086,0\n9087,0\n9088,0\n9089,0\n9090,0\n9091,0\n9092,0\n9093,0\n9094,0\n9095,0\n9096,0\n9097,0\n9098,0\n9099,0\n9100,0\n9101,0\n9102,0\n9103,0\n9104,0\n9105,0\n9106,0\n9107,0\n9108,0\n9109,0\n9110,0\n9111,0\n9112,0\n9113,0\n9114,0\n9115,0\n9116,0\n9117,0\n9118,0\n9119,0\n9120,0\n9121,0\n9122,0\n9123,0\n9124,0\n9125,0\n9126,0\n9127,0\n9128,0\n9129,0\n9130,0\n9131,0\n9132,0\n9133,0\n9134,0\n9135,0\n9136,0\n9137,0\n9138,0\n9139,0\n9140,0\n9141,0\n9142,0\n9143,0\n9144,0\n9145,0\n9146,0\n9147,0\n9148,0\n9149,0\n9150,0\n9151,0\n9152,0\n9153,0\n9154,0\n9155,0\n9156,0\n9157,0\n9158,0\n9159,0\n9160,0\n9161,0\n9162,0\n9163,0\n9164,0\n9165,0\n9166,0\n9167,0\n9168,0\n9169,0\n9170,0\n9171,0\n9172,0\n9173,0\n9174,0\n9175,0\n9176,0\n9177,0\n9178,0\n9179,0\n9180,0\n9181,0\n9182,0\n9183,0\n9184,0\n9185,0\n9186,0\n9187,0\n9188,0\n9189,0\n9190,0\n9191,0\n9192,0\n9193,0\n9194,0\n9195,0\n9196,0\n9197,0\n9198,0\n9199,0\n9200,0\n9201,0\n9202,0\n9203,0\n9204,0\n9205,0\n9206,0\n9207,0\n9208,0\n9209,0\n9210,0\n9211,0\n9212,0\n9213,0\n9214,0\n9215,0\n9216,0\n9217,0\n9218,0\n9219,0\n9220,0\n9221,0\n9222,0\n9223,0\n9224,0\n9225,0\n9226,0\n9227,0\n9228,0\n9229,0\n9230,0\n9231,0\n9232,0\n9233,0\n9234,0\n9235,0\n9236,0\n9237,0\n9238,0\n9239,0\n9240,0\n9241,0\n9242,0\n9243,0\n9244,0\n9245,0\n9246,0\n9247,0\n9248,0\n9249,0\n9250,0\n9251,0\n9252,0\n9253,0\n9254,0\n9255,0\n9256,5\n9257,5\n9258,5\n9259,5\n9260,5\n9261,0\n9262,0\n9263,0\n9264,0\n9265,0\n9266,0\n9267,0\n9268,0\n9269,0\n9270,0\n9271,0\n9272,0\n9273,0\n9274,0\n9275,0\n9276,0\n9277,0\n9278,0\n9279,0\n9280,0\n9281,0\n9282,0\n9283,0\n9284,0\n9285,0\n9286,0\n9287,0\n9288,0\n9289,0\n9290,0\n9291,0\n9292,0\n9293,0\n9294,0\n9295,0\n9296,0\n9297,0\n9298,0\n9299,0\n9300,0\n9301,0\n9302,0\n9303,0\n9304,0\n9305,0\n9306,0\n9307,0\n9308,0\n9309,0\n9310,0\n9311,0\n9312,0\n9313,0\n9314,0\n9315,0\n9316,0\n9317,0\n9318,0\n9319,0\n9320,0\n9321,0\n9322,0\n9323,0\n9324,0\n9325,0\n9326,0\n9327,0\n9328,0\n9329,0\n9330,0\n9331,0\n9332,0\n9333,0\n9334,0\n9335,0\n9336,0\n9337,0\n9338,0\n9339,0\n9340,0\n9341,0\n9342,0\n9343,0\n9344,0\n9345,0\n9346,0\n9347,0\n9348,0\n9349,0\n9350,0\n9351,0\n9352,0\n9353,0\n9354,0\n9355,0\n9356,0\n9357,0\n9358,0\n9359,0\n9360,0\n9361,0\n9362,0\n9363,0\n9364,0\n9365,0\n9366,17\n9367,17\n9368,17\n9369,17\n9370,17\n9371,0\n9372,0\n9373,0\n9374,0\n9375,0\n9376,0\n9377,0\n9378,0\n9379,0\n9380,0\n9381,0\n9382,0\n9383,0\n9384,0\n9385,0\n9386,0\n9387,0\n9388,0\n9389,0\n9390,0\n9391,0\n9392,0\n9393,0\n9394,0\n9395,0\n9396,0\n9397,0\n9398,0\n9399,0\n9400,0\n9401,0\n9402,0\n9403,0\n9404,0\n9405,0\n9406,0\n9407,0\n9408,0\n9409,0\n9410,0\n9411,0\n9412,0\n9413,0\n9414,0\n9415,0\n9416,0\n9417,0\n9418,0\n9419,0\n9420,0\n9421,0\n9422,0\n9423,0\n9424,0\n9425,0\n9426,0\n9427,0\n9428,0\n9429,0\n9430,0\n9431,0\n9432,0\n9433,0\n9434,0\n9435,0\n9436,0\n9437,0\n9438,0\n9439,0\n9440,0\n9441,0\n9442,0\n9443,0\n9444,0\n9445,0\n9446,0\n9447,0\n9448,0\n9449,0\n9450,0\n9451,0\n9452,0\n9453,0\n9454,0\n9455,0\n9456,0\n9457,0\n9458,0\n9459,0\n9460,0\n9461,0\n9462,0\n9463,0\n9464,0\n9465,0\n9466,0\n9467,0\n9468,0\n9469,0\n9470,0\n9471,0\n9472,0\n9473,0\n9474,0\n9475,0\n9476,0\n9477,0\n9478,0\n9479,0\n9480,0\n9481,0\n9482,0\n9483,0\n9484,0\n9485,0\n9486,0\n9487,0\n9488,0\n9489,0\n9490,0\n9491,0\n9492,0\n9493,0\n9494,0\n9495,18\n9496,18\n9497,18\n9498,18\n9499,18\n9500,0\n9501,0\n9502,0\n9503,0\n9504,0\n9505,0\n9506,0\n9507,0\n9508,0\n9509,0\n9510,0\n9511,0\n9512,0\n9513,0\n9514,0\n9515,0\n9516,0\n9517,0\n9518,0\n9519,0\n9520,0\n9521,0\n9522,0\n9523,0\n9524,0\n9525,0\n9526,0\n9527,0\n9528,0\n9529,0\n9530,0\n9531,0\n9532,0\n9533,0\n9534,0\n9535,0\n9536,0\n9537,0\n9538,0\n9539,0\n9540,0\n9541,1\n9542,1\n9543,1\n9544,1\n9545,1\n9546,0\n9547,0\n9548,2\n9549,2\n9550,2\n9551,2\n9552,2\n9553,0\n9554,0\n9555,1\n9556,1\n9557,1\n9558,1\n9559,1\n9560,0\n9561,0\n9562,0\n9563,0\n9564,0\n9565,0\n9566,0\n9567,0\n9568,0\n9569,0\n9570,0\n9571,0\n9572,0\n9573,0\n9574,0\n9575,0\n9576,0\n9577,0\n9578,0\n9579,0\n9580,0\n9581,0\n9582,0\n9583,0\n9584,0\n9585,0\n9586,0\n9587,0\n9588,0\n9589,0\n9590,0\n9591,0\n9592,0\n9593,0\n9594,0\n9595,0\n9596,0\n9597,0\n9598,0\n9599,0\n9600,0\n9601,0\n9602,0\n9603,0\n9604,0\n9605,0\n9606,0\n9607,0\n9608,0\n9609,0\n9610,0\n9611,0\n9612,0\n9613,0\n9614,0\n9615,0\n9616,0\n9617,0\n9618,0\n9619,0\n9620,0\n9621,0\n9622,0\n9623,0\n9624,0\n9625,0\n9626,0\n9627,0\n9628,0\n9629,0\n9630,0\n9631,0\n9632,0\n9633,0\n9634,2\n9635,2\n9636,2\n9637,2\n9638,2\n9639,0\n9640,0\n9641,0\n9642,0\n9643,0\n9644,0\n9645,0\n9646,0\n9647,0\n9648,0\n9649,0\n9650,0\n9651,0\n9652,0\n9653,0\n9654,0\n9655,0\n9656,0\n9657,0\n9658,0\n9659,0\n9660,0\n9661,0\n9662,0\n9663,0\n9664,0\n9665,0\n9666,0\n9667,0\n9668,0\n9669,0\n9670,0\n9671,0\n9672,0\n9673,0\n9674,0\n9675,0\n9676,0\n9677,0\n9678,0\n9679,0\n9680,0\n9681,0\n9682,0\n9683,0\n9684,0\n9685,0\n9686,0\n9687,0\n9688,0\n9689,0\n9690,0\n9691,0\n9692,0\n9693,0\n9694,0\n9695,0\n9696,0\n9697,0\n9698,0\n9699,0\n9700,0\n9701,0\n9702,0\n9703,0\n9704,0\n9705,0\n9706,1\n9707,1\n9708,1\n9709,1\n9710,1\n9711,0\n9712,0\n9713,0\n9714,0\n9715,0\n9716,0\n9717,0\n9718,0\n9719,0\n9720,0\n9721,0\n9722,0\n9723,0\n9724,0\n9725,0\n9726,0\n9727,0\n9728,0\n9729,0\n9730,0\n9731,0\n9732,0\n9733,0\n9734,0\n9735,0\n9736,0\n9737,0\n9738,0\n9739,0\n9740,0\n9741,0\n9742,0\n9743,0\n9744,0\n9745,0\n9746,0\n9747,0\n9748,0\n9749,0\n9750,0\n9751,0\n9752,0\n9753,0\n9754,0\n9755,0\n9756,0\n9757,0\n9758,0\n9759,0\n9760,0\n9761,0\n9762,0\n9763,0\n9764,0\n9765,0\n9766,0\n9767,0\n9768,0\n9769,0\n9770,0\n9771,0\n9772,0\n9773,0\n9774,0\n9775,0\n9776,0\n9777,0\n9778,0\n9779,0\n9780,0\n9781,0\n9782,0\n9783,0\n9784,0\n9785,0\n9786,0\n9787,0\n9788,0\n9789,0\n9790,0\n9791,0\n9792,0\n9793,0\n9794,0\n9795,0\n9796,0\n9797,2\n9798,2\n9799,2\n9800,2\n9801,2\n9802,0\n9803,0\n9804,0\n9805,0\n9806,0\n9807,0\n9808,0\n9809,0\n9810,0\n9811,0\n9812,0\n9813,0\n9814,0\n9815,0\n9816,0\n9817,0\n9818,0\n9819,0\n9820,0\n9821,0\n9822,0\n9823,0\n9824,0\n9825,0\n9826,0\n9827,0\n9828,0\n9829,0\n9830,2\n9831,2\n9832,2\n9833,2\n9834,2\n9835,0\n9836,0\n9837,0\n9838,0\n9839,0\n9840,0\n9841,0\n9842,0\n9843,0\n9844,6\n9845,6\n9846,6\n9847,6\n9848,6\n9849,5\n9850,5\n9851,5\n9852,5\n9853,5\n9854,0\n9855,0\n9856,0\n9857,0\n9858,0\n9859,0\n9860,0\n9861,0\n9862,0\n9863,0\n9864,0\n9865,0\n9866,0\n9867,0\n9868,0\n9869,0\n9870,0\n9871,0\n9872,0\n9873,0\n9874,0\n9875,0\n9876,0\n9877,0\n9878,0\n9879,0\n9880,0\n9881,0\n9882,0\n9883,0\n9884,0\n9885,0\n9886,0\n9887,0\n9888,0\n9889,0\n9890,0\n9891,0\n9892,0\n9893,0\n9894,0\n9895,0\n9896,0\n9897,0\n9898,0\n9899,0\n9900,0\n9901,0\n9902,0\n9903,0\n9904,0\n9905,0\n9906,0\n9907,0\n9908,0\n9909,0\n9910,0\n9911,0\n9912,0\n9913,0\n9914,0\n9915,0\n9916,0\n9917,0\n9918,0\n9919,0\n9920,0\n9921,0\n9922,0\n9923,0\n9924,0\n9925,0\n9926,0\n9927,0\n9928,0\n9929,0\n9930,0\n9931,0\n9932,0\n9933,0\n9934,0\n9935,0\n9936,0\n9937,0\n9938,0\n9939,0\n9940,0\n9941,0\n9942,0\n9943,0\n9944,0\n9945,0\n9946,0\n9947,0\n9948,0\n9949,0\n9950,0\n9951,0\n9952,0\n9953,0\n9954,0\n9955,0\n9956,0\n9957,0\n9958,0\n9959,0\n9960,0\n9961,0\n9962,0\n9963,0\n9964,0\n9965,0\n9966,0\n9967,0\n9968,0\n9969,0\n9970,0\n9971,0\n9972,0\n9973,0\n9974,0\n9975,0\n9976,0\n9977,0\n9978,0\n9979,0\n9980,0\n9981,0\n9982,0\n9983,0\n9984,0\n9985,0\n9986,0\n9987,0\n9988,0\n9989,0\n9990,0\n9991,0\n9992,0\n9993,0\n9994,0\n9995,0\n9996,0\n9997,0\n9998,0\n9999,0\n10000,0\n10001,0\n10002,0\n10003,0\n10004,0\n10005,0\n10006,0\n10007,0\n10008,0\n10009,0\n10010,0\n10011,0\n10012,0\n10013,0\n10014,0\n10015,0\n10016,0\n10017,0\n10018,0\n10019,0\n10020,0\n10021,0\n10022,0\n10023,0\n10024,0\n10025,0\n10026,0\n10027,0\n10028,0\n10029,0\n10030,0\n10031,0\n10032,0\n10033,0\n10034,0\n10035,0\n10036,0\n10037,0\n10038,0\n10039,0\n10040,0\n10041,0\n10042,0\n10043,0\n10044,0\n10045,0\n10046,0\n10047,0\n10048,0\n10049,0\n10050,0\n10051,0\n10052,0\n10053,0\n10054,0\n10055,0\n10056,0\n10057,0\n10058,0\n10059,0\n10060,0\n10061,0\n10062,0\n10063,0\n10064,0\n10065,0\n10066,0\n10067,0\n10068,0\n10069,0\n10070,0\n10071,0\n10072,0\n10073,0\n10074,0\n10075,0\n10076,0\n10077,0\n10078,0\n10079,0\n10080,0\n10081,0\n10082,0\n10083,0\n10084,0\n10085,0\n10086,0\n10087,0\n10088,0\n10089,0\n10090,0\n10091,0\n10092,0\n10093,0\n10094,0\n10095,0\n10096,0\n10097,0\n10098,0\n10099,0\n10100,0\n10101,0\n10102,0\n10103,0\n10104,0\n10105,0\n10106,0\n10107,0\n10108,0\n10109,0\n10110,0\n10111,0\n10112,0\n10113,0\n10114,0\n10115,0\n10116,0\n10117,0\n10118,0\n10119,0\n10120,0\n10121,0\n10122,0\n10123,0\n10124,0\n10125,0\n10126,0\n10127,0\n10128,0\n10129,0\n10130,0\n10131,0\n10132,0\n10133,0\n10134,0\n10135,0\n10136,0\n10137,0\n10138,0\n10139,0\n10140,0\n10141,0\n10142,0\n10143,0\n10144,0\n10145,0\n10146,0\n10147,0\n10148,0\n10149,0\n10150,0\n10151,0\n10152,0\n10153,0\n10154,0\n10155,0\n10156,0\n10157,0\n10158,0\n10159,0\n10160,0\n10161,0\n10162,0\n10163,0\n10164,0\n10165,0\n10166,0\n10167,0\n10168,0\n10169,0\n10170,0\n10171,0\n10172,0\n10173,0\n10174,0\n10175,0\n10176,0\n10177,0\n10178,0\n10179,0\n10180,0\n10181,0\n10182,0\n10183,0\n10184,0\n10185,0\n10186,0\n10187,0\n10188,0\n10189,0\n10190,0\n10191,0\n10192,0\n10193,0\n10194,0\n10195,0\n10196,0\n10197,0\n10198,0\n10199,0\n10200,0\n10201,0\n10202,0\n10203,0\n10204,0\n10205,0\n10206,0\n10207,0\n10208,0\n10209,0\n10210,0\n10211,0\n10212,0\n10213,0\n10214,0\n10215,0\n10216,0\n10217,0\n10218,0\n10219,0\n10220,0\n10221,0\n10222,0\n10223,0\n10224,0\n10225,0\n10226,0\n10227,0\n10228,0\n10229,0\n10230,0\n10231,0\n10232,0\n10233,0\n10234,0\n10235,0\n10236,0\n10237,0\n10238,0\n10239,0\n10240,0\n10241,0\n10242,0\n10243,0\n10244,0\n10245,0\n10246,0\n10247,0\n10248,0\n10249,0\n10250,0\n10251,0\n10252,0\n10253,0\n10254,0\n10255,0\n10256,0\n10257,0\n10258,0\n10259,0\n10260,0\n10261,0\n10262,0\n10263,0\n10264,0\n10265,0\n10266,0\n10267,0\n10268,0\n10269,0\n10270,0\n10271,0\n10272,0\n10273,0\n10274,0\n10275,0\n10276,0\n10277,0\n10278,0\n10279,0\n10280,0\n10281,0\n10282,0\n10283,0\n10284,0\n10285,0\n10286,0\n10287,0\n10288,0\n10289,0\n10290,0\n10291,0\n10292,0\n10293,0\n10294,0\n10295,0\n10296,0\n10297,0\n10298,0\n10299,0\n10300,0\n10301,0\n10302,0\n10303,0\n10304,0\n10305,0\n10306,0\n10307,0\n10308,0\n10309,0\n10310,0\n10311,0\n10312,0\n10313,0\n10314,0\n10315,0\n10316,0\n10317,0\n10318,0\n10319,0\n10320,0\n10321,0\n10322,0\n10323,0\n10324,0\n10325,0\n10326,0\n10327,0\n10328,0\n10329,0\n10330,0\n10331,0\n10332,0\n10333,0\n10334,0\n10335,0\n10336,0\n10337,0\n10338,0\n10339,0\n10340,0\n10341,0\n10342,0\n10343,0\n10344,0\n10345,0\n10346,0\n10347,0\n10348,0\n10349,0\n10350,0\n10351,0\n10352,0\n10353,0\n10354,0\n10355,0\n10356,0\n10357,0\n10358,0\n10359,0\n10360,0\n10361,0\n10362,0\n10363,0\n10364,0\n10365,0\n10366,0\n10367,0\n10368,0\n10369,0\n10370,0\n10371,0\n10372,0\n10373,0\n10374,0\n10375,0\n10376,0\n10377,0\n10378,0\n10379,0\n10380,0\n10381,0\n10382,6\n10383,13\n10384,13\n10385,13\n10386,13\n10387,7\n10388,0\n10389,0\n10390,0\n10391,0\n10392,0\n10393,0\n10394,0\n10395,0\n10396,0\n10397,0\n10398,0\n10399,0\n10400,0\n10401,0\n10402,0\n10403,0\n10404,0\n10405,0\n10406,0\n10407,0\n10408,0\n10409,0\n10410,0\n10411,0\n10412,0\n10413,0\n10414,0\n10415,0\n10416,0\n10417,0\n10418,0\n10419,0\n10420,0\n10421,0\n10422,0\n10423,0\n10424,0\n10425,0\n10426,0\n10427,0\n10428,0\n10429,0\n10430,0\n10431,0\n10432,0\n10433,0\n10434,0\n10435,0\n10436,0\n10437,0\n10438,0\n10439,0\n10440,0\n10441,0\n10442,0\n10443,0\n10444,0\n10445,0\n10446,0\n10447,0\n10448,0\n10449,0\n10450,0\n10451,0\n10452,0\n10453,0\n10454,0\n10455,0\n10456,0\n10457,0\n10458,0\n10459,0\n10460,0\n10461,0\n10462,0\n10463,0\n10464,0\n10465,0\n10466,0\n10467,0\n10468,0\n10469,0\n10470,0\n10471,0\n10472,0\n10473,0\n10474,0\n10475,0\n10476,0\n10477,0\n10478,0\n10479,0\n10480,0\n10481,0\n10482,0\n10483,0\n10484,0\n10485,0\n10486,0\n10487,0\n10488,0\n10489,0\n10490,0\n10491,0\n10492,0\n10493,0\n10494,0\n10495,0\n10496,0\n10497,0\n10498,0\n10499,0\n10500,0\n10501,0\n10502,0\n10503,0\n10504,0\n10505,0\n10506,0\n10507,0\n10508,0\n10509,0\n10510,0\n10511,0\n10512,0\n10513,0\n10514,0\n10515,0\n10516,0\n10517,0\n10518,0\n10519,0\n10520,0\n10521,0\n10522,0\n10523,0\n10524,0\n10525,0\n10526,0\n10527,0\n10528,0\n10529,0\n10530,0\n10531,0\n10532,0\n10533,0\n10534,0\n10535,0\n10536,0\n10537,0\n10538,0\n10539,0\n10540,0\n10541,0\n10542,0\n10543,0\n10544,0\n10545,0\n10546,0\n10547,0\n10548,0\n10549,0\n10550,0\n10551,0\n10552,0\n10553,0\n10554,0\n10555,0\n10556,0\n10557,0\n10558,0\n10559,0\n10560,0\n10561,0\n10562,0\n10563,0\n10564,0\n10565,0\n10566,0\n10567,0\n10568,0\n10569,0\n10570,0\n10571,0\n10572,0\n10573,0\n10574,0\n10575,0\n10576,0\n10577,0\n10578,0\n10579,0\n10580,0\n10581,0\n10582,0\n10583,0\n10584,0\n10585,0\n10586,0\n10587,0\n10588,0\n10589,0\n10590,0\n10591,0\n10592,0\n10593,0\n10594,0\n10595,0\n10596,0\n10597,0\n10598,0\n10599,0\n10600,0\n10601,0\n10602,0\n10603,0\n10604,0\n10605,0\n10606,0\n10607,0\n10608,0\n10609,0\n10610,0\n10611,0\n10612,0\n10613,0\n10614,0\n10615,0\n10616,0\n10617,0\n10618,0\n10619,0\n10620,0\n10621,0\n10622,0\n10623,0\n10624,0\n10625,0\n10626,0\n10627,0\n10628,0\n10629,0\n10630,0\n10631,0\n10632,0\n10633,0\n10634,0\n10635,0\n10636,0\n10637,0\n10638,0\n10639,0\n10640,0\n10641,0\n10642,0\n10643,0\n10644,0\n10645,0\n10646,0\n10647,0\n10648,0\n10649,0\n10650,0\n10651,0\n10652,0\n10653,0\n10654,0\n10655,0\n10656,0\n10657,0\n10658,0\n10659,0\n10660,0\n10661,0\n10662,0\n10663,0\n10664,0\n10665,0\n10666,0\n10667,0\n10668,0\n10669,0\n10670,0\n10671,0\n10672,0\n10673,0\n10674,0\n10675,0\n10676,0\n10677,0\n10678,0\n10679,0\n10680,0\n10681,0\n10682,0\n10683,0\n10684,0\n10685,0\n10686,0\n10687,0\n10688,0\n10689,0\n10690,0\n10691,0\n10692,0\n10693,0\n10694,0\n10695,0\n10696,0\n10697,0\n10698,0\n10699,0\n10700,0\n10701,0\n10702,0\n10703,0\n10704,0\n10705,0\n10706,0\n10707,0\n10708,0\n10709,0\n10710,0\n10711,0\n10712,0\n10713,0\n10714,0\n10715,5\n10716,5\n10717,5\n10718,5\n10719,5\n10720,0\n10721,0\n10722,0\n10723,0\n10724,0\n10725,0\n10726,0\n10727,0\n10728,0\n10729,0\n10730,0\n10731,0\n10732,0\n10733,0\n10734,0\n10735,0\n10736,0\n10737,0\n10738,0\n10739,0\n10740,0\n10741,0\n10742,0\n10743,0\n10744,0\n10745,0\n10746,0\n10747,0\n10748,0\n10749,0\n10750,0\n10751,0\n10752,0\n10753,0\n10754,2\n10755,2\n10756,2\n10757,2\n10758,2\n10759,0\n10760,0\n10761,0\n10762,0\n10763,0\n10764,0\n10765,0\n10766,0\n10767,0\n10768,0\n10769,0\n10770,0\n10771,0\n10772,0\n10773,0\n10774,0\n10775,0\n10776,0\n10777,0\n10778,0\n10779,0\n10780,0\n10781,0\n10782,0\n10783,0\n10784,0\n10785,0\n10786,0\n10787,0\n10788,0\n10789,0\n10790,0\n10791,0\n10792,0\n10793,0\n10794,0\n10795,0\n10796,0\n10797,0\n10798,0\n10799,0\n10800,0\n10801,0\n10802,0\n10803,0\n10804,0\n10805,0\n10806,0\n10807,0\n10808,0\n10809,0\n10810,0\n10811,0\n10812,0\n10813,0\n10814,0\n10815,0\n10816,0\n10817,0\n10818,0\n10819,0\n10820,0\n10821,0\n10822,0\n10823,0\n10824,0\n10825,0\n10826,0\n10827,0\n10828,0\n10829,0\n10830,0\n10831,0\n10832,0\n10833,0\n10834,0\n10835,0\n10836,0\n10837,0\n10838,0\n10839,0\n10840,0\n10841,0\n10842,0\n10843,0\n10844,0\n10845,0\n10846,0\n10847,0\n10848,0\n10849,0\n10850,0\n10851,0\n10852,0\n10853,0\n10854,0\n10855,0\n10856,0\n10857,0\n10858,0\n10859,0\n10860,0\n10861,0\n10862,0\n10863,0\n10864,0\n10865,0\n10866,0\n10867,0\n10868,0\n10869,0\n10870,0\n10871,0\n10872,0\n10873,0\n10874,0\n10875,0\n10876,0\n10877,0\n10878,0\n10879,0\n10880,0\n10881,0\n10882,0\n10883,0\n10884,0\n10885,0\n10886,0\n10887,0\n10888,0\n10889,0\n10890,0\n10891,0\n10892,0\n10893,0\n10894,0\n10895,0\n10896,0\n10897,0\n10898,0\n10899,0\n10900,0\n10901,0\n10902,0\n10903,0\n10904,0\n10905,0\n10906,0\n10907,0\n10908,0\n10909,0\n10910,0\n10911,0\n10912,0\n10913,0\n10914,0\n10915,0\n10916,0\n10917,0\n10918,0\n10919,0\n10920,0\n10921,0\n10922,0\n10923,30\n10924,30\n10925,30\n10926,30\n10927,72\n10928,48\n10929,48\n10930,48\n10931,48\n10932,6\n10933,0\n10934,0\n10935,0\n10936,0\n10937,0\n10938,0\n10939,0\n10940,0\n10941,0\n10942,0\n10943,0\n10944,0\n10945,0\n10946,0\n10947,0\n10948,0\n10949,0\n10950,0\n10951,0\n10952,0\n10953,0\n10954,0\n10955,0\n10956,0\n10957,0\n10958,0\n10959,0\n10960,0\n10961,0\n10962,0\n10963,0\n10964,0\n10965,0\n10966,0\n10967,0\n10968,0\n10969,0\n10970,0\n10971,0\n10972,0\n10973,0\n10974,0\n10975,0\n10976,0\n10977,0\n10978,0\n10979,0\n10980,0\n10981,0\n10982,0\n10983,0\n10984,0\n10985,0\n10986,0\n10987,0\n10988,0\n10989,0\n10990,0\n10991,0\n10992,0\n10993,0\n10994,0\n10995,0\n10996,0\n10997,0\n10998,0\n10999,0\n11000,0\n11001,0\n11002,0\n11003,0\n11004,0\n11005,0\n11006,0\n11007,0\n11008,0\n11009,0\n11010,0\n11011,0\n11012,0\n11013,0\n11014,0\n11015,0\n11016,0\n11017,0\n11018,0\n11019,0\n11020,0\n11021,0\n11022,0\n11023,0\n11024,0\n11025,29\n11026,73\n11027,75\n11028,98\n11029,99\n11030,70\n11031,26\n11032,24\n11033,1\n11034,0\n11035,0\n11036,0\n11037,0\n11038,0\n11039,0\n11040,0\n11041,0\n11042,0\n11043,0\n11044,0\n11045,0\n11046,0\n11047,3\n11048,3\n11049,3\n11050,3\n11051,3\n11052,0\n11053,0\n11054,0\n11055,0\n11056,0\n11057,0\n11058,0\n11059,0\n11060,0\n11061,0\n11062,7\n11063,7\n11064,7\n11065,7\n11066,7\n11067,0\n11068,0\n11069,0\n11070,0\n11071,0\n11072,0\n11073,0\n11074,0\n11075,0\n11076,0\n11077,0\n11078,0\n11079,0\n11080,0\n11081,0\n11082,0\n11083,0\n11084,0\n11085,0\n11086,0\n11087,0\n11088,0\n11089,0\n11090,0\n11091,0\n11092,0\n11093,0\n11094,0\n11095,0\n11096,0\n11097,0\n11098,8\n11099,8\n11100,8\n11101,8\n11102,8\n11103,0\n11104,0\n11105,0\n11106,0\n11107,0\n11108,0\n11109,0\n11110,0\n11111,0\n11112,0\n11113,0\n11114,0\n11115,0\n11116,0\n11117,0\n11118,0\n11119,0\n11120,0\n11121,0\n11122,0\n11123,0\n11124,0\n11125,0\n11126,0\n11127,0\n11128,0\n11129,0\n11130,0\n11131,0\n11132,0\n11133,0\n11134,0\n11135,0\n11136,0\n11137,0\n11138,0\n11139,0\n11140,0\n11141,0\n11142,0\n11143,0\n11144,0\n11145,0\n11146,0\n11147,0\n11148,0\n11149,0\n11150,0\n11151,0\n11152,2\n11153,4\n11154,6\n11155,6\n11156,6\n11157,4"
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n-556.8\n11714.8"
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n-10.6\n222.6"
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "line",
+      "properties": {
+        "update": {
+          "stroke": {
+            "value": "#000000"
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.t"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.count"
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": ".0/arrange1"
+          }
+        }
+      },
+      "from": {
+        "data": ".0/arrange1"
+      }
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "layer": "back",
+      "grid": true,
+      "title": "t"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "layer": "back",
+      "grid": true,
+      "title": "count"
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id412188494").parseSpec(plot_id412188494_spec);
+</script></p>
+<p>The bottleneck is, of course, at the loop code. R is not good at explicit looping. When you just don’t find a way to avoid coding like this, it is probably a strong sign indicating the use of <code>Rcpp</code>.</p>
+<p>But before that, let’s struggle a little bit more.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># second trial: play tricky</span>
+movingWindowCountR2 &lt;-<span class="st"> </span>function(DT, wsize, interval, <span class="dt">select=</span><span class="ot">NULL</span>) {
+    <span class="kw">require</span>(data.table)
+    wsize &lt;-<span class="st"> </span>wsize
+    allts &lt;-<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">tsint=</span><span class="kw">min</span>(DT$tsint):<span class="kw">max</span>(DT$tsint))
+    if ( !<span class="kw">is.null</span>(select) )
+        DT &lt;-<span class="st"> </span>DT[cate %in%<span class="st"> </span>select]
+    res &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">split</span>(DT, DT$cate), 
+                  function(x) {
+                      x &lt;-<span class="st"> </span><span class="kw">merge</span>(x, allts, <span class="dt">by=</span><span class="st">&quot;tsint&quot;</span>, <span class="dt">all=</span><span class="ot">TRUE</span>)
+                      tsunit_cnt &lt;-<span class="st"> </span>x[, <span class="kw">list</span>(<span class="dt">cnt=</span><span class="kw">sum</span>(!<span class="kw">is.na</span>(cate))), by=<span class="st">&quot;tsint&quot;</span>]
+                      tsunit_cumcnt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>, wsize), <span class="kw">cumsum</span>(tsunit_cnt$cnt))
+                      <span class="kw">as.integer</span>(<span class="kw">tail</span>(tsunit_cumcnt, -wsize) -<span class="st"> </span><span class="kw">head</span>(tsunit_cumcnt, -wsize))
+                  })
+    <span class="kw">lapply</span>(res, function(x) x[<span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">length</span>(x), interval)])
+}
+
+<span class="co"># run for all processes</span>
+<span class="kw">system.time</span>(r2_res &lt;-<span class="st"> </span><span class="kw">movingWindowCountR2</span>(logdat, <span class="dv">300</span>, <span class="dv">60</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##  78.793   4.546  84.463</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(r_res[[<span class="st">&quot;kernel&quot;</span>]], r2_res[[<span class="st">&quot;kernel&quot;</span>]])</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Our second solution is considerably faster, though little bit harder to code and maintain. What if we simply re-write the loop in the first solution in <code>Rcpp</code>?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># final trial</span>
+<span class="kw">cppFunction</span>(<span class="st">&#39;</span>
+<span class="st">    NumericVector movingWindowCount(NumericVector ts, int wsize, int interval, int sts, int nt) {</span>
+<span class="st">        NumericVector out(nt);</span>
+<span class="st">        for (int i = 0; i &lt; nt; i++) {</span>
+<span class="st">            NumericVector cnts = ts[(ts &lt;= sts) &amp; (ts &gt; sts - wsize)];</span>
+<span class="st">            out(i) = cnts.size();</span>
+<span class="st">            sts += interval;</span>
+<span class="st">        }</span>
+<span class="st">        return out;</span>
+<span class="st">    }&#39;</span>)
+
+movingWindowCountCpp &lt;-<span class="st"> </span>function(DT, wsize, interval, <span class="dt">select=</span><span class="ot">NULL</span>) {
+    <span class="kw">require</span>(data.table)
+    sts &lt;-<span class="st"> </span><span class="kw">min</span>(DT$tsint)
+    ninter &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="kw">diff</span>(<span class="kw">range</span>(DT$tsint)) /<span class="st"> </span>interval)
+    if ( !<span class="kw">is.null</span>(select) )
+        DT &lt;-<span class="st"> </span>DT[cate %in%<span class="st"> </span>select]
+    <span class="kw">lapply</span>(<span class="kw">split</span>(DT, DT$cate), 
+           function(x) <span class="kw">as.integer</span>(<span class="kw">movingWindowCount</span>(x$ts, wsize, interval, sts, ninter)))
+}
+
+<span class="co"># run for all processes</span>
+<span class="kw">system.time</span>(rcpp_res &lt;-<span class="st"> </span><span class="kw">movingWindowCountCpp</span>(logdat, <span class="dv">300</span>, <span class="dv">60</span>))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##  12.134   1.068  13.402</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(rcpp_res[[<span class="st">&quot;kernel&quot;</span>]], r_res[[<span class="st">&quot;kernel&quot;</span>]])</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(rcpp_res)</code></pre></div>
+<pre><code>## [1] 105</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xargs &lt;-<span class="st"> </span><span class="kw">list</span>(logdat, <span class="dv">300</span>, <span class="dv">60</span>, <span class="kw">c</span>(<span class="st">&quot;kernel&quot;</span>, <span class="st">&quot;discoveryd&quot;</span>))
+<span class="kw">microbenchmark</span>(<span class="kw">do.call</span>(movingWindowCountR, xargs),
+               <span class="kw">do.call</span>(movingWindowCountR2, xargs),
+               <span class="kw">do.call</span>(movingWindowCountCpp, xargs), 
+               <span class="dt">times=</span><span class="dv">3</span>)</code></pre></div>
+<pre><code>## Unit: milliseconds
+##                                  expr        min         lq       mean
+##    do.call(movingWindowCountR, xargs) 32638.4074 32648.8841 32653.6914
+##   do.call(movingWindowCountR2, xargs)  1538.0819  1576.3175  1610.4940
+##  do.call(movingWindowCountCpp, xargs)   515.3237   516.4816   521.8146
+##      median       uq        max neval
+##  32659.3608 32661.33 32663.3059     3
+##   1614.5531  1646.70  1678.8472     3
+##    517.6395   525.06   532.4805     3</code></pre>
+<p>At the benchmark of only processing a small number of processes, solution 2 may outperform <code>Rcpp</code> solution. Nevertheless, the latter <em>scales</em> considerably greater. Let’s further examine this point. (It all depends on your machine. For example on my MacBook 12&quot; solution 2 is faster overall at 2 processes but on my MacBook Pro 13&quot; the <code>Rcpp</code> solution constantly outperforms the others.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">allcate &lt;-<span class="st"> </span><span class="kw">unique</span>(logdat$cate)
+nround &lt;-<span class="st"> </span><span class="dv">20</span>
+elapsed_r2 &lt;-<span class="st"> </span><span class="kw">numeric</span>(nround)
+elapsed_rcpp &lt;-<span class="st"> </span><span class="kw">numeric</span>(nround)
+for ( i in <span class="dv">1</span>:nround ) {
+    xargs &lt;-<span class="st"> </span><span class="kw">list</span>(logdat, <span class="dv">300</span>, <span class="dv">60</span>, allcate[<span class="dv">1</span>:i])
+    
+    stime &lt;-<span class="st"> </span><span class="kw">proc.time</span>()
+    <span class="kw">do.call</span>(movingWindowCountR2, xargs)
+    elapsed_r2[i] &lt;-<span class="st"> </span>(<span class="kw">proc.time</span>() -<span class="st"> </span>stime)[<span class="st">&quot;elapsed&quot;</span>]
+    
+    stime &lt;-<span class="st"> </span><span class="kw">proc.time</span>()
+    <span class="kw">do.call</span>(movingWindowCountCpp, xargs)
+    elapsed_rcpp[i] &lt;-<span class="st"> </span>(<span class="kw">proc.time</span>() -<span class="st"> </span>stime)[<span class="st">&quot;elapsed&quot;</span>]    
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bres &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">data.table</span>(<span class="dt">n=</span><span class="dv">1</span>:nround, <span class="dt">t=</span>elapsed_r2, <span class="dt">alg=</span><span class="st">&quot;r2&quot;</span>), 
+              <span class="kw">data.table</span>(<span class="dt">n=</span><span class="dv">1</span>:nround, <span class="dt">t=</span>elapsed_rcpp, <span class="dt">alg=</span><span class="st">&quot;rcpp&quot;</span>))
+bres %&gt;%<span class="st"> </span><span class="kw">ggvis</span>(~n, ~t, <span class="dt">fill=</span>~alg) %&gt;%<span class="st"> </span><span class="kw">layer_points</span>() %&gt;%<span class="st"> </span>
+<span class="st">    </span><span class="kw">add_axis</span>(<span class="st">&#39;x&#39;</span>, <span class="dt">title=</span><span class="st">&quot;nround&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">add_axis</span>(<span class="st">&#39;y&#39;</span>, <span class="dt">title=</span><span class="st">&quot;Seconds Elapsed&quot;</span>)</code></pre></div>
+<p><div id="plot_id989079823-container" class="ggvis-output-container">
+<div id="plot_id989079823" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id989079823_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id989079823" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id989079823_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id989079823" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id989079823_download" class="ggvis-download" data-plot-id="plot_id989079823">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id989079823_spec = {
+  "data": [
+    {
+      "name": ".0",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "n": "number",
+          "t": "number"
+        }
+      },
+      "values": "\"alg\",\"n\",\"t\"\n\"r2\",1,0.81299999999996\n\"r2\",2,1.58000000000004\n\"r2\",3,2.55000000000001\n\"r2\",4,3.22199999999998\n\"r2\",5,4.10200000000003\n\"r2\",6,5.06200000000001\n\"r2\",7,5.88600000000002\n\"r2\",8,6.42199999999997\n\"r2\",9,7.58900000000006\n\"r2\",10,8.13999999999999\n\"r2\",11,9.12799999999999\n\"r2\",12,10.117\n\"r2\",13,10.502\n\"r2\",14,11.296\n\"r2\",15,12.544\n\"r2\",16,12.79\n\"r2\",17,13.778\n\"r2\",18,14.867\n\"r2\",19,15.65\n\"r2\",20,16.246\n\"rcpp\",1,0.0190000000000055\n\"rcpp\",2,6.14599999999996\n\"rcpp\",3,7.39400000000001\n\"rcpp\",4,7.44900000000001\n\"rcpp\",5,7.44899999999996\n\"rcpp\",6,7.58699999999999\n\"rcpp\",7,7.69100000000003\n\"rcpp\",8,7.85199999999998\n\"rcpp\",9,8.04399999999998\n\"rcpp\",10,8.01800000000003\n\"rcpp\",11,8.41899999999998\n\"rcpp\",12,8.24399999999997\n\"rcpp\",13,8.39699999999999\n\"rcpp\",14,8.589\n\"rcpp\",15,8.41199999999998\n\"rcpp\",16,8.33100000000002\n\"rcpp\",17,8.42200000000003\n\"rcpp\",18,8.44000000000005\n\"rcpp\",19,9.245\n\"rcpp\",20,9.09699999999998"
+    },
+    {
+      "name": "scale/fill",
+      "format": {
+        "type": "csv",
+        "parse": {}
+      },
+      "values": "\"domain\"\n\"r2\"\n\"rcpp\""
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n0.0499999999999999\n20.95"
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n-0.792349999999993\n17.05735"
+    }
+  ],
+  "scales": [
+    {
+      "name": "fill",
+      "type": "ordinal",
+      "domain": {
+        "data": "scale/fill",
+        "field": "data.domain"
+      },
+      "points": true,
+      "sort": false,
+      "range": "category10"
+    },
+    {
+      "name": "x",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "symbol",
+      "properties": {
+        "update": {
+          "size": {
+            "value": 50
+          },
+          "fill": {
+            "scale": "fill",
+            "field": "data.alg"
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.n"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.t"
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": ".0"
+          }
+        }
+      },
+      "from": {
+        "data": ".0"
+      }
+    }
+  ],
+  "legends": [
+    {
+      "orient": "right",
+      "fill": "fill",
+      "title": "alg"
+    }
+  ],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "title": "nround",
+      "layer": "back",
+      "grid": true
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "title": "Seconds Elapsed",
+      "layer": "back",
+      "grid": true
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id989079823").parseSpec(plot_id989079823_spec);
+</script></p>
+<p>As you can see, the <code>Rcpp</code> solution is already remnarkably fast in fair-sized problem. Sometimes (like the current one) the speed gain could be exponential in scale of the given problem. The promising point is that we don’t actually add any complexity in our coding. (Okay maybe just a little if one is new to <code>Rcpp</code>.) Only a small part of the code is re-written in <code>Rcpp</code>, and the performance gain is tremendous.</p>
+<ul>
+<li>See <a href="http://dirk.eddelbuettel.com/code/rcpp/Rcpp-sugar.pdf">Rcpp sugar</a> introduction to discover more tips about writing <code>Rcpp</code> functions.</li>
+</ul>
+</div>
+<div id="example-3-ad-hoc-data.frame-operation" class="section level3">
+<h3><span class="header-section-number">15.2.3</span> Example 3: ad-hoc data.frame operation</h3>
+<p>There are other cases that you found solutions of existing packages lacking efficiency. That’s assume an MOOC-like student-course activity log in a simplist format. We log all activities for all students in all courses with timestamp. (Assume 26 courses in total, marked by English letters. Students are indexed by incremental integers.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># generate a simulated data as our playground</span>
+genSimData &lt;-<span class="st"> </span>function(nlog, nuser, seed) {
+    <span class="kw">set.seed</span>(seed)
+    dat &lt;-<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">user=</span><span class="kw">sample</span>(<span class="dv">1</span>:nuser, nlog, <span class="dt">replace=</span><span class="ot">TRUE</span>, 
+                                  <span class="dt">prob=</span><span class="kw">rbeta</span>(<span class="dv">1</span>:nuser, .<span class="dv">1</span>, <span class="dv">2</span>)),
+                      <span class="dt">course=</span><span class="kw">sample</span>(letters, nlog, <span class="dt">replace=</span><span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="dv">1</span>:<span class="dv">26</span>),
+                      <span class="dt">ts=</span><span class="kw">runif</span>(nlog, <span class="kw">as.integer</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2015-01-01&quot;</span>)),
+                               <span class="kw">as.integer</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2015-06-30&quot;</span>))))
+    dat[, t:<span class="er">=</span><span class="kw">as.POSIXct</span>(ts, <span class="dt">origin=</span><span class="st">&quot;1970-01-01&quot;</span>)]
+    <span class="kw">setorder</span>(dat, user, course, ts)
+    dat
+}
+
+simlog &lt;-<span class="st"> </span><span class="kw">genSimData</span>(<span class="dt">nlog=</span><span class="fl">1e6</span>, <span class="dt">nuser=</span><span class="fl">1e3</span>, <span class="dt">seed=</span><span class="dv">528491</span>)
+<span class="kw">head</span>(simlog)</code></pre></div>
+<pre><code>##    user course         ts                   t
+## 1:    2      a 1420055427 2015-01-01 03:50:26
+## 2:    2      a 1420219054 2015-01-03 01:17:33
+## 3:    2      a 1420320164 2015-01-04 05:22:44
+## 4:    2      a 1421227260 2015-01-14 17:21:00
+## 5:    2      a 1421467857 2015-01-17 12:10:57
+## 6:    2      a 1422182483 2015-01-25 18:41:22</code></pre>
+<p>Now based on such dataset, assume we’d like to extract a feature: <em>How many courses in total did a student register at the time of his/her last activity record for each course</em>? For example, if student 1’s last activity for course a is today, then how many courses in total (including course a) did she also have at least one activity records?</p>
+<p>This problem requires a some-how twisted by-group operation on data.frame, and hence could be challenging if the scale is huge.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># naive apporach first</span>
+adHocOperateR &lt;-<span class="st"> </span>function(DT) {
+    <span class="kw">require</span>(data.table)
+    DT &lt;-<span class="st"> </span><span class="kw">copy</span>(DT)
+    DT[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">tsmin=</span><span class="kw">min</span>(ts), <span class="dt">tsmax=</span><span class="kw">max</span>(ts)), by=<span class="st">&quot;user,course&quot;</span>]
+    DT &lt;-<span class="st"> </span><span class="kw">unique</span>(DT[, <span class="kw">list</span>(user, course, tsmin, tsmax)])
+    res &lt;-<span class="st"> </span><span class="kw">integer</span>()
+    for ( i in <span class="kw">unique</span>(DT$user) ) {
+        tmpdat &lt;-<span class="st"> </span>DT[user ==<span class="st"> </span>i]
+        for ( j in tmpdat$course ) {
+            res &lt;-<span class="st"> </span><span class="kw">c</span>(res, <span class="kw">sum</span>(tmpdat$tsmin &lt;=<span class="st"> </span>tmpdat[course ==<span class="st"> </span>j, tsmax]))
+        }
+    }
+    <span class="kw">cbind</span>(DT[, <span class="kw">list</span>(user, course)], res)
+}
+
+<span class="kw">system.time</span>(res_r1 &lt;-<span class="st"> </span><span class="kw">adHocOperateR</span>(simlog))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##  10.471   0.168  10.781</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_r1[<span class="kw">sample</span>(<span class="kw">nrow</span>(res_r1), <span class="dv">10</span>)]</code></pre></div>
+<pre><code>##     user course res
+##  1:  658      z  25
+##  2:  386      q  26
+##  3:  504      y  24
+##  4:  481      p  15
+##  5:  284      j  26
+##  6:  184      q  26
+##  7:  629      k  26
+##  8:  884      d  26
+##  9:  118      k  25
+## 10:  320      b  26</code></pre>
+<p>The naive approach scales well in <code>nlog</code> but not in <code>nuser</code> cause the latter impacts how many loops actually run in our solution. Relying only on <code>data.table</code>, can we improve? The anwser is yes. The following solution use the so-called <em>“grouping by each i”</em> technique to drastically improve performance.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let&#39;s utilizing data.table bitter</span>
+adHocOperateR2 &lt;-<span class="st"> </span>function(DT) {
+    <span class="kw">require</span>(data.table)
+    DT &lt;-<span class="st"> </span><span class="kw">copy</span>(DT)
+    DT[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">tsmin=</span><span class="kw">min</span>(ts), <span class="dt">tsmax=</span><span class="kw">max</span>(ts)), by=<span class="st">&quot;user,course&quot;</span>]
+    tmpdat1 &lt;-<span class="st"> </span><span class="kw">unique</span>(DT[, <span class="kw">list</span>(user, course, tsmin)])
+    tmpdat2 &lt;-<span class="st"> </span><span class="kw">unique</span>(DT[, <span class="kw">list</span>(user, course, tsmax)])
+    <span class="kw">setkey</span>(tmpdat1, user)
+    <span class="kw">setkey</span>(tmpdat2, user)
+    <span class="kw">cbind</span>(tmpdat1[, <span class="kw">list</span>(user, course)], 
+          <span class="dt">res=</span>tmpdat1[tmpdat2, <span class="kw">list</span>(<span class="dt">res=</span><span class="kw">sum</span>(tsmin &lt;=<span class="st"> </span>tsmax)), <span class="dt">by=</span>.EACHI][, res])
+}
+<span class="kw">system.time</span>(res_r2 &lt;-<span class="st"> </span><span class="kw">adHocOperateR2</span>(simlog))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##   0.108   0.021   0.129</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setkey</span>(res_r1, user)
+<span class="kw">identical</span>(res_r1, res_r2)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Time for <code>Rcpp</code>. Is it possible to be even faster?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cppFunction</span>(<span class="st">&#39;</span>
+<span class="st">    NumericVector adHocOperate (NumericVector first, NumericVector last) {</span>
+<span class="st">        int len = first.size();</span>
+<span class="st">        NumericVector out(len);</span>
+<span class="st">        for (int i = 0; i &lt; len; i++) {</span>
+<span class="st">            out(i) = 0;</span>
+<span class="st">            for (int j = 0; j &lt; len; j++) {</span>
+<span class="st">                if (first(j) &lt;= last(i)) {</span>
+<span class="st">                    out(i) += 1;</span>
+<span class="st">                }</span>
+<span class="st">            }</span>
+<span class="st">        }</span>
+<span class="st">        return out;</span>
+<span class="st">    }&#39;</span>)
+
+adHocOperateCpp &lt;-<span class="st"> </span>function(DT) {
+    <span class="kw">require</span>(data.table)
+    DT &lt;-<span class="st"> </span><span class="kw">copy</span>(simlog)
+    DT[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">tsmin=</span><span class="kw">min</span>(ts), <span class="dt">tsmax=</span><span class="kw">max</span>(ts)), by=<span class="st">&quot;user,course&quot;</span>]
+    DT &lt;-<span class="st"> </span><span class="kw">unique</span>(DT[, <span class="kw">list</span>(user, course, tsmin, tsmax)])
+    <span class="kw">cbind</span>(DT[, <span class="kw">list</span>(user, course)],
+          <span class="dt">res=</span><span class="kw">as.integer</span>(DT[, <span class="kw">list</span>(<span class="dt">res=</span><span class="kw">adHocOperate</span>(.SD$tsmin, .SD$tsmax)), <span class="dt">by=</span><span class="st">&quot;user&quot;</span>][, res]))
+}
+
+<span class="kw">system.time</span>(res_cpp &lt;-<span class="st"> </span><span class="kw">adHocOperateCpp</span>(simlog))</code></pre></div>
+<pre><code>##    user  system elapsed 
+##   0.100   0.016   0.119</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setkey</span>(res_cpp, user)
+<span class="kw">identical</span>(res_cpp, res_r1)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Well, the result suggests that <code>Rcpp</code> solution performs fairly equal to the <code>data.table</code> solution. Time to inspect the scalability issue.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make the data bigger</span>
+simlog &lt;-<span class="st"> </span><span class="kw">genSimData</span>(<span class="dt">nlog=</span><span class="fl">1e7</span>, <span class="dt">nuser=</span><span class="fl">1e4</span>, <span class="dt">seed=</span><span class="dv">528491</span>)
+<span class="kw">microbenchmark</span>(<span class="kw">adHocOperateR2</span>(simlog),
+               <span class="kw">adHocOperateCpp</span>(simlog), 
+               <span class="dt">times=</span><span class="dv">10</span>)</code></pre></div>
+<pre><code>## Unit: seconds
+##                     expr      min       lq     mean   median       uq
+##   adHocOperateR2(simlog) 1.437576 1.467600 1.517541 1.473558 1.547709
+##  adHocOperateCpp(simlog) 1.316968 1.333837 1.357021 1.346837 1.364952
+##       max neval
+##  1.740479    10
+##  1.473890    10</code></pre>
+<p>Finally, the <code>Rcpp</code> solution still outperforms, but not in so much advantage. The <code>data.table</code> solution did a fairly good job. The reason is not surprising: <code>data.table</code> itself is largely written in C.</p>
+<p>Here is the take-a-way from the 3rd example: when performance is the key factor in your computing job and you find yourself facing severe performance bottleneck, you either rewrite the key operaion part of your code in <code>Rcpp</code> or you choose a package that is written in C and hopefully can solve your problem. To be a more independent data analyst, it is really worth learning <code>Rcpp</code>. As you can see in the above three examples, sometimes it only takes a little simple coding and your task will be done in lightning fast.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cowork.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/everdark/rbasic/edit/master/14-rcpp.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
