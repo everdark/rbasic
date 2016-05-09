@@ -334,7 +334,7 @@ str(mm) # always use the str function to check variable that you don't know for 
 attributes(mm)
 ```
 
-For now just forget about what an `attribute` is. One can always use `dim` function to check the dimension attribute of a variable:
+For now just forget about what an "attribute" is. One can always use `dim` function to check the dimension attribute of a variable:
 
 ```{r}
 vv <- 1:9
@@ -350,6 +350,36 @@ vv
 ```
 
 Here the second line creates (or replaces) the `dim` attribute with a 3-by-3 dimension setup.
+
+#### Digression on `attributes`
+This section is for those who are still curious about "attribute". One can use the `attributes` function to query all available attributes on an object:
+
+```{r}
+myobject <- 1:6
+attributes(myobject)
+```
+
+As one can see, a pure numeric vector has no attribute at all. Arbitrary attribute can be set by using the `attr` function:
+
+```{r}
+attr(myobject, "myattr") <- "so be it"
+attr(myobject, "myattr") # attr can also be used to query specific attribute by name
+attributes(myobject)     # unlike attr, query all attributes at once
+str(myobject)
+```
+
+This is the OO (Object-Oriented) nature part of the R language. R is a hybrid of OO and functional. The detailed OO system concept in R is beyond the scope of this chapter so will not be elaborated any further. Here one should just remember that in R everythin is an object, and every object can have attributes.
+
+Now let's considering giving the object an attribute named `dim`:
+
+```{r}
+attr(myobject, "dim") <- c(2, 3)
+str(myobject)
+class(myobject)
+myobject
+```
+
+Clearly the object becomes a `matrix`! Here the function call to `attr` on `dim` is effectively the same as using `dim<-` in the previous example. One should now understand that every object can have any sort of attributes, but some attributes are special than others. `dim` is one of such specials. An atomic vector with a `dim` attribute makes itself a `matrix` class.
 
 #### Matrix Operations
 Matrices are mathematical matrices, so they can readily perform linear algebra:

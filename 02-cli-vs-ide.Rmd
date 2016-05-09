@@ -9,7 +9,7 @@ To develop your analytics via the R language, i.e., to use R, you may either wor
 Once R is installed on your machine, you can use the CLI to execute R in either interactive mode or batch mode. 
 
 ### For Windows User
-The CLI on Windows is generally represented by the built-in `cmd.exe`. Unfortunately it is not user-friendly so please just ignore it. A more viable choice is to use `RGui.exe`. It is actually not just a CLI but a minimal IDE to use R. 
+The CLI on Windows is generally represented by the built-in `cmd.exe`. To enter the R interactive session one can open the `cmd.exe` and `cd` to the `bin` folder of one's installation. That may be something like `C:\Program Files\R\R-3.2.4revised\bin`. The folder contains two executables: `R.exe` and `Rscript.exe`. Unfortunately `cmd.exe` is not user-friendly so please just ignore it. A more viable choice is to use `RGui.exe`. It is actually not just a CLI but a minimal IDE to use R. 
 
 The GUI of `RGui.exe` contains a CLI for user to use the R language interactively, and optionally one or multiple text editors to edit Rscript. The beauty of it is that you can select part or all of a Rscript to send to the CLI for execution, and immediately get the result printed. 
 
