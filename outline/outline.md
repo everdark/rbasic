@@ -77,7 +77,7 @@ Others          recycling, vectorization, and help
 
 - What about *matrix*?
 
-> still an atomic vector, just with an dditional `attribute`
+> still an atomic vector, just with an additional `attribute`
 
 [ref](http://everdark.github.io/rbasic/data-struc.html#digression-on-attributes)
 
