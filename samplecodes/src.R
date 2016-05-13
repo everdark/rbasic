@@ -1,0 +1,5 @@
+
+
+
+findVAR <- function() exists("VAR")
+
