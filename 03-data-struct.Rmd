@@ -1,6 +1,6 @@
 # Data Structures and Types {#data-struc}
 
-There is no scalar in R. 
+There is no scalar in R.
 
 There is no scalar in R. 
 
@@ -201,90 +201,6 @@ names(vv)
 ```
 
 Since the third element is unnamed, it is `NA` when calling `names` to print the names.
-
-### Common String Operations
-
-#### `paste`
-Strings are called `character` in the R language. It's important to know some basic string manipulation skills. One useful string function is the `paste` function:
-
-```{r}
-paste("foo", "bar", "baz", sep=' ')
-```
-
-The function takes as many arguments as it can and concatenates them with the separator specified in the `sep` arguemnt. Notice that `character` is vector, so the `paste` function can operate on vector--this is called vectorization in R:
-
-```{r}
-paste(c("foo", "bar"), "baz1" , sep=' ')
-paste(c("foo", "bar"), c("baz1", "baz2", "baz3") , sep=' ')
-```
-
-What happens here is that the shorter arguments are *recycled* to have equal length and then each string is concatenated elment-wise. For more details about vectorization and recycling, see section \@ref(char).
-
-The `paste` function can also *collapse* a character vector into one character (a vector of length 1). This is done by using the `collapse` argument:
-
-```{r}
-paste(c("foo", "bar", "baz"), collapse='-')
-```
-
-Collapsing can also be used *after* concatenation. This is done by supplying more than one character vectors to `paste` and also specifying the `collapse` argument:
-
-```{r}
-# concatenate only
-paste(c("foo", "bar", "baz"), letters[1:5])
-# concatenate and collapse
-paste(c("foo", "bar", "baz"), letters[1:5], collapse='-')
-```
-
-There is also a variant of `paste` called `paste0`. The only difference is that `paste0` use a default separator of empty string (i.e., use `sep=''` in `paste`):
-
-```{r}
-paste0(c("foo", "bar"), "baz")
-```
-
-#### `sprintf`
-Another useful function is `sprintf`. It is used to format a *string with interpolation*:
-
-```{r}
-sprintf("hello %s!", "world")
-sprintf("hello %.3f!", 7123)
-sprintf("hello %i", 7)
-```
-
-See `?sprintf` for more formatting options. Multiple interpolation is also supported, given in order:
-
-```{r}
-sprintf("first: %i; second: %s", 1, "two")
-```
-
-#### `cat` and `print`
-The `cat` function concatenates its arguments and print.
-
-```{r}
-cat("foo", c("bar", "baz"))
-cat("foo", c("bar", "baz"), sep=':')
-```
-
-Notice the difference between `cat` and `paste`: the former does not recycle and the result is printed; the latter does recylcing and the result is *returned* rather than printed. Too see this fact clear:
-
-```{r}
-# letters is a built-in variable storing all lower-cased English alphabets
-# .Last.value is another built-in variable storing the result of the last evaluation
-cat(letters[1:3], sep='+')
-.Last.value
-paste(letters[1:3], collapse='+')
-.Last.value
-```
-
-#### Miscellaneous
-
-Use `substr` to extract partial string. Use `nchar` to count number of characters in a string. Use `strsplit` to split a string by specified separator.
-
-```{r}
-ss <- "why so serious?"
-substr(ss, 1, 3)
-nchar(ss)
-strsplit(ss, split=' ') # the returned type is a list
-```
 
 ### Factor
 Factors are special integer vectors. They are generally used to record categorical variables. It combines both features of characters and numerics, so it could be confusing for new users. Usually a factor is defined on a set of characters:
