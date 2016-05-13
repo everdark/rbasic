@@ -3,3 +3,13 @@
 **[This chapter is written for *nix users.]**
 
 Sometimes the R langauge alone can not achieve the maxmimal utility of analytics. Why not integrate with other language, say, Python or simply Shell? This chapter introduces a very basic idea of using system call to fullfill language co-working on analytics.
+
+## Use system call
+
+## Pipelines: stdin and stdout
+
+## Environment Variables
+
+## Command Line Arguments Revisited
+
+## With Configuration Files
