@@ -1,0 +1,12 @@
+base
+magrittr
+data.table
+stringr
+RColorBrewer
+wordcloud
+ggvis
+tau
+NLP
+tm
+Rcpp
+microbenchmark

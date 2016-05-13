@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RBasic 101</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
+  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
+
+  <meta property="og:title" content="RBasic 101" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The lecture notes for RBasic 101 on agilearn.io" />
+  <meta name="github-repo" content="everdark/rbasic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="RBasic 101" />
+  
+  <meta name="twitter:description" content="The lecture notes for RBasic 101 on agilearn.io" />
+  
+
+<meta name="author" content="Kyle Chung">
+
+<meta name="date" content="2016-05-13">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="clivside.html">
+<link rel="next" href="string.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/d3-3.5.2/d3.min.js"></script>
+<script src="libs/vega-1.4.3/vega.min.js"></script>
+<script src="libs/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis-0.4.2/js/ggvis.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Basic 101</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#thought-experiments"><i class="fa fa-check"></i><b>1.1</b> Thought Experiments</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#first-trial"><i class="fa fa-check"></i><b>1.1.1</b> First Trial</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#second-trial"><i class="fa fa-check"></i><b>1.1.2</b> Second Trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#third-trial"><i class="fa fa-check"></i><b>1.1.3</b> Third Trial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#welcome-to-the-r-language"><i class="fa fa-check"></i><b>1.2</b> Welcome to the R Language</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#r-installation"><i class="fa fa-check"></i><b>2.1</b> R Installation</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>2.1.1</b> Windows</a></li>
+<li class="chapter" data-level="2.1.2" data-path="install.html"><a href="install.html#os-x-mac"><i class="fa fa-check"></i><b>2.1.2</b> OS X (Mac)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="install.html"><a href="install.html#ubuntu"><i class="fa fa-check"></i><b>2.1.3</b> Ubuntu</a></li>
+<li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#update-the-r-installation"><i class="fa fa-check"></i><b>2.1.4</b> Update the R Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#r-package-installation"><i class="fa fa-check"></i><b>2.2</b> R Package Installation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-the-internet"><i class="fa fa-check"></i><b>2.2.1</b> From the Internet</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-local-source-or-binary"><i class="fa fa-check"></i><b>2.2.2</b> From Local Source or Binary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clivside.html"><a href="clivside.html"><i class="fa fa-check"></i><b>3</b> CLI versus IDE</a><ul>
+<li class="chapter" data-level="3.1" data-path="clivside.html"><a href="clivside.html#cli-command-line-interface"><i class="fa fa-check"></i><b>3.1</b> CLI (Command-Line Interface)</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="clivside.html"><a href="clivside.html#for-windows-user"><i class="fa fa-check"></i><b>3.1.1</b> For Windows User</a></li>
+<li class="chapter" data-level="3.1.2" data-path="clivside.html"><a href="clivside.html#for-os-x-mac-user"><i class="fa fa-check"></i><b>3.1.2</b> For OS X (Mac) User</a></li>
+<li class="chapter" data-level="3.1.3" data-path="clivside.html"><a href="clivside.html#for-linux-user"><i class="fa fa-check"></i><b>3.1.3</b> For Linux User</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="clivside.html"><a href="clivside.html#ide-integrated-development-environment"><i class="fa fa-check"></i><b>3.2</b> IDE (Integrated Development Environment)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="clivside.html"><a href="clivside.html#rstudio"><i class="fa fa-check"></i><b>3.2.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="clivside.html"><a href="clivside.html#rstudio-server"><i class="fa fa-check"></i><b>3.2.2</b> RStudio Server</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="clivside.html"><a href="clivside.html#interactive-v.s.-batch-mode"><i class="fa fa-check"></i><b>3.3</b> Interactive v.s. Batch Mode</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="clivside.html"><a href="clivside.html#parsing-command-line-arguments"><i class="fa fa-check"></i><b>3.3.1</b> Parsing Command Line Arguments</a></li>
+<li class="chapter" data-level="3.3.2" data-path="clivside.html"><a href="clivside.html#interactive-or-not-interactive"><i class="fa fa-check"></i><b>3.3.2</b> Interactive or Not Interactive?</a></li>
+<li class="chapter" data-level="3.3.3" data-path="clivside.html"><a href="clivside.html#shabang"><i class="fa fa-check"></i><b>3.3.3</b> Shabang <code>#!</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-struc.html"><a href="data-struc.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-struc.html"><a href="data-struc.html#atomic-vector"><i class="fa fa-check"></i><b>4.1</b> Atomic Vector</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-struc.html"><a href="data-struc.html#general-operations-on-vectors"><i class="fa fa-check"></i><b>4.1.1</b> General Operations on Vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.2</b> Factor</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.3</b> Matrix</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.4</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-struc.html"><a href="data-struc.html#recursive-vector"><i class="fa fa-check"></i><b>4.2</b> Recursive Vector</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-struc.html"><a href="data-struc.html#list"><i class="fa fa-check"></i><b>4.2.1</b> List</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-struc.html"><a href="data-struc.html#data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.3</b> Special Values</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.3.1</b> <code>NA</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.3.2</b> <code>NaN</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.3.3</b> <code>NULL</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i><b>5</b> String Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="string.html"><a href="string.html#basics"><i class="fa fa-check"></i><b>5.1</b> Basics</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="string.html"><a href="string.html#paste"><i class="fa fa-check"></i><b>5.1.1</b> <code>paste</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="string.html"><a href="string.html#sprintf"><i class="fa fa-check"></i><b>5.1.2</b> <code>sprintf</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="string.html"><a href="string.html#cat-and-print"><i class="fa fa-check"></i><b>5.1.3</b> <code>cat</code> and <code>print</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="string.html"><a href="string.html#miscellaneous"><i class="fa fa-check"></i><b>5.1.4</b> Miscellaneous</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="string.html"><a href="string.html#regular-expressions"><i class="fa fa-check"></i><b>5.2</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="string.html"><a href="string.html#filtering"><i class="fa fa-check"></i><b>5.2.1</b> Filtering</a></li>
+<li class="chapter" data-level="5.2.2" data-path="string.html"><a href="string.html#substitution"><i class="fa fa-check"></i><b>5.2.2</b> Substitution</a></li>
+<li class="chapter" data-level="5.2.3" data-path="string.html"><a href="string.html#extraction"><i class="fa fa-check"></i><b>5.2.3</b> Extraction</a></li>
+<li class="chapter" data-level="5.2.4" data-path="string.html"><a href="string.html#the-stringr-library"><i class="fa fa-check"></i><b>5.2.4</b> The <code>stringr</code> Library</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="control.html"><a href="control.html"><i class="fa fa-check"></i><b>6</b> Control Flow</a><ul>
+<li class="chapter" data-level="6.1" data-path="control.html"><a href="control.html#conditioning"><i class="fa fa-check"></i><b>6.1</b> Conditioning</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="control.html"><a href="control.html#if"><i class="fa fa-check"></i><b>6.1.1</b> <code>if</code></a></li>
+<li class="chapter" data-level="6.1.2" data-path="control.html"><a href="control.html#ifelse"><i class="fa fa-check"></i><b>6.1.2</b> <code>ifelse</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="control.html"><a href="control.html#logical-operations"><i class="fa fa-check"></i><b>6.1.3</b> Logical Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="control.html"><a href="control.html#loop"><i class="fa fa-check"></i><b>6.2</b> Loop</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="control.html"><a href="control.html#repeat"><i class="fa fa-check"></i><b>6.2.1</b> <code>repeat</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="control.html"><a href="control.html#while"><i class="fa fa-check"></i><b>6.2.2</b> <code>while</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="control.html"><a href="control.html#for"><i class="fa fa-check"></i><b>6.2.3</b> <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="func.html"><a href="func.html"><i class="fa fa-check"></i><b>7</b> Function</a><ul>
+<li class="chapter" data-level="7.1" data-path="func.html"><a href="func.html#user-define-function"><i class="fa fa-check"></i><b>7.1</b> User-Define Function</a></li>
+<li class="chapter" data-level="7.2" data-path="func.html"><a href="func.html#arguemnts"><i class="fa fa-check"></i><b>7.2</b> Arguemnts</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="func.html"><a href="func.html#default-value"><i class="fa fa-check"></i><b>7.2.1</b> Default Value</a></li>
+<li class="chapter" data-level="7.2.2" data-path="func.html"><a href="func.html#lazy-evaluation"><i class="fa fa-check"></i><b>7.2.2</b> Lazy Evaluation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>7.2.3</b> Ellipsis (<code>...</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="func.html"><a href="func.html#anonymous-function-lambda"><i class="fa fa-check"></i><b>7.3</b> Anonymous Function (Lambda)</a></li>
+<li class="chapter" data-level="7.4" data-path="func.html"><a href="func.html#lexical-scoping"><i class="fa fa-check"></i><b>7.4</b> Lexical Scoping</a></li>
+<li class="chapter" data-level="7.5" data-path="func.html"><a href="func.html#extraction-function"><i class="fa fa-check"></i><b>7.5</b> Extraction Function</a></li>
+<li class="chapter" data-level="7.6" data-path="func.html"><a href="func.html#replacement-function"><i class="fa fa-check"></i><b>7.6</b> Replacement Function</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="char.html"><a href="char.html"><i class="fa fa-check"></i><b>8</b> R Language Characteristics</a><ul>
+<li class="chapter" data-level="8.1" data-path="char.html"><a href="char.html#help"><i class="fa fa-check"></i><b>8.1</b> Help</a></li>
+<li class="chapter" data-level="8.2" data-path="char.html"><a href="char.html#vectorization"><i class="fa fa-check"></i><b>8.2</b> Vectorization</a></li>
+<li class="chapter" data-level="8.3" data-path="char.html"><a href="char.html#recycling"><i class="fa fa-check"></i><b>8.3</b> Recycling</a></li>
+<li class="chapter" data-level="8.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>8.4</b> The <code>apply</code> Family</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="char.html"><a href="char.html#apply"><i class="fa fa-check"></i><b>8.4.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="8.4.2" data-path="char.html"><a href="char.html#lapply-and-sapply"><i class="fa fa-check"></i><b>8.4.2</b> <code>lapply</code> and <code>sapply</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="work-env.html"><a href="work-env.html"><i class="fa fa-check"></i><b>9</b> Working Directory</a><ul>
+<li class="chapter" data-level="9.1" data-path="work-env.html"><a href="work-env.html#library-search-path"><i class="fa fa-check"></i><b>9.1</b> Library Search Path</a></li>
+<li class="chapter" data-level="9.2" data-path="work-env.html"><a href="work-env.html#save-load"><i class="fa fa-check"></i><b>9.2</b> Save / Load</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="process.html"><a href="process.html"><i class="fa fa-check"></i><b>10</b> Data Processing</a><ul>
+<li class="chapter" data-level="10.1" data-path="process.html"><a href="process.html#tabular-data"><i class="fa fa-check"></i><b>10.1</b> Tabular Data</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="process.html"><a href="process.html#read"><i class="fa fa-check"></i><b>10.1.1</b> Read</a></li>
+<li class="chapter" data-level="10.1.2" data-path="process.html"><a href="process.html#write"><i class="fa fa-check"></i><b>10.1.2</b> Write</a></li>
+<li class="chapter" data-level="10.1.3" data-path="process.html"><a href="process.html#column-oriented-computation"><i class="fa fa-check"></i><b>10.1.3</b> Column-Oriented Computation</a></li>
+<li class="chapter" data-level="10.1.4" data-path="process.html"><a href="process.html#row-oriented-computation"><i class="fa fa-check"></i><b>10.1.4</b> Row-Oriented Computation</a></li>
+<li class="chapter" data-level="10.1.5" data-path="process.html"><a href="process.html#by-group-operations"><i class="fa fa-check"></i><b>10.1.5</b> By-Group Operations</a></li>
+<li class="chapter" data-level="10.1.6" data-path="process.html"><a href="process.html#merge"><i class="fa fa-check"></i><b>10.1.6</b> Merge</a></li>
+<li class="chapter" data-level="10.1.7" data-path="process.html"><a href="process.html#reshape"><i class="fa fa-check"></i><b>10.1.7</b> Reshape</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="process.html"><a href="process.html#json"><i class="fa fa-check"></i><b>10.2</b> JSON</a></li>
+<li class="chapter" data-level="10.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>10.3</b> Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>11</b> Error Handling</a></li>
+<li class="chapter" data-level="12" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>12</b> Parallel Computing</a></li>
+<li class="chapter" data-level="13" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>13</b> Programming with S4</a></li>
+<li class="chapter" data-level="14" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>14</b> Unit-Testing</a></li>
+<li class="chapter" data-level="15" data-path="cowork.html"><a href="cowork.html"><i class="fa fa-check"></i><b>15</b> Language Co-Working</a><ul>
+<li class="chapter" data-level="15.1" data-path="cowork.html"><a href="cowork.html#use-system-call"><i class="fa fa-check"></i><b>15.1</b> Use system call</a></li>
+<li class="chapter" data-level="15.2" data-path="cowork.html"><a href="cowork.html#pipelines-stdin-and-stdout"><i class="fa fa-check"></i><b>15.2</b> Pipelines: stdin and stdout</a></li>
+<li class="chapter" data-level="15.3" data-path="cowork.html"><a href="cowork.html#environment-variables"><i class="fa fa-check"></i><b>15.3</b> Environment Variables</a></li>
+<li class="chapter" data-level="15.4" data-path="cowork.html"><a href="cowork.html#command-line-arguments-revisited"><i class="fa fa-check"></i><b>15.4</b> Command Line Arguments Revisited</a></li>
+<li class="chapter" data-level="15.5" data-path="cowork.html"><a href="cowork.html#with-configuration-files"><i class="fa fa-check"></i><b>15.5</b> With Configuration Files</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="rcpp.html"><a href="rcpp.html"><i class="fa fa-check"></i><b>16</b> Speed-up with Rcpp</a><ul>
+<li class="chapter" data-level="16.1" data-path="rcpp.html"><a href="rcpp.html#what-exactly-is-r"><i class="fa fa-check"></i><b>16.1</b> What exactly is R?</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-file-counts-in-r"><i class="fa fa-check"></i><b>16.1.1</b> Distribution of source file counts in R</a></li>
+<li class="chapter" data-level="16.1.2" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-line-counts-in-r"><i class="fa fa-check"></i><b>16.1.2</b> Distribution of source line counts in R</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="rcpp.html"><a href="rcpp.html#speed-up"><i class="fa fa-check"></i><b>16.2</b> Speed-Up</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="rcpp.html"><a href="rcpp.html#example-1-n-gram-generation"><i class="fa fa-check"></i><b>16.2.1</b> Example 1: n-gram generation</a></li>
+<li class="chapter" data-level="16.2.2" data-path="rcpp.html"><a href="rcpp.html#example-2-moving-window-computing"><i class="fa fa-check"></i><b>16.2.2</b> Example 2: moving-window computing</a></li>
+<li class="chapter" data-level="16.2.3" data-path="rcpp.html"><a href="rcpp.html#example-3-ad-hoc-data.frame-operation"><i class="fa fa-check"></i><b>16.2.3</b> Example 3: ad-hoc data.frame operation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RBasic 101</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-struc" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Data Structures and Types</h1>
+<p>There is no scalar in R.</p>
+<p>There is no scalar in R.</p>
+<p>There is no scalar in R.</p>
+<p>Every structure is of <em>vector</em> form. A (seemingly) scalar is indeed a vector of length 1. This is a striking concept compared to other general-purposed language or statistical packages. It turns out that the fact won’t affect mush about how to code R, but the understanding of such concept is helpful for better coding thinking in the R language.</p>
+<p>Compared to other general-purposed language, the built-in data structures are not rich in R. But they are considerably flexible. Most of the analytics can be fulfilled based on the minimal set of these structures.</p>
+<p>All structures are vectors in R. And there are two types of vector: atomic and recursive. This chapter will quickly go through both of them.</p>
+<div id="atomic-vector" class="section level2">
+<h2><span class="header-section-number">4.1</span> Atomic Vector</h2>
+<blockquote>
+<p>Common types of atomic vector include: numeric, character, logical, and factor.</p>
+</blockquote>
+<p>Atomic vector is the foundamental data structure in R. It is called atomic because it can only contain the same type of data and no nesting allowed. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>The number <code>1</code> is a vector (of length 1, so it looks like a scalar but yes it is a vector). To check the type of a vector one can use the function <code>typeof</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>The result of <code>typeof</code> reveals that the storage mode of the vector <code>1</code> is double; hence the vector is a numeric vector. There are many bulit-in functions to manipulate numeric vector. Some examples follow:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">1</span>, -<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 5 4 3 2 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 1 1 2 3 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dv">777</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 777 777 777</code></pre>
+<p>One can also use <code>integer</code>, <code>numeric</code>, <code>character</code>, and <code>logical</code> as a creation function to create vectors of corresponding type, with the argument to be the desired length of the created vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">integer</span>(<span class="dv">3</span>)    <span class="co"># default value is 0L</span></code></pre></div>
+<pre><code>## [1] 0 0 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">numeric</span>(<span class="dv">3</span>)    <span class="co"># default value is 0</span></code></pre></div>
+<pre><code>## [1] 0 0 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">3</span>)  <span class="co"># default value is &quot;&quot; (empty string)</span></code></pre></div>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">logical</span>(<span class="dv">3</span>)    <span class="co"># default value is FALSE</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<p>Normally a number will be associated with type <code>double</code>. To force R use <code>integer</code> type (it use considerably less storage space compared to a <code>double</code>), just append <code>L</code> to the number:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="dv">1</span>:5L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>Since an atomic vector is, atomic, it has no nesting structure:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">1</span>, -<span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>))</code></pre></div>
+<pre><code>##  [1] 1 2 3 4 5 5 4 3 2 1 1 1 2 3 5</code></pre>
+<p>The <strong>result of concatenation of multiple atomic vectors is one single atomic vector</strong>, not a vector nested with three different vectors. Does this mean that atomic vectors of different types can not be combined? Not necessary.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num_vec &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+str_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>)
+<span class="kw">c</span>(num_vec, str_vec)</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<p>When a numeric vector and a character vector combine, the resulting atomic vector is of type <code>character</code>. Such behavior is called type <strong>coercion</strong> and is a very important concept in most programming languages. Coercion always occurs when different types of atomic vectors are combined. The principle of coercion is to minimize information loss, if any.</p>
+<p>For example, when a logical vector combined with a numeric:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num_vec &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span> <span class="co"># here one uses &quot;&lt;-&quot;&quot; to asign a value to an object</span>
+bol_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>) <span class="co"># or c(T, F, F) but not recommended</span>
+<span class="kw">typeof</span>(<span class="kw">c</span>(num_vec, bol_vec))</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>logicals are coerced into <code>integer</code>.</p>
+<p>More examples on coercion:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="kw">c</span>(<span class="dv">1</span>, 2L))</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="kw">c</span>(1L, <span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="kw">c</span>(<span class="fl">1.0</span>, <span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="kw">c</span>(<span class="fl">1.0</span>, <span class="ot">TRUE</span>, <span class="st">&quot;foo&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>In addition to coercion, one can also explicitly convert one type to another. This is done by the function family <code>as</code>. For example, to convert logicals into integers and vice versa:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(-<span class="dv">1</span>:2L)</code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>## [1] 1 0 0</code></pre>
+<p>Notice that when casting integers to logicals, all the non-zeroes are converted to <code>TRUE</code>, only 0s are converted to <code>FALSE</code>.</p>
+<div id="general-operations-on-vectors" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> General Operations on Vectors</h3>
+<div id="subseting" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> Subseting</h4>
+<p>Vectors can be subset by using the bracket syntax.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">10</span>:<span class="dv">1</span>
+vv[<span class="dv">1</span>:<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 10  9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)]</code></pre></div>
+<pre><code>## [1] 10  8  6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv[<span class="kw">rep</span>(<span class="dv">3</span>, <span class="dv">5</span>)]</code></pre></div>
+<pre><code>## [1] 8 8 8 8 8</code></pre>
+<p>The bracket accepts <em>another vector as a selection vector</em>. If the selection vector is of type <code>numeric</code>, the original vector is to be selected based on numerical index. Any non-integer will be <code>floor</code>ed so the result of <code>c(1:10)[c(1.1, 1.9)]</code> is 1, 1.</p>
+<p>Since the bracket accepts vectors, one can also use logical vector for subsetting:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">3</span>:<span class="dv">1</span>
+vv[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>The fact that subsetting is done by another vector results in filtering being very easy:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>
+vv[vv &gt;<span class="st"> </span><span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1]  6  7  8  9 10</code></pre>
+<p>Since all structures are vectors, mathematical operators such as <code>&gt;</code> also work on vectors by nature. The result of <code>vv &gt; 5</code> is an element-wise comparison and hence also a vector of the same lenght:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>
+vv &gt;<span class="st"> </span><span class="dv">5</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>The resulting logical vector can then be used to subset the original vector.</p>
+<p>One can also use negative selection:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+vv[-<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv[-<span class="kw">length</span>(vv)]</code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv[-(<span class="dv">1</span>:<span class="dv">3</span>)]</code></pre></div>
+<pre><code>## integer(0)</code></pre>
+<p>Subset a vector may resulting in missing values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+vv[<span class="dv">4</span>]</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Here the selection vector tries to extract the 4th element of the original vector but there is none. This will not cause any error in R; instead, the resulting vector will contains <code>NA</code>, which generally means a missing value.</p>
+</div>
+<div id="updating" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> Updating</h4>
+<p>Vectors can be updated by using the bracket syntax as well.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">5</span>
+vv[<span class="dv">1</span>:<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+vv</code></pre></div>
+<pre><code>## [1] 0 0 0 4 5</code></pre>
+<p>One interesting question arises: what happen if one tried to update an element that does not exist in the vector?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">5</span>
+vv[<span class="dv">7</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+vv</code></pre></div>
+<pre><code>## [1]  1  2  3  4  5 NA  0</code></pre>
+<p>Two things to be noticed. First, the value will be asigned, as if it is newly created. Second, the vector will be expanded with <code>NA</code>s to align the new length that satisfies the updated result.</p>
+<p>How about a delete? There is no delete method in R. To effectively delete an element in a vector, use negative selection and asign the new object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># to delete the 5th element:</span>
+vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">5</span>
+(vv &lt;-<span class="st"> </span>vv[-<span class="dv">5</span>])  <span class="co"># use parenthesis to force print</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<p>The operation of the bracket syntax is indeed <em>functional</em>. (Type <code>?&quot;[&quot;</code> to see the document.) To understand more about what’s going on behibd the scene, one should refer to section <a href="func.html#extraction-function">7.5</a> and also <a href="func.html#replacement-function">7.6</a>.</p>
+</div>
+<div id="naming" class="section level4">
+<h4><span class="header-section-number">4.1.1.3</span> Naming</h4>
+<p>Vectors can be named. To check the names of a vector, use the function <code>names</code>. To name or rename a vector, just try asign the names in a character vector to the <code>names</code> function call.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+<span class="kw">names</span>(vv)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(vv) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>)
+<span class="kw">str</span>(vv)</code></pre></div>
+<pre><code>##  Named int [1:3] 1 2 3
+##  - attr(*, &quot;names&quot;)= chr [1:3] &quot;foo&quot; &quot;bar&quot; &quot;baz&quot;</code></pre>
+<p>If one is confused why the renaming syntax actually works, see section <a href="func.html#replacement-function">7.6</a> for more details.</p>
+<p>Vectors can be partially named:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+<span class="kw">names</span>(vv) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
+<span class="kw">names</span>(vv)</code></pre></div>
+<pre><code>## [1] &quot;foo&quot; &quot;bar&quot; NA</code></pre>
+<p>Since the third element is unnamed, it is <code>NA</code> when calling <code>names</code> to print the names.</p>
+</div>
+</div>
+<div id="factor" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Factor</h3>
+<p>Factors are special integer vectors. They are generally used to record categorical variables. It combines both features of characters and numerics, so it could be confusing for new users. Usually a factor is defined on a set of characters:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">baz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
+bazf &lt;-<span class="st"> </span><span class="kw">factor</span>(baz)
+<span class="kw">typeof</span>(bazf)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(bazf)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;bar&quot;,&quot;foo&quot;: 2 1</code></pre>
+<p>Notice that the <code>typeof</code> indicates an <code>integer</code> type. This is true because factors are stored internally as integers. The <code>levels</code> of a factor reveals the complete set of characters that could appear in the factor. Now consider a little more complicated example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">baz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
+bazf &lt;-<span class="st"> </span><span class="kw">factor</span>(baz)
+<span class="kw">levels</span>(bazf)</code></pre></div>
+<pre><code>## [1] &quot;bar&quot; &quot;foo&quot;</code></pre>
+<p>When an object contains repeating samples of characters, it may be a good choice to use <code>factor</code> type to represent it for performance and efficiency issue, since <code>levels</code> only contain distinct values.</p>
+<p><code>levels</code> can be manually specified when creating a <code>factor</code>, and <code>levels</code> are ordered. The order will be automatically determined if not specified.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">baz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
+bazf1 &lt;-<span class="st"> </span><span class="kw">factor</span>(baz, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;bar&quot;</span>, <span class="st">&quot;foo&quot;</span>))
+bazf2 &lt;-<span class="st"> </span><span class="kw">factor</span>(baz, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>))
+<span class="kw">str</span>(bazf1)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;bar&quot;,&quot;foo&quot;: 2 1 1 2 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(bazf2)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;foo&quot;,&quot;bar&quot;: 1 2 2 1 2</code></pre>
+<p><code>levels</code> can even contain unseen values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">baz &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>)
+bazf3 &lt;-<span class="st"> </span><span class="kw">factor</span>(baz, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>))
+<span class="kw">str</span>(bazf3)</code></pre></div>
+<pre><code>##  Factor w/ 3 levels &quot;foo&quot;,&quot;bar&quot;,&quot;baz&quot;: 1 2 2 1 2</code></pre>
+</div>
+<div id="matrix" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Matrix</h3>
+<p>A matrix in R is nothing more than a vector with the <code>dim</code> attribute. That is, a matrix is still a vector. To create a matrix one can use the <code>matrix</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    0    0
+## [2,]    0    0    0
+## [3,]    0    0    0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)
+<span class="kw">str</span>(mm) <span class="co"># always use the str function to check variable that you don&#39;t know for sure</span></code></pre></div>
+<pre><code>##  int [1:3, 1:3] 1 2 3 4 5 6 7 8 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(mm)</code></pre></div>
+<pre><code>## $dim
+## [1] 3 3</code></pre>
+<p>For now just forget about what an “attribute” is. One can always use <code>dim</code> function to check the dimension attribute of a variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">9</span>
+<span class="kw">dim</span>(vv)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>A matrix can also be created by existing vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vv &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">9</span>
+<span class="kw">dim</span>(vv) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>)
+vv</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>Here the second line creates (or replaces) the <code>dim</code> attribute with a 3-by-3 dimension setup.</p>
+<div id="digression-on-attributes" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> Digression on <code>attributes</code></h4>
+<p>This section is for those who are still curious about “attribute”. One can use the <code>attributes</code> function to query all available attributes on an object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myobject &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">6</span>
+<span class="kw">attributes</span>(myobject)</code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>As one can see, a pure numeric vector has no attribute at all. Arbitrary attribute can be set by using the <code>attr</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(myobject, <span class="st">&quot;myattr&quot;</span>) &lt;-<span class="st"> &quot;so be it&quot;</span>
+<span class="kw">attr</span>(myobject, <span class="st">&quot;myattr&quot;</span>) <span class="co"># attr can also be used to query specific attribute by name</span></code></pre></div>
+<pre><code>## [1] &quot;so be it&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(myobject)     <span class="co"># unlike attr, query all attributes at once</span></code></pre></div>
+<pre><code>## $myattr
+## [1] &quot;so be it&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(myobject)</code></pre></div>
+<pre><code>##  atomic [1:6] 1 2 3 4 5 6
+##  - attr(*, &quot;myattr&quot;)= chr &quot;so be it&quot;</code></pre>
+<p>This is the OO (Object-Oriented) nature part of the R language. R is a hybrid of OO and functional. The detailed OO system concept in R is beyond the scope of this chapter so will not be elaborated any further. Here one should just remember that in R everythin is an object, and every object can have attributes.</p>
+<p>Now let’s considering giving the object an attribute named <code>dim</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attr</span>(myobject, <span class="st">&quot;dim&quot;</span>) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)
+<span class="kw">str</span>(myobject)</code></pre></div>
+<pre><code>##  int [1:2, 1:3] 1 2 3 4 5 6
+##  - attr(*, &quot;myattr&quot;)= chr &quot;so be it&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(myobject)</code></pre></div>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myobject</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+## attr(,&quot;myattr&quot;)
+## [1] &quot;so be it&quot;</code></pre>
+<p>Clearly the object becomes a <code>matrix</code>! Here the function call to <code>attr</code> on <code>dim</code> is effectively the same as using <code>dim&lt;-</code> in the previous example. One should now understand that every object can have any sort of attributes, but some attributes are special than others. <code>dim</code> is one of such specials. An atomic vector with a <code>dim</code> attribute makes itself a <code>matrix</code> class.</p>
+</div>
+<div id="matrix-operations" class="section level4">
+<h4><span class="header-section-number">4.1.3.2</span> Matrix Operations</h4>
+<p>Matrices are mathematical matrices, so they can readily perform linear algebra:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(vv &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>))</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># scalar product</span>
+vv *<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3   12   21
+## [2,]    6   15   24
+## [3,]    9   18   27</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># inner product</span>
+vv %*%<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">2</span>) </code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   30   66
+## [2,]   36   81
+## [3,]   42   96</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># outer products</span>
+<span class="dv">1</span>:<span class="dv">9</span> %o%<span class="st"> </span><span class="dv">1</span>:<span class="dv">9</span> <span class="co"># a more general version: see ?outer</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    1    2    3    4    5    6    7    8    9
+##  [2,]    2    4    6    8   10   12   14   16   18
+##  [3,]    3    6    9   12   15   18   21   24   27
+##  [4,]    4    8   12   16   20   24   28   32   36
+##  [5,]    5   10   15   20   25   30   35   40   45
+##  [6,]    6   12   18   24   30   36   42   48   54
+##  [7,]    7   14   21   28   35   42   49   56   63
+##  [8,]    8   16   24   32   40   48   56   64   72
+##  [9,]    9   18   27   36   45   54   63   72   81</code></pre>
+</div>
+</div>
+<div id="array" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Array</h3>
+<p>When there is more than 2 dimensions, a vector may be called an array. One can also call a matrix is a 2-dimensional array.</p>
+</div>
+</div>
+<div id="recursive-vector" class="section level2">
+<h2><span class="header-section-number">4.2</span> Recursive Vector</h2>
+<div id="list" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> List</h3>
+<p>The most important representative data structrue of recursive vector is <code>list</code>. A list, unlike atomic vector, can contain elements of different types, and can be nested:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), paste, <span class="kw">list</span>(letters, month.abb))
+<span class="kw">str</span>(alist)</code></pre></div>
+<pre><code>## List of 4
+##  $ : int [1:3] 1 2 3
+##  $ : chr [1:2] &quot;foo&quot; &quot;bar&quot;
+##  $ :function (..., sep = &quot; &quot;, collapse = NULL)  
+##  $ :List of 2
+##   ..$ : chr [1:26] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+##   ..$ : chr [1:12] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; ...</code></pre>
+<p>All the operation appliable to atomic vector is also appliable to list. A list can also be named.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># slicing</span>
+alist[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;foo&quot; &quot;bar&quot;
+## 
+## [[3]]
+## function (..., sep = &quot; &quot;, collapse = NULL) 
+## .Internal(paste(list(...), sep, collapse))
+## &lt;bytecode: 0x7fc0a4091ca0&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># replacement</span>
+alist[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># delete</span>
+alist[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># concatenate</span>
+<span class="kw">c</span>(alist, <span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>))</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;foo&quot; &quot;bar&quot;
+## 
+## [[2]]
+## function (..., sep = &quot; &quot;, collapse = NULL) 
+## .Internal(paste(list(...), sep, collapse))
+## &lt;bytecode: 0x7fc0a4091ca0&gt;
+## &lt;environment: namespace:base&gt;
+## 
+## [[3]]
+## [[3]][[1]]
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
+## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;
+## 
+## [[3]][[2]]
+##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot;
+## [12] &quot;Dec&quot;
+## 
+## 
+## [[4]]
+## [1] 1 2 3</code></pre>
+<p>There is a little difference in indexing. The single bracket <code>[</code> results in a list; the double brackets <code>[[</code> results in the element itself without warpping in a list. To be clear, see the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), paste, <span class="kw">list</span>(letters, month.abb))
+alist[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="kw">unlist</span>(alist[<span class="dv">1</span>]), alist[[<span class="dv">1</span>]])</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>This also means that <code>[</code> is used to slice a list (into another list), while <code>[[</code> is used to extract single element within a list. Both support the use of character vectors to select by names:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">integers=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">foobar=</span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="dt">pf=</span>paste, <span class="dt">another_list=</span><span class="kw">list</span>(letters, month.abb))
+<span class="kw">names</span>(alist)</code></pre></div>
+<pre><code>## [1] &quot;integers&quot;     &quot;foobar&quot;       &quot;pf&quot;           &quot;another_list&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist[<span class="kw">c</span>(<span class="st">&quot;foobar&quot;</span>)] <span class="co"># a list (of length 1)</span></code></pre></div>
+<pre><code>## $foobar
+## [1] &quot;foo&quot; &quot;bar&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alist[[<span class="st">&quot;foobar&quot;</span>]]  <span class="co"># a character vector</span></code></pre></div>
+<pre><code>## [1] &quot;foo&quot; &quot;bar&quot;</code></pre>
+<p>There is another special operator for list: the <code>$</code> extractor. It serves the same purpose as <code>[[</code> that it can be used to extract single element in a list by name, but in this case a variable (a symbol) rather than a character is used:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(alist$foobar, alist[[<span class="st">&quot;foobar&quot;</span>]])</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="data-frame" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Data Frame</h3>
+<p>One important extension of <code>list</code> is <code>data.frame</code>, a table data structure to represent tabular data. A <code>data.frame</code> is indeed a <code>list</code>, with additional attributes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span>letters[<span class="dv">1</span>:<span class="dv">3</span>])
+<span class="kw">str</span>(DF)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  2 variables:
+##  $ a: int  1 2 3
+##  $ b: Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(DF)   <span class="co"># the abstract type (in OOP sense)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(DF)  <span class="co"># the storage type</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>A <code>data.frame</code> can be thought of as a list with elements sharing exactly the same length. Useful operation on <code>data.frame</code> includes:</p>
+<ul>
+<li>sort: using <code>order</code></li>
+<li>join: using <code>merge</code></li>
+<li>append: using <code>rbind</code> or <code>cbind</code></li>
+<li>aggregate: using <code>by</code>, <code>aggregate</code>, or <code>ave</code></li>
+<li>pivot: using <code>reshape</code></li>
+<li>partition: using <code>split</code></li>
+</ul>
+<p>Each operation above worth a considerable space to elaborate but since there is a overall better solution to model tabular data in R: the <code>data.table</code> package, the details are left for readers to explore on their own.</p>
+</div>
+</div>
+<div id="special-values" class="section level2">
+<h2><span class="header-section-number">4.3</span> Special Values</h2>
+<div id="na" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> <code>NA</code></h3>
+<p>The <em>not applicable</em> value in R, usually means <em>missing value</em>. <code>NA</code> is more complicated than its first seen. There are actually different types of <code>NA</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA_character_</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA_integer_</span>)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">NA_real_</span>)</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>Most time one uses <code>NA</code> in general, and let the R language to deal with the casting:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="ot">NA</span>) <span class="co"># the NA is indeed a character type</span></code></pre></div>
+<pre><code>## [1] &quot;foo&quot; &quot;bar&quot; NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="ot">NA</span>)          <span class="co"># here NA is typed integer</span></code></pre></div>
+<pre><code>## [1]  1  2  3 NA</code></pre>
+<p>Many operation can result in missing value. For example, to subset using out-of-range index:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">26</span>:<span class="dv">27</span>] <span class="co"># there is no 27th alphabet in English!</span></code></pre></div>
+<pre><code>## [1] &quot;z&quot; NA</code></pre>
+</div>
+<div id="nan" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> <code>NaN</code></h3>
+<p><code>NaN</code> means “not a number.” The value results from mathematic operation that results in un-defined value, say:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">0</span>/<span class="dv">0</span>  </code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Also notice that <code>1/0</code> results in <code>Inf</code> and <code>-1/0</code> results in <code>-Inf</code>.</p>
+</div>
+<div id="null" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> <code>NULL</code></h3>
+<p><code>NULL</code> is another special value: it means nothing. Do not confuse it with <code>NA</code>. <code>NULL</code> means nothing so it does not have length:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="ot">NULL</span>)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="ot">NA</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="clivside.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="string.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/everdark/rbasic/edit/master/03-data-struct.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

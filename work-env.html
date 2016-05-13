@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RBasic 101</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="The lecture notes for RBasic 101 on agilearn.io">
+  <meta name="generator" content="bookdown 0.0.63 and GitBook 2.6.7">
+
+  <meta property="og:title" content="RBasic 101" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The lecture notes for RBasic 101 on agilearn.io" />
+  <meta name="github-repo" content="everdark/rbasic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="RBasic 101" />
+  
+  <meta name="twitter:description" content="The lecture notes for RBasic 101 on agilearn.io" />
+  
+
+<meta name="author" content="Kyle Chung">
+
+<meta name="date" content="2016-05-13">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="char.html">
+<link rel="next" href="process.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/d3-3.5.2/d3.min.js"></script>
+<script src="libs/vega-1.4.3/vega.min.js"></script>
+<script src="libs/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis-0.4.2/js/ggvis.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Basic 101</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prologue</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#thought-experiments"><i class="fa fa-check"></i><b>1.1</b> Thought Experiments</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#first-trial"><i class="fa fa-check"></i><b>1.1.1</b> First Trial</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#second-trial"><i class="fa fa-check"></i><b>1.1.2</b> Second Trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#third-trial"><i class="fa fa-check"></i><b>1.1.3</b> Third Trial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#welcome-to-the-r-language"><i class="fa fa-check"></i><b>1.2</b> Welcome to the R Language</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>2</b> Installation</a><ul>
+<li class="chapter" data-level="2.1" data-path="install.html"><a href="install.html#r-installation"><i class="fa fa-check"></i><b>2.1</b> R Installation</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>2.1.1</b> Windows</a></li>
+<li class="chapter" data-level="2.1.2" data-path="install.html"><a href="install.html#os-x-mac"><i class="fa fa-check"></i><b>2.1.2</b> OS X (Mac)</a></li>
+<li class="chapter" data-level="2.1.3" data-path="install.html"><a href="install.html#ubuntu"><i class="fa fa-check"></i><b>2.1.3</b> Ubuntu</a></li>
+<li class="chapter" data-level="2.1.4" data-path="install.html"><a href="install.html#update-the-r-installation"><i class="fa fa-check"></i><b>2.1.4</b> Update the R Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="install.html"><a href="install.html#r-package-installation"><i class="fa fa-check"></i><b>2.2</b> R Package Installation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="install.html"><a href="install.html#from-the-internet"><i class="fa fa-check"></i><b>2.2.1</b> From the Internet</a></li>
+<li class="chapter" data-level="2.2.2" data-path="install.html"><a href="install.html#from-local-source-or-binary"><i class="fa fa-check"></i><b>2.2.2</b> From Local Source or Binary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clivside.html"><a href="clivside.html"><i class="fa fa-check"></i><b>3</b> CLI versus IDE</a><ul>
+<li class="chapter" data-level="3.1" data-path="clivside.html"><a href="clivside.html#cli-command-line-interface"><i class="fa fa-check"></i><b>3.1</b> CLI (Command-Line Interface)</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="clivside.html"><a href="clivside.html#for-windows-user"><i class="fa fa-check"></i><b>3.1.1</b> For Windows User</a></li>
+<li class="chapter" data-level="3.1.2" data-path="clivside.html"><a href="clivside.html#for-os-x-mac-user"><i class="fa fa-check"></i><b>3.1.2</b> For OS X (Mac) User</a></li>
+<li class="chapter" data-level="3.1.3" data-path="clivside.html"><a href="clivside.html#for-linux-user"><i class="fa fa-check"></i><b>3.1.3</b> For Linux User</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="clivside.html"><a href="clivside.html#ide-integrated-development-environment"><i class="fa fa-check"></i><b>3.2</b> IDE (Integrated Development Environment)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="clivside.html"><a href="clivside.html#rstudio"><i class="fa fa-check"></i><b>3.2.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="clivside.html"><a href="clivside.html#rstudio-server"><i class="fa fa-check"></i><b>3.2.2</b> RStudio Server</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="clivside.html"><a href="clivside.html#interactive-v.s.-batch-mode"><i class="fa fa-check"></i><b>3.3</b> Interactive v.s. Batch Mode</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="clivside.html"><a href="clivside.html#parsing-command-line-arguments"><i class="fa fa-check"></i><b>3.3.1</b> Parsing Command Line Arguments</a></li>
+<li class="chapter" data-level="3.3.2" data-path="clivside.html"><a href="clivside.html#interactive-or-not-interactive"><i class="fa fa-check"></i><b>3.3.2</b> Interactive or Not Interactive?</a></li>
+<li class="chapter" data-level="3.3.3" data-path="clivside.html"><a href="clivside.html#shabang"><i class="fa fa-check"></i><b>3.3.3</b> Shabang <code>#!</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-struc.html"><a href="data-struc.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-struc.html"><a href="data-struc.html#atomic-vector"><i class="fa fa-check"></i><b>4.1</b> Atomic Vector</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-struc.html"><a href="data-struc.html#general-operations-on-vectors"><i class="fa fa-check"></i><b>4.1.1</b> General Operations on Vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-struc.html"><a href="data-struc.html#factor"><i class="fa fa-check"></i><b>4.1.2</b> Factor</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-struc.html"><a href="data-struc.html#matrix"><i class="fa fa-check"></i><b>4.1.3</b> Matrix</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-struc.html"><a href="data-struc.html#array"><i class="fa fa-check"></i><b>4.1.4</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-struc.html"><a href="data-struc.html#recursive-vector"><i class="fa fa-check"></i><b>4.2</b> Recursive Vector</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-struc.html"><a href="data-struc.html#list"><i class="fa fa-check"></i><b>4.2.1</b> List</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-struc.html"><a href="data-struc.html#data-frame"><i class="fa fa-check"></i><b>4.2.2</b> Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-struc.html"><a href="data-struc.html#special-values"><i class="fa fa-check"></i><b>4.3</b> Special Values</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-struc.html"><a href="data-struc.html#na"><i class="fa fa-check"></i><b>4.3.1</b> <code>NA</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-struc.html"><a href="data-struc.html#nan"><i class="fa fa-check"></i><b>4.3.2</b> <code>NaN</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-struc.html"><a href="data-struc.html#null"><i class="fa fa-check"></i><b>4.3.3</b> <code>NULL</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="string.html"><a href="string.html"><i class="fa fa-check"></i><b>5</b> String Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="string.html"><a href="string.html#basics"><i class="fa fa-check"></i><b>5.1</b> Basics</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="string.html"><a href="string.html#paste"><i class="fa fa-check"></i><b>5.1.1</b> <code>paste</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="string.html"><a href="string.html#sprintf"><i class="fa fa-check"></i><b>5.1.2</b> <code>sprintf</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="string.html"><a href="string.html#cat-and-print"><i class="fa fa-check"></i><b>5.1.3</b> <code>cat</code> and <code>print</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="string.html"><a href="string.html#miscellaneous"><i class="fa fa-check"></i><b>5.1.4</b> Miscellaneous</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="string.html"><a href="string.html#regular-expressions"><i class="fa fa-check"></i><b>5.2</b> Regular Expressions</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="string.html"><a href="string.html#filtering"><i class="fa fa-check"></i><b>5.2.1</b> Filtering</a></li>
+<li class="chapter" data-level="5.2.2" data-path="string.html"><a href="string.html#substitution"><i class="fa fa-check"></i><b>5.2.2</b> Substitution</a></li>
+<li class="chapter" data-level="5.2.3" data-path="string.html"><a href="string.html#extraction"><i class="fa fa-check"></i><b>5.2.3</b> Extraction</a></li>
+<li class="chapter" data-level="5.2.4" data-path="string.html"><a href="string.html#the-stringr-library"><i class="fa fa-check"></i><b>5.2.4</b> The <code>stringr</code> Library</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="control.html"><a href="control.html"><i class="fa fa-check"></i><b>6</b> Control Flow</a><ul>
+<li class="chapter" data-level="6.1" data-path="control.html"><a href="control.html#conditioning"><i class="fa fa-check"></i><b>6.1</b> Conditioning</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="control.html"><a href="control.html#if"><i class="fa fa-check"></i><b>6.1.1</b> <code>if</code></a></li>
+<li class="chapter" data-level="6.1.2" data-path="control.html"><a href="control.html#ifelse"><i class="fa fa-check"></i><b>6.1.2</b> <code>ifelse</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="control.html"><a href="control.html#logical-operations"><i class="fa fa-check"></i><b>6.1.3</b> Logical Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="control.html"><a href="control.html#loop"><i class="fa fa-check"></i><b>6.2</b> Loop</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="control.html"><a href="control.html#repeat"><i class="fa fa-check"></i><b>6.2.1</b> <code>repeat</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="control.html"><a href="control.html#while"><i class="fa fa-check"></i><b>6.2.2</b> <code>while</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="control.html"><a href="control.html#for"><i class="fa fa-check"></i><b>6.2.3</b> <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="func.html"><a href="func.html"><i class="fa fa-check"></i><b>7</b> Function</a><ul>
+<li class="chapter" data-level="7.1" data-path="func.html"><a href="func.html#user-define-function"><i class="fa fa-check"></i><b>7.1</b> User-Define Function</a></li>
+<li class="chapter" data-level="7.2" data-path="func.html"><a href="func.html#arguemnts"><i class="fa fa-check"></i><b>7.2</b> Arguemnts</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="func.html"><a href="func.html#default-value"><i class="fa fa-check"></i><b>7.2.1</b> Default Value</a></li>
+<li class="chapter" data-level="7.2.2" data-path="func.html"><a href="func.html#lazy-evaluation"><i class="fa fa-check"></i><b>7.2.2</b> Lazy Evaluation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="func.html"><a href="func.html#ellipsis-..."><i class="fa fa-check"></i><b>7.2.3</b> Ellipsis (<code>...</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="func.html"><a href="func.html#anonymous-function-lambda"><i class="fa fa-check"></i><b>7.3</b> Anonymous Function (Lambda)</a></li>
+<li class="chapter" data-level="7.4" data-path="func.html"><a href="func.html#lexical-scoping"><i class="fa fa-check"></i><b>7.4</b> Lexical Scoping</a></li>
+<li class="chapter" data-level="7.5" data-path="func.html"><a href="func.html#extraction-function"><i class="fa fa-check"></i><b>7.5</b> Extraction Function</a></li>
+<li class="chapter" data-level="7.6" data-path="func.html"><a href="func.html#replacement-function"><i class="fa fa-check"></i><b>7.6</b> Replacement Function</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="char.html"><a href="char.html"><i class="fa fa-check"></i><b>8</b> R Language Characteristics</a><ul>
+<li class="chapter" data-level="8.1" data-path="char.html"><a href="char.html#help"><i class="fa fa-check"></i><b>8.1</b> Help</a></li>
+<li class="chapter" data-level="8.2" data-path="char.html"><a href="char.html#vectorization"><i class="fa fa-check"></i><b>8.2</b> Vectorization</a></li>
+<li class="chapter" data-level="8.3" data-path="char.html"><a href="char.html#recycling"><i class="fa fa-check"></i><b>8.3</b> Recycling</a></li>
+<li class="chapter" data-level="8.4" data-path="char.html"><a href="char.html#the-apply-family"><i class="fa fa-check"></i><b>8.4</b> The <code>apply</code> Family</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="char.html"><a href="char.html#apply"><i class="fa fa-check"></i><b>8.4.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="8.4.2" data-path="char.html"><a href="char.html#lapply-and-sapply"><i class="fa fa-check"></i><b>8.4.2</b> <code>lapply</code> and <code>sapply</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="work-env.html"><a href="work-env.html"><i class="fa fa-check"></i><b>9</b> Working Directory</a><ul>
+<li class="chapter" data-level="9.1" data-path="work-env.html"><a href="work-env.html#library-search-path"><i class="fa fa-check"></i><b>9.1</b> Library Search Path</a></li>
+<li class="chapter" data-level="9.2" data-path="work-env.html"><a href="work-env.html#save-load"><i class="fa fa-check"></i><b>9.2</b> Save / Load</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="process.html"><a href="process.html"><i class="fa fa-check"></i><b>10</b> Data Processing</a><ul>
+<li class="chapter" data-level="10.1" data-path="process.html"><a href="process.html#tabular-data"><i class="fa fa-check"></i><b>10.1</b> Tabular Data</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="process.html"><a href="process.html#read"><i class="fa fa-check"></i><b>10.1.1</b> Read</a></li>
+<li class="chapter" data-level="10.1.2" data-path="process.html"><a href="process.html#write"><i class="fa fa-check"></i><b>10.1.2</b> Write</a></li>
+<li class="chapter" data-level="10.1.3" data-path="process.html"><a href="process.html#column-oriented-computation"><i class="fa fa-check"></i><b>10.1.3</b> Column-Oriented Computation</a></li>
+<li class="chapter" data-level="10.1.4" data-path="process.html"><a href="process.html#row-oriented-computation"><i class="fa fa-check"></i><b>10.1.4</b> Row-Oriented Computation</a></li>
+<li class="chapter" data-level="10.1.5" data-path="process.html"><a href="process.html#by-group-operations"><i class="fa fa-check"></i><b>10.1.5</b> By-Group Operations</a></li>
+<li class="chapter" data-level="10.1.6" data-path="process.html"><a href="process.html#merge"><i class="fa fa-check"></i><b>10.1.6</b> Merge</a></li>
+<li class="chapter" data-level="10.1.7" data-path="process.html"><a href="process.html#reshape"><i class="fa fa-check"></i><b>10.1.7</b> Reshape</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="process.html"><a href="process.html#json"><i class="fa fa-check"></i><b>10.2</b> JSON</a></li>
+<li class="chapter" data-level="10.3" data-path="process.html"><a href="process.html#databases"><i class="fa fa-check"></i><b>10.3</b> Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="error.html"><a href="error.html"><i class="fa fa-check"></i><b>11</b> Error Handling</a></li>
+<li class="chapter" data-level="12" data-path="parallel.html"><a href="parallel.html"><i class="fa fa-check"></i><b>12</b> Parallel Computing</a></li>
+<li class="chapter" data-level="13" data-path="s4.html"><a href="s4.html"><i class="fa fa-check"></i><b>13</b> Programming with S4</a></li>
+<li class="chapter" data-level="14" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>14</b> Unit-Testing</a></li>
+<li class="chapter" data-level="15" data-path="cowork.html"><a href="cowork.html"><i class="fa fa-check"></i><b>15</b> Language Co-Working</a><ul>
+<li class="chapter" data-level="15.1" data-path="cowork.html"><a href="cowork.html#use-system-call"><i class="fa fa-check"></i><b>15.1</b> Use system call</a></li>
+<li class="chapter" data-level="15.2" data-path="cowork.html"><a href="cowork.html#pipelines-stdin-and-stdout"><i class="fa fa-check"></i><b>15.2</b> Pipelines: stdin and stdout</a></li>
+<li class="chapter" data-level="15.3" data-path="cowork.html"><a href="cowork.html#environment-variables"><i class="fa fa-check"></i><b>15.3</b> Environment Variables</a></li>
+<li class="chapter" data-level="15.4" data-path="cowork.html"><a href="cowork.html#command-line-arguments-revisited"><i class="fa fa-check"></i><b>15.4</b> Command Line Arguments Revisited</a></li>
+<li class="chapter" data-level="15.5" data-path="cowork.html"><a href="cowork.html#with-configuration-files"><i class="fa fa-check"></i><b>15.5</b> With Configuration Files</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="rcpp.html"><a href="rcpp.html"><i class="fa fa-check"></i><b>16</b> Speed-up with Rcpp</a><ul>
+<li class="chapter" data-level="16.1" data-path="rcpp.html"><a href="rcpp.html#what-exactly-is-r"><i class="fa fa-check"></i><b>16.1</b> What exactly is R?</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-file-counts-in-r"><i class="fa fa-check"></i><b>16.1.1</b> Distribution of source file counts in R</a></li>
+<li class="chapter" data-level="16.1.2" data-path="rcpp.html"><a href="rcpp.html#distribution-of-source-line-counts-in-r"><i class="fa fa-check"></i><b>16.1.2</b> Distribution of source line counts in R</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="rcpp.html"><a href="rcpp.html#speed-up"><i class="fa fa-check"></i><b>16.2</b> Speed-Up</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="rcpp.html"><a href="rcpp.html#example-1-n-gram-generation"><i class="fa fa-check"></i><b>16.2.1</b> Example 1: n-gram generation</a></li>
+<li class="chapter" data-level="16.2.2" data-path="rcpp.html"><a href="rcpp.html#example-2-moving-window-computing"><i class="fa fa-check"></i><b>16.2.2</b> Example 2: moving-window computing</a></li>
+<li class="chapter" data-level="16.2.3" data-path="rcpp.html"><a href="rcpp.html#example-3-ad-hoc-data.frame-operation"><i class="fa fa-check"></i><b>16.2.3</b> Example 3: ad-hoc data.frame operation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>17</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RBasic 101</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="work-env" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Working Directory</h1>
+<p>Use <code>getwd</code> to query the current working directory. To change working directory, use <code>setwd</code>. For Windows user, the path separator is typically the back-slash <code>\</code>. But it is the escape character in R so if one would like to use back-slash it must be escaped, for example, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">kylechung&quot;</span>)</code></pre></div>
+<p>or equivalently one could still follow *nix convention:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;C:/Users/kylechung&quot;</span>)</code></pre></div>
+<p>One can use the function <code>dir</code> to return all the files and folders under the current directory:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the content of this book&#39;s working directory</span>
+<span class="kw">dir</span>()</code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                  &quot;_bookdown.yml&quot;         
+##  [3] &quot;_output.yml&quot;            &quot;01-installation.Rmd&quot;   
+##  [5] &quot;02-cli-vs-ide.Rmd&quot;      &quot;03-data-struct.Rmd&quot;    
+##  [7] &quot;03a-string.Rmd&quot;         &quot;04-control-flow.Rmd&quot;   
+##  [9] &quot;05-function.Rmd&quot;        &quot;06-r-lang-char.Rmd&quot;    
+## [11] &quot;07-working-env.Rmd&quot;     &quot;08-data-processing.Rmd&quot;
+## [13] &quot;09-error-handle.Rmd&quot;    &quot;10-parallel.Rmd&quot;       
+## [15] &quot;11-s4.Rmd&quot;              &quot;12-unittest.Rmd&quot;       
+## [17] &quot;13-cowork.Rmd&quot;          &quot;14-rcpp.Rmd&quot;           
+## [19] &quot;20-references.Rmd&quot;      &quot;book.bib&quot;              
+## [21] &quot;bookdown-demo.Rproj&quot;    &quot;bookdown-demo.tex&quot;     
+## [23] &quot;index.Rmd&quot;              &quot;LICENSE&quot;               
+## [25] &quot;outline&quot;                &quot;packages.bib&quot;          
+## [27] &quot;preamble.tex&quot;           &quot;rbasic101_main.Rmd&quot;    
+## [29] &quot;README.md&quot;              &quot;samplecodes&quot;           
+## [31] &quot;style.css&quot;              &quot;toc.css&quot;</code></pre>
+<p><code>dir</code> can also have an argument <code>path</code> pointing to whereever one would like to examine the file contents. The default value of <code>path</code> is <code>.</code>, which is the notation indicating current directory. One can also use relative path notation: <code>..</code> to detnote the parent directory of current directory.</p>
+<div id="library-search-path" class="section level2">
+<h2><span class="header-section-number">9.1</span> Library Search Path</h2>
+<p>Use <code>.libPaths</code> to show the path(es) that will be searched by R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">.libPaths</span>()</code></pre></div>
+<pre><code>## [1] &quot;/Library/Frameworks/R.framework/Versions/3.2/Resources/library&quot;</code></pre>
+</div>
+<div id="save-load" class="section level2">
+<h2><span class="header-section-number">9.2</span> Save / Load</h2>
+<p>Use <code>save</code> to save serialized <code>.RData</code> for one variable. Or use <code>save.image</code> to save the entire working environment.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="char.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="process.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/everdark/rbasic/edit/master/07-working-env.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
